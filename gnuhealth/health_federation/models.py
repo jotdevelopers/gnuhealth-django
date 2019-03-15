@@ -53,3 +53,9 @@ class gnuhealth_federation_queue(models.Model):
     write_date = models.CharField(max_length=200)
     write_uid = models.CharField(max_length=200)
     
+class Meta:
+        db_table = 'gnuhealth_federation_config'
+        db_table = 'gnuhealth_federation_country_config'
+        db_table = 'gnuhealth_federation_object'
+        db_table = 'gnuhealth_federation_queue'
+    
