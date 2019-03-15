@@ -10,7 +10,7 @@ class gnuhealth_federation_config(models.Model):
     ssl = models.CharField(max_length=200)
     port = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
-    id = models.CharField(max_length=200)
+    id = models.IntegerField().primary_key
     host = models.CharField(max_length=200)
     enabled = models.CharField(max_length=200)
     create_uid = models.CharField(max_length=200)
