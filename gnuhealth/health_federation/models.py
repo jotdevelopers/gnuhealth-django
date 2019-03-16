@@ -15,8 +15,6 @@ class gnuhealth_federation_config(models.Model):
     enabled = models.CharField(max_length=200)
     create_uid = models.CharField(max_length=200)
     create_date = models.CharField(max_length=200)
-    
-   
 
 class gnuhealth_federation_country_config(models.Model):
     country = models.CharField(max_length=200)
