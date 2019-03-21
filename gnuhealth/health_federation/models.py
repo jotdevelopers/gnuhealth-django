@@ -48,8 +48,8 @@ class gnuhealth_federation_queue(models.Model):
     state = models.CharField(max_length=200)
     time_stamp = models.CharField(max_length=200)
     url_suffix = models.CharField(max_length=200)
-    write_date = models.CharField(max_length=200)
     write_uid = models.CharField(max_length=200)
+    write_date = models.CharField(max_length=200)
     
 class Meta:
         db_table = 'gnuhealth_federation_config'
