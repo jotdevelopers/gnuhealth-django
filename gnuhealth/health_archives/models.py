@@ -16,5 +16,5 @@ class gnuhealth_paper_archive(models.Model):
   request_date = models.DateField()
   requested_by = models.CharField()
   return_date = models.DateField()
+  write_uid = models.IntegerField
   write_date = models.DateField()
-  write_uid = models.IntegerField()
