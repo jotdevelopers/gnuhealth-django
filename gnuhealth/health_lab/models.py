@@ -1,9 +1,9 @@
 from django.db import models
 
 # Create your models here.
-<<<<<<< HEAD
+
 class gnuhealth_lab(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateField(max_length=6)
     create_uid = models.IntegerField()
     date_analysis = models.DateField()
@@ -28,7 +28,7 @@ class gnuhealth_lab(models.Model):
     validation_date = models.DateField()
     
 class gnuhealth_lab_test_critearea(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateField()
     create_uid = models.IntegerField()
     excluded = models.BooleanField()
@@ -48,7 +48,7 @@ class gnuhealth_lab_test_critearea(models.Model):
     wrte_uid = models.IntegerField()
     
 class gnuhealth_lab_test_type(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     active = models.BooleanField()
     code = models.CharField()
     create_date = models.DateField()
@@ -60,7 +60,7 @@ class gnuhealth_lab_test_type(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_lab_test_units(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     code = models.CharField()
     create_date = models.DateField()
     create_uid = models.IntegerField()
@@ -73,68 +73,3 @@ class Meta:
     db_table = 'gnuhealth_lab_test_critearea'
     db_table = 'gnuhealth_lab_test_type'
     db_table = 'gnuhealth_lab_test_units'
-=======
-
-class gnuhealth_lab(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
-  create_uid = models.IntegerField()
-  date_analysis = models.DateField()
-  date_requested = models.DateField()
-  diagnosis = models.CharField()
-  name = models.CharField()
-  pathologist = models.CharField()
-  patient = models.CharField()
-  request_order = models.CharField()
-  requestor = models.CharField()
-  results = models.CharField()
-  test = models.CharField()
-  write_date = models.DateField()
-  write_uid = models.IntegerField()
-  digital_signature = models.CharField()
-  document_digest = models.CharField()
-  done_by = models.CharField()
-  
-  
-class gnuhealth_lab_test_criteria(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
-  create_uid = models.IntegerField()
-  excluded = models.CharField()
-  gnuhealth_lab_id = models.IntegerField()
-  lower_limit = models.IntegerField()
-  name = models.CharField()
-  normal_range = models.IntegerField()
-  remarks = models.CharField()
-  result = models.CharField()
-  result_text = models.CharField()
-  sequence = models.CharField()
-  test_type_id = models.IntegerField()
-  units = models.IntegerField()
-  upper_limit = models.IntegerField()
-  warning = models.CharField()
-  write_date = models.DateField()
-  write_uid = models.IntegerField()
-  
-class gnuhealth_lab_test_type(models.Model):
-  id = models.IntegerField()
-  active = models.BooleanField()
-  code = models.IntegerField()
-  create_date = models.DateField()
-  create_uid = models.IntegerField()
-  info = models.CharField()
-  name = models.CharField()
-  product_id = models.IntegerField()
-  write_date = models.DateField()
-  write_uid = models.IntegerField()
-  
-  
-class gnuhealth_lab_test_units(models.Model):
-  id = models.IntegerField()
-  code = models.IntegerField()
-  create_date = models.DateField()
-  create_uid = models.IntegerField()
-  name = models.CharField()
-  write_date = models.DateField()
-  write_uid = models.IntegerField()
->>>>>>> branch 'master' of https://github.com/jotdevelopers/gnuhealth-django.git
