@@ -1,11 +1,10 @@
 from django.db import models
-from imaplib import mo
+
 
 # Create your models here.
 
-<<<<<<< HEAD
 class gnuhealth_inpatient_diet(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
     diet = models.IntegerField()
@@ -15,7 +14,7 @@ class gnuhealth_inpatient_diet(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_icu(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     admitted = models.BooleanField()
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
@@ -27,7 +26,7 @@ class gnuhealth_inpatient_icu(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_meal(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
     diet_belief = models.IntegerField()
@@ -39,7 +38,7 @@ class gnuhealth_inpatient_meal(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_meal_order(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
     health_professional = models.IntegerField()
@@ -54,7 +53,7 @@ class gnuhealth_inpatient_meal_order(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_meal_order_item(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
     meal = models.IntegerField()
@@ -64,7 +63,7 @@ class gnuhealth_inpatient_meal_order_item(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_medication(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     adverse_reaction = models.TextField()
     commom_dosage = models.IntegerField()
     course_completed = models.BooleanField()
@@ -90,7 +89,7 @@ class gnuhealth_inpatient_medication(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_medication_admin_time(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     admin_time = models.DateTimeField()
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
@@ -102,7 +101,7 @@ class gnuhealth_inpatient_medication_admin_time(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_medication_log(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     admin_time = models.DateTimeField()
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
@@ -115,7 +114,7 @@ class gnuhealth_inpatient_medication_log(models.Model):
     write_uid = models.IntegerField()
     
 class gnuhealth_inpatient_registration(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     admission_reason = models.IntegerField()
     admission_type = models.CharField()
     attending_physician = models.IntegerField()
