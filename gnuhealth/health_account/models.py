@@ -1,7 +1,7 @@
 from django.db import models
+from django import db
 
 # Create your models here.
-
 
 class account_account(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -105,3 +105,12 @@ class account_account_type_template (models.Model):
     sequence = models.OneToOneField(AccountAccountType.sequence)
     write_date = models.OneToOneField(AccountAccount.write_date)
     write_uid = models.OneToOneField(AccountAccount.write_uid)
+
+class Meta:
+    db_table = 'account_account'
+    db_table = 'account_account_deferral'
+    db_table = 'account_account_tax_rel'
+    db_table = 'account_account_template'
+    db_table = 'account_account_template_tax_rel'
+    db_table = 'account_account_type'
+    db_table = 'account_account_type_template'
