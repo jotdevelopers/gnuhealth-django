@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class gnuhealth_iss(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   alchohol = models.CharField()
   code = models.IntegerField()
   create_date = models.DateField()
@@ -30,3 +30,6 @@ class gnuhealth_iss(models.Model):
   violence_circumstances = models.CharField()
   write_date = models.DateField()
   write_uid = models.IntegerField()
+
+class Meta:
+    db_table = 'gnuhealth_iss'
