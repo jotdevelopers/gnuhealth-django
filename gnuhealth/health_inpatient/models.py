@@ -3,6 +3,7 @@ from imaplib import mo
 
 # Create your models here.
 
+<<<<<<< HEAD
 class gnuhealth_inpatient_diet(models.Model):
     id = models.IntegerField()
     create_date = models.DateTimeField()

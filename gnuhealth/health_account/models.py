@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class AccountAccount(models.Model):
+class account_account(models.Model):
     id = models.IntegerField(primary_key=True)
     active = models.BooleanField(default=None)
     code = models.CharField(max_length=200)
@@ -27,7 +27,7 @@ class AccountAccount(models.Model):
     write_uid = models.IntegerField()
 
 
-class AccountAccountDeferral(models.Model):
+class account_account_deferral(models.Model):
     id = models.OneToOneField(AccountAccount.id)
     account = models.IntegerField()
     amount_second_currency = models.IntegerField()
@@ -40,7 +40,7 @@ class AccountAccountDeferral(models.Model):
     write_uid = models.OneToOneField(AccountAccount.write_uid)
 
 
-class AccountAccountTaxRel(models.Model):
+class account_account_tax_rel(models.Model):
     id = models.OneToOneField(AccountAccount.id)
     account = models.OneToOneField(AccountAccountDeferral.account)
     create_date = models.OneToOneField(AccountAccount.create_date)
@@ -50,7 +50,7 @@ class AccountAccountTaxRel(models.Model):
     write_uid = models.OneToOneField(AccountAccount.write_uid)
 
 
-class AccountAccountTemplate(models.Model):
+class account_account_template(models.Model):
     id = models.OneToOneField(AccountAccount.id)
     code = models.OneToOneField(AccountAccount.code)
     create_date = models.OneToOneField(AccountAccount.create_date)
@@ -67,7 +67,7 @@ class AccountAccountTemplate(models.Model):
     write_uid = models.OneToOneField(AccountAccount.write_uid)
 
 
-class AccountAccountTemplateTaxRel (models.Model):
+class account_account_template_tax_rel (models.Model):
     id = models.OneToOneField(AccountAccountTemplate.id)
     account = models.IntegerField()
     create_date = models.OneToOneField(AccountAccountTemplate.create_date)
@@ -77,7 +77,7 @@ class AccountAccountTemplateTaxRel (models.Model):
     write_uid = models.OneToOneField(AccountAccountTemplate.write_uid)
 
 
-class AccountAccountType (models.Model):
+class account_account_type (models.Model):
     id = models.OneToOneField(AccountAccount.id)
     balance_sheet = models.BooleanField(default=None)
     company = models.OneToOneField(AccountAccount.company)
@@ -93,7 +93,7 @@ class AccountAccountType (models.Model):
     write_uid = models.OneToOneField(AccountAccount.write_uid)
 
 
-class AccountAccountTypeTemplate (models.Model):
+class account_account_type_template (models.Model):
     id = models.OneToOneField(AccountAccount.id)
     balance_sheet = models.OneToOneField(AccountAccountType.balance_sheet)
     create_date = models.OneToOneField(AccountAccount.create_date)
