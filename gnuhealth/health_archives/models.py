@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class gnuhealth_paper_archive(models.Model):
   id = models.IntegerField(primary_key=True)
   comments = models.CharField()
