@@ -3,20 +3,20 @@ from django.db import models
 # Create your models here.
 
 class currency_currency_rate(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
+  id = models.IntegerField(primary_key=True)
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   currency = models.IntegerField()
-  date = models.DateField()
+  date = models.DateTimeField()
   rate = models.IntegerField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
 class currency_currency(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   active = models.BooleanField()
   code = models.IntegerField()
-  create_date = models.DateField()
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   digits = models.IntegerField()
   mon_decimal_point = models.IntegerField()
@@ -34,6 +34,9 @@ class currency_currency(models.Model):
   positive_sign = models.CharField()
   rounding = models.CharField()
   symbol = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
+class Meta:
+    db_table = 'currency_currency_rate'
+    db_table = 'currency_currency'

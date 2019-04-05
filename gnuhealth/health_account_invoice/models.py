@@ -3,15 +3,15 @@ from django.db import models
 # Create your models here.
 
 class account_invoice(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   account = models.CharField()
-  accounting_date = models.DateField()
-  cancel_move = models.DateField()
+  accounting_date = models.DateTimeField()
+  cancel_move = models.DateTimeField()
   create_uid = models.IntegerField()
   currency = models.IntegerField()
   description = models.CharField()
   invoice_address = models.CharField()
-  invoice_date = models.DateField()
+  invoice_date = models.DateTimeField()
   invoice_report_cache = models.CharField()
   invoice_report_cache_id = models.IntegerField()
   invoice_report_format = models.CharField()
@@ -25,23 +25,23 @@ class account_invoice(models.Model):
   state = models.CharField()
   tax_identifier = models.CharField()
   type = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTmeField()
   write_uid = models.IntegerField()
   
 class account_invoice-account_move_line(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
+  id = models.IntegerField(primary_key=True)
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   invoice = models.IntegerField()
   line = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
 class account_invoice_line(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   account = models.CharField()
   company = models.CharField()
-  create_date = models.DateField()
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   currency = models.IntegerField()
   description = models.CharField()
@@ -56,41 +56,41 @@ class account_invoice_line(models.Model):
   type = models.CharField()
   unit = models.CharField()
   unit_price = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
-class account_invoice_line-stock-move(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
+class account_invoice_line-stock_move(models.Model):
+  id = models.IntegerField(primary_key=True)
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   invoice_line = models.CharField()
   stock_move = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
 class account_invoice_line_account_tax(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
+  id = models.IntegerField(primary_key=True)
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   line = models.CharField()
   tax = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
 class account_invoice_payment_term(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   active = models.CharField()
-  create_date = models.DateField()
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   description = models.CharField()
   name = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
 class account_invoice_payment_term_line(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   amount = models.IntegerField()
-  create_date = models.DateField()
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   currency = models.IntegerField()
   divisor = models.IntegerField()
@@ -98,13 +98,13 @@ class account_invoice_payment_term_line(models.Model):
   ratio = models.IntegerField()
   sequence = models.CharField()
   type = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
   
-class account_invoice_payment_term_line(models.Model):
-  id = models.IntegerField()
-  create_date = models.DateField()
+class account_invoice_payment_term_line_delta(models.Model):
+  id = models.IntegerField(primary_key=True)
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   day = models.IntegerField()
   days = models.IntegerField()
@@ -118,13 +118,13 @@ class account_invoice_payment_term_line(models.Model):
   write_uid = models.IntegerField()
   
 class account_invoice_tax(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   account = models.CharField()
   amount = models.IntegerField()
   base = models.CharField()
   base_code = models.IntegerField()
   base_sign = models.CharField()
-  create_date = models.DateField()
+  create_date = models.DateTimeField()
   create_uid = models.IntegerField()
   description = models.CharField()
   invoice = models.IntegerField()
@@ -134,10 +134,19 @@ class account_invoice_tax(models.Model):
   tax = models.IntegerField()
   tax_code = models.IntegerField()
   tax_sign = models.CharField()
-  write_date = models.DateField()
+  write_date = models.DateTimeField()
   write_uid = models.IntegerField()
   
-
+class Meta:
+    db_table = 'account_invoice'
+    db_table = 'account_invoice-account_move_line'
+    db_table = 'account_invoice_line'
+    db_table = 'account_invoice_line-stock_move'
+    db_table = 'account_invoice_line_account_tax'
+    db_table = 'account_invoice_payment_term'
+    db_table = 'account_invoice_payment_term_line'
+    db_table = 'account_invoice_payment_term_line_delta'
+    db_table = 'account_invoice_tax'
   
   
   

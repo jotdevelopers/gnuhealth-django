@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class gnuhealth_pediatrics_growth_charts_who(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   create_date = models.DateField()
   create_uid = models.IntegerField()
   indicator = models.CharField()
@@ -14,3 +14,6 @@ class gnuhealth_pediatrics_growth_charts_who(models.Model):
   value = models.CharField()
   write_date = models.DateField()
   write_uid = models.IntegerField()
+
+class Meta:
+    db_table = 'gnuhealth_pediatrics_growth_charts_who'

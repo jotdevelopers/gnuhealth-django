@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class gnuhealth_ophthalmology_findings(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   affected_eye = model.CharField()
   create_date = models.DateField()
   create_uid = models.IntegerField()
@@ -14,7 +14,7 @@ class gnuhealth_ophthalmology_findings(models.Model):
   write_uid = models.IntegerField()
   
 class gnuhealth_ophthalmology_evaluation(models.Model):
-  id = models.IntegerField()
+  id = models.IntegerField(primary_key=True)
   create_date = models.DateField()
   create_uid = models.IntegerField()
   health_professional = models.CharField()
@@ -35,3 +35,6 @@ class gnuhealth_ophthalmology_evaluation(models.Model):
   lnv_add = models.CharField()
   lspherical = models.CharField()
   
+class Meta:
+    db_table = 'gnuhealth_ophthalmology_findings'
+    db_table = 'gnuhealth_ophthalmology_evaluation'
