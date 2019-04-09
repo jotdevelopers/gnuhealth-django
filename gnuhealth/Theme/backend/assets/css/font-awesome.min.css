@@ -4365,3 +4365,6 @@ readers do not read off random characters that represent icons */
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+
+@font-face{font-family:'FontAwesome';src:url('../fonts/fontawesome-webfont3e6e.eot?v=4.7.0');src:url('../fonts/fontawesome-webfontd41d.eot?#iefix&v=4.7.0') format('embedded-opentype'),url('../fonts/fontawesome-webfont3e6e.html?v=4.7.0') format('woff2'),url('../fonts/fontawesome-webfont3e6e.woff?v=4.7.0') format('woff'),url('../fonts/fontawesome-webfont3e6e.ttf?v=4.7.0') format('truetype'),url('../fonts/fontawesome-webfont3e6e.svg?v=4.7.0#fontawesomeregular') format('svg');
