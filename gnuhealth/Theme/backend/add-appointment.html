@@ -302,7 +302,10 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <h4 class="page-title">Add Appointment</h4>
+                        <h4 class="page-title" style="padding-bottom: 25px;"><a href="calendar.html">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp&nbspAdd Appointment</a>
+                        </h4>
                     </div>
                 </div>
                 <div class="row">
@@ -316,20 +319,89 @@
 									</div>
                                 </div>
                                 <div class="col-md-6">
-									<div class="form-group">
-										<label>Patient Name</label>
-										<select class="select">
-											<option>Select</option>
-											<option>Jennifer Robinson</option>
-											<option>Terry Baker</option>
-										</select>
-									</div>
+                                    <div class="form-group">
+                                        <label>Patient Name</label>
+                                        <input type = "text" list = "patients" name="patients" class="form-control"> 
+                                            <datalist id="patients">
+                                                <option value = "Fazal Ur Rahman">
+                                                <option value = "Saqlain Abbas">
+                                                <option value = "Waleed Saghir">                         
+                                            </datalist>
+                                    </div>
                                 </div>
                             </div>
+
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Department</label>
+                                        <label>Institution</label>
+                                        <input type = "text" list = "institutions" name="institutions" class="form-control"> 
+                                            <datalist id="institutions">
+                                                <option value = "Riphah Hospital">
+                                                <option value = "Shifa International">
+                                                <option value = "Ali Medical">
+                                            </datalist>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Inpatient Registration</label>
+                                        <input type = "text" list = "inpatients" name="inpatients" class="form-control"> 
+                                            <datalist id="inpatients">
+                                                <option value = "Aadil">
+                                                <option value = "Aalam">
+                                                <option value = "Aashir"> 
+                                                <option value = "Baasim ">
+                                                <option value = "Babar">
+                                                <option value = "Burhan">                         
+                                            </datalist>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Start Date</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Start Time</label>
+                                        <div class="time-icon">
+                                            <input type="text" class="form-control" id="datetimepicker3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>End Time</label>
+                                        <div class="time-icon">
+                                            <input type="text" class="form-control" id="datetimepicker3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Visit Information</label>
                                         <select class="select">
                                             <option>Select</option>
                                             <option>Dentists</option>
@@ -343,52 +415,78 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Doctor</label>
+                                        <label>Urgency Level</label>
                                         <select class="select">
-											<option>Select</option>
-											<option>Cristina Groves</option>
-											<option>Marie Wells</option>
-											<option>Henry Daniels</option>
+                                            <option>Select</option>
+                                            <option>Cristina Groves</option>
+                                            <option>Marie Wells</option>
+                                            <option>Henry Daniels</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Date</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker">
-                                        </div>
+                                        <label>Appointment Type</label>
+                                        <select class="select">
+                                            <option>Select</option>
+                                            <option>Dentists</option>
+                                            <option>Neurology</option>
+                                            <option>Opthalmology</option>
+                                            <option>Orthopedics</option>
+                                            <option>Cancer Department</option>
+                                            <option>ENT Department</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Time</label>
-                                        <div class="time-icon">
-                                            <input type="text" class="form-control" id="datetimepicker3">
-                                        </div>
+                                        <label>Patient State</label>
+                                        <select class="select">
+                                            <option>Select</option>
+                                            <option>Cristina Groves</option>
+                                            <option>Marie Wells</option>
+                                            <option>Henry Daniels</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Patient Email</label>
-                                        <input class="form-control" type="email">
+                                        <label>Health Proof</label>
+                                        <input type = "text" list = "institutions" name="institutions" class="form-control"> 
+                                            <datalist id="institutions">
+                                                <option value = "Riphah Hospital">
+                                                <option value = "Shifa International">
+                                                <option value = "Ali Medical">
+                                            </datalist>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Patient Phone Number</label>
-                                        <input class="form-control" type="text">
+                                        <label>Speciality</label>
+                                        <input type = "text" list = "inpatients" name="inpatients" class="form-control"> 
+                                            <datalist id="inpatients">
+                                                <option value = "Aadil">
+                                                <option value = "Aalam">
+                                                <option value = "Aashir"> 
+                                                <option value = "Baasim ">
+                                                <option value = "Babar">
+                                                <option value = "Burhan">                         
+                                            </datalist>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label>Message</label>
-                                <textarea cols="30" rows="4" class="form-control"></textarea>
+                                <label>Information<span class="text-danger">*</span></label>
+                                <textarea rows="15" cols="5" class="form-control"></textarea>
                             </div>
+
                             <div class="form-group">
                                 <label class="display-block">Appointment Status</label>
 								<div class="form-check form-check-inline">
