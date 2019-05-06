@@ -6,8 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <title>Medifab - Bootstrap Admin Template</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Life - A Patient Care Project</title>
     <link href="../../../../fonts.googleapis.com/css278f.css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -25,7 +25,7 @@
         <div class="header">
             <div class="header-left">
                 <a href="index-2.html" class="logo">
-                    <img src="assets/img/Logo_Hospital.png" width="35" height="35" alt="">
+                    <img src="assets/img/Logo_Hospital.png" width="50" height="50" alt="">
                 </a>
             </div>
             <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
@@ -34,7 +34,7 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
-                            <span>Notifications (Test)</span>
+                            <span>Notifications</span>
                         </div>
                         <div class="drop-scroll">
                             <ul class="notification-list">
@@ -146,11 +146,12 @@
                          <li class="submenu">
 							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="#">Person Genetic Information</a></li>
+								<li><a href="person-genetic-information.html">Person Genetic Information</a></li>
 							</ul>
 						</li>
                          <li class="submenu">
-							<a href="#"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
+														<a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
+
 							<ul style="display: none;">
 								<li><a href="#">Appointments Calendar</a></li>
 							</ul>
@@ -159,7 +160,7 @@
                             <a href="patients.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
                         </li>
                          <li>
-                            <a href="patients.html"><i class="fas fa-prescription"></i> Prescriptions</a>
+                            <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
                         </li>
                          <li>
                             <a href="patients.html"><i class="fas fa-user-md"></i> Health Professionals</a>
@@ -582,94 +583,156 @@
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <h4 class="page-title">Add Patient</h4>
+                   <div class="col-md-12">
+                        <h4 class="page-title" >  <i class="fa fa-wheelchair"> </i>  Add Patient</h4>
                     </div>
                 </div>
                 
               
-                <div class="card-box profile-header">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="profile-view">
-                                <div class="profile-img-wrap">
-                                    <div class="profile-img">
-                                        <a href="#"><img class="avatar" src="assets/img/doctor-03.jpg" alt=""></a>
+           <div class="col-md-12">
+                        <div class="card-box">
+                           
+                            <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified">
+                                <li class="nav-item"><a class="nav-link active" href="#basic-justified-tab1" data-toggle="tab">Main Info</a></li>
+                                
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">General</a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#basic-justified-tab2" data-toggle="tab">Main</a>
+                                        <a class="dropdown-item" href="#basic-justified-tab3" data-toggle="tab">Misc</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab4" data-toggle="tab">Functionality</a></li>
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">OB/GYN</a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#basic-justified-tab5" data-toggle="tab">General</a>
+                                        <a class="dropdown-item" href="#basic-justified-tab6" data-toggle="tab">Screening</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab7" data-toggle="tab">Socioeconomics</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab8" data-toggle="tab">Genetics</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab9" data-toggle="tab">Surgeries</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab10" data-toggle="tab">Lifestyle</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#basic-justified-tab11" data-toggle="tab">Medication</a></li>
+                                
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane show active" id="basic-justified-tab1">
+                                     <form>
+                            <div class="form-group">
+                                <label></label>
+                                <input class="form-control" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Patient Image</label>
+                                <div>
+                                    <input class="form-control" type="file">
+                                    <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-4 col-lg-3 col-xl-2">
+                                        <div class="product-thumbnail">
+											<img src="assets/img/blog/blog-thumb-01.jpg" class="img-thumbnail img-fluid" alt="">
+                                            <span class="product-remove" title="remove"><i class="fa fa-close"></i></span>
+                                        </div>
                                     </div>
                                     
                                 </div>
-                                <div class="profile-basic">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="profile-info-left">
-                                            <br />
-                                            <h3 class="user-name m-t-0 m-b-0">Upload Photo Here</h3>
-											<br />
-                                            <br />
-										    <input type="file" class="form-control">
-										    <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                        <form>
-                                            <ul class="personal-info">
-                                                <li>
-                                                    <span class="title">Main Info:</span>
-                                                   <input class="form-control" type="text">
-                                                </li>
-                                                <li>
-                                                    <span class="title">Age:</span>
-                                                    <input class="form-control" type="text">
-                                                </li>
-                                               
-                                                <li>
-                                                    <span class="title">Critical Info:</span>
-                                                     <textarea cols="98" rows="5" class="form-control"></textarea>		
-                                                </li>
-                                                <li>
-                                                    <span class="title"> Disabilities/Barriers: :</span>
-                                                  <input type="checkbox" name="gender" class="form-check-input">
-                                                </li>
-                                            </ul>
-                                            </form>
-                                        </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Critical Info</label>
+                                <textarea cols="30" rows="6" class="form-control"></textarea>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>Age <small></small></label>
+                                <input type="number" placeholder="" data-role="tagsinput" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="status" id="disabilities" value="option1" checked>
+									<label class="form-check-label" for="disabilities">
+									Disabilities/Barrier
+									</label>
+								</div>
+								
+                            </div>
+                           
+                        </form>
+                                </div>
+                                <div class="tab-pane" id="basic-justified-tab2">
+                                <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>GP</label>
+                                        <input type="text" class="form-control ">
                                     </div>
                                 </div>
-                            </div>                        
-                        </div>
-                    </div>
-                </div>
-				<div class="profile-tabs">
-					<ul class="nav nav-tabs nav-tabs-bottom">
-						<li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">General Info</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Functionality and Disability</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">OB/GYN</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Socioeconomics</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab5" data-toggle="tab">Genetics</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab6" data-toggle="tab">Surgeries</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab7" data-toggle="tab">Lifestyle</a></li>
-						<li class="nav-item"><a class="nav-link" href="#bottom-tab8" data-toggle="tab">Medication</a></li>
-					</ul>
-
-					<div class="tab-content">
-						<div class="tab-pane show active" id="about-cont">
-                 <ul class="nav nav-tabs nav-tabs-top">
-                                <li class="nav-item"><a class="nav-link active" href="#top-tab1" data-toggle="tab">Main</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#top-tab2" data-toggle="tab">Misc</a></li>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Family</label>
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
                                
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane show active" id="top-tab1">
-                                    <textarea cols="98" rows="3" class="form-control"></textarea>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Insurance</label>
+                                        <input type="text" class="form-control ">
+                                    </div>
+                                </div>
+                                </div> 
+                                 <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> <b> Assesment </b>
+									<tr>
+										<th>Condition</th>
+										<th>Status</th>
+										<th>Severity</th>
+										<th>Date of Diagnosis</th>
+										<th>Healed</th>
+										<th>Remarks</th>
+										<th>Institution</th>
+										
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td> </td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										
+										
+									</tr>
+									<tr>
+										<td></td>
+										<td> </td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										
+										
+									</tr>
+								</tbody>
+							</table>
+                                   
                                      <span class="title">Notepad:</span>
                                      <textarea cols="98" rows="5" class="form-control"></textarea>
+                                     <br />
                                       <div class="row">
                             <div class="col-md-6">
                                     <div class="form-group">
@@ -710,30 +773,36 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                         <span class="title"> Hospitilized :</span>
-                                        
-                                                  <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                                    </div>
+                                   <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="status" id="hospitalized" value="option1" checked>
+									<label class="form-check-label" for="hospitalized">
+									Hospitalized
+									</label>
+								</div>
+								
+                            </div>
                                 </div>
                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                        <span class="title"> Active :</span>
-                                       
-                                                  <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                                    </div>
+                                     <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="status" id="general_active" value="option1" checked>
+									<label class="form-check-label" for="general_active">
+									Active
+									</label>
+								</div>
+								
+                            </div>
                                 </div>
                             </div>
-                            
                                 </div>
-                                <div class="tab-pane" id="top-tab2">
+                                <div class="tab-pane" id="basic-justified-tab3">
                                     Misc
                                 </div>
-                                
-                            </div>
-						</div>
-						<div class="tab-pane" id="bottom-tab2">
-						<table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                <div class="tab-pane" id="basic-justified-tab4">
+                                    <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 								<thead> Assesment
 									<tr>
 										<th>Date</th>
@@ -808,7 +877,7 @@
 										<th>Side</th>
 										<th>Level</th>
 										<th>Health Proj</th>
-										<th>Comments</th>
+										<th>Comments </th>
 										
 										
 										
@@ -876,16 +945,9 @@
 									</tr>
 								</tbody>
 							</table>
-						</div>
-						<div class="tab-pane" id="bottom-tab3">
-							 <ul class="nav nav-tabs nav-tabs-top">
-                                <li class="nav-item"><a class="nav-link active" href="#top-tab1" data-toggle="tab">General</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#top-tab2" data-toggle="tab">Screening</a></li>
-                               
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane show active" id="top-tab1">
-                                <div class="row">
+                                </div>
+                                <div class="tab-pane" id="basic-justified-tab5">
+                                    <div class="row">
 							  <div class="col-md-4">
                                     <div class="form-group">
                                          <span class="title"> Fertile :</span>
@@ -960,7 +1022,29 @@
                                     </div>
                                 </div>
                                 </div>
-                                    <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                    <div>
+                                    <div class="row">
+                                      <div class="col-sm-6">
+                                        <h5 class="m-b-10"><strong>Menstrual History</strong></h5>
+                                        </div>
+                                         <div class="col-sm-6 ">
+                                         <div class="mail-view-action">
+                                         <div class="btn-group">
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
+                              </div>
+                              </div>
+                              </div>
+                                 <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
 								<thead>
 									<tr>
 										<th>Date</th>
@@ -974,12 +1058,13 @@
 										<th>Institution</th>
 										
 										
+										
+										<th class="text-right">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td></td>
-										<td> </td>
 										<td></td>
 										<td></td>
 										<td></td>
@@ -987,37 +1072,240 @@
 										<td></td>
 										<td></td>
 										<td></td>
+										<td></td>
+									
 										
 										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
 									</tr>
-									<tr>
-										<td></td>
-										<td> </td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										
-										
-									</tr>
+									
+									
 								</tbody>
 							</table>
-                                </div>
-               
-                                <div class="tab-pane" id="top-tab2">
-                                    <form>
-                                                    <label class="title"> Disabilities/Barriers:</label>
-                                                  <input type="checkbox" name="gender" class="form-check-input" />
-                                          </form>      
-                                </div>
-                               
-                            </div>
 						</div>
-						<div class="tab-pane" id="bottom-tab4">
-						<textarea cols="98" rows="3" class="form-control"></textarea>
+                             	</div>	
+                             	</div>
+                             		</div>    
+                                </div>
+                                <div class="tab-pane" id="basic-justified-tab6">
+                                        
+                                </div>
+                                 <div class="tab-pane" id="basic-justified-tab9">
+                                       <div class="row">
+                                    <div class="col-sm-12">
+                                    <div>
+                                         <div class="row">
+                                      <div class="col-sm-6">
+                                        
+                                        </div>
+                                         <div class="col-sm-6 ">
+                                         <div class="mail-view-action">
+                                         <div class="btn-group">
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
+                              </div>
+                              </div>
+                              </div>
+                                 <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Description</th>
+										<th>Condition</th>
+										<th>Urgency</th>
+										<th>Date</th>
+										<th>Time</th>
+										<th>Main Proc</th>
+										<th>State</th>
+										<th>Duration</th>
+										<th>Operating</th>
+										<th>Age</th>
+										<th>Post-Op Dx</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									
+								</tbody>
+							</table>
+						</div>
+						</div>
+						</div>
+                                 </div>
+                                 <br />
+                                </div>
+                                 <div class="tab-pane" id="basic-justified-tab10">
+                                    
+                                </div>
+                                 <div class="tab-pane" id="basic-justified-tab11">
+                                   <div class="row">
+                                    <div class="col-sm-12">
+                                    <div>
+                                         <div class="row">
+                                      <div class="col-sm-6">
+                                        <h5 class="m-b-10"><strong>Medications</strong></h5>
+                                        </div>
+                                         <div class="col-sm-6 ">
+                                         <div class="mail-view-action">
+                                         <div class="btn-group">
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
+                              </div>
+                              </div>
+                              </div>
+                                 <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Medicament</th>
+										<th>Indication</th>
+										<th>Start</th>
+										<th>End</th>
+										<th>Ac</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									
+								</tbody>
+							</table>
+						</div>
+						</div>
+						</div>
+                                 </div>
+                                 <br />
+                                 <div class="row">
+                                    <div class="col-sm-12">
+                                    <div>
+ <div class="row">
+                                      <div class="col-sm-6">
+                                        <h5 class="m-b-10"><strong>Vaccinations</strong></h5>
+                                        </div>
+                                         <div class="col-sm-6 ">
+                                         <div class="mail-view-action">
+                                         <div class="btn-group">
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
+                              </div>
+                              </div>
+                              </div>                                 <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Vaccine</th>
+										<th>Dose</th>
+										<th>Date</th>
+										<th>Next Dose </th>
+										<th>Observations</th>
+										<th>Signed By</th>
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									
+								</tbody>
+							</table>
+						</div>
+						</div>
+						</div>
+                                 </div>
+                                </div>
+                                 <div class="tab-pane" id="basic-justified-tab7">
+                                    <textarea cols="98" rows="3" class="form-control"></textarea>
 						<br />
 						<label> <strong>Other Family and Environmental determinants </strong> </label>
 							 <div class="row">
@@ -1109,262 +1397,107 @@
                                 </div>
                                  <span class="title">Notes:</span>
                                                      <textarea cols="98" rows="5" class="form-control"></textarea>	
-						</div>
-						<div class="tab-pane" id="bottom-tab5">
-							<div class="row">
-                                <div class="col-sm-6">
+                                </div>
+                                <div class="tab-pane" id="basic-justified-tab8">
+                                    		<div class="row">
+                                <div class="col-sm-12">
                                     <div>
                                         <h5 class="m-b-10"><strong>Genetic Information</strong></h5>
-                                         <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Gene</strong> </td>
-                                                    <td><strong>Variant</strong></td>
-                                                    <td><strong>Phenotype</strong></td>
-                                                    <td><strong>Onse</strong></td>
-                                                     <td><strong>Notes</strong></td>
-                                                      <td><strong>Health Prof</strong></td>
-                                                       
-                                                </tr>
-                                                <tr>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                      <td><strong></strong></td>
-                                                </tr>
-                                                <tr>
-                                                  <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                      <td><strong></strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                      <td><strong></strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                      <td><strong></strong></td>
-                                                       <td><strong></strong></td>
-                                                        <td><strong></strong></td>
-                                                                                                 </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h5 class="m-b-10"><strong>Family Information</strong></h5>
-                                       <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Condition</strong> </td>
-                                                    <td><strong>Maternal or Paternal</strong></td>
-                                                    <td><strong>Relative</strong></td>
-                                                   
-                                                       
-                                                </tr>
-                                                <tr>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                  <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                    
-                                                                                                 </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-						</div>
-						</div>
-						<div class="tab-pane" id="bottom-tab6">
-							<table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                         	
+						<div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
 								<thead>
 									<tr>
-										<th>Description</th>
-										<th>Condition</th>
-										<th>Urgency</th>
-										<th>Date</th>
-										<th>Time</th>
-										<th>Main Proc</th>
-										<th>State</th>
-										<th>Duration</th>
-										<th>Operating</th>
-										<th>Age</th>
-										<th>Post-Op Dx</th>
+										<th>Gene</th>
+										<th>Variant</th>
+										<th>Phenotype</th>
+										<th>Onse</th>
+										<th>Notes</th>
+										<th>Health Prof</th>
 										
+										<th class="text-right">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td></td>
-										<td> </td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										
-									</tr>
-									<tr>
-										<td></td>
-										<td> </td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>
 										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
 									</tr>
+									
+									
 								</tbody>
 							</table>
 						</div>
-						<div class="tab-pane" id="bottom-tab7">
-							Tab content 7
-						</div>
-						<div class="tab-pane" id="bottom-tab8">
-						<div class="row">
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h5 class="m-b-10"><strong>Medications</strong></h5>
-                                         <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Medicament</strong> </td>
-                                                    <td><strong>Indication</strong></td>
-                                                    <td><strong>Start</strong></td>
-                                                    <td><strong>End</strong></td>
-                                                     <td><strong>Ac</strong></td>
-                                                     
-                                                       
-                                                </tr>
-                                                <tr>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                     
-                                                </tr>
-                                                <tr>
-                                                  <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                     
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                     
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                      <td><strong></strong></td>
-                                                       <td><strong></strong></td>
-                                                       
-                                                                                                 </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h5 class="m-b-10"><strong>Vaccinations</strong></h5>
-                                       <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Vaccine</strong> </td>
-                                                    <td><strong>Dose</strong></td>
-                                                    <td><strong>Datee</strong></td>
-                                                     <td><strong>Next Dose</strong> </td>
-                                                    <td><strong>Observations</strong></td>
-                                                    <td><strong>Signed By</strong></td>
-                                                   
-                                                       
-                                                </tr>
-                                                <tr>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                   
-                                                </tr>
-                                                <tr>
-                                                  <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                     <td><strong></strong></td>
-                                                     <td><strong></strong> </td>
-                                                    <td><strong></strong></td>
-                                                    <td><strong></strong></td>
-                                                                                                 </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-						</div>
 					</div>
-				</div>
-            </div>
+               
+                                    </div>
+                                </div>
+                                <div>
+                                <br />
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div>
+                                        <h5 class="m-b-10"><strong>Family Information</strong></h5>
+                                       <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Condition</th>
+										<th>Maternal or Parental</th>
+										<th>Relative</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									
+								</tbody>
+							</table>
+						</div>
+                                    </div>
+                                </div>
+						</div>
+						
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
                 
 			<div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
