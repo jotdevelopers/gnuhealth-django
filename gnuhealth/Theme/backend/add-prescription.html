@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:45:14 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Life - A Patient Care Project</title>
+    <link href="../../../../fonts.googleapis.com/css278f.css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="assets/img/Logo_Hospital.png" width="50" height="50" alt="">
+                </a>
+            </div>
+			
+				
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">
+												<img alt="John Doe" src="assets/img/user.jpg" class="img-fluid rounded-circle">
+											</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+												<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+												<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">L</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">G</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+												<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+												<p class="noti-time"><span class="notification-time">2 days ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities.html">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                </li>
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+							<span class="status online"></span></span>
+                        <span>Admin</span>
+                    </a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="profile.html">My Profile</a>
+						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+						<a class="dropdown-item" href="settings.html">Settings</a>
+						<a class="dropdown-item" href="login.html">Logout</a>
+					</div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="submenu">
+							<a href="#"><i class="fas fa-star-of-life"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a class = "active" href="pages-of-life.html">Pages of life</a></li>
+							</ul>
+						</li>
+						 <li>
+                            <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
+                        </li>
+                         <li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="person-genetic-information.html">Person Genetic Information</a></li>
+							</ul>
+						</li>
+                         <li class="submenu">
+														<a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
+
+							<ul style="display: none;">
+								<li><a href="#">Appointments Calendar</a></li>
+							</ul>
+						</li>
+						 <li>
+                            <a href="patients.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
+                        </li>
+                         <li>
+                            <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
+                        </li>
+                         <li>
+                            <a href="patients.html"><i class="fas fa-user-md"></i> Health Professionals</a>
+                        </li>
+                         <li>
+                            <a href="patients.html"><i class="far fa-hospital"></i> Institutions</a>
+                        </li>
+                         <li class="submenu">
+							<a href="#"><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Lab: Request New Order</a></li>
+								<li><a href="#">Lab Test Requests</a></li>
+								<li><a href="#">Lab Tests Results</a></li>
+								
+							</ul>
+						</li>
+						 <li class="submenu">
+							<a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">DX Imaging - New</a></li>
+								<li><a href="#">DX Imaging Requests</a></li>
+								<li><a href="#">DX Imaging - Results</a></li>
+								
+							</ul>
+						</li>
+						 <li class="submenu">
+							<a href="#"><i class="fas fa-notes-medical"></i> <span> Demographics </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Domiciliay Units</a></li>
+								<li><a href="#">Birth Certificates</a></li>
+								<li><a href="#">Death Certificates</a></li>
+								<li><a href="#">Families</a></li>
+								<li><a href="#">Family Members</a></li>
+								
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Operational Areas </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Operational Areas</a></li>
+								<li><a href="#">Operational Sectors</a></li>
+							
+							</ul>
+						</li>
+						<li>
+                            <a href="patients.html"><i class="fa fa-plus-square"></i> Surgeries</a>
+                        </li>
+                        <li class="submenu">
+							<a href="#"><i class="fas fa-procedures"></i> <span> Hospitilization </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Meal Orders</a></li>
+                                <li class="submenu">
+							<a href="#"> <span> Intensive Care </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Patient ICU Info</a></li>
+								<li><a href="#">GCS</a></li>
+								<li><a href="#">APACHE II Score</a></li>
+								<li><a href="#">ECGs</a></li>
+							
+							</ul>
+						</li>							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-file-medical-alt"></i> <span> Pediatrics </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">New Born</a></li>
+								<li><a href="#">PSC</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-file-medical"></i> <span> Obstetrics </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Obstetric History</a></li>
+							
+							</ul>
+						</li>
+						<li>
+                            <a href="patients.html"><i class="fas fa-file-alt"></i> Archives</a>
+                        </li>
+                        <li>
+                            <a href="patients.html"><i class="fas fa-wrench"></i> Support Center</a>
+                        </li>
+                        <li class="submenu">
+							<a href="#"><i class="fas fa-user-nurse"></i> <span> Nursing </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Roundings</a></li>
+								<li><a href="#">Ambulatory Care</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Ambulance In Support Requests</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Federation </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Federation Queue Manager</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-plus"></i> <span> Health Services </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Health Services</a></li>
+								<li><a href="#">Created Invoices</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-microscope"></i> <span> Reporting </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Specialties by institution</a></li>
+								<li><a href="#">Operational sectors by institution</a></li>
+								<li><a href="#">Summary Report</a></li>
+								<li><a href="#">Patient Evaluations [readonly]</a></li>
+								<li><a href="#">Socioeconomic Assessments/a></li>
+								<li><a href="#">Injury Surveillance System Registration</a></li>
+								<li><a href="#">Ophthalmologic evaluations</a></li>
+								<li><a href="#">Top Diseases</a></li>
+								<li><a href="#">Amputations</a></li>
+								<li><a href="#">Protheses</a></li>
+								<li><a href="#">Specialties by health professionals</a></li>
+								<li><a href="#">Appointments with Dx Report</a></li>
+								<li><a href="#">Evaluations Report</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-cog"></i> <span> Configuration </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								
+                                <li class="submenu">
+							<a href="#"> <span> Conditions </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Conditions</a></li>
+								<li><a href="#">Pathology Groups</a></li>
+								<li><a href="#">Categories</a></li>
+							
+							</ul>
+						</li>							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Disease Genes</a></li>
+								<li><a href="#">Natural Variants</a></li>
+								<li><a href="#">Variant Phenotype</a></li>
+								<li><a href="#">Protein related diseases</a></li>
+
+							</ul>
+						</li>
+						 <li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">DX Imaging Test Types</a></li>
+								<li><a href="#">DX Imaging Tests</a></li>
+								
+							</ul>
+						</li>
+						 <li class="submenu">
+							<a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality and Disability </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Body Functions</a></li>
+								<li><a href="#">Body Structures</a></li>
+							    <li><a href="#">Activities and Participtions</a></li>
+								<li><a href="#">Environmental Factors</a></li>
+								
+							</ul>
+						</li>
+						 <li class="submenu">
+							<a href="#"><i class="fas fa-procedures"></i> <span>Procedures </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Procedures</a></li>
+								
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-hospital"></i> <span>Institutions </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Buildings</a></li>
+								<li><a href="#">Units</a></li>
+								<li><a href="#">Wards</a></li>
+								<li><a href="#">Beds</a></li>
+								<li><a href="#">Operating Rooms</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-bong"></i> <span>Laboratory </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Lab Test Units</a></li>
+								<li><a href="#">Lab Test Types</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-capsules"></i> <span>Medicaments</span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Medicaments</a></li>
+								<li><a href="#">Medication Frequencies</a></li>
+								<li><a href="#">Drug Dose Units</a></li>
+								<li><a href="#">Drug Administration Routes</a></li>
+								<li><a href="#">Drug Forms</a></li>
+								<li><a href="#">Medicament categories</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-syringe"></i> <span>Immunization Schedule</span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Schedule Vaccines</a></li>
+								<li><a href="#">Vaccine Doses</a></li>
+							
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Federation Country Configuration</a></li>
+								<li><a href="#">Node Configuration</a></li>
+								<li><a href="#">Federation Objects</a></li>
+							
+							</ul>
+						</li>
+						  <li class="submenu">
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Misc </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+                                <li class="submenu">
+							<a href="#"> <span> Insurances </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Insurances</a></li>
+								<li><a href="#">Insurances Company</a></li>
+								
+							
+							</ul>
+						</li>	
+						<li><a href="#">Plan Product Policies</a></li>				
+						<li><a href="#">Occupations</a></li>				
+						<li><a href="#">Ethnicities</a></li>				
+						<li><a href="#">Medical Specialties</a></li>	
+						<li><a href="#">Health Commands</a></li>	
+						<li><a href="#">Recreational Drugs</a></li>	
+						<li><a href="#">Inpatient Meals</a></li>	
+						<li><a href="#">Pediatrics Growth Charts WHO</a></li>
+						  <li class="submenu">
+							<a href="#"> <span> Diets </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="#">Belief diets</a></li>
+								<li><a href="#">Therapeutic diets</a></li>
+								
+							
+							</ul>
+						</li>	
+							</ul>
+						</li>
+						<li>
+                            <a href="doctors.html"><i class="fa fa-user-md"></i> Doctors</a>
+                        </li>
+                        <li>
+                            <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
+                        </li>
+                        <li>
+                            <a href="appointments.html"><i class="fa fa-calendar"></i> Appointments</a>
+                        </li>
+                        <li>
+                            <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> Doctor Schedule</a>
+                        </li>
+                        <li>
+                            <a href="departments.html"><i class="fa fa-hospital-o"></i> Departments</a>
+                        </li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="employees.html">Employees List</a></li>
+								<li><a href="leaves.html">Leaves</a></li>
+								<li><a href="holidays.html">Holidays</a></li>
+								<li><a href="attendance.html">Attendance</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="invoices.html">Invoices</a></li>
+								<li><a href="payments.html">Payments</a></li>
+								<li><a href="expenses.html">Expenses</a></li>
+								<li><a href="taxes.html">Taxes</a></li>
+								<li><a href="provident-fund.html">Provident Fund</a></li>
+							</ul>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="salary.html"> Employee Salary </a></li>
+								<li><a href="salary-view.html"> Payslip </a></li>
+							</ul>
+						</li>
+                        <li>
+                            <a href="chat.html"><i class="fa fa-comments"></i> Chat <span class="badge badge-pill bg-primary float-right">5</span></a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-video-camera camera"></i> <span> Calls</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="voice-call.html">Voice Call</a></li>
+                                <li><a href="video-call.html">Video Call</a></li>
+                                <li><a href="incoming-call.html">Incoming Call</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="compose.html">Compose Mail</a></li>
+                                <li><a href="inbox.html">Inbox</a></li>
+                                <li><a href="mail-view.html">Mail View</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-commenting-o"></i> <span> Blog</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-details.html">Blog View</a></li>
+                                <li><a href="add-blog.html">Add Blog</a></li>
+                                <li><a href="edit-blog.html">Edit Blog</a></li>
+                            </ul>
+                        </li>
+						<li>
+							<a href="assets.html"><i class="fa fa-cube"></i> Assets</a>
+						</li>
+						<li>
+							<a href="activities.html"><i class="fa fa-bell-o"></i> Activities</a>
+						</li>
+						<li class="submenu">
+							<a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="expense-reports.html"> Expense Report </a></li>
+								<li><a href="invoice-reports.html"> Invoice Report </a></li>
+							</ul>
+						</li>
+                        <li>
+                            <a href="settings.html"><i class="fa fa-cog"></i> Settings</a>
+                        </li>
+                        <li class="menu-title">UI Elements</li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-laptop"></i> <span> Components</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="uikit.html">UI Kit</a></li>
+                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="tabs.html">Tabs</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="widgets.html"><i class="fa fa-th"></i> Widgets</a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-edit"></i> <span> Forms</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="form-basic-inputs.html">Basic Inputs</a></li>
+                                <li><a href="form-input-groups.html">Input Groups</a></li>
+                                <li><a href="form-horizontal.html">Horizontal Form</a></li>
+                                <li><a href="form-vertical.html">Vertical Form</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-table"></i> <span> Tables</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="tables-basic.html">Basic Tables</a></li>
+                                <li><a href="tables-datatables.html">Data Table</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="calendar.html"><i class="fa fa-calendar"></i> Calendar</a>
+                        </li>
+                        <li class="menu-title">Extras</li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-columns"></i> <span>Pages</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="login.html"> Login </a></li>
+                                <li><a href="register.html"> Register </a></li>
+                                <li><a href="forgot-password.html"> Forgot Password </a></li>
+                                <li><a href="change-password2.html"> Change Password </a></li>
+                                <li><a href="lock-screen.html"> Lock Screen </a></li>
+                                <li><a href="profile.html"> Profile </a></li>
+                                <li><a href="gallery.html"> Gallery </a></li>
+                                <li><a href="error-404.html">404 Error </a></li>
+                                <li><a href="error-500.html">500 Error </a></li>
+                                <li><a href="coming-soon.html">Coming Soon </a></li>
+                                <li><a href="blank-page.html"> Blank Page </a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"><i class="fa fa-share-alt"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li class="submenu">
+                                    <a href="javascript:void(0);"><span>Level 1</span> <span class="menu-arrow"></span></a>
+                                    <ul style="display: none;">
+                                        <li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+                                        <li class="submenu">
+                                            <a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
+                                            <ul style="display: none;">
+                                                <li><a href="javascript:void(0);">Level 3</a></li>
+                                                <li><a href="javascript:void(0);">Level 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);"><span>Level 1</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h4 class="page-title">Add Prescription</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Patient</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+									<div class="form-group">
+										<label>Prescrition ID</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prescription Date</label>
+                                        <div class="cal-icon">
+                                            <input type="text" class="form-control datetimepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Prescribed By</label>
+                                       <input class="form-control" type="text"  >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+										<label>Pharmacy</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="row">
+                             <div class="col-md-6">
+                                   <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="status" id="hospitalized" value="option1" checked>
+									<label class="form-check-label" for="hospitalized">
+									Pragnancy Warning
+									</label>
+								</div>
+								
+                            </div>
+                                </div>
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="status" id="general_active" value="option1" checked>
+									<label class="form-check-label" for="general_active">
+									Prescription Verified
+									</label>
+								</div>
+								
+                            </div>
+                                </div>
+                           </div>
+                             <div class="row">
+                                    <div class="col-sm-12">
+                                    <div>
+                                         <div class="row">
+                                      <div class="col-sm-6">
+                                        
+                                        </div>
+                                         <div class="col-sm-6 ">
+                                         <div class="mail-view-action">
+                                         <div class="btn-group">
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
+                                                    <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
+                              </div>
+                              </div>
+                              </div>
+                                 <div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Units</th>
+										<th>Valid Until</th>
+										<th>Hist</th>
+										<th>Medicament</th>
+										<th>Indication</th>
+										<th>Dose</th>
+										<th>Dose Unit</th>
+										<th>Form</th>
+										<th>Frequency</th>
+										<th>Treat</th>
+										<th>Treatment</th>
+										<th>Comment</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+												</div>
+											</div>
+										</td>
+									</tr>
+									
+									
+								</tbody>
+							</table>
+						</div>
+						</div>
+						</div>
+                                 </div>
+                                 <br />
+                            <div class="row">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Service</label>
+                                        <div >
+                                           <input class="form-control" type="text"  >
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Document Validation</label>
+                                       <input class="form-control" type="text"  >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Notes</label>
+                                <textarea cols="30" rows="3" class="form-control"></textarea>
+                            </div>
+                           
+                             <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+										<label>State</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                
+									
+                               
+                                </div>
+                                 <div class="form-group">
+                                <label>Extended Information</label>
+                                <textarea cols="30" rows="8" class="form-control"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Page</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Account</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Author</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Node</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                
+                            </div>
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+			<div class="notification-box">
+                <div class="msg-sidebar notifications msg-noti">
+                    <div class="topnav-dropdown-header">
+                        <span>Messages</span>
+                    </div>
+                    <div class="drop-scroll msg-list-scroll">
+                        <ul class="list-box">
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Richard Miles </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item new-message">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">John Doe</span>
+                                            <span class="message-time">1 Aug</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Tarah Shropshire </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Mike Litorus</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Catherine Manseau </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">D</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Domenic Houston </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">B</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Buster Wigton </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Rolland Webber </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Claire Mapes </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Melita Faucher</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Jeffery Lalor</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">L</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Loren Gatlin</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Tarah Shropshire</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a href="chat.html">See all messages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="assets/js/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/moment.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+     </script>
+</body>
+
+
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:45:14 GMT -->
+</html>
