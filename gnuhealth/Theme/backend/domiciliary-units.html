@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/patients.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:42:48 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
     <title>Life - A Patient Care Project</title>
     <link href="../../../../fonts.googleapis.com/css278f.css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
-    <link href="../../../../fonts.googleapis.com/icone91f.css?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/fullcalendar.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/morris/morris.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
@@ -108,11 +108,9 @@
                 </li>
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img">
-							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
-							<span class="status online"></span>
-						</span>
-						<span>Admin</span>
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+							<span class="status online"></span></span>
+                        <span>Admin</span>
                     </a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="profile.html">My Profile</a>
@@ -123,7 +121,7 @@
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
@@ -135,7 +133,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
+                     <ul>
                         <li class="menu-title">Main</li>
                         <li class="submenu">
 							<a href="#"><i class="fas fa-star-of-life"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
@@ -143,17 +141,17 @@
 								<li><a href="pages-of-life.html">Pages of life</a></li>
 							</ul>
 						</li>
-						 <li>
+						 <li class="active">
                             <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
                         </li>
                          <li class="submenu">
 							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="person-geneticnformation.html"><i class="fas fa-dna"></i>Person Genetic Information</a></li>
+								<li><a href="#">Person Genetic Information</a></li>
 							</ul>
 						</li>
                          <li class="submenu">
-							<a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">Appointments Calendar</a></li>
 							</ul>
@@ -162,20 +160,20 @@
                             <a href="patients.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
                         </li>
                          <li>
-                            <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
+                            <a href="patients.html"><i class="fas fa-prescription"></i> Prescriptions</a>
                         </li>
                          <li>
-                            <a href="health-professionals.html"><i class="fas fa-user-md"></i> Health Professionals</a>
+                            <a href="patients.html"><i class="fas fa-user-md"></i> Health Professionals</a>
                         </li>
                          <li>
-                            <a href="institutions.html"><i class="far fa-hospital"></i> Institutions</a>
+                            <a href="patients.html"><i class="far fa-hospital"></i> Institutions</a>
                         </li>
                          <li class="submenu">
 							<a href="#"><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">Lab: Request New Order</a></li>
-								<li><a href="lab-rest-resquests.html">Lab Test Requests</a></li>
-								<li><a href="lab-test-results.html"></i>Lab Tests Results</a></li>
+								<li><a href="#">Lab Test Requests</a></li>
+								<li><a href="#">Lab Tests Results</a></li>
 								
 							</ul>
 						</li>
@@ -183,19 +181,19 @@
 							<a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">DX Imaging - New</a></li>
-								<li><a href="dx-imaging-requests.html">DX Imaging Requests</a></li>
-								<li><a href="dx-imaging-results.html">DX Imaging - Results</a></li>
+								<li><a href="#">DX Imaging Requests</a></li>
+								<li><a href="#">DX Imaging - Results</a></li>
 								
 							</ul>
 						</li>
 						 <li class="submenu">
 							<a href="#"><i class="fas fa-notes-medical"></i> <span> Demographics </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="domiciliary-units.html">Domiciliay Units</a></li>
-								<li><a href="birth-certificates.html">Birth Certificates</a></li>
-								<li><a href="death-certificates.html">Death Certificates</a></li>
-								<li><a href="families.html">Families</a></li>
-								<li><a href="family-members.html">Family Members</a></li>
+								<li><a href="#">Domiciliay Units</a></li>
+								<li><a href="#">Birth Certificates</a></li>
+								<li><a href="#">Death Certificates</a></li>
+								<li><a href="#">Families</a></li>
+								<li><a href="#">Family Members</a></li>
 								
 							</ul>
 						</li>
@@ -213,7 +211,7 @@
                         <li class="submenu">
 							<a href="#"><i class="fas fa-procedures"></i> <span> Hospitilization </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="#"><i class="icon-food"></i>Meal Orders</a></li>
+								<li><a href="#">Meal Orders</a></li>
                                 <li class="submenu">
 							<a href="#"> <span> Intensive Care </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
@@ -242,7 +240,7 @@
 							</ul>
 						</li>
 						<li>
-                            <a href="patients.html"><i class="fa fa-archive" aria-hidden="true"></i> Archives</a>
+                            <a href="patients.html"><i class="fas fa-file-alt"></i> Archives</a>
                         </li>
                         <li>
                             <a href="patients.html"><i class="fas fa-wrench"></i> Support Center</a>
@@ -263,7 +261,7 @@
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fab fa-trade-federation"></i><span> Federation </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span> Federation </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">Federation Queue Manager</a></li>
 							
@@ -273,7 +271,7 @@
 							<a href="#"><i class="fas fa-plus"></i> <span> Health Services </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">Health Services</a></li>
-								<li><a href="#"></i>Created Invoices</a></li>
+								<li><a href="#">Created Invoices</a></li>
 							
 							</ul>
 						</li>
@@ -321,7 +319,7 @@
 							</ul>
 						</li>
 						 <li class="submenu">
-							<a href="#"><i class="fas fa-clone"></i> <span>DX Imaging </span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="#">DX Imaging Test Types</a></li>
 								<li><a href="#">DX Imaging Tests</a></li>
@@ -348,6 +346,7 @@
 						<li class="submenu">
 							<a href="#"><i class="fas fa-hospital"></i> <span>Institutions </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
+								<li><a href="#">Buildings</a></li>
 								<li><a href="#">Units</a></li>
 								<li><a href="#">Wards</a></li>
 								<li><a href="#">Beds</a></li>
@@ -365,14 +364,13 @@
 						<li class="submenu">
 							<a href="#"><i class="fas fa-capsules"></i> <span>Medicaments</span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								
 								<li><a href="#">Medicaments</a></li>
 								<li><a href="#">Medication Frequencies</a></li>
 								<li><a href="#">Drug Dose Units</a></li>
 								<li><a href="#">Drug Administration Routes</a></li>
 								<li><a href="#">Drug Forms</a></li>
 								<li><a href="#">Medicament categories</a></li>
-
+							
 							</ul>
 						</li>
 						<li class="submenu">
@@ -384,11 +382,12 @@
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fab fa-trade-federation"></i><span>Federation</span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								 <li><a href="#">Federation Country Configuration</a></li>
-                                                		<li><a href="#">Node Configuration</a></li>
-                                                		<li><a href="#">Federation Objects</a></li>
+								<li><a href="#">Federation Country Configuration</a></li>
+								<li><a href="#">Node Configuration</a></li>
+								<li><a href="#">Federation Objects</a></li>
+							
 							</ul>
 						</li>
 						  <li class="submenu">
@@ -422,7 +421,7 @@
 						</li>	
 							</ul>
 						</li>
-			<li>
+						<li>
                             <a href="doctors.html"><i class="fa fa-user-md"></i> Doctors</a>
                         </li>
                         <li>
@@ -584,390 +583,59 @@
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-								<span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
-								<div class="dash-widget-info text-right">
-									<h3>$998</h3>
-									<span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
-								</div>
-                        </div>
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Domiciliary Units</h4>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
-                            <div class="dash-widget-info text-right">
-                                <h3>1072</h3>
-                                <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
-                            </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+                            <button class="btn btn-white"> <i class="far fa-file-excel"> </i> CSV</button>
+                            <button class="btn btn-white"><i class="far fa-file-pdf	"> </i> PDF </button>
+                            <button class="btn btn-white"><i class="fas fa-print	"></i> Print</button>
+                              <a href="add-domiciliary-unit.html" class="btn btn btn-primary  float-right"><i class="fa fa-plus"></i> Add New</a>
                         </div>
+                       
                     </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg3"><i class="fa fa-user-md" aria-hidden="true"></i></span>
-                            <div class="dash-widget-info text-right">
-                                <h3>72</h3>
-                                <span class="widget-title3">Attend <i class="fa fa-check" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                        <div class="dash-widget">
-                            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-                            <div class="dash-widget-info text-right">
-                                <h3>618</h3>
-                                <span class="widget-title4">Pending <i class="fa fa-check" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    
+                    
                 </div>
-				<div class="row">
-					<div class="col-12 col-md-6 col-lg-6 col-xl-6">
-						<div class="card">
-							<div class="card-body">
-								<div class="chart-title">
-									<h4 class="title is-3">Patient Total</h4>
-									<span class="float-right"><i class="fa fa-caret-up" aria-hidden="true"></i> 15% Higher than Last Month</span>
-								</div>	
-								<canvas id="canvas"></canvas>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-md-6 col-lg-6 col-xl-6">
-						<div class="card">
-							<div class="card-body">
-								<div class="chart-title">
-									<h4 class="title is-3">Patients In</h4>
-									<span class="float-right">
-										<ul class="chat-user-total">
-											<li><i class="fa fa-circle current-users" aria-hidden="true"></i>ICU</li>
-											<li><i class="fa fa-circle old-users" aria-hidden="true"></i> OPD</li>
-										</ul>
-									</span>
-								</div>	
-								<canvas id="bargraph"></canvas>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 col-md-8 col-lg-8 col-xl-8">
-						<div class="card">
-							<div class="card-header">
-								<h4 class="card-title d-inline-block">Upcoming Appointments</h4> <a href="appointments.html" class="btn btn-primary float-right">View all</a>
-							</div>
-							<div class="card-body p-0">
-								<div class="table-responsive">
-									<table class="table mb-0">
-										<thead class="d-none">
-											<tr>
-												<th>Patient Name</th>
-												<th>Doctor Name</th>
-												<th>Timing</th>
-												<th class="text-right">Status</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>
-													<a class="avatar" href="profile.html">B</a>
-													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-												</td>                 
-												<td>
-													<h5 class="time-title p-0">Appointment With</h5>
-													<p>Dr. Cristina Groves</p>
-												</td>
-												<td>
-													<h5 class="time-title p-0">Timing</h5>
-													<p>7.00 PM</p>
-												</td>
-												<td class="text-right">
-													<span class="btn btn-outline-primary">Take up</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a class="avatar" href="profile.html">B</a>
-													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-												</td>                 
-												<td>
-													<h5 class="time-title p-0">Appointment With</h5>
-													<p>Dr. Cristina Groves</p>
-												</td>
-												<td>
-													<h5 class="time-title p-0">Timing</h5>
-													<p>7.00 PM</p>
-												</td>
-												<td class="text-right">
-													<span class="btn btn-outline-primary">Take up</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a class="avatar" href="profile.html">B</a>
-													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-												</td>                 
-												<td>
-													<h5 class="time-title p-0">Appointment With</h5>
-													<p>Dr. Cristina Groves</p>
-												</td>
-												<td>
-													<h5 class="time-title p-0">Timing</h5>
-													<p>7.00 PM</p>
-												</td>
-												<td class="text-right">
-													<span class="btn btn-outline-primary">Take up</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a class="avatar" href="profile.html">B</a>
-													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-												</td>                 
-												<td>
-													<h5 class="time-title p-0">Appointment With</h5>
-													<p>Dr. Cristina Groves</p>
-												</td>
-												<td>
-													<h5 class="time-title p-0">Timing</h5>
-													<p>7.00 PM</p>
-												</td>
-												<td class="text-right">
-													<span class="btn btn-outline-primary">Take up</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a class="avatar" href="profile.html">B</a>
-													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
-												</td>                 
-												<td>
-													<h5 class="time-title p-0">Appointment With</h5>
-													<p>Dr. Cristina Groves</p>
-												</td>
-												<td>
-													<h5 class="time-title p-0">Timing</h5>
-													<p>7.00 PM</p>
-												</td>
-												<td class="text-right">
-													<span class="btn btn-outline-primary">Take up</span>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-                        <div class="card member-panel">
-							<div class="card-header bg-white">
-								<h4 class="card-title m-b-0">Doctors</h4>
-							</div>
-                            <div class="card-body">
-                                <ul class="contact-list">
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">John Doe</span>
-                                                <span class="contact-date">MBBS, MD</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">Richard Miles</span>
-                                                <span class="contact-date">MD</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">John Doe</span>
-                                                <span class="contact-date">BMBS</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">Richard Miles</span>
-                                                <span class="contact-date">MS, MD</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">John Doe</span>
-                                                <span class="contact-date">MBBS</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="contact-cont">
-                                            <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="Richard Miles"><img src="assets/img/user.jpg" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
-                                            </div>
-                                            <div class="contact-info">
-                                                <span class="contact-name text-ellipsis">Richard Miles</span>
-                                                <span class="contact-date">MBBS, MD</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-footer text-center bg-white">
-                                <a href="doctors.html" class="text-muted">View all Doctors</a>
-                            </div>
-                        </div>
-                    </div>
-				</div>
-				<div class="row">
-                            <div class="col-12 col-md-8 col-lg-8 col-xl-8">
-                                <div class="card">
-									<div class="card-header">
-										<h4 class="card-title d-inline-block">New Patients </h4> <a href="patients.html" class="btn btn-primary float-right">View all</a>
-									</div>
-                                    <div class="card-block">
-										<div class="table-responsive">
-											<table class="table m-b-0 new-patient-table">
-												<tbody>
-													<tr>
-														<td>
-															<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg"> 
-															<h2>John Doe</h2>
-														</td>
-														<td>Johndoe21@gmail.com</td>
-														<td>+1-202-555-0125</td>
-														<td><button class="btn btn-primary btn-primary-one float-right">Fever</button></td>
-													</tr>
-													<tr>
-														<td>
-															<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg"> 
-															<h2>Richard</h2>
-														</td>
-														<td>Richard123@yahoo.com</td>
-														<td>202-555-0127</td>
-														<td><button class="btn btn-primary btn-primary-two float-right">Cancer</button></td>
-													</tr>
-													<tr>
-														<td>
-															<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg"> 
-															<h2>Villiam</h2>
-														</td>
-														<td>Richard123@yahoo.com</td>
-														<td>+1-202-555-0106</td>
-														<td><button class="btn btn-primary btn-primary-three float-right">Eye</button></td>
-													</tr>
-													<tr>
-														<td>
-															<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg"> 
-															<h2>Martin</h2>
-														</td>
-														<td>Richard123@yahoo.com</td>
-														<td>776-2323 89562015</td>
-														<td><button class="btn btn-primary btn-primary-four float-right">Fever</button></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-							<div class="col-12 col-md-4 col-lg-4 col-xl-4">
-									<div class="hospital-barchart">
-										<h4 class="card-title d-inline-block">Hospital Management</h4></a>
-									</div>
-									<div class="bar-chart">
-										<div class="legend">
-											<div class="item">
-												<h4>Level1</h4>
-											</div>
-											
-											<div class="item">
-												<h4>Level2</h4>
-											</div>
-											
-											<div class="item text-right">
-												<h4>Level3</h4>
-											</div>
-									
-											<div class="item text-right">
-												<h4>Level4</h4>
-											</div>
-										</div>
                 
-										<div class="chart clearfix">
-											<div class="item">
-												<div class="bar">
-													<span class="percent">12%</span>
-									
-													<div class="item-progress" data-percent="12">
-														<span class="title">OPD Patient</span>
-													</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-border table-striped custom-table datatable m-b-0">
+								<thead>
+									<tr>
+										<th>Code</th>
+										<th>Desk</th>
+										<th>DU Address</th>
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5"> </td>
+										<td></td>
+										<td></td>
+										
+										<td class="text-right">
+											<div class="dropdown dropdown-action">
+												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+												<div class="dropdown-menu dropdown-menu-right">
+													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 												</div>
 											</div>
-											
-											<div class="item">
-												<div class="bar">
-													<span class="percent">71%</span>
+										</td>
+									</tr>
 									
-													<div class="item-progress" data-percent="71">
-														<span class="title">New Patient</span>
-													</div>
-												</div>
-											</div>
-											
-											<div class="item">
-												<div class="bar">
-													<span class="percent">82%</span>
 									
-													<div class="item-progress" data-percent="82">
-														<span class="title">Laboratory Test</span>
-													</div>
-												</div>
-											</div>
-									
-											<div class="item">
-												<div class="bar">
-													<span class="percent">67%</span>
-									
-													<div class="item-progress" data-percent="67">
-														<span class="title">Treatment</span>
-													</div>
-												</div>
-											</div>
-											<div class="item">
-												<div class="bar">
-													<span class="percent">67%</span>									
-													<div class="item-progress" data-percent="20">
-														<span class="title">Discharge</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-                             </div>
-                        </div>
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
             </div>
             <div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
@@ -1179,6 +847,20 @@
                 </div>
             </div>
         </div>
+		<div id="delete_patient" class="modal fade delete-modal" role="dialog">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<img src="assets/img/sent.png" alt="" width="50" height="46">
+						<h3>Are you sure want to delete this Patient?</h3>
+						<div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
@@ -1187,209 +869,13 @@
     <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
     <script type="text/javascript" src="assets/js/slidemenu.html"></script>
     <script type="text/javascript" src="assets/js/select2.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="assets/js/moment.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript" src="assets/js/Chart.bundle.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
-	<script>
-	// Bar Chart
-
-	var barChartData = {
-		labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-
-		
-		datasets: [{
-			label: 'Dataset 1',
-			backgroundColor: 'rgba(1, 181, 199, 0.5)',
-			borderColor: 'rgba(1, 181, 199, 1)',
-			borderWidth: 1,
-			data: [35, 59, 80, 81, 56, 55, 40]
-		}, {
-			label: 'Dataset 2',
-			backgroundColor: 'rgba(228, 228, 228, 0.5)',
-			borderColor: 'rgba(228, 228, 228, 1)',
-			borderWidth: 1,
-			data: [28, 48, 40, 19, 86, 27, 90]
-		}]
-
-	};
-
-	var ctx = document.getElementById('bargraph').getContext('2d');
-	window.myBar = new Chart(ctx, {
-		type: 'bar',
-		data: barChartData,
-		options: {
-			responsive: true,
-			legend: {
-				display: false,
-			}
-		}
-	});
-
-var data = {
-    labels: [
-        "Red",
-        "Blue",
-        "Yellow"
-    ],
-    datasets: [
-        {
-            data: [300, 50, 100],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56"
-            ],
-            hoverBackgroundColor: [
-                "#FF4394",
-                "#36A2EB",
-                "#FFCE56"
-            ]
-						
-						
-        }]
-};
-
-var options = { 
-	cutoutPercentage:40,
-};
-
-
-/*var myDoughnutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: data,
-    options: options
-});*/
-	
-		/*var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};*/
-
-		var config = {
-			type: 'doughnut',
-			data: {
-				datasets: [{
-					data: [300, 50, 100, 20, 70],
-					backgroundColor: [
-						"#FF6384",
-						"#36A2EB",
-						"#01b5c7",
-						"#FFCE56",
-						"#737AFC"
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					'Red',
-					'Orange',
-					'Yellow',
-					'Green',
-					'Blue'
-				]
-			},
-			options: {
-				responsive: true,
-				legend: {
-					position: 'top',
-				},
-				animation: {
-					animateScale: true,
-					animateRotate: true
-				}
-			}
-		};
-
-		window.onload = function() {
-			var ctx = document.getElementById('chart-area').getContext('2d');
-			window.myDoughnut = new Chart(ctx, config);
-		};
-	</script>
-	<script>
-		
-		// BEGIN LINE CHART
-
-		/*var lineChartData = {
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-
-			datasets: [{
-				label: 'My First dataset',
-				backgroundColor: 'rgba(102, 126, 234, 0.2)',
-				borderColor: 'rgba(102, 126, 234, 1)',
-				pointBackgroundColor: 'rgba(102, 126, 234, 1)',
-				borderWidth: 2,
-				data: [35, 59, 80, 81, 56, 55, 40],
-				
-			}, {
-				label: 'My Second dataset',
-				backgroundColor: 'rgba(252, 96, 117, 0.2)',
-				borderColor: 'rgba(252, 96, 117, 1)',
-				pointBackgroundColor: 'rgba(252, 96, 117, 1)',
-				borderWidth: 2,
-				data: [28, 48, 40, 19, 86, 27, 90],
-			}]
-
-		};*/
-		
-		var lineChartData = {
-		  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-		  datasets: [{
-			label: "My First dataset",
-			backgroundColor: "rgba(1, 181, 199, 0.5)",
-			/*strokeColor: "none",
-			pointColor: "rgba(41, 128, 185, 0.9)",
-			pointStrokeColor: "rgba(41, 128, 185, 0)",
-			pointHighlightFill: "rgba(41, 128, 185, 0.9)",
-			pointHighlightStroke: "rgba(41, 128, 185, 0)",*/
-			data: [100, 70, 20, 100, 120, 50, 70, 50, 50, 100, 50, 90]
-		  }, {
-			label: "My Second dataset",
-			backgroundColor: "rgba(228, 228, 228, 1)",
-			/*strokeColor: "none",
-			pointColor: "rgba(155, 89, 182, 0.9)",
-			pointStrokeColor: "rgba(231, 76, 60, 255, 0)",
-			pointHighlightFill: "rgba(155, 89, 182, 0.9)",
-			pointHighlightStroke: "rgba(231, 76, 60, 0)",*/
-			fill: true,
-			data: [28, 48, 40, 19, 86, 27, 20, 90, 50, 20, 90, 20]
-		  }]
-		};
-	
-		var linectx = document.getElementById('canvas').getContext('2d');
-		window.myLine = new Chart(linectx, {
-		type: 'line',
-		data: lineChartData,
-		options: {
-			responsive: true,
-			legend: {
-				display: false,
-			},
-			tooltips: {
-				mode: 'index',
-				intersect: false,
-			}
-		}
-		});
-		
-	</script>
-	<script>
-		$(document).ready(function(){
-    barChart();
-    
-    $(window).resize(function(){
-        barChart();
-    });
-    
-    function barChart(){
-        $('.bar-chart').find('.item-progress').each(function(){
-            var itemProgress = $(this),
-            itemProgressWidth = $(this).parent().width() * ($(this).data('percent') / 100);
-            itemProgress.css('width', itemProgressWidth);
-        });
-    };
-});
-	</script>
 </body>
 
 
-<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:42:26 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/patients.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:42:52 GMT -->
 </html>
