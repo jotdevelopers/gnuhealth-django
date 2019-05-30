@@ -133,7 +133,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                     <ul>
+                  <ul>
                         <li class="menu-title">Main</li>
                         <li class="submenu">
 							<a href="#"><i class="fas fa-star-of-life"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
@@ -431,37 +431,72 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Families</h4>
+                        <h4 class="page-title">Meal Orders</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
 <div class="btn-group btn-group-sm" style="margin-right: 8px">
                              <button class="btn btn-white"> <i class="far fa-file-excel"> </i> CSV</button>
                             <button class="btn btn-white"><i class="far fa-file-pdf	"> </i> PDF </button>
                             <button class="btn btn-white"><i class="fas fa-print	"></i> Print</button>
-                              <a href="add-family.html" class="btn btn btn-primary  float-right"><i class="fa fa-plus"></i> Add New</a>
+                              <a href="add-meal-order.html" class="btn btn btn-primary  float-right"><i class="fa fa-plus"></i> Add New</a>
                         </div>                    </div>
                 </div>
-                
+                <div class="row filter-row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group form-focus">
+                            <label class="focus-label">Registration Code</label>
+                            <input type="text" class="form-control floating">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group form-focus">
+                            <label class="focus-label">Patient Name</label>
+                            <input type="text" class="form-control floating">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group form-focus select-focus">
+                            <label class="focus-label">Filter</label>
+                            <select class="select floating">
+                                <option>All</option>
+                                <option>Draft</option>
+                                 <option>Ordered</option>
+                                <option>Done</option>
+                               
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <a href="#" class="btn btn-primary btn-block"> Search </a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
 						<div class="table-responsive">
                             <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
                                <thead>
 									<tr>
-										<th>Family</th>
-										<th>Extra Information</th>
+										<th>Registration Code</th>
+										<th>Order</th>
+										<th>Meal Time</th>
+										<th>Items</th>
+										<th>Done</th>
+										<th>Status</th>
 										
-									
 										
 										<th class="text-right">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td></td>
-										<td></td>
-									
 										
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
 										
 										
 										<td class="text-right">
