@@ -2,7 +2,7 @@
 <html>
 
 
-<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:43:25 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:45:14 GMT -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/tagsinput.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--[if lt IE 9]>
 		<script src="assets/js/html5shiv.min.js"></script>
@@ -24,10 +24,12 @@
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left">
-                <a href="index-2.html" class="logo">
+                <a href="index.html" class="logo">
                     <img src="assets/img/Logo_Hospital.png" width="50" height="50" alt="">
                 </a>
             </div>
+			
+				
             <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
             <ul class="nav user-menu float-right">
                 <li class="nav-item dropdown d-none d-sm-block">
@@ -132,7 +134,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
+                     <ul>
                         <li class="menu-title">Main</li>
                         <li class="submenu">
 							<a href="#"><i class="fas fa-star-of-life"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
@@ -430,93 +432,84 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <h4 class="page-title">Add Lab Test</h4>
+                        <h4 class="page-title">Add Person Gentetic Info</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <form>
-                                                    <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Order</label>
-                                <input class="form-control" type="text">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Order Type</label>
-                                <input class="form-control" type="text">
-                            </div>
-                            </div>
-                            </div>
-                          
-                            <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Patient</label>
-                                <input class="form-control" type="text">
-                            </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Doctor</label>
-                                <input class="form-control" type="text">
-                            </div>
-                            </div>
-                            </div>
-                            
-                            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>State</label>
-                                        <select class="select">
-                                            <option>Draft</option>
-                                            <option>Child</option>
-                                            <option>Health Care</option>
-                                        </select>
-                                    </div>
+										<label>Patient</label>
+										<input class="form-control" type="text"  >
+									</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Service</label>
-                                        <select class="select">
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                            <option>Health Care</option>
-                                        </select>
-                                    </div>
+									<div class="form-group">
+										<label>Gene</label>
+										<select class="select">
+											<option>Select</option>
+											<option>Jennifer Robinson</option>
+											<option>Terry Baker</option>
+										</select>
+									</div>
                                 </div>
                             </div>
-                             <div class="row">
+                            <div class="row">
                             <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Date</label>
-                                        <div class="cal-icon">
-											<input class="form-control datetimepicker" type="text">
+                                        <label>Varient</label>
+                                        <div>
+											<input class="form-control" type="text">
 										</div>
                                     </div>
                                 </div>
-                           
+                          
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phenotype</label>
+                                        <select class="select">
+											<option>Select</option>
+											<option>Cristina Groves</option>
+											<option>Marie Wells</option>
+											<option>Henry Daniels</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                             <div class="form-group">
-                                <label class="display-block"></label>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="status" id="urgent" value="option1" checked>
-									<label class="form-check-label" for="urgent">
-									Urgent
-									</label>
-								</div>
-								
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Onset</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Institution</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+										<label>Health Proj</label>
+										<input class="form-control" type="text"  >
+									</div>
+                                </div>
+                               
+                                
+                            </div>
+                            <div class="form-group">
+                                <label>Notes</label>
+                                <textarea cols="30" rows="5" class="form-control"></textarea>
                             </div>
                           
                             
-                           
+                             
                             <div class="m-t-20 text-center">
                                 <button class="btn btn-primary submit-btn">Create</button>
                             </div>
@@ -524,7 +517,7 @@
                     </div>
                 </div>
             </div>
-            <div class="notification-box">
+			<div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
                     <div class="topnav-dropdown-header">
                         <span>Messages</span>
@@ -741,10 +734,18 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
     <script type="text/javascript" src="assets/js/select2.min.js"></script>
-    <script type="text/javascript" src="assets/js/tagsinput.js"></script>
+	<script type="text/javascript" src="assets/js/moment.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });
+     </script>
 </body>
 
 
-<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:43:28 GMT -->
+<!-- Mirrored from dreamguys.co.in/demo/medifab/admin-template/add-appointment.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 14:45:14 GMT -->
 </html>
