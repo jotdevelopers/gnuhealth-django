@@ -445,7 +445,8 @@
 
                             <div class="tab-content">
                                 <div class="tab-pane show active" id="top-tab1">
-                            	<div class="row">
+                                    <div class="card-box">
+                            	<div class="row" style="margin-top: 5px;">
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
 	                                        <label>Patient</label>
@@ -492,13 +493,14 @@
 	                                        <label>Session #</label>
 	                                        <input type="text" class="form-control ">
 	                                    </div>
-	                                </div>	                                
+	                                </div>	 
+                                    </div>                               
 	                            </div>
 	                            
                             	
 					
-                            	
-					<hr/><span class="title" style="font-weight: bold;">Vital Signs:</span>
+                            	<div class="card-box">
+					<span class="title" style="font-weight: bold;">Vital Signs</span>
 
                     <div class="row" style="margin-top: 20px;">
 
@@ -539,10 +541,11 @@
 	                                        <input type="text" class="form-control ">
 	                                    </div>
 	                                </div> 
+                                </div>
 
                     </div>
-                            	
-					<hr/><span class="title" style="font-weight: bold;">Misc:</span>
+                     <div class="card-box">       	
+					<span class="title" style="font-weight: bold;">Misc</span>
 
                     <div class="row" style="margin-top: 20px;">
 
@@ -559,10 +562,10 @@
 	                                        <input type="text" class="form-control ">
 	                                    </div>
 	                                </div> 
-
+                            </div>
                     </div>
-                            	
-					<hr/><span class="title" style="font-weight: bold;">Procedures:</span>
+                            	<div class="card-box">
+					<span class="title" style="font-weight: bold;">Procedures</span>
 
                     <div class="row" style="margin-top: 20px;">
  <div class="col-md-12">
@@ -588,7 +591,7 @@
                     			<div class="row" style="margin-top: 20px;">
                     				<div class="col-md-12">
                                  		<span class="title">Summary:</span>
-                                        <textarea cols="98" rows="5" class="form-control" style="margin-top: 10px;"></textarea>
+                                        <textarea cols="98" rows="5" class="form-control" style="margin-top: 10px;"></textarea><br/>
                                     </div>
                     			</div>
 
@@ -596,7 +599,16 @@
                                 </div>
                                 
                             </div>
+                        </div>
+
+                        
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-primary">Clear</button>
+                                <button type="button" class="btn btn-primary">Print</button>
+                                
 						</div>
+
 						<div class="tab-pane" id="bottom-tab2">						
                         
                             </div>
