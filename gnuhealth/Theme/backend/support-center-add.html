@@ -433,7 +433,8 @@
                     </div>
                 </div>
                 <div class="tab-content">
-                   	<div class="row">
+                    <div class="card-box">
+                   	<div class="row" style="margin-top: 5px;">
 	                   	<div class="col-md-4">
 	                        <div class="form-group">
 	                            <label>Date</label>
@@ -514,10 +515,10 @@
                                             <input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
 	                        </div>
 	                    </div>
-
+                        </div>
 	                </div>
-
-	                <hr/><span class="title" style="font-weight: bold;"> Location</span>
+                    <div class="card-box">
+	                <span class="title" style="font-weight: bold;"> Location</span>
 
 	                <div class="row" style="margin-top: 25px;">
 
@@ -545,7 +546,7 @@
 	                        </div>
 	                    </div>
 
-	                </div>
+                </div>
 	                <div class="row" style="margin-top: -90px;">
 	                    <div class="col-md-4">
 	                        <div class="form-group">
@@ -560,9 +561,10 @@
 	                        </div>
 	                    </div>
 	                </div>
-
-	                <hr/><span class="title" style="font-weight: bold;"> Patient Demographics</span>
-	                <div class="row" style="margin-top: 30px;">
+                </div>
+                    <div class="card-box">
+	                <span class="title" style="font-weight: bold;"> Patient Demographics</span>
+	                <div class="row" style="margin-top: 25px;">
 
 	                    <div class="col-md-4">
 	                        <div class="form-group">
@@ -587,10 +589,11 @@
                                          <input type = "text" class="form-control" readonly=""> 
 	                    	</div>
 	                    </div>
+                    </div>
 	                </div>
-
-	                <hr/><span class="title" style="font-weight: bold;"> Evaluation Specifics</span>
-	                <div class="row" style="margin-top: 30px;">
+<div class="card-box">
+	                <span class="title" style="font-weight: bold;"> Evaluation Specifics</span>
+	                <div class="row" style="margin-top: 25px;">
 
 	                    <div class="col-md-6">
 	                        <div class="form-group">
@@ -611,18 +614,21 @@
 	                    </div>
 	                </div>
 
-	                 <div class="row">
+	                 <div class="row" style="margin-bottom: 15px;">
 
                     				<div class="col-md-12">
                                  		<span class="title">Details:</span>
                                         <textarea cols="98" rows="5" class="form-control"></textarea>
+                                        
 	                        </div>
 	                    </div>
 
-	                    <div class="row" style="margin-top: 25px;">
+</div>
+<div class="card-box">
+	                    <div class="row">
                     <div class="col-md-12">
-	                    	<span class="title"> Activities</span>
-                        <div class="table-responsive" style="margin-top: 5px;">
+	                    	<span class="title" style="font-weight: bold;"> Activities</span>
+                        <div class="table-responsive" style="margin-top: 25px; margin-bottom: 15px;">
                             <table class="table table-striped custom-table m-b-0 datatable">
                                 <thead>
                                     <tr>
@@ -644,13 +650,14 @@
                         </div>
                     </div>
                 </div>
-
-	                   <div class="row" style="margin-top: 25px;">
+                </div>
+<div class="card-box">
+	                   <div class="row">
                     <div class="col-md-12">
                     	<button type="button" class="btn btn-primary" style="float: right; margin-bottom: 10px;">
 										<a href="support-center-ambulances.html" style="color: #fff; text-decoration: none;">Add New</a></button>
-	                    	<span class="title"> Ambulances</span>
-                        <div class="table-responsive" style="margin-top: 5px;">
+	                    	<span class="title" style="font-weight: bold;"> Ambulances</span>
+                        <div class="table-responsive" style="margin-top: 25px; margin-bottom: 15px;">
                             <table class="table table-striped custom-table m-b-0 datatable">
                                 <thead>
                                     <tr>
@@ -669,9 +676,10 @@
                             </table>
                         </div>
                     </div>
+                    </div>
                 </div>
-
-                <div class="row" style="margin-top: 30px;">
+<div class="card-box">
+                <div class="row" style="margin-top: 5px;">
 
 	                    <div class="col-md-4">
 	                        <div class="form-group">
@@ -700,23 +708,16 @@
 	                            </select>
 	                        </div>
 	                    </div>
+                    </div>
 
 	                </div>
 
-	                <div class="row">
-	                    <div class="col-md-1">
-	                        
-                            <div class="m-t-20 text-right">
-                                <button class="btn btn-primary submit-btn">Open</button>
-                            </div>
-	                    </div>
-	                    <div class="col-md-4">
-	                        
-                            <div class="m-t-20 text-right">
-                                <button class="btn btn-primary submit-btn">Close</button>
-                            </div>
-	                    </div>
-	                </div>
+	                
+
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-primary">Clear</button>
+                                <button type="button" class="btn btn-primary">Print</button>
 
 
 
