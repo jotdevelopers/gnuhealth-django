@@ -14,6 +14,63 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
+	<style>
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {
+  font-family: 'Open Sans', 'sans-serif';
+}
+.mega-dropdown {
+  position: static !important;
+}
+.mega-dropdown-menu {
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  color: #222;
+  padding: 3px 5px;
+}
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  text-decoration: none;
+}
+.mega-dropdown-menu .dropdown-header {
+  font-size: 18px;
+  color: #0a509e;
+  padding: 5px 60px 5px 5px;
+  line-height: 30px;
+}
+
+.carousel-control {
+  width: 30px;
+  height: 30px;
+  top: -35px;
+
+}
+.left.carousel-control {
+  right: 30px;
+  left: inherit;
+}
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right {
+  font-size: 12px;
+  background-color: #fff;
+  line-height: 30px;
+  text-shadow: none;
+  color: #333;
+  border: 1px solid #ddd;
+}
+	</style>
 </head>
 
 <body>
@@ -30,22 +87,91 @@
                     </div>
                     <div class="col-md-10">
                         <div class="navbar-collapse collapse" id="navbar">
-                        <ul class="nav navbar-nav main-nav pull-right navbar-right">
+                       <ul class="nav navbar-nav main-nav pull-right navbar-right">
                                 <li ><a href="index.html">Home</a></li>
                                 <li><a href="about-us.html">About Us</a></li>
-                                <li class="active"><a href="departments.html">Departments</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="doctors.html">Doctors</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Right Sidebar</a></li>
-                                        <li><a href="#">Left Sidebar</a></li>
-                                        <li><a href="#">Full Width</a></li>
-                                        <li><a href="#">Blog Grid</a></li>
-                                        <li><a href="#">Blog Details</a></li>
-                                    </ul>
-                                </li>
+  <li  class="dropdown mega-dropdown ">
+				<a href="services.html" class="dropdown-toggle" >Services <span class="caret"></span></a>				
+				<ul class="dropdown-menu mega-dropdown-menu">
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">Nursing</li>                            
+                            <p>
+                            The nursing module provides functionality to document Roundings and Amulatory Care.</p>
+                            <li class="dropdown-header ">24/7 Ambulances</li>                            
+                            <p>
+                            Emergency Management System of life provides ambulance service for emergency situation.</p>
+                           
+						</ul>
+					</li>
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">Laboratory</li>                            
+                            <p>
+                            The Laboratory Modules manage the request, creation and evaluation of laboratory analyses.</p>
+                            <li class="dropdown-header ">Inpatient</li>                            
+                            <p>
+Hospitalization, bed, operating room management. Inpatient care and nursing plans.
+                           </p>
+                           
+						</ul>
+					</li>
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">Functionality and Disability</li>                            
+                            <p>
+Based on WHO International Classification of Functioning, Disability and Health.
+                          </p>
+                            <li class="dropdown-header ">DX Imaging</li>                            
+                            <p>The imaging module provides basic dx imaging management, support and workflow.                            </p>
+                           
+						</ul>
+					</li>
+					
+				</ul>				
+			</li>                                <li><a href="doctors.html">Doctors</a></li>
+			<li class="active"><a href="lab-tests.html">Lab tests</a></li>
+                                <li class="dropdown mega-dropdown">
+				<a href="departments.html" class="dropdown-toggle" >Departments <span class="caret"></span></a>				
+				<ul class="dropdown-menu mega-dropdown-menu">
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">Demographics</li>                            
+                            <p>
+                            It manages details about domiciliary unit, birth & death certificates, families and family members.</p>
+                            <li class="dropdown-header ">Genetics</li>                            
+                            <p>
+                            Genetic packages integrate hereditary risks, family history and individual relevant genetic information.</p>
+                           
+						</ul>
+					</li>
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">Archives</li>                            
+                            <p>
+                            Archives has functionality to store and track old or paper-based clinical records.</p>
+                            <li class="dropdown-header ">Immunization</li>                            
+                            <p>
+This manages immunization schedules per country and year, the vaccination process, and history.                            </p>
+                           
+						</ul>
+					</li>
+					<li class="col-sm-4">
+						<ul>
+							<li class="dropdown-header ">ICU</li>                            
+                            <p>
+It covers IC medicine and the processes related to ICU, like procedures and stock management.                            </p>
+                            <li class="dropdown-header ">Pediatrics</li>                            
+                            <p>
+It focuses on the basic pediatric evaluation, making emphasis in the nutritional, growth of child.                            </p>
+                           
+						</ul>
+					</li>
+					
+					
+				</ul>				
+			</li>
+                                
                                 <li><a href="contact-us.html">Contact Us</a></li>
                                 <li><a class="btn btn-primary appoint-btn" href="appointment.html">Appointment</a></li>
                                 <li class="dropdown">
@@ -105,7 +231,7 @@
                 </li>
                 <li>
                     <div class="mobile-menu-item clearfix">
-                        <a href="#">Blog <i class="fa fa-chevron-down menu-toggle"></i></a>
+                        <a href="departments.html">Departments <i class="fa fa-chevron-down menu-toggle"></i></a>
                     </div>
                     <ul class="mobile-submenu-wrapper" style="display: none;">
                         <li><a href="#">Right Sidebar</a></li>

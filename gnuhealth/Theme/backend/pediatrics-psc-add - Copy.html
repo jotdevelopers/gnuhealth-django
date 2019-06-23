@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Pediatrics - PSC</title>
+    <link href="../../../../fonts.googleapis.com/css278f.css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="index-2.html" class="logo">
+                    <img src="assets/img/Logo_Hospital.png" width="50" height="50" alt="">
+                </a>
+            </div>
+			
+				
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell"></i> <span class="badge badge-pill bg-danger float-right">3</span></a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">
+												<img alt="John Doe" src="assets/img/user.jpg" class="img-fluid">
+											</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+												<p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+												<p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">L</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">G</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+												<p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-message">
+                                    <a href="activities.html">
+                                        <div class="media">
+											<span class="avatar">V</span>
+											<div class="media-body">
+												<p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+												<p class="noti-time"><span class="notification-time">2 days ago</span></p>
+											</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="activities.html">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                </li>
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
+							<span class="status online"></span></span>
+                        <span>Admin</span>
+                    </a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="profile.html">My Profile</a>
+						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+						<a class="dropdown-item" href="settings.html">Settings</a>
+						<a class="dropdown-item" href="login.html">Logout</a>
+					</div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.html">Settings</a>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                   <ul>
+                        <li class="menu-title">Main</li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-star-of-life"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="pages-of-life.html">Pages of life</a></li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="person-genetic-information.html"><i class="fas fa-dna"></i>Person Genetic Information</a></li>
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="appointments.html">Appointments Calendar</a></li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="new-work-schedule.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
+                        </li>
+                         <li>
+                            <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
+                        </li>
+                         <li>
+                            <a href="health-professionals.html"><i class="fas fa-user-md"></i> Health Professionals</a>
+                        </li>
+                         <li>
+                            <a href="institutions.html"><i class="far fa-hospital"></i> Institutions</a>
+                        </li>
+                         <li class="submenu">
+                            <a href=""><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Lab: Request New Order</a></li>
+                                <li><a href="lab-test-requests.html">Lab Test Requests</a></li>
+                                <li><a href="lab-test-results.html"></i>Lab Tests Results</a></li>
+                                
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">DX Imaging - New</a></li>
+                                <li><a href="dx-imaging-requests.html">DX Imaging Requests</a></li>
+                                <li><a href="dx-imaging-results.html">DX Imaging - Results</a></li>
+                                
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fas fa-notes-medical"></i> <span> Demographics </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="domiciliary-units.html">Domiciliay Units</a></li>
+                                <li><a href="birth-certificates.html">Birth Certificates</a></li>
+                                <li><a href="death-certificates.html">Death Certificates</a></li>
+                                <li><a href="families.html">Families</a></li>
+                                <li><a href="family-members.html">Family Members</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Operational Areas </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="operational-areas.html">Operational Areas</a></li>
+                                <li><a href="operational-serctors.html">Operational Sectors</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="surgeries.html"><i class="fa fa-plus-square"></i> Surgeries</a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-procedures"></i> <span> Hospitilization </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="meal-orders.html"><i class="icon-food"></i>Meal Orders</a></li>
+                                <li class="submenu">
+                            <a href=""> <span> Intensive Care </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="patient-icu-info.html">Patient ICU Info</a></li>
+                                <li><a href="gcs.html">GCS</a></li>
+                                <li><a href="apache.html">APACHE II Score</a></li>
+                                <li><a href="ecgs.html">ECGs</a></li>
+                            
+                            </ul>
+                        </li>                           
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-file-medical-alt"></i> <span> Pediatrics </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="pediatrics-newborn-main.html">New Born</a></li>
+                                <li><a href="pediatrics-psc-main.html">PSC</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-file-medical"></i> <span> Obstetrics </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="obstetric-main.html">Obstetric History</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="medical-archives-main.html"><i class="fas fa-file-alt"></i> Archives</a>
+                        </li>
+                        <li>
+                            <a href="support-center-main.html"><i class="fas fa-wrench"></i> Support Center</a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-user-nurse"></i> <span> Nursing </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="nursing-roundings-main.html">Roundings</a></li>
+                                <li><a href="nursing-ambulatory-care-main.html">Ambulatory Care</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="ambulances-in-support-requests-main.html">Ambulance In Support Requests</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Federation </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="federation-queue-manager-main.html">Federation Queue Manager</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-plus"></i> <span> Health Services </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="health-services-main.html">Health Services</a></li>
+                                <li><a href="health-services-created-invoices.html">Created Invoices</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-microscope"></i> <span> Reporting </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="reporting-specialties-by-institution.html">Specialties by institution</a></li>
+                                <li><a href="reporting-operational-sectors-by-institution.html">Operational sectors by institution</a></li>
+                                <li><a href="reporting-summary-report.html">Summary Report</a></li>
+                                <li><a href="reporting-patient-evaluations.html">Patient Evaluations</a></li>
+                                <li><a href="reporting-socio-economic-assessments.html">Socioeconomic Assessments/a></li>
+                                <li><a href="reporting-injury-surveillance-system.html">Injury Surveillance System Registration</a></li>
+                                <li><a href="reporting-ophthalmology-evaluation-main.html">Ophthalmologic evaluations</a></li>
+                                <li><a href="reporting-top-diseases.html">Top Diseases</a></li>
+                                <li><a href="reporting-amputations.html">Amputations</a></li>
+                                <li><a href="reporting-protheses.html">Protheses</a></li>
+                                <li><a href="reporting-specialties-by-health-professionals.html">Specialties by health professionals</a></li>
+                                <li><a href="#">Appointments with Dx Report</a></li>
+                                <li><a href="reporting-evaluations-report.html">Evaluations Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-cog"></i> <span> Configuration </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                
+                                <li class="submenu">
+                            <a href="#"> <span> Conditions </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Conditions</a></li>
+                                <li><a href="#">Pathology Groups</a></li>
+                                <li><a href="#">Categories</a></li>
+                            
+                            </ul>
+                        </li>                           
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="genetics-disease-genes.html">Disease Genes</a></li>
+                                <li><a href="genetics-natural-variants.html">Natural Variants</a></li>
+                                <li><a href="genetics-variants-phenotype.html">Variant Phenotype</a></li>
+                                <li><a href="genetics-protein-related-diseases.html">Protein related diseases</a></li>
+
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="dx-imaging-test-types.html">DX Imaging Test Types</a></li>
+                                <li><a href="#">DX Imaging Tests</a></li>
+                                
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality and Disability </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Body Functions</a></li>
+                                <li><a href="#">Body Structures</a></li>
+                                <li><a href="#">Activities and Participtions</a></li>
+                                <li><a href="#">Environmental Factors</a></li>
+                                
+                            </ul>
+                        </li>
+                         <li class="submenu">
+                            <a href="#"><i class="fas fa-procedures"></i> <span>Procedures </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Procedures</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="institutions.html"><i class="fas fa-hospital"></i> <span>Institutions </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Buildings</a></li>
+                                <li><a href="#">Units</a></li>
+                                <li><a href="#">Wards</a></li>
+                                <li><a href="#">Beds</a></li>
+                                <li><a href="#">Operating Rooms</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-bong"></i> <span>Laboratory </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="laboratory-lab-test-units.html">Lab Test Units</a></li>
+                                <li><a href="laboratory-lab-test-types.html">Lab Test Types</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-capsules"></i> <span>Medicaments</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="medicaments-medicament.html">Medicaments</a></li>
+                                <li><a href="medicaments-medication-frequencies.html">Medication Frequencies</a></li>
+                                <li><a href="#">Drug Dose Units</a></li>
+                                <li><a href="#">Drug Administration Routes</a></li>
+                                <li><a href="#">Drug Forms</a></li>
+                                <li><a href="#">Medicament categories</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fas fa-syringe"></i> <span>Immunization Schedule</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Schedule Vaccines</a></li>
+                                <li><a href="immunization-vaccine-doses.html">Vaccine Doses</a></li>
+                            
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="federation-queue-manager-main.html">Federation Country Configuration</a></li>
+                                <li><a href="#">Node Configuration</a></li>
+                                <li><a href="#">Federation Objects</a></li>
+                            
+                            </ul>
+                        </li>
+                          <li class="submenu">
+                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Misc </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li class="submenu">
+                            <a href="#"> <span> Insurances </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Insurances</a></li>
+                                <li><a href="#">Insurances Company</a></li>
+                                
+                            
+                            </ul>
+                        </li>   
+                        <li><a href="#">Plan Product Policies</a></li>              
+                        <li><a href="#">Occupations</a></li>                
+                        <li><a href="#">Ethnicities</a></li>                
+                        <li><a href="#">Medical Specialties</a></li>    
+                        <li><a href="#">Health Commands</a></li>    
+                        <li><a href="#">Recreational Drugs</a></li> 
+                        <li><a href="#">Inpatient Meals</a></li>    
+                        <li><a href="misc-pediatrics-growth-charts-who.html">Pediatrics Growth Charts WHO</a></li>
+                          <li class="submenu">
+                            <a href="#"> <span> Diets </span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Belief diets</a></li>
+                                <li><a href="#">Therapeutic diets</a></li>
+                                
+                            
+                            </ul>
+                        </li>   
+                            </ul>
+                        </li>
+            
+                     
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Pediatrics - Add PSC</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">Patient</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" type="Date">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">Date</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">Appointment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">0</span>
+                                </div>
+                                <input class="form-control" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">PSC Total</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-box">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label>Complains of Aches & Pains</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>Tires Easily Has Little Energy</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Has Trouble With Teacher</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Acts As If Driven By A Motor</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Distracted Easily</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Feels Sad, Unhappy</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Feels Hopeless</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Less Interested In Friends</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Absent From School</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Down On Him Or Herself</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Has Trouble Sleeping</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Wants To Be With You More Than Before</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Takes Unnecessary Risks</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Seems To Be Having Less Fun</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Does Not Listen To Rules</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Does Not Get Peoples Feelings</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Takes Things That Do Not Belong To Him Or Her</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="card-box">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label>Spends More Time Alone</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>Fidgety, Unable To Sit Still</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Less Interested In School</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Daydreams Too Much</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Afraid Of New Situations</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Is Irritable, Angry</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Has Trouble Concentrating</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Fights With Other Children</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>School Grades Dropping</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Visits The Doctor With Doctor Finding Nothing Wrong</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Worries Alot</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Feels He Or She Is Bad</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gets Hurt Frequently</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Acts Younger Than Childrens Of His Or Her Age</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Does Not Show Feelings</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Teases Others</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Refuses To Share</label> 
+                                    <select class="select">
+                                        <option>Select</option>
+                                        <option>Never</option>
+                                        <option>Sometimes</option>
+                                        <option>Often</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>                    
+                </div>
+                
+
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-primary">Update</button>
+                                <button type="button" class="btn btn-primary">Clear</button>
+                                <button type="button" class="btn btn-primary">Print</button>
+            </div>
+            <div class="notification-box">
+                <div class="msg-sidebar notifications msg-noti">
+                    <div class="topnav-dropdown-header">
+                        <span>Messages</span>
+                    </div>
+                    <div class="drop-scroll msg-list-scroll">
+                        <ul class="list-box">
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Richard Miles </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item new-message">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">John Doe</span>
+                                            <span class="message-time">1 Aug</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Tarah Shropshire </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Mike Litorus</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Catherine Manseau </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">D</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Domenic Houston </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">B</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Buster Wigton </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Rolland Webber </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Claire Mapes </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Melita Faucher</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Jeffery Lalor</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">L</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Loren Gatlin</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Tarah Shropshire</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a href="chat.html">See all messages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="assets/js/select2.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+</body>
+
+
+</html>
