@@ -429,13 +429,23 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-8 offset">
-                        <h4 class="page-title">Obstetric Histories- Add</h4>
+                        <h4 class="page-title">Obstetric Histories - Add</h4>
                     </div>
                 </div>
+
+
+                <div class="profile-tabs">
+                    <ul class="nav nav-tabs nav-tabs-bottom">
+                        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
+                    </ul>
+
+
 				<div class="tab-content">
 					<div class="tab-pane show active" id="about-cont">
                         <div class="tab-content">
                             <div class="tab-pane show active" id="top-tab1">
+
+                        <div class="card-box">
                             	<div class="row">
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
@@ -516,25 +526,27 @@
 												<option>Option Two</option>
 	                                        </select>
 	                                    </div>
-	                                </div>                         
+	                                </div>              
 	                                <div class="col-md-4">
 	                                    <div class="form-group" style="margin-top: 40px;">
                                         	<span class="title"> Current Pregnancy:</span>
-                                  			<input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
+                                  			<input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input" checked="">
 	                                    </div>
 	                                </div>                            
-	                            </div>                         	
-                    			<hr/>
+	                            </div> 
+                                </div>                        	
+                    			
+                        <div class="card-box">
 	                            <div class="row">
-	                            	<div class="col-md-12" style="margin-bottom: 15px;">
-                    					<span>Prenatal Evaluations</span>
+	                            	<div class="col-md-12" style="margin-bottom: 15px; margin-top: 5px;">
+                    					<span style="font-weight: bold;">Prenatal Evaluations</span>
 										<button type="button" class="btn btn-primary" style="float: right;">
 										<a href="obstetric-prenatal-evaluations.html" style="color: #fff; text-decoration: none;">Add New</a></button>
                     					
 	                            	</div>	
                     				<div class="col-md-12">
                         				<div class="table-responsive">
-                            				<table class="table table-striped custom-table m-b-0 datatable">
+                            				<table class="table table-bordered m-b-0">
 	                                			<thead>
 	                                    			<tr>
 	                                        			<th>Date</th>
@@ -545,13 +557,7 @@
 	                                        			<th>IUC</th>
 	                                        			<th>HY</th>
 	                                        			<th>PR</th>
-	                                        			<th>OV</th>
-	                                        			<th>DI</th>
 	                                        			<th>Placentation</th>
-	                                        			<th>PLA</th>
-	                                        			<th>VA</th>
-	                                        			<th>OLI</th>
-	                                        			<th>PO</th>
 	                                        			<th>Health Prof</th>
 	                                        			<th>Institution</th>
 	                                    			</tr>
@@ -569,21 +575,24 @@
                                         				<td></td>
                                         				<td></td>
                                         				<td></td>
-                                        				<td></td>
                                     				</tr>                                                                     
                                 				</tbody>
                             				</table>
                         				</div>
                     				</div>
                     			</div>
+                                <br/>
+                            </div>
 
-	                            <div class="row" style="margin-top: 30px;">
-	                            	<div class="col-md-6">
-                    					<span>Perinatal Info</span>
+
+                        <div class="card-box">
+	                            <div class="row" style="margin-top: 5px;">
+	                            	<div class="col-md-12">
+                    					<span style="font-weight: bold;">Perinatal Info</span>
 										<button type="button" class="btn btn-primary" style="float: right; margin-bottom: 10px;">
 										<a href="obstetric-perinatal-info.html" style="color: #fff; text-decoration: none;">Add New</a></button>
 	                        			<div class="table-responsive" style="margin-top: 15px;">
-	                            			<table class="table table-striped custom-table m-b-0 datatable">
+	                            			<table class="table table-bordered m-b-0">
 		                                		<thead>
 		                                    		<tr>
 		                                       			<th>Admission</th>
@@ -601,14 +610,20 @@
 	                                    			</tr>                                                                     
 	                                			</tbody>
 	                            			</table>
+                                            <br/>
 	                        			</div>
 	                            	</div>
-	                            	<div class="col-md-6">
-                    					<span>Puerperium Monitor</span>
+                                </div>
+                            </div>
+
+<div class="card-box">
+                                <div class="row" style="margin-top: 5px;">
+	                            	<div class="col-md-12">
+                    					<span style="font-weight: bold;">Puerperium Monitor</span>
                     					<button type="button" class="btn btn-primary" style="float: right; margin-bottom: 10px;">
 										<a href="obstetric-puerperium-monitor.html" style="color: #fff; text-decoration: none;">Add New</a></button>
 	                        			<div class="table-responsive" style="margin-top: 15px;">
-	                            			<table class="table table-striped custom-table m-b-0 datatable">
+	                            			<table class="table table-bordered m-b-0">
 		                                		<thead>
 		                                    		<tr>
 		                                       			<th>Date & Time</th>
@@ -632,10 +647,15 @@
 	                                    			</tr>                                                                     
 	                                			</tbody>
 	                            			</table>
+                                            <br/>
 	                        			</div>
 	                            	</div>
+                                </div>
                     			</div>
                     		</div>
+                        </div>
+
+                        <div class="card-box">
 							<div class="row" style="margin-top: 20px;">
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
@@ -667,27 +687,13 @@
 	                            </div>
                     			
                                 
-                            </div>
 							<div class="row" style="margin-top: 20px;">
 	                            	<div class="col-md-4">
                 <div class="form-group">
 	                                        <label>End Of Pregnancy</label> 
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        </div>
-                        <input class="form-control" type="text">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button"></button>
-                        </div>
-                    </div>
+                    
+                                            <input type="text" class="form-control ">
                 </div>
-	                                    <div class="form-group">                               
-	                                        <select class="select">
-												<option>Option One</option>
-												<option>Option Two</option>
-	                                        </select>
-	                                    </div>
                                         	<span class="title"> &nbspReverse:</span>
                                   			<input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
 	                                </div>                         
@@ -717,6 +723,12 @@
                                 
                             </div>
 						</div>
+                    </div>
+
+                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <button type="button" class="btn btn-primary">Clear</button>
+                                <button type="button" class="btn btn-primary">Print</button>
             </div>
                 
 			<div class="notification-box">
