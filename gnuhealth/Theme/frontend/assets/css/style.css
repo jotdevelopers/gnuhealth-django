@@ -48,7 +48,7 @@ a {
 }
 a:hover,
 a:focus {
-	color: #0a509e;
+	color: #003366;
 	outline: none;
 	text-decoration: none;
 }
@@ -88,14 +88,14 @@ textarea {
 	margin-top: 0 !important;
 }
 .btn-primary {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -106,8 +106,8 @@ textarea {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 }
 
 /*-----------------
@@ -138,7 +138,7 @@ textarea {
 .nav .open > a:hover,
 .main-nav.nav > li > a:focus,
 .nav > li > a:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 }
 .main-nav .dropdown-menu {
@@ -152,14 +152,14 @@ textarea {
 }
 .main-nav .dropdown-menu > li > a:focus,
 .main-nav .dropdown-menu > li > a:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 	text-decoration: none;
 }
 .main-nav .dropdown-menu > .active > a,
 .main-nav .dropdown-menu > .active > a:focus,
 .main-nav .dropdown-menu > .active > a:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 }
 .main-nav > li {
@@ -173,20 +173,20 @@ textarea {
 	padding: 10px 14px;
 }
 .main-nav > li.active > a {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 }
 .main-nav > li > a.appoint-btn {
 	background-color: transparent;
-	border: 1px solid #0a509e;
-	color: #0a509e;
+	border: 1px solid #003366;
+	color: #003366;
 	font-size: 13px;
 	padding: 9px 14px;
 }
 .main-nav > li > a.settings-icon {
 	font-size: 30px;
 	padding: 5px 14px;
-	color: #0a509e;
+	color: #003366;
 }
 .section {
 	padding: 80px 0;
@@ -206,7 +206,7 @@ textarea {
 	margin: 0 0 20px;
 }
 .home-banner h1 > span {
-	color: #0a509e;
+	color: #003366;
 }
 .home-banner p {
     color: #323232;
@@ -244,7 +244,7 @@ textarea {
     margin-bottom: 20px;
 }
 .line {
-    background-color: #0a509e;
+    background-color: #003366;
     height: 2px;
     margin: 0 auto 20px;
     width: 60px;
@@ -320,8 +320,8 @@ textarea {
 	width: 40px;
 }
 .social-icons > li > a:hover {
-	border-color: #0a509e;
-	color: #0a509e;
+	border-color: #003366;
+	color: #003366;
 }
 
 /*-----------------
@@ -350,7 +350,7 @@ textarea {
 	font-size: 13px;
 }
 .footer-menu > li > a:hover {
-	color: #0a509e;
+	color: #003366;
 }
 .footer-widget a {
 	color: #666;
@@ -439,7 +439,7 @@ textarea {
 	font-size: 14px;
 }
 .account-box a:hover {
-	color: #0a509e;
+	color: #003366;
 }
 .forgot-link {
 	margin-bottom: 20px;
@@ -479,7 +479,7 @@ textarea {
 .appointment .nav-tabs > li.active > a,
 .appointment .nav-tabs > li.active > a:focus,
 .appointment .nav-tabs > li.active > a:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 	border: 0 none;
 	box-shadow: none;
@@ -534,7 +534,7 @@ textarea {
 }
 .appoint-time > li.selected,
 .appoint-time > li:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
 }
 .account-box .cal-icon {
@@ -590,7 +590,7 @@ textarea {
 	font-size: 14px;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-	background-color: #0a509e;
+	background-color: #003366;
 }
 
 /*-----------------
@@ -658,7 +658,7 @@ textarea {
 }
 .owl-theme .owl-dots .owl-dot.active span,
 #testimonial_slider.owl-theme .owl-dots .owl-dot:hover span {
-	background: #0a509e;
+	background: #003366;
 }
 .owl-theme .owl-dots .owl-dot span {
 	background: #ccc;
@@ -696,7 +696,7 @@ textarea {
 
 .mobile-menu-toggle {
 	display: block;
-	background-color: #0a509e;
+	background-color: #003366;
 	vertical-align: middle;
 	color: #fff;
 	padding: 0 20px;
@@ -738,13 +738,13 @@ textarea {
 	color: #333;
 }
 .mobile-menu-wrapper li a.active {
-	color: #0a509e;
+	color: #003366;
 }
 .mobile-menu-wrapper li.active .mobile-menu-item > a {
-	color: #0a509e;
+	color: #003366;
 }
 .mobile-menu-wrapper li a:hover {
-	color: #0a509e;
+	color: #003366;
 }
 .mobile-menu-wrapper li i {
     border: 1px solid #ccc;
@@ -908,8 +908,8 @@ body.menu-opened {
 #testimonial_slider .owl-prev:hover,
 #testimonial_slider .owl-next:hover {
 	color: #fff;
-	background: #0a509e;
-	border-color: #0a509e;
+	background: #003366;
+	border-color: #003366;
 }
 #our_doctor .item,
 #testimonial_slider .item {
@@ -1046,7 +1046,7 @@ body.menu-opened {
 	color: #fff;
 }
 .view-profie > a {
-	background-color: #0a509e;
+	background-color: #003366;
 	border-radius: 4px;
 	color: #fff;
 	display: inline-block;
@@ -1056,8 +1056,8 @@ body.menu-opened {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .doctor-list:hover .view-profie > a {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 }
 .doctor-list:hover .view-profie {
 	opacity: 1;
@@ -1172,7 +1172,7 @@ body.menu-opened {
 	height: auto;
 }
 .book-appointment > a {
-	background-color: #0a509e;
+	background-color: #003366;
 	border-radius: 4px;
 	color: #fff;
 	display: inline-block;
@@ -1253,10 +1253,10 @@ body.menu-opened {
 	color: #909090;
 }
 .blog-info a:hover {
-	color: #0a509e;
+	color: #003366;
 }
 .blog-info i {
-	color: #0a509e;
+	color: #003366;
 	font-size: 14px;
 	margin-right: 5px;
 }
@@ -1300,8 +1300,8 @@ body.menu-opened {
 .blog-pagination .pagination > .active > span,
 .blog-pagination .pagination > .active > span:focus,
 .blog-pagination .pagination > .active > span:hover {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 	color: #fff;
 }
 .video {
@@ -1403,7 +1403,7 @@ body.menu-opened {
 	margin: 0;
 }
 .post-info p i {
-	color: #0a509e;
+	color: #003366;
 	font-size: 14px;
 	margin-right: 4px;
 }
@@ -1427,10 +1427,10 @@ body.menu-opened {
 	font-size: 14px;
 }
 .categories li a:hover {
-	color: #0a509e;
+	color: #003366;
 }
 .categories > li > a > i {
-	color: #0a509e;
+	color: #003366;
 	font-size: 18px;
 	margin-right: 10px;
 }
@@ -1483,11 +1483,11 @@ body.menu-opened {
 	top: 0;
 }
 .tag:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: white;
 }
 .tag:hover:after {
-	border-left-color: #0a509e;
+	border-left-color: #003366;
 }
 .comment-by {
 	display: block;
@@ -1548,9 +1548,9 @@ body.menu-opened {
 	width: 40px;
 }
 .social-share > li > a:hover {
-	background-color: #0a509e;
+	background-color: #003366;
 	color: #fff;
-	border-color: #0a509e;
+	border-color: #003366;
 }
 .widget h3 {
 	color: #333;
@@ -1617,8 +1617,8 @@ body.menu-opened {
 	margin-bottom: 20px;
 }
 .comment-submit .btn {
-	background-color: #0a509e;
-	border-color: #0a509e;
+	background-color: #003366;
+	border-color: #003366;
 	border-radius: 0;
 	font-size: 18px;
 	padding: 8px 26px;
@@ -1768,7 +1768,7 @@ body.menu-opened {
 	margin: 0 0 20px;
 }
 .service-view .service-title {
-	color: #0a509e;
+	color: #003366;
 	font-size: 32px;
 }
 .contact-widget {
@@ -1790,7 +1790,7 @@ body.menu-opened {
 	margin-bottom: 10px;
 	font-size: 20px;
 	font-weight: 600;
-	color: #0a509e;
+	color: #003366;
 }
 .contact-info {
 	display: block;
@@ -1821,7 +1821,7 @@ body.menu-opened {
 	font-family: fontawesome;
 	margin: 0;
 	position: relative;
-	color: #0a509e;
+	color: #003366;
 	float: left;
 	margin-left: -20px;
 	display: block;
@@ -1953,7 +1953,7 @@ body.menu-opened {
 	width: 50px;
 }
 .error-search-form button:hover {
-	color: #0a509e;
+	color: #003366;
 }
 
 /*-----------------
