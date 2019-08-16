@@ -1,3 +1,133 @@
 from django.db import models
 
 # Create your models here.
+from django.db import models
+
+# Create your models here.
+
+class gnuhealth_pol(models.Model):
+    id = models.IntegerField(primary_key=True)
+    age = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    create_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    federation_account = models.CharField(max_length=100)
+    gene = models.CharField(max_length=100)
+    health_condition = models.ForeignKey('gnuhealth_pathology', on_delete=models.CASCADE)
+    health_condition_code = models.CharField(max_length=100)
+    health_condition_text = models.CharField(max_length=100)
+    info = models.CharField(max_length=100)
+    institution = models.ForeignKey('gnuhealth_institution', on_delete=models.CASCADE)
+    medical_context = models.CharField(max_length=100)
+    natural_varient = models.CharField(max_length=100)
+    node = models.CharField(max_length=100)
+    page = models.CharField(max_length=100)
+    page_date = models.DateTimeField()
+    page_type = models.CharField(max_length=100)
+    person = models.IntegerField()
+    phenotype = models.CharField(max_length=100)
+    procedure = models.ForeignKey('gnuhealth_procedure', on_delete=models.CASCADE)
+    procedure_code = models.CharField(max_length=100)
+    procedure_text = models.CharField(max_length=100)
+    relevance = models.CharField(max_length=100)
+    social_context = models.CharField(max_length=100)
+    summary = models.CharField(max_length=100)
+    write_date = models.DateTimeField()
+    write_uid = models.IntegerField()
+    fsync = models.BooleanField(max_length=100)
+    
+class gnuhealth_procedure(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateField()
+    create_uid = models.IntegerField()
+    description = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    write_date = models.DateField()
+    write_uid = models.IntegerField()
+    
+class gnuhealth_pathology(models.Model):
+    id = models.IntegerField(primary_key=True)
+    active = models.BooleanField(max_length=100)
+    category = models.IntegerField()
+    chromosome = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    create_date = models.DateField()
+    create_uid = models.IntegerField()
+    gene = models.CharField(max_length=100)
+    info = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    protien = models.CharField(max_length=100)
+    write_date = models.DateField()
+    write_uid = models.IntegerField()
+    
+class gnuhealth_institution(models.Model):
+    id = models.IntegerField(primary_key=True)
+    beds = models.IntegerField()
+    code = models.CharField(max_length=100)
+    create_date = models.DateField()
+    create_uid = models.IntegerField()
+    extra_info = models.CharField(max_length=100)
+    heliport = models.BooleanField()
+    institution_type = models.CharField(max_length=100)
+    name = models.ForeignKey('party_party', on_delete=models.CASCADE) 
+    operating_room = models.BooleanField()
+    or_number = models.IntegerField()
+    picture = models.ImageField()
+    public_level = models.CharField(max_length=100)
+    teaching = models.BooleanField()
+    trauma_center = models.BooleanField()
+    trauma_level = models.CharField(max_length=100)
+    write_date = models.DateField()
+    write_uid = models.IntegerField()
+    main_speciality = models.IntegerField()
+    
+class party_party(models.Model):
+    id = models.IntegerField(primary_key=True)
+    active = models.BooleanField()
+    code = models.CharField(max_length=100)
+    create_date = models.DateField()
+    create_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    replaced_by = models.IntegerField()
+    write_date = models.DateField()
+    write_uid = models.IntegerField()
+    activation_date = models.DateField()
+    alternative_identification =  models.BooleanField()
+    birth_certifcate = models.IntegerField()
+    citizenship = models.IntegerField()
+    death_certificate = models.IntegerField()
+    deceased = models.BooleanField()
+    dob= models.DateField()
+    du = models.IntegerField()
+    ethnic_group = models.IntegerField()
+    fed_country = models.CharField(max_length=100)
+    federation_account = models.CharField(max_length=100)
+    gender = models.CharField(max_length=100)
+    insurance_company_type = models.CharField(max_length=100)
+    internal_user = models.IntegerField()
+    is_healthprof = models.BooleanField()
+    is_instituton = models.BooleanField()
+    is_insurance_company = models.BooleanField()
+    is_patient = models.BooleanField()
+    is_person = models.BooleanField()
+    is_pharmacy = models.BooleanField()
+    lastname = models.CharField(max_length=100)
+    marital_status = models.CharField(max_length=100)
+    name_representation = models.CharField(max_length=100)
+    photo = models.ImageField()
+    ref = models.CharField(max_length=100)
+    residence = models.IntegerField()
+    unidentified = models.BooleanField()
+    education = models.CharField(max_length=100)
+    occupation = models.IntegerField()
+    fsync = models.BooleanField()
+    warehouse = models.IntegerField()
+
+
+       
+class Meta:
+    db_table = 'gnuhealth_pol'
+    db_table = 'gnuhealth_procedure'
+    db_table = 'gnuhealth_pathology'
+    db_table = 'gnuhealth_institution'
+    db_table = 'party_party'
