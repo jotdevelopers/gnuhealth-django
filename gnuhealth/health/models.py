@@ -1,7 +1,7 @@
 from django.db import models
+from psycopg2.sql import DEFAULT
 
-# Create your models here.
-from django.db import models
+# Create your models here.from django.db import models
 
 # Create your models here.
 
@@ -13,20 +13,20 @@ class gnuhealth_pol(models.Model):
     create_uid = models.IntegerField()
     federation_account = models.CharField(max_length=100)
     gene = models.CharField(max_length=100)
-    health_condition = models.ForeignKey('gnuhealth_pathology', on_delete=models.CASCADE)
+    #health_condition = models.ForeignKey('gnuhealth_pathology', on_delete=models.CASCADE , default='SOME STRING')
     health_condition_code = models.CharField(max_length=100)
     health_condition_text = models.CharField(max_length=100)
     info = models.CharField(max_length=100)
-    institution = models.ForeignKey('gnuhealth_institution', on_delete=models.CASCADE)
+    #institution = models.ForeignKey('gnuhealth_institution', on_delete=models.CASCADE, default='SOME STRING')
     medical_context = models.CharField(max_length=100)
     natural_varient = models.CharField(max_length=100)
     node = models.CharField(max_length=100)
     page = models.CharField(max_length=100)
     page_date = models.DateTimeField()
     page_type = models.CharField(max_length=100)
-    person = models.IntegerField()
+    person = models.IntegerField(default='')
     phenotype = models.CharField(max_length=100)
-    procedure = models.ForeignKey('gnuhealth_procedure', on_delete=models.CASCADE)
+    #procedure = models.ForeignKey('gnuhealth_procedure', on_delete=models.CASCADE , default='SOME STRING')
     procedure_code = models.CharField(max_length=100)
     procedure_text = models.CharField(max_length=100)
     relevance = models.CharField(max_length=100)
@@ -122,12 +122,10 @@ class party_party(models.Model):
     occupation = models.IntegerField()
     fsync = models.BooleanField()
     warehouse = models.IntegerField()
+    
 
 
-       
+
 class Meta:
     db_table = 'gnuhealth_pol'
-    db_table = 'gnuhealth_procedure'
-    db_table = 'gnuhealth_pathology'
-    db_table = 'gnuhealth_institution'
-    db_table = 'party_party'
+    

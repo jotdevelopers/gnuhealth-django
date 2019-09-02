@@ -39,13 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'health',
-    'health_lab',
-    'health_genetics',
-    'health_icu',
-    'health_inpatient',
-    'health_socioecnomics',
-    'health_surgery',
-    'health_lifestyle'
+
 ]
 
 MIDDLEWARE = [

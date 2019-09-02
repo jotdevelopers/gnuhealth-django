@@ -5,15 +5,5 @@ from django.http import HttpResponse
 def index(request):
     return render(request, 'health_surgery/index.html')
 
- def addsurgery(request):
-     if request.method == "POST":  
-        form = HealthSurgeryForm(request.POST)  
-        if form.is_valid():  
-            try:  
-                form.save()  
-                return redirect('/index')  
-            except:  
-                pass  
-    else:  
-        form = HealthSurgeryForm()  
-    return render(request,'health_surgery/add-surgery.html',{'form':form})
+def addsurgery(request):
+    return render(request,'health_surgery/add-surgery.html')

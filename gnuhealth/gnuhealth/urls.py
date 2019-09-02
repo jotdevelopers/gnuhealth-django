@@ -65,9 +65,6 @@ urlpatterns = [
     path('health-purchase/', include('health_purchase.urls')),
     path('health-purchase-request/', include('health_purchase_request.urls')),
     path('health-party/', include('health_party.urls')),
-    path('health-nursing/', include('health_nursing.urls')),
-    path('health-nursing/', include('health_nursing.urls')),
-    path('health-nursing/', include('health_nursing.urls')),
-    path('health-nursing/', include('health_nursing.urls')),
+    path('health-surgery/', include('health_surgery.urls')),
     
 ]
