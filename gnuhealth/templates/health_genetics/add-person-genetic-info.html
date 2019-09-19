@@ -1,5 +1,8 @@
 {% extends "layouts/base.html" %}
 {% block content %}
+{% load widget_tweaks %}
+              <form method="POST" class="post-form" action="/health-genetics/addgenetics">  
+        {% csrf_token %}  
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <h4 class="page-title">Add Person Gentetic Info</h4>
@@ -9,22 +12,29 @@
                     <div class="col-md-8 offset-md-2">
                         <form>
                             <div class="row">
-                                <div class="col-md-6">
+                             <div class="col-md-4">
                                     <div class="form-group">
-										<label>Patient</label>
-										<input class="form-control" type="text"  >
+										<label>Id</label>
+										{{ form.id|add_class:"form-control" }}
 									</div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+										<label>Patient</label>
+										{{ form.patient|add_class:"form-control" }}
+									</div>
+                                </div>
+                                <div class="col-md-4">
 									<div class="form-group">
 										<label>Gene</label>
-										<select class="select">
+										<!-- <select class="select">
 											<option>Select</option>
 											<option>Bone Mineral Density</option>
 											<option>Bone Morephogenetic Protien</option>
 											<option>Polymicrogyria</option>
 											<option>Basigin</option>
-										</select>
+										</select>  -->
+										 {{ form.disease_gene|add_class:"form-control" }}
 									</div>
                                 </div>
                             </div>
@@ -33,7 +43,7 @@
                                     <div class="form-group">
                                         <label>Varient</label>
                                         <div>
-											<input class="form-control" type="text">
+											 {{ form.natural_varient|add_class:"form-control" }}
 										</div>
                                     </div>
                                 </div>
@@ -41,12 +51,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Phenotype</label>
-                                        <select class="select">
+                                      <!--  <select class="select">
 											<option>Select</option>
 											<option>Phenome</option>
 											<option>Phenomics</option>
 											
-                                        </select>
+                                        </select> --> 
+                                         {{ form.varient_phenotype|add_class:"form-control" }}
                                     </div>
                                 </div>
                             </div>
@@ -54,13 +65,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Onset</label>
-										<input class="form-control" type="text"  >
+										 {{ form.onset|add_class:"form-control" }}
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Health Professional</label>
-										<input class="form-control" type="text"  >
+										 {{ form.healthprof|add_class:"form-control" }}
 									</div>
                                 </div>
                                 
@@ -68,16 +79,17 @@
                            
                             <div class="form-group">
                                 <label>Notes</label>
-                                <textarea cols="30" rows="5" class="form-control"></textarea>
+                                {{ form.notes|add_class:"form-control" }}
                             </div>
                           
                             
                              
                             <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn">Create</button>
+                                <button type="submit" class="btn btn-primary submit-btn">Save</button>
                             </div>
                         </form>
                     </div>
                 </div>
+                </form>
            {% endblock %}
           

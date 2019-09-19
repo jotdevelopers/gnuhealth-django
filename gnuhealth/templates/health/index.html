@@ -44,21 +44,21 @@
                                     {% for pol in pols %}  
                                     
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{pol.page}}</td>
+                                            <td>{{pol.person}}</td>
+                                            <td>{{pol.federation_account}}</td>
+                                            <td>{{pol.relevance}}</td>
+                                            <td>{{pol.create_date}}</td>
+                                            <td>{{pol.age}}</td>
+                                            <td>{{pol.medical_context}}</td>
+                                            <td>{{pol.social_context}}</td>
+                                            <td>{{pol.summary}}</td>
+                                            <td>{{pol.node}}</td>
                                    
                                             <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
                                            
                                         </tr>
-                                       {% endfor %} 
+                                   {% endfor %} 
                                         
                                     </tbody>
                                 </table>

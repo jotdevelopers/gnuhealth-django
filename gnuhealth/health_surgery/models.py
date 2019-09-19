@@ -63,5 +63,5 @@ class gnuhealth_surgery_team(models.Model):
     
 class Meta:
     db_table = 'gnuhealth_surgery'
-    db_table = 'gnuhealth_surgery_supply'
+    db_table = 'gnuhealth_surgery_supply'                                 
     db_table = 'gnuhealth_surgery_team'

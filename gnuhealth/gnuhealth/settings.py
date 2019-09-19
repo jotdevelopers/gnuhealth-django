@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'health',
+    'health_genetics',
+    'health_surgery',
+    'health_lab'
 
 ]
 
@@ -80,7 +84,7 @@ WSGI_APPLICATION = 'gnuhealth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthdj',
+        'NAME': 'testdb',
         'USER': 'gnuhealth',
         'PASSWORD': 'password6',
         'HOST': '127.0.0.1',

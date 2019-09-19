@@ -31,13 +31,15 @@
 									</tr>
 								</thead>
 								<tbody>
+								 {% for lab in labs %}  
 									<tr>
+										<td>{{ lab.id }}</td>
+										<td>{{ lab.name }}</td>
 										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>{{ lab.patient_id }} </td>
+										<td>{{ lab.doctor_id }}</td>
+										<td>{{ lab.state }}</td>
+										
 										
 										
 										
@@ -51,7 +53,7 @@
 											</div>
 										</td>
 									</tr>
-									
+									 {% endfor %} 
 									
 								</tbody>
                             </table>

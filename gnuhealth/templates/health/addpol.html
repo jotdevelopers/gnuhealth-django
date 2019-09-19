@@ -1,6 +1,10 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-                <div class="row">
+{% load widget_tweaks %}
+              <form method="POST" class="post-form" action="/health/addpol">  
+        {% csrf_token %}  
+        
+     <div class="row">
                     <div class="col-md-8 offset">
                         <h4 class="page-title">Add Page of Life</h4>
                     </div>
@@ -12,8 +16,7 @@
                         <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
                     </ul>
 
-    <form method="POST"  action="/health/addpolsubmit">  
-               {% csrf_token %}  
+
 				<div class="tab-content">
 					<div class="tab-pane show active" id="about-cont">
                         <div class="tab-content">
@@ -26,24 +29,23 @@
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
 	                                        <label>Name</label>
-	                                         
-	                                        <input name="person" type="text" class="form-control ">
+	                                       {{ form.person|add_class:"form-control" }}
 	                                    </div>
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label>Family Names</label>
-	                                        <input name="family" type="text" class="form-control">
+	                                        <input type="text" class="form-control">
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label>PUID</label>
-	                                        <input name="puid" type="text" class="form-control">
+	                                         {{ form.id|add_class:"form-control"}} 
 	                                </div>
 	                            </div>
                             	<div class="row">
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
 	                                        <label>Gender</label>
-	                                        <select name="gender" class="select">
+	                                        <select class="select">
 	                                        <option>Select</option>
 												<option>Male</option>
 												<option>Female</option>
@@ -53,11 +55,11 @@
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label>DOB</label>
-	                                        <input name="dob" type="text" class="form-control">
+	                                        <input type="text" class="form-control">
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label> Marital Status</label>
-	                                        <select name="marital_status" class="select">
+	                                        <select class="select">
 	                                       <option>Select</option>
 												<option>Unmarried</option>
 												<option>Married</option>
@@ -70,28 +72,24 @@
 	                            	<div class="col-md-4">
 	                                    <div class="form-group">
 	                                        <label>Date</label>
-	                                        <input name="date" type="text" class="form-control ">
+	                                        <input type="text" class="form-control ">
 	                                    </div>
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label>Relevance</label>
-	                                        <select name="relevance" class="select">
-	                                       <option>Select</option>
-												<option>Medical</option>
-												
-	                                        </select>
+	                                        {{ form.relevance|add_class:"form-control" }}
+	                                       
 	                                </div>
 	                            	<div class="col-md-4">
 	                                        <label>Age</label>
-	                                       
-	                                        <input name="age" type="text" class="form-control">
+	                                        {{ form.age|add_class:"form-control"  }}  
 	                                </div>
 	                            </div>
                             	<div class="row">                          
 	                                <div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Page Type</label>
-	                                         <select name="page_type" class="select">
+	                                         <select class="select">
 	                                       <option>Select</option>
 												<option>Medical</option>
 												<option>Demographical</option>
@@ -105,7 +103,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input name="institution" class="form-control" type="text">
+                                <input class="form-control" type="text">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button">Institution</button>
                                 </div>
@@ -119,7 +117,7 @@
 	                            	<div class="col-md-12">
 	                                   <div class="form-group">
                                 <label>Summary</label>
-                                <textarea cols="30" rows="3" class="form-control"></textarea>
+                                {{ form.summary|add_class:"form-control" }} 
                             </div>
 	                                </div>
 	                            </div>                                
@@ -135,13 +133,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Health Condition</label>
-										<input name="health_condition" class="form-control" type="text"  >
+									{{ form.health_condition_text|add_class:"form-control" }} 
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Code</label>
-										<input name="code" class="form-control" type="text"  >
+										{{ form.health_condition_code|add_class:"form-control" }}
 									</div>
                                 </div>
                                 
@@ -150,13 +148,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Procedure</label>
-										<input name="procedure" class="form-control" type="text"  >
+										{{ form.procedure_text|add_class:"form-control" }}  
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Procedure Code</label>
-										<input name="procedure_code" class="form-control" type="text"  >
+										{{ form.procedure_code|add_class:"form-control" }}  
 									</div>
 									
                                 </div>
@@ -164,19 +162,19 @@
                                 </div>
                                  <div class="form-group">
                                 <label>Extended Information</label>
-                                <textarea cols="30" rows="8" class="form-control"></textarea>
+                                {{ form.info|add_class:"form-control" }} 
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Page</label>
-										<input name="page" class="form-control" type="text"  >
+										{{ form.page|add_class:"form-control" }}
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Account</label>
-										<input name="account" class="form-control" type="text"  >
+										{{ form.federation_account|add_class:"form-control"  }}  
 									</div>
                                 </div>
                                 
@@ -185,13 +183,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Author</label>
-										<input name="author" class="form-control" type="text"  >
+											{{ form.author|add_class:"form-control"  }}  
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Node</label>
-										<input name="node" class="form-control" type="text"  >
+										{{ form.node|add_class:"form-control" }}
 									</div>
                                 </div>
                                 
@@ -201,15 +199,13 @@
                         </div>
 
                        
-                                <button type="submit"  class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                                 <button type="button" class="btn btn-primary">Edit</button>
                                 <button type="button" class="btn btn-primary">Clear</button>
                                 <button type="button" class="btn btn-primary">Print</button>
             </div>
                 
                 
-        </div>
-        
-    </div>
+</form>  
     {% endblock %}
    

@@ -68,6 +68,21 @@ class gnuhealth_lab_test_units(models.Model):
     write_date = models.DateField()
     write_uid = models.IntegerField()
     
+class gnuhealth_patient_lab_test(models.Model):
+    id = models.IntegerField(primary_key=True)
+    #create_date = models.DateField()
+    #create_uid = models.IntegerField()
+    #date = models.DateField()
+    doctor_id = models.IntegerField()
+    name = models.CharField(max_length=200)
+    patient_id = models.IntegerField()
+    request = models.IntegerField()
+    #write_date = models.DateTimeField()
+    #write_uid = models.IntegerField()
+    state = models.CharField(max_length=200)
+    #urgent = models.BooleanField()
+    service = models.IntegerField()
+    
 class Meta:
     db_table = 'gnuhealth_lab'
     db_table = 'gnuhealth_lab_test_critearea'
