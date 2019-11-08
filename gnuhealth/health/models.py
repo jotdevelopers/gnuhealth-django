@@ -20,8 +20,7 @@ class gnuhealth_pol(models.Model):
     procedure_text = models.CharField(max_length=100)
     relevance = models.CharField(max_length=100)
     summary = models.CharField(max_length=100)
-    
 
-class Meta:
-    db_table = 'gnuhealth_pol'
+    class Meta:
+        db_table = 'gnuhealth_pol'
     

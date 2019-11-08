@@ -7,9 +7,8 @@ from health.forms import PolForm
 
 def index(request):
     pols = gnuhealth_pol.objects.all()
-    return render(request, 'health/index.html'  , {'pols':pols})
-    #return render(request,'index.html')
-    #return HttpResponse("Hello, world. 1226363sdsddd22773")
+    return render(request, 'health/index.html', {'pols':pols})
+
 
 def base(request):
     return render(request, 'health/base.html' )
