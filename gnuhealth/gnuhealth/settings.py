@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'health',
     'health_genetics',
     'health_surgery',
-    'health_lab'
+    'health_lab',
 
 ]
 
