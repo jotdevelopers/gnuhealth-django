@@ -82,7 +82,7 @@ urlpatterns = [
     path('health-immunization-shedule/', include('health_immunization_schedule.urls')),
     path('health-procedures/', include('health_procedures.urls')),
     path('health-federation/', include('health_federation.urls')),
-    path('health-configuration/', include('health_medicaments.urls')),
+    path('health-configuration/', include('health_configuration.urls')),
     path('health-functionality-disability/', include('health_functionality_disability.urls')),
     path('health-institutions-hospital/', include('health_institutions_hospital.urls')),
     path('health-federation-configuration/', include('health_federation.urls')),
