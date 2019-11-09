@@ -11,7 +11,7 @@ def index(request):
 def condition(request):
     conditions = gnuhealth_pathology.objects.all()
     return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions})
-#
+
 def pathologyGroups(request):
     return render(request, 'health_configuration/conditions/pathology_groups.html')
 #
