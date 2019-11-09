@@ -1,0 +1,295 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Add Created Invoices</h4>
+	</div>
+</div>
+<div class="card-box">
+	<div class="row" style="margin-top: 15px;">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Type</label>
+				<select class="select">
+					<option>Customer</option>
+					<option>Other</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<label>Journal</label>
+			<div class="form-group">
+				<div class="input-group">
+					<input class="form-control" type="text">
+					<div class="input-group-append">
+						<button class="btn btn-primary" type="button" title="Add Record"><i
+								class="fas fa-plus"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Number</label>
+				<input type="text" class="form-control " readonly="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Party</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" title="Search Record"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Invoice Address</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" title="Search Record"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Patient</label>
+				<input type="text" class="form-control " readonly="">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Tax Identifier</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" title="Search Record"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Description</label>
+				<input type="text" class="form-control ">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Reference</label>
+				<input type="text" class="form-control ">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row" style="margin-top: 20px;">
+	<div class="col-md-12">
+		<div class="card-box">
+			<ul class="nav nav-tabs nav-tabs-bottom">
+				<li class="nav-item"><a class="nav-link active" href="#bottom-tab1" data-toggle="tab">Invoice</a></li>
+				<li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Health</a></li>
+				<li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Other Info</a></li>
+				<li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Payment</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-tab1">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Invoice Date</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input class="form-control" type="text">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button" title="Search Record"><i
+													class="fas fa-search"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Payment Team</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input class="form-control" type="text">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button" title="Search Record"><i
+													class="fas fa-search"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Currency</label>
+								<div class="input-group">
+									<input class="form-control" type="text">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="button" title="Search Record"><i
+												class="fas fa-search"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 5px;">
+						<div class="col-md-12">
+							<span class="title"> Lines</span>
+							<div class="table-responsive" style="margin-top: 5px;">
+								<table class="table table-striped custom-table m-b-0 datatable">
+									<thead>
+										<tr>
+											<th>Type</th>
+											<th>Product</th>
+											<th>Description</th>
+											<th>Quantity</th>
+											<th>Unit</th>
+											<th>Unit Price</th>
+											<th>Tax</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<br /><br />
+
+					<div class="row" style="margin-top: 25px;">
+						<div class="col-md-12">
+							<span class="title" style="font-weight: bold;"> Tax Lines</span>
+							<div class="table-responsive" style="margin-top: 5px;">
+								<table class="table table-striped custom-table m-b-0 datatable">
+									<thead>
+										<tr>
+											<th>Description</th>
+											<th>Base</th>
+											<th>Amount</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="row" style="margin-top: 50px;">
+
+								<div class="col-md-3">
+									<div class="form-group">
+										<label style="font-weight: bold;">State</label>
+										<select class="select">
+											<option>Draft</option>
+											<option>Not Drafted</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label>Untaxed</label>
+
+										<input type="text" class="form-control " readonly="">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label>Tax</label>
+
+										<input type="text" class="form-control " readonly="">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label>Total</label>
+
+										<input type="text" class="form-control " readonly="">
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" style="margin-top: 5px; ">
+										<span class="title"> Reconciled</span>
+										<input style="margin-left:10px;" type="checkbox" name="gender"
+											class="form-check-input">
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+					</div>
+
+
+				</div>
+				<div class="tab-pane" id="bottom-tab2">
+					Tab content 2
+				</div>
+				<div class="tab-pane" id="bottom-tab3">
+					Tab content 3
+				</div>
+				<div class="tab-pane" id="bottom-tab4">
+					Tab content 4
+				</div>
+			</div>
+
+		</div>
+
+		<button type="button" class="btn btn-primary" style="margin-top: 25px">Cancel</button>
+
+		<button type="button" class="btn btn-primary" style="margin-top: 25px">Validate</button>
+
+		<button type="button" class="btn btn-primary" style="margin-top: 25px">Post</button>
+
+
+
+
+	</div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

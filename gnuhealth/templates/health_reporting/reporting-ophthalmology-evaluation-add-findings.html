@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Ophthalmology Evaluation Findings</h4>
+	</div>
+</div>
+<div class="card-box">
+	<div class="row" style="margin-top: 15px;">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Structure</label>
+				<select class="select">
+					<option>Option One</option>
+					<option>Option Two</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Eye</label>
+				<div class="form-group">
+					<select class="select">
+						<option>Option One</option>
+						<option>Option Two</option>
+					</select>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Finding</label>
+				<div class="form-group">
+
+					<input type="text" class="form-control ">
+				</div>
+
+			</div>
+
+
+			<button type="button" class="btn btn-primary">Save</button>
+			<button type="button" class="btn btn-primary">Edit</button>
+			<button type="button" class="btn btn-primary">Clear</button>
+			<button type="button" class="btn btn-primary">Print</button>
+
+		</div>
+	</div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

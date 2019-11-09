@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Specialties Health Professionals</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Specialty</th>
+                                <th>Health Professional</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

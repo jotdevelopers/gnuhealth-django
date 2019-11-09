@@ -1,0 +1,150 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Laboratory - Lab Test Types</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Sequency</th>
+                                <th>Analyte</th>
+                                <th>Lower Limit</th>
+                                <th>Upper Limit</th>
+                                <th>Reference</th>
+                                <th>Units</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CBC</td>
+                                <td>Complete Blood Count</td>
+                                <td>10</td>
+                                <td>50</td>
+                                <td>Leukemia, Malaria & Infection</td>
+                                <td>100</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>PTL</td>
+                                <td>Prothrombin Time</td>
+                                <td>1000</td>
+                                <td>2200</td>
+                                <td>Blood Clotting Factors</td>
+                                <td>600</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>BMP</td>
+                                <td>Basic Metabolic Panel</td>
+                                <td>1350</td>
+                                <td>1500</td>
+                                <td>Sugar Level, Electrolyte, Fluid Balance, Kidney</td>
+                                <td>120</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>CMP</td>
+                                <td>Comprehensive Metabolic Panel</td>
+                                <td>800</td>
+                                <td>850</td>
+                                <td>Comprehensive Evaluation of Metabolic Functions</td>
+                                <td>770</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>TSH</td>
+                                <td>Thyroid Stimulating Hormone</td>
+                                <td>3300</td>
+                                <td>4000</td>
+                                <td>Test Screens & Monitors Thyroid</td>
+                                <td>490</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>H1C</td>
+                                <td>Hemoglobin A1C</td>
+                                <td>350</td>
+                                <td>550</td>
+                                <td>Diagnose & Monitor Diabetes</td>
+                                <td>129</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>UNS</td>
+                                <td>Urinalysis</td>
+                                <td>10</td>
+                                <td>95</td>
+                                <td>Monitor Diabetes or Kidney Disease</td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>LPS</td>
+                                <td>Lipid Panel</td>
+                                <td>160</td>
+                                <td>990</td>
+                                <td>Cholesterol & Triglyceride Levels</td>
+                                <td>50</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

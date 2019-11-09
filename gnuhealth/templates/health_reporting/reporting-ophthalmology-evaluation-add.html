@@ -1,0 +1,476 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Ophthalmology Evaluations</h4>
+	</div>
+</div>
+<div class="card-box">
+	<div class="row" style="margin-top: 10px;">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Patient</label>
+				<div class="form-group">
+					<div class="input-group">
+						<input class="form-control" type="text">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" title="Search Record"><i
+									class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<label>Age</label>
+			<input type="text" class="form-control " readonly="">
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>&nbsp</label>
+				<select class="select">
+					<option>Option One</option>
+					<option>Option Two</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Health Professional</label>
+
+				<input type="text" class="form-control " readonly="">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Date</label>
+				<div class="form-group">
+					<div class="cal-icon">
+						<input type="text" class="form-control datetimepicker">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Time</label>
+				<div class="time-icon">
+					<input type="text" class="form-control" id="datetimepicker3">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<span class="title" style="font-weight: bold; margin-top: 25px;">Optometry Refraction</span>
+<br /><br />
+<div class="row">
+	<div class="col-md-6">
+		<div class="card-box">
+			<h4 class="card-title">Right Eye</h4>
+			<form action="#">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>RDVA</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>RDVA</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>RDVA Aid</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>RNV</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+			<hr />
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>SPH</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>CYL</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>RBCVA</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>BCVA Add</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Axis</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>RBCVANV</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+			<span class="title">Best Corrected Visual Activity</span>
+			<div class="row" style="margin-top: 25px;">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>SPH</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>CYL</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>RBCVA</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>BCVA Add</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Axis</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>RBCVANV</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card-box">
+			<h4 class="card-title">Left Eye</h4>
+			<form action="#">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>LDVA</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>LDVA</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>LDVA Aid</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>LNV</label>
+							<select class="select">
+								<option>Option One</option>
+								<option>Option Two</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+			<hr />
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>SPH</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>CYL</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>LBCVA</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>BCVA Add</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Axis</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>LBCVANV</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+			<span class="title">Best Corrected Visual Activity</span>
+			<div class="row" style="margin-top: 25px;">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>SPH</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>CYL</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>LBCVA</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>BCVA Add</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Axis</label>
+						<input type="text" class="form-control ">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>LBCVANV</label>
+						<select class="select">
+							<option>Option One</option>
+							<option>Option Two</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card-box">
+	<span class="title" style="font-weight: bold; margin-top: 25px;">Tonometry</span>
+	<br /><br />
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Method</label>
+				<select class="select">
+					<option>Option One</option>
+					<option>Option Two</option>
+				</select>
+			</div>
+
+		</div>
+		<div class="col-md-3" style="margin-top: 25px;">
+
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" name="status" id="disabilities" value="option1">
+				<label class="form-check-label" for="disabilities">
+					RIOP
+				</label>
+			</div>
+		</div>
+		<div class="col-md-3" style="margin-top: 25px;">
+
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox" name="status" id="disabilities" value="option1">
+				<label class="form-check-label" for="disabilities">
+					LIOP
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card-box">
+	<div class="row">
+
+		<div class="col-md-12"><span class="title" style="font-weight: bold; margin-top: 25px;">Findings</span>
+			<button type="button" class="btn btn-primary" style="float: right; margin-bottom: 10px;">
+				<a href="reporting-ophthalmology-evaluation-add-findings.html"
+					style="color: #fff; text-decoration: none;">Add New</a></button>
+			<div class="table-responsive" style="margin-top: 15px;">
+				<table class="table table-striped custom-table m-b-0">
+					<thead>
+						<tr>
+							<th>Structure</th>
+							<th>Eye</th>
+							<th>Finding</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<br />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card-box">
+	<div class="form-group" style="margin-top: 5px;">
+		<label style="font-weight: bold;">Notes</label>
+		<textarea rows="5" cols="5" class="form-control" placeholder="Enter message"></textarea>
+	</div>
+</div>
+<div class="card-box">
+
+	<div class="row" style="margin-top: 15px;">
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<label style="font-weight: bold;">State</label>
+				<select class="select">
+					<option>Option One</option>
+					<option>Option Two</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Signed By</label>
+				<input type="text" class="form-control " readonly="">
+			</div>
+		</div>
+	</div>
+</div>
+
+<button type="button" class="btn btn-primary">Save</button>
+<button type="button" class="btn btn-primary">Edit</button>
+<button type="button" class="btn btn-primary">Clear</button>
+<button type="button" class="btn btn-primary">Print</button>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

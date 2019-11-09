@@ -1,0 +1,138 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h4 class="page-title" style="padding-bottom: 5px;">Perinatal Info Monitors</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <div class="card-box">
+            <span style="font-weight: bold;">Mother</span>
+
+            <form>
+                <div class="row" style="margin-top: 15px;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control datetimepicker">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Time</label>
+                            <div class="time-icon">
+                                <input type="text" class="form-control" id="datetimepicker3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Systolic Pressure</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Diastolic Pressure</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mother's Heart Frequency</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Contractions</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cervix Dilation</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Fundal Height</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="card-box">
+            <span style="font-weight: bold;">Fetus</span>
+
+
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fetus Position</label>
+                        <input type="text" list="inpatients" name="inpatients" class="form-control">
+                        <datalist id="inpatients">
+                            <option value="Option One">
+                            <option value="Option Two">
+                            <option value="Option Three">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fetus Heart Frequency</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <span style="font-weight: bold;">Complications</span>
+
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <span class="title"> Bleeding:</span>
+                        <input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <span class="title"> Meconium:</span>
+                        <input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary">Clear</button>
+        <button type="button" class="btn btn-primary">Print</button>
+    </div>
+
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

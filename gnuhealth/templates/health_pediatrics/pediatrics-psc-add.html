@@ -1,0 +1,398 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Add PSC</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" type="text">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Patient</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" type="Date">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Date</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" type="text">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Appointment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">0</span>
+                </div>
+                <input class="form-control" type="text">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">PSC Total</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-box">
+            <form action="#">
+                <div class="form-group">
+                    <label>Complains of Aches & Pains</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tires Easily Has Little Energy</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Has Trouble With Teacher</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Acts As If Driven By A Motor</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Distracted Easily</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Feels Sad, Unhappy</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Feels Hopeless</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Less Interested In Friends</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Absent From School</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Is Down On Him Or Herself</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Has Trouble Sleeping</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Wants To Be With You More Than Before</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Takes Unnecessary Risks</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Seems To Be Having Less Fun</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Does Not Listen To Rules</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Does Not Get Peoples Feelings</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Takes Things That Do Not Belong To Him Or Her</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="card-box">
+            <form action="#">
+                <div class="form-group">
+                    <label>Spends More Time Alone</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Fidgety, Unable To Sit Still</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Less Interested In School</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Daydreams Too Much</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Is Afraid Of New Situations</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Is Irritable, Angry</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Has Trouble Concentrating</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Fights With Other Children</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>School Grades Dropping</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Visits The Doctor With Doctor Finding Nothing Wrong</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Worries Alot</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Feels He Or She Is Bad</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Gets Hurt Frequently</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Acts Younger Than Childrens Of His Or Her Age</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Does Not Show Feelings</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Teases Others</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Refuses To Share</label>
+                    <select class="select">
+                        <option>Select</option>
+                        <option>Never</option>
+                        <option>Sometimes</option>
+                        <option>Often</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <button type="button" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-primary">Edit</button>
+    <button type="button" class="btn btn-primary">Clear</button>
+    <button type="button" class="btn btn-primary">Print</button>
+</div>
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

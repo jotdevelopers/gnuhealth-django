@@ -1,0 +1,107 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Laboratory - Lab Test Units</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Unit</th>
+                                <th>Code</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UN-002</td>
+                                <td>mg/dL</td>
+                                <td>Acetone</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-003</td>
+                                <td>u/mL</td>
+                                <td>Acetylcholinesterase</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-004</td>
+                                <td>g/dL</td>
+                                <td>Albuminb</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-005</td>
+                                <td>μg/24 h</td>
+                                <td>Aldosterone</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-006</td>
+                                <td>mg/dL</td>
+                                <td>Arginineb</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-007</td>
+                                <td>mg/dL</td>
+                                <td>Citrullineb</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-008</td>
+                                <td>mg/dL</td>
+                                <td>Glutamineb</td>
+
+
+                            </tr>
+                            <tr>
+                                <td>UN-001</td>
+                                <td>μg/mL</td>
+                                <td>Acetaminophen</td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

@@ -1,0 +1,100 @@
+{
+    "name": "Diseases",
+    "children": [{
+        "name": "Schemic Heart Diseases",
+        "children": [{
+            "name": "Stroke",
+            "size": 743
+            
+        }, {
+            "name": "Schemic Heart Diseases",
+             "size": 3416
+            
+        },{
+            "name": "Lung Cancers",
+             "size": 3416
+            
+        },
+         {
+            "name": "Diabetes Mellitus",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Stroke",
+        "children": [{
+            "name": "Stroke",
+            "size": 743
+            
+        },{
+            "name": "Lung Cancers",
+             "size": 3416
+            
+        }, {
+            "name": "Schemic Heart Diseases",
+            "size": 3416
+            
+        }, {
+            "name": "Diabetes Mellitus",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Diabetes Mellitus",
+        "children": [{
+            "name": "Stroke",
+            "size": 743
+            
+        },{
+            "name": "Lung Cancers",
+             "size": 3416
+            
+        }, {
+            "name": "Schemic Heart Diseases",
+            "size": 3416
+            
+        }, {
+            "name": "Diabetes Mellitus",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Lung Cancers",
+        "children": [{
+            "name": "Stroke",
+            "size": 743
+            
+        }, {
+            "name": "Lung Cancers",
+             "size": 3416
+            
+        },{
+            "name": "Schemic Heart Diseases",
+            "size": 3416
+            
+        }, {
+            "name": "Diabetes Mellitus",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Lower Respiratory Infections",
+        "children": [{
+            "name": "Stroke",
+            "size": 743
+            
+        },{
+            "name": "Lung Cancers",
+             "size": 3416
+            
+        }, {
+            "name": "Schemic Heart Diseases",
+            "size": 3416
+            
+        }, {
+            "name": "Diabetes Mellitus",
+            "size": 7074
+            
+        }]
+    }]
+}

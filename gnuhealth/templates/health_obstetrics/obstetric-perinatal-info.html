@@ -1,0 +1,338 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 offset">
+        <h4 class="page-title">Perinatal Info</h4>
+    </div>
+</div>
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Additional Info</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+
+            <div class="tab-content">
+                <div class="tab-pane show active" id="top-tab1">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Gestational WKS</label>
+                                    <input type="text" class="form-control " readonly="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Institution</label>
+                                    <input type="text" list="institutions" name="institutions" class="form-control">
+                                    <datalist id="institutions">
+                                        <option value="Riphah Hospital">
+                                        <option value="Shifa International">
+                                        <option value="Ali Medical">
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Code</label>
+                                    <input type="text" class="form-control ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Delivery Mode</label>
+                                    <input type="text" list="institutions" name="institutions" class="form-control">
+                                    <datalist id="institutions">
+                                        <option value="Riphah Hospital">
+                                        <option value="Shifa International">
+                                        <option value="Ali Medical">
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fetus Presentation</label>
+                                    <input type="text" list="institutions" name="institutions" class="form-control">
+                                    <datalist id="institutions">
+                                        <option value="Riphah Hospital">
+                                        <option value="Shifa International">
+                                        <option value="Ali Medical">
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card-box">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary"
+                                    style="float: right; margin-bottom: 10px;">
+                                    <a href="obstetric-perinatal-info-monitors.html"
+                                        style="color: #fff; text-decoration: none;">Add New</a></button>
+                                <label>Monitors:</label>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered m-b-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Date & Time</th>
+                                                <th>Cervix</th>
+                                                <th>Systolic Press</th>
+                                                <th>Diastolic Press</th>
+                                                <th>Mother's Hea</th>
+                                                <th>Fetus Position</th>
+                                                <th>Fetus Heart</th>
+                                                <th>Bleeding</th>
+                                                <th>Mecon</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>55</td>
+                                                <td>Ashir</td>
+                                                <td>Miss Huma</td>
+                                                <td>15th June</td>
+                                                <td>7:50 PM</td>
+                                                <td>Male</td>
+                                                <td>None</td>
+                                                <td>NA</td>
+                                                <td>None</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-box">
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col-md-12">
+                                <span class="title">Notes:</span>
+                                <textarea cols="98" rows="5" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 15px;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Institution</label>
+                                    <input type="text" list="institutions" name="institutions" class="form-control">
+                                    <datalist id="institutions">
+                                        <option value="Riphah Hospital">
+                                        <option value="Shifa International">
+                                        <option value="Ali Medical">
+                                    </datalist>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Health Prof</label>
+                                    <input type="text" class="form-control" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-primary">Clear</button>
+                    <button type="button" class="btn btn-primary">Print</button>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="card-box">
+                <span style="font-weight: bold;">Neonatal Signs & Symptoms<br /><br /></span>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Meconium :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Positive Ortolani :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Positive Barlow :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Hernia :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Ambiguous Genitalia :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Erbs Palsy :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Hematomas :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Talipes Equinovarus :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Transversal Palmer Crease :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Polydactyly :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Syndactyly :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box">
+                <span style="font-weight: bold;">Neonatal Reflex Check<br /><br /></span>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Moro Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Grasp Refles Ortolani :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Stepping Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Babinski Refles :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Blink Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Sucking Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Swimming Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Tonic Neck Reflex :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box">
+                <span style="font-weight: bold;">Tests<br /><br /></span>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> VDRL :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Toxoplasmosis :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Chagas :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Billirubin :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Audition :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="title"> Metabolic(Heel Stick Screening) :</span>
+                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+            <button type="button" class="btn btn-primary">Print</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

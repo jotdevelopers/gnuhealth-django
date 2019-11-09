@@ -1,0 +1,281 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Nursing - Roundings</h4>
+	</div>
+</div>
+
+<div class="profile-tabs">
+	<ul class="nav nav-tabs nav-tabs-bottom">
+		<li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">ICU</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Procedures</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Medication</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab5" data-toggle="tab">Stock Moves</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane show active" id="about-cont">
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="top-tab1">
+					<div class="card-box">
+						<div class="row" style="margin-top: 5px;">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Registration Code</label>
+									<input type="text" list="inpatients" name="inpatients" class="form-control">
+									<datalist id="inpatients">
+										<option value="Option One">
+										<option value="Option Two">
+										<option value="Option Three">
+									</datalist>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Health Professional</label>
+									<input type="text" class="form-control " readonly="">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label>Start Date</label>
+								<div class="cal-icon">
+									<input type="text" class="form-control datetimepicker">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Time</label>
+									<div class="time-icon">
+										<input type="text" class="form-control" id="datetimepicker3">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Code</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Environment</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<span class="title"> ICU: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<span class="title"> Warning: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Six P's</span>
+
+						<div class="row" style="margin-top: 20px;margin-left: 2px;">
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Pain: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Potty: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Position: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Proximity:</span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Pumps: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="title"> Personal Needs: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Vital Signs</span>
+
+						<div class="row" style="margin-top: 20px;">
+
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Temprature</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Systolic Pressure</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Diastolic Pressure</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Heart Rate</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Respiratory Rate</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Oxygen Saturation</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Other</span>
+
+						<div class="row" style="margin-top: 20px;">
+
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Weight</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Diuresis</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Glycemia</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<span class="title"> Urinary Catheter: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<span class="title"> Depression Signs: </span>
+
+									<input style="margin-left:10px;" type="checkbox" name="gender"
+										class="form-check-input">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-box">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="title" style="font-weight: bold;">Round Summary</span>
+								<textarea cols="98" rows="5" class="form-control" style="margin-top: 10px;"></textarea>
+							</div>
+						</div>
+
+						<div class="row" style="margin-top: 15px;">
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Signed By</label>
+									<input type="text" class="form-control" readonly="readonly">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Evaluation</label>
+									<select class="select">
+										<option>Option One</option>
+										<option>Option Two</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-primary">Save</button>
+			<button type="button" class="btn btn-primary">Edit</button>
+			<button type="button" class="btn btn-primary">Clear</button>
+			<button type="button" class="btn btn-primary">Print</button>
+
+		</div>
+
+		<div class="tab-pane" id="bottom-tab2">
+
+		</div>
+	</div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

@@ -1,0 +1,294 @@
+{
+    "name": "Diseases",
+    "children": [{
+        "name": "Schemic Heart Diseases",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "Stroke",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "Diabetes Mellitus",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "Trachea, Bronchus & Lung Cancers",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "Lower Respiratory Infections",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    }]
+}

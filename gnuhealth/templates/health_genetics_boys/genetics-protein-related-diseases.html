@@ -1,0 +1,155 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Protein Related Diseases</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Disease</th>
+                                <th>Disease Name</th>
+                                <th>Acronym</th>
+                                <th>Dominance</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Affinomics</td>
+                                <td>Affinomics Consortium</td>
+                                <td>MI-0813</td>
+                                <td>PMID1201</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Alzheimers</td>
+                                <td>Alzheimer Disease</td>
+                                <td>MI-0814</td>
+                                <td>PMID1202</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Cardiac</td>
+                                <td>Cardiac Related Proteins</td>
+                                <td>MI-0815</td>
+                                <td>PMID1203</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Chromatin</td>
+                                <td>Chromatin Modulation</td>
+                                <td>MI-0815</td>
+                                <td>PMID1203</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Cyanobacteria</td>
+                                <td>Synechocystis Cyanobacteria</td>
+                                <td>MI-0816</td>
+                                <td>PMID1204</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Diabetes</td>
+                                <td>Diabetic Protein Disease</td>
+                                <td>MI-0817</td>
+                                <td>PMID1205</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Parkinsons</td>
+                                <td>Parkinsons Disease</td>
+                                <td>MI-0818</td>
+                                <td>PMID1206</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Apoptosis</td>
+                                <td>Apoptosis Relevant Protein</td>
+                                <td>MI-0819</td>
+                                <td>PMID1207</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Archaea</td>
+                                <td>Archaea Proteins</td>
+                                <td>MI-0820</td>
+                                <td>PMID1208</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_employee" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="assets/img/sent.png" alt="" width="50" height="46">
+                <h3>Are you sure want to delete this Employee?</h3>
+                <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

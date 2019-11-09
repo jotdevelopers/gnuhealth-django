@@ -1,0 +1,112 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Medication Frequencies</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Frequency</th>
+                                <th>Code</th>
+                                <th>Abbreviation</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MD-110</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Antamyzol</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>MD-111</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Prtionyl</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>MD-112</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Amoxyl</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>MD-112</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Brufyl</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>MD-113</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Parasitamol</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>MD-114</td>
+                                <td>Strong</td>
+                                <td></td>
+                                <td>Hydril</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

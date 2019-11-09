@@ -1,0 +1,120 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h4 class="page-title" style="padding-bottom: 25px;">Puerperium Monitor</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card-box">
+            <span style="font-weight: bold;">Institution</span>
+
+            <form>
+                <div class="row" style="margin-top: 15px;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Institution</label>
+                            <input type="text" list="inpatients" name="inpatients" class="form-control">
+                            <datalist id="inpatients">
+                                <option value="Option One">
+                                <option value="Option Two">
+                                <option value="Option Three">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <input type="text" class="form-control" readonly="">
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+
+
+        <div class="card-box">
+            <span style="font-weight: bold;">Main</span>
+
+
+            <div class="row" style="margin-top: 15px;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Date & Time</label>
+                        <div class="cal-icon">
+                            <input type="text" class="form-control datetimepicker">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fundal Height</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-box">
+            <span style="font-weight: bold;">Lochia</span>
+
+            <div class="row" style="margin-top: 15px;">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Lochia Amount</label>
+                        <input type="text" list="inpatients" name="inpatients" class="form-control">
+                        <datalist id="inpatients">
+                            <option value="Option One">
+                            <option value="Option Two">
+                            <option value="Option Three">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Lochia Color</label>
+                        <input type="text" list="inpatients" name="inpatients" class="form-control">
+                        <datalist id="inpatients">
+                            <option value="Option One">
+                            <option value="Option Two">
+                            <option value="Option Three">
+                        </datalist>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Lochia Odor</label>
+                        <input type="text" list="inpatients" name="inpatients" class="form-control">
+                        <datalist id="inpatients">
+                            <option value="Option One">
+                            <option value="Option Two">
+                            <option value="Option Three">
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </form>
+
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-primary">Clear</button>
+        <button type="button" class="btn btn-primary">Print</button>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

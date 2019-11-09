@@ -1,0 +1,314 @@
+{
+    "name": "Departments",
+    "children": [{
+        "name": "Emergency department",
+        "children": [{
+            "name": "Doctors",
+            "children": [{
+                "name": "Dr. Syed Amjad",
+                "size": 3938
+            }, {
+                "name": "Dr. Jamil Khan",
+                "size": 3812
+            }, {
+                "name": "Dr. Fazeela Abbasi",
+                "size": 6714
+            }, {
+                "name": "Dr. Muhammad Naeem Iqbal",
+                "size": 743
+            }]
+        }, {
+            "name": "Patients",
+            "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+        }, {
+            "name": "Health Professional",
+            "children": [{
+                "name": "Nurses",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            },
+            {
+                "name": "Receptionist",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            }]
+        }]
+    },{
+        "name": "Cardiology",
+        "children": [{
+            "name": "Doctors",
+            "children": [{
+                "name": "Dr. Syed Amjad",
+                "size": 3938
+            }, {
+                "name": "Dr. Jamil Khan",
+                "size": 3812
+            }, {
+                "name": "Dr. Fazeela Abbasi",
+                "size": 6714
+            }, {
+                "name": "Dr. Muhammad Naeem Iqbal",
+                "size": 743
+            }]
+        }, {
+            "name": "Patients",
+            "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+        }, {
+            "name": "Health Professional",
+            "children": [{
+                "name": "Nurses",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            },
+            {
+                "name": "Receptionist",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            }]
+        }]
+    },{
+        "name": "I.C.U",
+        "children": [{
+            "name": "Doctors",
+            "children": [{
+                "name": "Dr. Syed Amjad",
+                "size": 3938
+            }, {
+                "name": "Dr. Jamil Khan",
+                "size": 3812
+            }, {
+                "name": "Dr. Fazeela Abbasi",
+                "size": 6714
+            }, {
+                "name": "Dr. Muhammad Naeem Iqbal",
+                "size": 743
+            }]
+        }, {
+            "name": "Patients",
+            "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+        }, {
+            "name": "Health Professional",
+            "children": [{
+                "name": "Nurses",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            },
+            {
+                "name": "Receptionist",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            }]
+        }]
+    },{
+        "name": "Neurology",
+        "children": [{
+            "name": "Doctors",
+            "children": [{
+                "name": "Dr. Syed Amjad",
+                "size": 3938
+            }, {
+                "name": "Dr. Jamil Khan",
+                "size": 3812
+            }, {
+                "name": "Dr. Fazeela Abbasi",
+                "size": 6714
+            }, {
+                "name": "Dr. Muhammad Naeem Iqbal",
+                "size": 743
+            }]
+        }, {
+            "name": "Patients",
+            "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+        }, {
+            "name": "Health Professional",
+            "children": [{
+                "name": "Nurses",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            },
+            {
+                "name": "Receptionist",
+                "children": [{
+                "name": "Amjad",
+                "size": 7074
+            },
+            {
+                "name": "Saqlain",
+                "size": 7074
+            }]
+            }]
+        }]
+    },{
+        "name": "Oncology",
+        "children": [{
+            "name": "Doctors",
+            "children": [{
+                "name": "Dr. Syed Amjad",
+                "size": 3938
+            }, {
+                "name": "Dr. Jamil Khan",
+                "size": 3812
+            }, {
+                "name": "Dr. Fazeela Abbasi",
+                "size": 6714
+            }, {
+                "name": "Dr. Muhammad Naeem Iqbal",
+                "size": 743
+            }]
+        }, {
+            "name": "Patients",
+            "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+        }, {
+            "name": "Health Professional",
+            "children": [{
+                "name": "Nurses",
+                "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Ali",
+                "size": 5731
+            }, {
+                "name": "Waleed",
+                "size": 7840
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+            },
+            {
+                "name": "Receptionist",
+                 "children": [{
+                "name": "Iqbal",
+                "size": 3534
+            }, {
+                "name": "Saqlain",
+                "size": 5914
+            }, {
+                "name": "Fazal",
+                "size": 3416
+            }]
+            }]
+        }]
+    }]
+}

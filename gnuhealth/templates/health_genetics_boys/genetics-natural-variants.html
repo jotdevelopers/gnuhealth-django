@@ -1,0 +1,103 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Genetics - Natural Variants</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Gene & Protein</th>
+                                <th>Protein Variant</th>
+                                <th>Change</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Optineurin</td>
+                                <td>E3-14.7K-Interacting Protein</td>
+                                <td>Autophagy, Immunity, Innate Immunity</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Histatin-3</td>
+                                <td>R-HSA-6803157 Antimicrobial Peptides</td>
+                                <td>Antibiotic, Antimicrobial, Fungicide</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Interferon Regulatory Factor</td>
+                                <td>R-HSA-877300 Interferon Gamma Signaling</td>
+                                <td>Differentiation, Transcription, Transcription</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Carbohydrate Sulfotransferase 13</td>
+                                <td>R-HSA-2022870 Chondroitin Sulfate Biosynthesis</td>
+                                <td>Carbohydrate Metabolism</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Lysine-Specific Demethylase Hairless</td>
+                                <td>UP000005640 Component: Chromosome 8</td>
+                                <td>Transcription, Transcription Regulation</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <td>C-C Chemokine Receptor Type-5</td>
+                            <td>UP000005640 Component: Chromosome 3</td>
+                            <td>Host-Virus Interaction</td>
+
+                            <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                        class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

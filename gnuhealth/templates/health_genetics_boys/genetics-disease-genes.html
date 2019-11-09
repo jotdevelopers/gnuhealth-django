@@ -1,0 +1,141 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Genetics - Disease Genes</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Gene Name</th>
+                                <th>Official Full Name</th>
+                                <th>Chromosome</th>
+                                <th>Variants</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bacterial Intestinal Infection</td>
+                                <td>Paratyphoid Fever</td>
+                                <td>1A08</td>
+                                <td>MG50.9</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Bacterial Intestinal Infection</td>
+                                <td>Gastroenteritis Due To Campylobacter</td>
+                                <td>1A06</td>
+                                <td>MG50.1Z</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Bacterial Intestinal Infection</td>
+                                <td>Intestinal Infections Due To Yersinia Enterocolitica</td>
+                                <td>1A05</td>
+                                <td>MG50.5</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Enteropathogenic Escherichia Coli Infection</td>
+                                <td>Intestinal Infections Due To Yersinia Enterocolitica</td>
+                                <td>1A03</td>
+                                <td>MG50.2Z</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Enteropathogenic Escherichia Coli Infection</td>
+                                <td>Antibiotic Resistant Escherichia Coli</td>
+                                <td>1A01</td>
+                                <td>MG50.2</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Enteropathogenic Escherichia Coli Infection</td>
+                                <td>Fluoroquinolone Resistant Escherichia Coli</td>
+                                <td>1A09</td>
+                                <td>MG50.21</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Upper Respiratory Tract Disorders</td>
+                                <td>Acute Nasopharyngitis</td>
+                                <td>CA00</td>
+                                <td>CA09.1</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Upper Respiratory Tract Disorders</td>
+                                <td>Acute Sore Throat</td>
+                                <td>CA02</td>
+                                <td>CA0K.1</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Upper Respiratory Tract Disorders</td>
+                                <td>Acute Tonsillitis</td>
+                                <td>CA02</td>
+                                <td>1B51</td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Summary Report</h4>
+	</div>
+</div>
+
+
+<div class="row" style="margin-top: 20px;">
+	<div class="col-md-12">
+		<div class="card-box">
+			<span class="title" style="font-weight: bold;">Main</span>
+			<div class="tab-content">
+				<div class="tab-pane show active" id="bottom-tab1">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Institution</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input class="form-control" type="text">
+										<div class="input-group-append">
+											<button class="btn btn-primary" type="button" title="Search Record">
+												<a href="reporting-summary-report-search-institution.html"
+													style="color: #fff"><i class="fas fa-search"></i></a>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Start</label>
+								<div class="form-group">
+
+									<div class="cal-icon">
+										<input type="text" class="form-control datetimepicker">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>End</label>
+
+								<div class="cal-icon">
+									<input type="text" class="form-control datetimepicker">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<span class="title" style="font-weight: bold;">Sections</span>  -->
+				<div class="row">
+
+					<div class="col-md-12">
+						<div class="form-group" style="margin-top: 25px; ">
+							<span class="title">Demographics</span>
+							<input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group" style="margin-top: 5px; ">
+							<span class="title">Evaluations</span>
+							<input style="margin-left:10px;" type="checkbox" name="gender" class="form-check-input">
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<button type="button" class="btn btn-primary" style="margin-top: 25px">Cancel</button>
+
+			<button type="button" class="btn btn-primary" style="margin-top: 25px">Open</button>
+
+		</div>
+	</div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

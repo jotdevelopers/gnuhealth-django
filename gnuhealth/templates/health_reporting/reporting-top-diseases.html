@@ -1,0 +1,61 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 offset">
+        <h4 class="page-title">Top Diseases</h4>
+    </div>
+</div>
+<div class="card-box">
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Start Date</label>
+                <div class="cal-icon">
+                    <input type="text" class="form-control datetimepicker">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>End Date</label>
+                <div class="cal-icon">
+                    <input type="text" class="form-control datetimepicker">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Disease Group</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" type="text">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" title="Search Record"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Number of Records</label>
+                <input type="Number" class="form-control ">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary" style="margin-top: 25px">Cancel</button>
+
+            <button type="button" class="btn btn-primary" style="margin-top: 25px">Open</button>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

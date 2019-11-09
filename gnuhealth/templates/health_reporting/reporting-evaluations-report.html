@@ -1,0 +1,52 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 offset">
+        <h4 class="page-title">Evaluations Report</h4>
+    </div>
+</div>
+<div class="card-box">
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Start Date</label>
+                <div class="cal-icon">
+                    <input type="text" class="form-control datetimepicker">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>End Date</label>
+                <div class="cal-icon">
+                    <input type="text" class="form-control datetimepicker">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Group By</label>
+                <select class="select">
+                    <option>Customer</option>
+                    <option>Other</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+
+            <button type="button" class="btn btn-primary" style="margin-top: 25px">Cancel</button>
+
+            <button type="button" class="btn btn-primary" style="margin-top: 25px">Open</button>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

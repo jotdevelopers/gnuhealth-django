@@ -1,0 +1,319 @@
+<div class="sidebar-inner slimscroll">
+    <div id="sidebar-menu" class="sidebar-menu">
+        <ul>
+            <br />
+            <li class="submenu">
+                <a href="#"><i class="fas fa-book-medical"></i> <span> Books of Life </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="/health/">Pages of Life</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="/health-genetics/">Person Genetic Information</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="appointments.html">Appointments Calendar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="coming-soon.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
+            </li>
+            <li>
+                <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
+            </li>
+            <li>
+                <a href="health-professionals.html"><i class="fas fa-user-md"></i> Health Professionals</a>
+            </li>
+            <li>
+                <a href="institutions.html"><i class="far fa-hospital"></i> Institutions</a>
+            </li>
+            <li class="submenu">
+                <a href=""><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">Request New Order</a></li>
+                    <li><a href="/health-lab/">Lab Test Requests</a></li>
+                    <li><a href="lab-test-results.html"></i>Lab Test Results</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">DX Imaging New</a></li>
+                    <li><a href="dx-imaging-requests.html">DX Imaging Requests</a></li>
+                    <li><a href="dx-imaging-results.html">DX Imaging Results</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-notes-medical"></i> <span> Demographics </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="domiciliary-units.html">Domiciliay Units</a></li>
+                    <li><a href="birth-certificates.html">Birth Certificates</a></li>
+                    <li><a href="death-certificates.html">Death Certificates</a></li>
+                    <li><a href="families.html">Families</a></li>
+                    <li><a href="family-members.html">Family Members</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span> Operational Areas </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="operational-areas.html">Operational Areas</a></li>
+                    <li><a href="operational-sectors.html">Operational Sectors</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="/health-surgery/"><i class="fa fa-plus-square"></i> Surgeries</a>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-procedures"></i> <span> Hospitalization </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="meal-orders.html">Meal Orders</a></li>
+                    <li class="submenu">
+                        <a href=""> <span> Intensive Care </span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="patient-icu-info.html">Patient ICU Info</a></li>
+                            <li><a href="gcs.html">GCS</a></li>
+                            <li><a href="apache.html">APACHE II Score</a></li>
+                            <li><a href="ecgs.html">ECGs</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-file-medical-alt"></i> <span> Pediatrics </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'newborn_main' %}">New Born</a></li>
+                    <li><a href="{% url 'psc_main' %}">PSC</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-file-medical"></i> <span> Obstetrics </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'obstetric_main' %}">Obstetric History</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'archives_main' %}"><i class="fas fa-file-alt"></i> Archives</a>
+            </li>
+            <li>
+                <a href="{% url 'support_center_main' %}"><i class="fas fa-wrench"></i> Support Center</a>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-user-nurse"></i> <span> Nursing </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'roundings_main' %}">Roundings</a></li>
+                    <li><a href="{% url 'ambulatory_care_main' %}">Ambulatory Care</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'ambulances_in_support_req_main' %}">Ambulance In Support Requests</a></li>
+
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href="#"><i class="fas fa-plus"></i> <span> Health Services </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'health_services_main' %}">Health Services</a></li>
+                    <li><a href="{% url 'created_invoices_main' %}">Created Invoices</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-microscope"></i> <span> Reporting </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'specialties_by_institution_main' %}">Specialties By Institution</a></li>
+                    <li><a href="{% url 'operational_sectors_by_institution_main' %}">Operational Sectors By
+                            Institution</a></li>
+                    <li><a href="{% url 'summary_report_main' %}">Summary Report</a></li>
+                    <li><a href="{% url 'patient_evaluations' %}">Patient Evaluations</a></li>
+                    <li><a href="{% url 'socioeconomic_assessments_main' %}">Socioeconomic Assessments</a></li>
+                    <li><a href="{% url 'injury_surveillance_system_main' %}">Injury Surveillance System Registration</a>
+                    </li>
+                    <li><a href="{% url 'ophthalmology_evaluation_main' %}">Ophthalmologic Evaluations</a></li>
+                    <li><a href="{% url 'top_diseases' %}">Top Diseases</a></li>
+                    <li><a href="{% url 'amputations_main' %}">Amputations</a></li>
+                    <li><a href="{% url 'protheses' %}">Protheses</a></li>
+                    <li><a href="{% url 'specialties_by_health_professionals' %}">Specialties By Health
+                            Professionals</a></li>
+                    <li><a href="coming-soon.html">Appointments With Dx Report</a></li>
+                    <li><a href="{% url 'evaluations_reports_main' %}">Evaluations Report</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'disease_genes' %}">Disease Genes</a></li>
+                    <li><a href="{% url 'natural_variants' %}">Natural Variants</a></li>
+                    <li><a href="{% url 'variants_phenotype' %}">Variant Phenotype</a></li>
+                    <li><a href="{% url 'protein_related_diseases' %}">Protein Related Diseases</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'dx_imaging_test_types' %}">DX Imaging Test Types</a></li>
+                    <li><a href="coming-soon.html">DX Imaging Tests</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-bong"></i> <span>Laboratory </span> <span class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'lab_test_units' %}">Lab Test Units</a></li>
+                    <li><a href="{% url 'lab_test_types' %}">Lab Test Types</a></li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-capsules"></i> <span>Medicaments</span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'medicament_main' %}">Medicaments</a></li>
+                    <li><a href="{% url 'medication_frequencies' %}">Medication Frequencies</a></li>
+                    <li><a href="coming-soon.html">Drug Dose Units</a></li>
+                    <li><a href="coming-soon.html">Drug Administration Routes</a></li>
+                    <li><a href="coming-soon.html">Drug Forms</a></li>
+                    <li><a href="coming-soon.html">Medicament Categories</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-syringe"></i> <span>Immunization Schedule</span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">Schedule Vaccines</a></li>
+                    <li><a href="{% url 'vaccine_doses' %}">Vaccine Doses</a></li>
+
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href="#"><i class="fas fa-procedures"></i> <span>Procedures </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'procedures_main' %}">Procedures</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span> Federation </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'queue_manager_main' %}">Federation Queue Manager</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fas fa-cog"></i> <span> Configuration </span> <span class="menu-arrow"></span></a>
+                <ul style="display: none;">
+
+                    <li class="submenu">
+                        <a href="#"> <span> Conditions </span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="coming-soon.html">Conditions</a></li>
+                            <li><a href="coming-soon.html">Pathology Groups</a></li>
+                            <li><a href="coming-soon.html">Categories</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="submenu">
+                <a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality Disability </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">Body Functions</a></li>
+                    <li><a href="coming-soon.html">Body Structures</a></li>
+                    <li><a href="coming-soon.html">Activities and Participtions</a></li>
+                    <li><a href="coming-soon.html">Environmental Factors</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="institutions.html"><i class="fas fa-hospital"></i> <span>Institutions </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">Buildings</a></li>
+                    <li><a href="coming-soon.html">Units</a></li>
+                    <li><a href="coming-soon.html">Wards</a></li>
+                    <li><a href="coming-soon.html">Beds</a></li>
+                    <li><a href="coming-soon.html">Operating Rooms</a></li>
+
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="coming-soon.html">Federation Country Configuration</a></li>
+                    <li><a href="coming-soon.html">Node Configuration</a></li>
+                    <li><a href="coming-soon.html">Federation Objects</a></li>
+
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-clinic-medical"></i> <span> Misc </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li class="submenu">
+                        <a href="#"> <span> Insurances </span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="coming-soon.html">Insurances</a></li>
+                            <li><a href="coming-soon.html">Insurances Company</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="coming-soon.html">Plan Product Policies</a></li>
+                    <li><a href="coming-soon.html">Occupations</a></li>
+                    <li><a href="coming-soon.html">Ethnicities</a></li>
+                    <li><a href="coming-soon.html">Medical Specialties</a></li>
+                    <li><a href="coming-soon.html">Health Commands</a></li>
+                    <li><a href="coming-soon.html">Recreational Drugs</a></li>
+                    <li><a href="coming-soon.html">Inpatient Meals</a></li>
+                    <li><a href="{% url 'pediatrics_growth_chart' %}">Pediatrics Growth Charts WHO</a></li>
+                    <li class="submenu">
+                        <a href="#"> <span> Diets </span> <span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="coming-soon.html">Belief diets</a></li>
+                            <li><a href="coming-soon.html">Therapeutic diets</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,336 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Medicaments</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = 'coming-soon.html';" class="btn btn-primary"> <i
+                    class="fa fa-plus"></i> Add New </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Active Component</th>
+                                <th>Vaccine</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Pregnancy</th>
+                                <th>Pregnancy Category</th>
+                                <th>Adverse Reactions</th>
+                                <th class="text-center">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Amoxicillin</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Domperidone</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Losartan</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Simvastatin</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Cetirizine</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Dulcolax</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Metronidazole</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Tramadol</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Clindamycin</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Fluoxetine</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Naproxen</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Vimovo</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Clopidogrel</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Gabapentin</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Omeprazole</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Zapain</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Diclofenac</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Lisinopril</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Pantoprazole</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+                            <tr>
+                                <td>Zinnat</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>500mg</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td class="text-center"><a href="#"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                            class="far fa-trash-alt "> </i> </a></td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Obstetric Histories</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+            </select>
+            <button onclick="window.location.href = 'obstetric-add.html';" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Preg</th>
+                                <th>Age</th>
+                                <th>LMP</th>
+                                <th>Pregnancy Due</th>
+                                <th>CUI</th>
+                                <th>End of Pregnancy</th>
+                                <th>Weeks</th>
+                                <th>Result</th>                                
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lorem</td>
+                                <td>Ipsum</td>
+                                <td>Dollar</td>
+                                <td>15th June</td>
+                                <td>7:50 PM</td>
+                                <td>Female</td>
+                                <td>None</td>
+                                <td>30</td>
+                                <td>Check</td>
+
+                                <td class="text-center">
+                                    <a href="#"><i class="far fa-edit"></i></a>
+                                    <a href="#"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

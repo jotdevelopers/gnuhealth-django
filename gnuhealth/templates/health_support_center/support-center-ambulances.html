@@ -1,0 +1,81 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-5 col-5">
+        <h4 class="page-title">Support Center - Ambulances</h4>
+    </div>
+</div>
+<div class="card-box">
+    <span class="title" style="font-weight: bold;">Main</span>
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Ambulance</label>
+                <input type="text" list="inpatients" name="inpatients" class="form-control">
+                <datalist id="inpatients">
+                    <option value="Option One">
+                    <option value="Option Two">
+                    <option value="Option Three">
+                </datalist>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" list="inpatients" name="inpatients" class="form-control">
+                <datalist id="inpatients">
+                    <option value="Option One">
+                    <option value="Option Two">
+                    <option value="Option Three">
+                </datalist>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card-box">
+    <span class="title" style="font-weight: bold;">Health Professionals</span>
+    <div class="row" style="margin-top: 15px; margin-bottom: 20px;">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped custom-table m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Health Professional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ali Ahmed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box">
+    <div class="row">
+        <div class="col-lg-12">
+            <span class="title" style="font-weight: bold;">Status</span><br /><br />
+            <button type="button" class="btn btn-primary" disabled="">Dispatched</button>
+            <button type="button" class="btn btn-secondary" disabled="">Enroute</button>
+            <button type="button" class="btn btn-success">On Location</button>
+            <button type="button" class="btn btn-danger" disabled="">To Hospital</button>
+            <button type="button" class="btn btn-warning" disabled="">At Hospital</button>
+            <button type="button" class="btn btn-info" disabled="">Returning</button>
+            <button type="button" class="btn btn-dark" disabled="">Out of Service</button>
+
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary">Open</button>
+<button type="button" class="btn btn-primary">Close</button>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

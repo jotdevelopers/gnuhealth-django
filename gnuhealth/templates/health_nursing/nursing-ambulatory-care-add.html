@@ -1,0 +1,195 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 offset">
+		<h4 class="page-title">Nursing - Ambulatory Care</h4>
+	</div>
+</div>
+
+<div class="profile-tabs">
+	<ul class="nav nav-tabs nav-tabs-bottom">
+		<li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Medication</a></li>
+		<li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Stock Moves</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane show active" id="about-cont">
+
+			<div class="tab-content">
+				<div class="tab-pane show active" id="top-tab1">
+					<div class="card-box">
+						<div class="row" style="margin-top: 5px;">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Patient</label>
+									<input type="text" list="inpatients" name="inpatients" class="form-control">
+									<datalist id="inpatients">
+										<option value="Option One">
+										<option value="Option Two">
+										<option value="Option Three">
+									</datalist>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>ID</label>
+									<input type="text" class="form-control " readonly="">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label>Health Professional</label>
+								<input type="text" class="form-control " readonly="">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Condition</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Related Evaluation</label>
+									<input type="text" list="inpatients" name="inpatients" class="form-control">
+									<datalist id="inpatients">
+										<option value="Option One">
+										<option value="Option Two">
+										<option value="Option Three">
+									</datalist>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Session #</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Vital Signs</span>
+
+						<div class="row" style="margin-top: 20px;">
+
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Temprature</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Systolic Pressure</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Diastolic Pressure</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Heart Rate</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Respiratory Rate</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>Oxygen Saturation</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Misc</span>
+
+						<div class="row" style="margin-top: 20px;">
+
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Glycemia</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Evolution</label>
+									<input type="text" class="form-control ">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card-box">
+						<span class="title" style="font-weight: bold;">Procedures</span>
+
+						<div class="row" style="margin-top: 20px;">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<table class="table table-striped custom-table m-b-0">
+										<thead>
+											<tr>
+												<th>Code</th>
+												<th>Comments</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Lorem</td>
+												<td>Ipsum Dollar</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+						<div class="row" style="margin-top: 20px;">
+							<div class="col-md-12">
+								<span class="title">Summary:</span>
+								<textarea cols="98" rows="5" class="form-control"
+									style="margin-top: 10px;"></textarea><br />
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-primary">Save</button>
+			<button type="button" class="btn btn-primary">Edit</button>
+			<button type="button" class="btn btn-primary">Clear</button>
+			<button type="button" class="btn btn-primary">Print</button>
+
+		</div>
+
+		<div class="tab-pane" id="bottom-tab2">
+
+		</div>
+	</div>
+</div>
+
+<div class="sidebar-overlay" data-reff=""></div>
+
+{% endblock content %}

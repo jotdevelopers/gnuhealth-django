@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <title>{% block title %}Life - A Patient Care Project{% endblock title %}</title>
+
+        {% load static %}
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'static/img/favicon.png' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap4.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/select2.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        <!--[if lt IE 9]>
+            <script src="/static/js/html5shiv.min.js"></script>
+            <script src="/static/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="header">
+                {% include 'layouts/header.html' %}
+            </div>
+
+            <div class="sidebar" id="sidebar">
+                    {% include 'layouts/sidebar.html' %}    
+            </div>
+            
+            <div class="page-wrapper">
+                <div class="content">
+                    {% block content %} {% endblock content %}
+                </div>
+            </div>
+        </div>        
+        {% include 'layouts/footer.html' %}
+    </body>
+</html>

@@ -1,0 +1,294 @@
+{
+    "name": "Patients ( Age - Group )",
+    "children": [{
+        "name": "( 0 - 10 )",
+        "children": [{
+            "name": "Fever",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Red Rash",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Red Eyes",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "( 20 - 30 )",
+        "children": [{
+            "name": "Measles",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Food allergies",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Diarrhoea and vomiting",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "( 30 - 40 )",
+        "children": [{
+            "name": "Respiratory infections",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Bone and joint infections",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Hepatitis",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "( 40 - 60 )",
+        "children": [{
+            "name": "Thalassemia",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Tay-Sachs disease",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Cystic Fibrosisn",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    },{
+        "name": "( 60 - 70 + )",
+        "children": [{
+            "name": "Adult onset diabetes",
+            "children": [{
+                "name": "High Blood Pressure",
+                "size": 3938
+            }, {
+                "name": "High Colestrol",
+                "size": 3812
+            }, {
+                "name": "Diabetes",
+                "size": 6714
+            }, {
+                "name": "Overweight",
+                "size": 743
+            }]
+        }, {
+            "name": "Arthritis",
+            "children": [{
+                "name": "BetweennessCentrality",
+                "size": 3534
+            }, {
+                "name": "LinkDistance",
+                "size": 5731
+            }, {
+                "name": "MaxFlowMinCut",
+                "size": 7840
+            }, {
+                "name": "ShortestPaths",
+                "size": 5914
+            }, {
+                "name": "SpanningTree",
+                "size": 3416
+            }]
+        }, {
+            "name": "Kidney and bladder problems",
+            "children": [{
+                "name": "Exercising Regularly",
+                "size": 7074
+            },
+            {
+                "name": "Maintaining Healthy Weight",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Eat Balanced Diet",
+                "size": 7074
+            },
+            {
+                "name": "Drinking Only In Moderation",
+                "size": 7074
+            }]
+        }]
+    }]
+}
