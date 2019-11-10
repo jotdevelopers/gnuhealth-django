@@ -32,6 +32,7 @@ urlpatterns = [
     path('health-crypto/', include('health_crypto.urls')),
     path('health-crypto-lab/', include('health_crypto_lab.urls')),
     path('health-currency/', include('health_currency.urls')),
+    path('health-configuration/', include('health_configuration.urls')),
     path('health-disability/', include('health_disability.urls')),
     path('health-ems/', include('health_ems.urls')),
     path('health-federation/', include('health_federation.urls')),
