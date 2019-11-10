@@ -12,3 +12,13 @@ def addlabtestrequest(request):
 
 def labtestresult(request):
     return render(request, 'health_lab/lab-test-results.html')
+
+    
+
+# Laboratory module functions start
+def lab_test_types(request):
+	return render(request, "health_laboratory/laboratory-lab-test-types.html")
+
+def lab_test_units(request):
+	return render(request, "health_laboratory/laboratory-lab-test-units.html")
+# Laboratory module functions end

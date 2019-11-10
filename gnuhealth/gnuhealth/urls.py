@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include,path
 
 urlpatterns = [
+    path('', include('health_dashboard.urls')),
     path('admin/', admin.site.urls),
     path('health/', include('health.urls')),
     path('health-account/', include('health_account.urls')),
@@ -57,6 +58,7 @@ urlpatterns = [
     path('health-nursing/', include('health_nursing.urls')),
     path('health-ophthalmology/', include('health_ophthalmology.urls')),
     path('health-party/', include('health_party.urls')),
+    
     path('health-pediatrics/', include('health_pediatrics.urls')),
     path('health-pediatrics-growth-charts/', include('health_pediatrics_growth_charts.urls')),
     path('health-pediatrics-growth-charts-who/', include('health_pediatrics_growth_charts_who.urls')),
