@@ -82,7 +82,7 @@ urlpatterns = [
     path('health-imaging/', include('health_imaging.urls')),
     path('health-laboratory-info/', include('health_lab.urls')),
     path('health-medicaments/', include('health_medicaments.urls')),
-    path('health-immunization-shedule/', include('health_immunization_schedule.urls')),
+    path('health-immunization-schedule/', include('health_immunization_schedule.urls')),
     path('health-procedures/', include('health_procedures.urls')),
     path('health-federation/', include('health_federation.urls')),
     path('health-configuration/', include('health_configuration.urls')),
@@ -92,4 +92,7 @@ urlpatterns = [
     path('health-misc/', include('health_misc.urls')),
     path('health-appointments/', include('health_appointments.urls')),
     path('health-demographics/', include('health_demographics.urls')),
+    path('health-hospitalizations/', include('health_hospitalizations.urls')),
+    path('health-prescriptions/', include('health_prescriptions.urls')),
+    path('health-health-professionals/', include('health_health_professionals.urls')),
 ]
