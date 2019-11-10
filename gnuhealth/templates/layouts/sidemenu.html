@@ -28,7 +28,7 @@
                 </ul>
             </li>
             <li>
-                <a href="coming-soon.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
+                <a href="{% url 'coming_soon' %}"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
             </li>
             <li>
                 <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
@@ -42,7 +42,7 @@
             <li class="submenu">
                 <a href=""><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">Request New Order</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Request New Order</a></li>
                     <li><a href="/health-lab/">Lab Test Requests</a></li>
                     <li><a href="lab-test-results.html"></i>Lab Test Results</a></li>
 
@@ -51,7 +51,7 @@
             <li class="submenu">
                 <a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">DX Imaging New</a></li>
+                    <li><a href="{% url 'coming_soon' %}">DX Imaging New</a></li>
                     <li><a href="dx-imaging-requests.html">DX Imaging Requests</a></li>
                     <li><a href="dx-imaging-results.html">DX Imaging Results</a></li>
 
@@ -166,7 +166,7 @@
                     <li><a href="{% url 'protheses' %}">Protheses</a></li>
                     <li><a href="{% url 'specialties_by_health_professionals' %}">Specialties By Health
                             Professionals</a></li>
-                    <li><a href="coming-soon.html">Appointments With Dx Report</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Appointments With Dx Report</a></li>
                     <li><a href="{% url 'evaluations_reports_main' %}">Evaluations Report</a></li>
                 </ul>
             </li>
@@ -186,7 +186,7 @@
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
                     <li><a href="{% url 'dx_imaging_test_types' %}">DX Imaging Test Types</a></li>
-                    <li><a href="coming-soon.html">DX Imaging Tests</a></li>
+                    <li><a href="{% url 'coming_soon' %}">DX Imaging Tests</a></li>
 
                 </ul>
             </li>
@@ -203,10 +203,10 @@
                 <ul style="display: none;">
                     <li><a href="{% url 'medicament_main' %}">Medicaments</a></li>
                     <li><a href="{% url 'medication_frequencies' %}">Medication Frequencies</a></li>
-                    <li><a href="coming-soon.html">Drug Dose Units</a></li>
-                    <li><a href="coming-soon.html">Drug Administration Routes</a></li>
-                    <li><a href="coming-soon.html">Drug Forms</a></li>
-                    <li><a href="coming-soon.html">Medicament Categories</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Drug Dose Units</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Drug Administration Routes</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Drug Forms</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Medicament Categories</a></li>
 
                 </ul>
             </li>
@@ -214,7 +214,7 @@
                 <a href="#"><i class="fas fa-syringe"></i> <span>Immunization Schedule</span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">Schedule Vaccines</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Schedule Vaccines</a></li>
                     <li><a href="{% url 'vaccine_doses' %}">Vaccine Doses</a></li>
 
                 </ul>
@@ -243,9 +243,9 @@
                     <li class="submenu">
                         <a href="#"> <span> Conditions </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="coming-soon.html">Conditions</a></li>
-                            <li><a href="coming-soon.html">Pathology Groups</a></li>
-                            <li><a href="coming-soon.html">Categories</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Conditions</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Pathology Groups</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Categories</a></li>
 
                         </ul>
                     </li>
@@ -257,10 +257,10 @@
                 <a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality Disability </span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">Body Functions</a></li>
-                    <li><a href="coming-soon.html">Body Structures</a></li>
-                    <li><a href="coming-soon.html">Activities and Participtions</a></li>
-                    <li><a href="coming-soon.html">Environmental Factors</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Body Functions</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Body Structures</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Activities and Participtions</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Environmental Factors</a></li>
 
                 </ul>
             </li>
@@ -268,11 +268,11 @@
                 <a href="institutions.html"><i class="fas fa-hospital"></i> <span>Institutions </span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">Buildings</a></li>
-                    <li><a href="coming-soon.html">Units</a></li>
-                    <li><a href="coming-soon.html">Wards</a></li>
-                    <li><a href="coming-soon.html">Beds</a></li>
-                    <li><a href="coming-soon.html">Operating Rooms</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Buildings</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Units</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Wards</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Beds</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Operating Rooms</a></li>
 
                 </ul>
             </li>
@@ -281,9 +281,9 @@
                 <a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="coming-soon.html">Federation Country Configuration</a></li>
-                    <li><a href="coming-soon.html">Node Configuration</a></li>
-                    <li><a href="coming-soon.html">Federation Objects</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Federation Country Configuration</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Node Configuration</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Federation Objects</a></li>
 
                 </ul>
             </li>
@@ -294,23 +294,23 @@
                     <li class="submenu">
                         <a href="#"> <span> Insurances </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="coming-soon.html">Insurances</a></li>
-                            <li><a href="coming-soon.html">Insurances Company</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Insurances</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Insurances Company</a></li>
                         </ul>
                     </li>
-                    <li><a href="coming-soon.html">Plan Product Policies</a></li>
-                    <li><a href="coming-soon.html">Occupations</a></li>
-                    <li><a href="coming-soon.html">Ethnicities</a></li>
-                    <li><a href="coming-soon.html">Medical Specialties</a></li>
-                    <li><a href="coming-soon.html">Health Commands</a></li>
-                    <li><a href="coming-soon.html">Recreational Drugs</a></li>
-                    <li><a href="coming-soon.html">Inpatient Meals</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Plan Product Policies</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Occupations</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Ethnicities</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Medical Specialties</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Health Commands</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Recreational Drugs</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Inpatient Meals</a></li>
                     <li><a href="{% url 'pediatrics_growth_chart' %}">Pediatrics Growth Charts WHO</a></li>
                     <li class="submenu">
                         <a href="#"> <span> Diets </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="coming-soon.html">Belief diets</a></li>
-                            <li><a href="coming-soon.html">Therapeutic diets</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Belief diets</a></li>
+                            <li><a href="{% url 'coming_soon' %}">Therapeutic diets</a></li>
                         </ul>
                     </li>
                 </ul>
