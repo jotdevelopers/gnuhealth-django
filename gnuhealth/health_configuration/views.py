@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from health.models import gnuhealth_pathology
 from health_configuration.models import gnuhealth_ethnicity
 from health_configuration.forms import ethnicityForm
-
+from health_configuration.models import gnuhealth_occupation
+from health_configuration.forms import occupationForm
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world.")
@@ -42,6 +43,7 @@ def addEthnicity(request):
     else:
         form = ethnicityForm()
         latest = gnuhealth_ethnicity.objects.latest('id')
+        
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
@@ -59,6 +61,7 @@ def addEthnicity(request):
 def editEthnicity(request, id):
     type = "edit"
     form = gnuhealth_ethnicity.objects.get(id=id)
+    #return HttpResponse(form.code)
     return render(request, 'health_configuration/patients/ethnicities.html', {'form': form, 'type': type})
 
 
@@ -70,7 +73,14 @@ def updateEthnicity(request, id):
         return redirect("/health-configuration/ethnicities")
     return render(request, 'health_configuration/patients/ethnicities.html', {'ethnicity': ethnicity})
 
-
+def deleteEthnicity(request, id):  
+    ethnicity = gnuhealth_ethnicity.objects.get(id=id)  
+    ethnicity.delete() 
+    type = "grid"
+    msg = "2"
+    ethnicities = gnuhealth_ethnicity.objects.all() 
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 def citizenship(request):
     return render(request, 'health_configuration/patients/citizenships.html')
 
@@ -80,12 +90,68 @@ def add_citizenship(request):
 
 
 def occupation(request):
-    return render(request, 'health_configuration/patients/occupations.html')
+    type = "grid"
+    occupations = gnuhealth_occupation.objects.all()
+    return render(request, 'health_configuration/patients/occupations.html'
+                  , {'occupations': occupations
+                  , 'type': type})
 
 
-def add_occupation(request):
-    return render(request, 'health_configuration/patients/add_occupation.html')
+def addOccupation(request):
+    if request.method == "POST":
+        form = occupationForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                form.save()
+                occupations = gnuhealth_occupation.objects.all()
+                return render(request, 'health_configuration/patients/occupations.html'
+                              , {'type': type, 'msg': msg, 'occupations': occupations})
+            except:
+                pass
+        else:
+            return HttpResponse("Invalid Form.")
+    else:
+        form = occupationForm()
+        latest = gnuhealth_occupation.objects.latest('id')
+        
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/patients/occupations.html', {'type': type, 'form': form})
 
+def editOccupation(request, id):
+    type = "edit"
+    form = gnuhealth_occupation.objects.get(id=id)
+    #return HttpResponse(form.code)
+    return render(request, 'health_configuration/patients/occupations.html', {'form': form, 'type': type})
+
+
+def updateOccupation(request, id):
+    occupation = gnuhealth_occupation.objects.get(id=id)
+    form = occupationForm(request.POST, instance=occupation)
+    if form.is_valid():
+        form.save()
+        #return redirect("/health-configuration/ethnicities")
+    return render(request, 'health_configuration/patients/occupations.html', {'occupation': occupation})
+
+def deleteOccupation(request, id):  
+    occupation = gnuhealth_occupation.objects.get(id=id)  
+    occupation.delete() 
+    type = "grid"
+    msg = "2"
+    occupations = gnuhealth_occupation.objects.all() 
+    return render(request, 'health_configuration/patients/occupations.html'
+                              , {'type': type, 'msg': msg, 'occupations': occupations})
 def residence(request):
     return render(request, 'health_configuration/patients/residence.html')
 
