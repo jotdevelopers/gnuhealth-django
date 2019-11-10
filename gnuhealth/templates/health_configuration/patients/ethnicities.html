@@ -1,59 +1,242 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-                 <div class="row">
-                    <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Ethnicities</h4>
-                    </div>
-                    
-                    <div class="col-sm-8 col-9 text-right m-b-20">
-<div class="btn-group btn-group-sm" style="margin-right: 8px">
-                           <select class="select">
-											<option>Export As</option>
-											<option>Pdf</option>
-											<option>CSV</option>
-											<option>Print</option>
-										
-										</select>
-										<button onclick="window.location.href = '/health-configuration/add_ethnicity';"  class ="btn btn-primary"> <i class="fa fa-plus"></i> Add New </button>
-                        </div>                    </div>
+{% load widget_tweaks %}
+{% if type == "grid" %}
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Ethnicities</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
+
+            </select>
+            <button onclick="window.location.href = '/health-configuration/addEthnicity';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    {% if msg == "1" %}
+    <div class="col-sm-12">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Record <a href="#" class="alert-link">saved</a> successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    </div>
+    {% endif %}
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Notes</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for ethnicity in ethnicities %}
+                        <tr>
+                            <td>{{ethnicity.name}}</td>
+                            <td>{{ethnicity.code}}</td>
+                            <td>{{ethnicity.notes}}</td>
+                            <td class="text-right"><a href="/health-configuration/editEthnicity/{{ethnicity.id}}"><i class="far fa-edit"> </i></a><a href="#"> <i
+                                    class="far fa-trash-alt	"> </i> </a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-configuration/addEthnicity">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Ethnicity</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card-box">
-                            <div class="card-block">
-                             
-								<div class="table-responsive">
-									<table id="example" class=" table table-stripped  dt-responsive  " >
-                                    <thead>
-                                        <tr>
-                                            <th >Name</th>
-                                            <th>Code</th>
-                                            <th>Notes</th>
-                                          
-                                            <th>Action</th>
-                                          
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                           
-                                   
-                                            <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
-                                           
-                                        </tr>
-                                 
-                                        
-                                    </tbody>
-                                </table>
-								</div>
-                            </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            {{ form.id|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            {{ form.code|add_class:"form-control" }}
                         </div>
                     </div>
                 </div>
-     {% endblock %}
-     
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            {{ form.name|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            {{ form.notes|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            {{ form.create_date|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            {{ form.write_date|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            {{ form.create_uid|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            {{ form.write_uid|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            {{ form.id|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            {{ form.code|add_class:"form-control" }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            {{ form.name|add_class:"form-control" }}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            {{ form.notes|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            {{ form.create_date|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            {{ form.write_date|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            {{ form.create_uid|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            {{ form.write_uid|add_class:"form-control" }}
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}
