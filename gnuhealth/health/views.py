@@ -29,16 +29,3 @@ def add_pol(request):
 def test():
     return 
 
-#Dashboard
-
-def sankey(request):
-    return render(request, 'health/SANKEY.html'  )
-
-def visits(request):
-    return render(request, 'health/visits.html'  )
-
-def sunburst(request):
-    return render(request, 'health/sunburst.html'  )
-
-def radar(request):
-    return render(request, 'health/radar.html'  )

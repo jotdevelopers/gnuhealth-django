@@ -3,12 +3,12 @@
         <ul>
             <br />
             <li class="submenu">
-                            <a href="#"><i class="fa fa-dashboard"></i> <span> Dashboards </span> <span class="menu-arrow"></span></a>
+                            <a href="#"><i class="fas fa-tachometer-alt"></i> <span> Dashboards </span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a href="/health/sunburst">Patient's History</a></li>
-                                <li><a href="/health/sankey">Visit History</a></li>
-                                <li><a href="/health/visits">Patient's Visit</a></li>
-                                <li><a href="/health/radar">Patient's Test</a></li>
+                                <li><a href="/health-dashboard/patient-history">Patient's History</a></li>
+                                <li><a href="/health-dashboard/visit-history">Visit History</a></li>
+                                <li><a href="/health-dashboard/patient-visits">Patient's Visit</a></li>
+                                <li><a href="/health-dashboard/patient-tests">Patient's Test</a></li>
 
                             </ul>
                         </li>
@@ -195,7 +195,7 @@
                 <a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="{% url 'dx_imaging_test_types' %}">DX Imaging Test Types</a></li>
+                    <li><a href="{% url 'coming_soon' %}">DX Imaging Test Types</a></li>
                     <li><a href="{% url 'coming_soon' %}">DX Imaging Tests</a></li>
 
                 </ul>
