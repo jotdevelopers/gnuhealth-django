@@ -1,7 +1,7 @@
 {% extends "layouts/base.html" %}
 {% block content %}
 {% load widget_tweaks %}
-              <form method="POST" class="post-form" action="/health/addpol">  
+              <form method="POST" class="post-form" action="/health/add_pol">  
         {% csrf_token %}  
         
      <div class="row">
@@ -12,15 +12,7 @@
 
 
                 <div class="profile-tabs">
-                    <ul class="nav nav-tabs nav-tabs-bottom">
-                        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Main</a></li>
-                    </ul>
-
-
-				<div class="tab-content">
-					<div class="tab-pane show active" id="about-cont">
-                        <div class="tab-content">
-                            <div class="tab-pane show active" id="top-tab1">
+                   
 
                         <div class="card-box">
                         <span style="font-weight: bold;">Person</span>

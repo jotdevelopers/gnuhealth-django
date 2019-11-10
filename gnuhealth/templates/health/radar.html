@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://bl.ocks.org/nbremer/raw/21746a9668ffdf6d8242/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>Radar Chart</title>
+
+		<!-- Google fonts -->
+		<link href="/static/css/css" rel="stylesheet" type="text/css">
+		<link href="/static/css/css(1)" rel="stylesheet" type="text/css">
+
+		<!-- D3.js -->
+		<script src="/static/js/d3.min.js" charset="utf-8"></script>
+		
+		<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+				font-size: 11px;
+				font-weight: 300;
+				fill: #242424;
+				
+				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+				cursor: default;
+			}
+			
+			.legend {
+				font-family: 'Raleway', sans-serif;
+				fill: #333333;
+			}
+			
+			.tooltip {
+				fill: #333333;
+			}
+		</style>
+	
+	<script async="" src="https://negbar.ad-blocker.org/chrome/adblocker-chromeglobalinjectjs.js"></script></head>
+	{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+	<body>
+
+		<div class="radarChart" style="float:left"><svg width="700" height="637" class="radar.radarChart"><g transform="translate(350,318.5)"><defs><filter id="glow"><fegaussianblur stdDeviation="2.5" result="coloredBlur"></fegaussianblur><femerge><femergenode in="coloredBlur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><g class="axisWrapper"><circle class="gridCircle" r="218.5" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="174.8" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="131.10000000000002" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="87.4" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><circle class="gridCircle" r="43.7" style="fill: rgb(205, 205, 205); stroke: rgb(205, 205, 205); fill-opacity: 0.1; filter: url(&quot;#glow&quot;);"></circle><text class="axisLabel" x="4" y="-218.5" dy="0.4em" fill="#737373" style="font-size: 10px;">50%</text><text class="axisLabel" x="4" y="-174.8" dy="0.4em" fill="#737373" style="font-size: 10px;">40%</text><text class="axisLabel" x="4" y="-131.1" dy="0.4em" fill="#737373" style="font-size: 10px;">30%</text><text class="axisLabel" x="4" y="-87.4" dy="0.4em" fill="#737373" style="font-size: 10px;">20%</text><text class="axisLabel" x="4" y="-43.7" dy="0.4em" fill="#737373" style="font-size: 10px;">10%</text><g class="axis"><line x1="0" y1="0" x2="1.4717192908753317e-14" y2="-240.35000000000002" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="1.6724082850856042e-14" y="-273.125" style="font-size: 11px;"><tspan x="1.6724082850856042e-14" y="-273.125" dy="0.35em">Battery Life</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="169.95311485818672" y2="-169.9531148581867" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="193.1285396115758" y="-193.12853961157577" style="font-size: 11px;"><tspan x="193.1285396115758" y="-193.12853961157577" dy="0.35em">Brand</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="240.35000000000002" y2="0" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="273.125" y="0" style="font-size: 11px;"><tspan x="273.125" y="0" dy="0.35em">Contract</tspan><tspan x="273.125" y="0" dy="1.75em">Cost</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="169.95311485818672" y2="169.9531148581867" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="193.1285396115758" y="193.12853961157577" style="font-size: 11px;"><tspan x="193.1285396115758" y="193.12853961157577" dy="0.35em">Design And</tspan><tspan x="193.1285396115758" y="193.12853961157577" dy="1.75em">Quality</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="1.4717192908753317e-14" y2="240.35000000000002" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="1.6724082850856042e-14" y="273.125" style="font-size: 11px;"><tspan x="1.6724082850856042e-14" y="273.125" dy="0.35em">Have</tspan><tspan x="1.6724082850856042e-14" y="273.125" dy="1.75em">Internet</tspan><tspan x="1.6724082850856042e-14" y="273.125" dy="3.15em">Connectivity</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-169.9531148581867" y2="169.95311485818672" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-193.12853961157577" y="193.1285396115758" style="font-size: 11px;"><tspan x="-193.12853961157577" y="193.1285396115758" dy="0.35em">Large</tspan><tspan x="-193.12853961157577" y="193.1285396115758" dy="1.75em">Screen</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-240.35000000000002" y2="2.9434385817506635e-14" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-273.125" y="3.3448165701712085e-14" style="font-size: 11px;"><tspan x="-273.125" y="3.3448165701712085e-14" dy="0.35em">Price Of</tspan><tspan x="-273.125" y="3.3448165701712085e-14" dy="1.75em">Device</tspan></text></g><g class="axis"><line x1="0" y1="0" x2="-169.95311485818675" y2="-169.9531148581867" class="line" style="stroke: white; stroke-width: 2px;"></line><text class="legend" text-anchor="middle" dy="0.35em" x="-193.12853961157583" y="-193.12853961157577" style="font-size: 11px;"><tspan x="-193.12853961157583" y="-193.12853961157577" dy="0.35em">To Be A</tspan><tspan x="-193.12853961157583" y="-193.12853961157577" dy="1.75em">Smartphone</tspan></text></g></g><g class="radarWrapper"><path class="radarArea" d="M5.886877163501327e-15,-96.14C36.153662615287004,-85.9428131085088,67.51208574598597,-100.94258574598597,86.52158574598597,-86.52158574598596S131.82859344574558,-20.857882278050187,126.72999999999999,0S71.54046277434863,38.10996277434862,52.53096277434862,52.530962774348616S8.806661406287864,103.09262742601673,5.886877163501327e-15,96.14S7.585386732429576,20.601113267570426,-6.180113267570425,6.180113267570426S-69.52159223674646,24.102441743524672,-91.77,1.1238583675775259e-14S-168.26833168926066,-140.08183168926064,-154.50283168926066,-154.50283168926063S-36.15366261528699,-106.3371868914912,5.886877163501327e-15,-96.14" style="fill: rgb(237, 201, 81); fill-opacity: 0.35;"></path><path class="radarStroke" d="M5.886877163501327e-15,-96.14C36.153662615287004,-85.9428131085088,67.51208574598597,-100.94258574598597,86.52158574598597,-86.52158574598596S131.82859344574558,-20.857882278050187,126.72999999999999,0S71.54046277434863,38.10996277434862,52.53096277434862,52.530962774348616S8.806661406287864,103.09262742601673,5.886877163501327e-15,96.14S7.585386732429576,20.601113267570426,-6.180113267570425,6.180113267570426S-69.52159223674646,24.102441743524672,-91.77,1.1238583675775259e-14S-168.26833168926066,-140.08183168926064,-154.50283168926066,-154.50283168926063S-36.15366261528699,-106.3371868914912,5.886877163501327e-15,-96.14" style="stroke-width: 2px; stroke: rgb(237, 201, 81); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="5.886877163501327e-15" cy="-96.14" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="86.52158574598597" cy="-86.52158574598596" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="126.72999999999999" cy="0" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="52.53096277434862" cy="52.530962774348616" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="5.886877163501327e-15" cy="96.14" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-6.180113267570425" cy="6.180113267570426" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-91.77" cy="1.1238583675775259e-14" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-154.50283168926066" cy="-154.50283168926063" style="fill: rgb(237, 201, 81); fill-opacity: 0.8;"></circle></g><g class="radarWrapper"><path class="radarArea" d="M7.22480379156981e-15,-117.99000000000001C25.02945873366024,-107.79281310850881,26.498406140563404,-67.13940614056341,49.440906140563406,-49.4409061405634S154.34052548520333,-13.441746356965675,152.95,0S63.11323623920777,27.06073623920776,40.17073623920777,40.17073623920776S12.051220871762338,87.4,5.3517065122739335e-15,87.4S-17.22823623920776,53.28073623920777,-40.17073623920776,40.17073623920777S-141.36228762330543,23.638933248456894,-152.95,1.8730972792958767e-14S-140.3646520838381,-99.72365208383806,-117.42215208383811,-117.42215208383807S-25.029458733660224,-128.18718689149122,7.22480379156981e-15,-117.99000000000001" style="fill: rgb(204, 51, 63); fill-opacity: 0.35;"></path><path class="radarStroke" d="M7.22480379156981e-15,-117.99000000000001C25.02945873366024,-107.79281310850881,26.498406140563404,-67.13940614056341,49.440906140563406,-49.4409061405634S154.34052548520333,-13.441746356965675,152.95,0S63.11323623920777,27.06073623920776,40.17073623920777,40.17073623920776S12.051220871762338,87.4,5.3517065122739335e-15,87.4S-17.22823623920776,53.28073623920777,-40.17073623920776,40.17073623920777S-141.36228762330543,23.638933248456894,-152.95,1.8730972792958767e-14S-140.3646520838381,-99.72365208383806,-117.42215208383811,-117.42215208383807S-25.029458733660224,-128.18718689149122,7.22480379156981e-15,-117.99000000000001" style="stroke-width: 2px; stroke: rgb(204, 51, 63); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="7.22480379156981e-15" cy="-117.99000000000001" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="49.440906140563406" cy="-49.4409061405634" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="152.95" cy="0" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="40.17073623920777" cy="40.17073623920776" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="5.3517065122739335e-15" cy="87.4" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-40.17073623920776" cy="40.17073623920777" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-152.95" cy="1.8730972792958767e-14" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-117.42215208383811" cy="-117.42215208383807" style="fill: rgb(204, 51, 63); fill-opacity: 0.8;"></circle></g><g class="radarWrapper"><path class="radarArea" d="M6.957218465956114e-15,-113.62C18.540339802711287,-104.34983009864436,11.235566337852127,-47.94356633785213,30.90056633785213,-30.900566337852126S129.24596601972885,-11.124203881626768,131.1,0S62.925792872992986,28.839792872992977,43.26079287299299,43.26079287299298S8.34315291122008,100.77508495067782,5.886877163501327e-15,96.14S14.515273464859153,26.78122653514085,-12.36022653514085,12.360226535140852S-167.11877912823766,15.759288832304607,-179.17,2.1941996700323126e-14S-119.5771990135564,-75.65869901355636,-92.7016990135564,-92.70169901355636S-18.540339802711273,-122.89016990135565,6.957218465956114e-15,-113.62" style="fill: rgb(0, 160, 176); fill-opacity: 0.35;"></path><path class="radarStroke" d="M6.957218465956114e-15,-113.62C18.540339802711287,-104.34983009864436,11.235566337852127,-47.94356633785213,30.90056633785213,-30.900566337852126S129.24596601972885,-11.124203881626768,131.1,0S62.925792872992986,28.839792872992977,43.26079287299299,43.26079287299298S8.34315291122008,100.77508495067782,5.886877163501327e-15,96.14S14.515273464859153,26.78122653514085,-12.36022653514085,12.360226535140852S-167.11877912823766,15.759288832304607,-179.17,2.1941996700323126e-14S-119.5771990135564,-75.65869901355636,-92.7016990135564,-92.70169901355636S-18.540339802711273,-122.89016990135565,6.957218465956114e-15,-113.62" style="stroke-width: 2px; stroke: rgb(0, 160, 176); fill: none; filter: url(&quot;#glow&quot;);"></path><circle class="radarCircle" r="4" cx="6.957218465956114e-15" cy="-113.62" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="30.90056633785213" cy="-30.900566337852126" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="131.1" cy="0" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="43.26079287299299" cy="43.26079287299298" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="5.886877163501327e-15" cy="96.14" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-12.36022653514085" cy="12.360226535140852" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-179.17" cy="2.1941996700323126e-14" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle><circle class="radarCircle" r="4" cx="-92.7016990135564" cy="-92.70169901355636" style="fill: rgb(0, 160, 176); fill-opacity: 0.8;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="5.886877163501327e-15" cy="-96.14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="86.52158574598597" cy="-86.52158574598596" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="126.72999999999999" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="52.53096277434862" cy="52.530962774348616" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="5.886877163501327e-15" cy="96.14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-6.180113267570425" cy="6.180113267570426" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-91.77" cy="1.1238583675775259e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-154.50283168926066" cy="-154.50283168926063" style="fill: none; pointer-events: all;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="7.22480379156981e-15" cy="-117.99000000000001" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="49.440906140563406" cy="-49.4409061405634" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="152.95" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="40.17073623920777" cy="40.17073623920776" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="5.3517065122739335e-15" cy="87.4" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-40.17073623920776" cy="40.17073623920777" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-152.95" cy="1.8730972792958767e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-117.42215208383811" cy="-117.42215208383807" style="fill: none; pointer-events: all;"></circle></g><g class="radarCircleWrapper"><circle class="radarInvisibleCircle" r="6" cx="6.957218465956114e-15" cy="-113.62" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="30.90056633785213" cy="-30.900566337852126" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="131.1" cy="0" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="43.26079287299299" cy="43.26079287299298" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="5.886877163501327e-15" cy="96.14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-12.36022653514085" cy="12.360226535140852" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-179.17" cy="2.1941996700323126e-14" style="fill: none; pointer-events: all;"></circle><circle class="radarInvisibleCircle" r="6" cx="-92.7016990135564" cy="-92.70169901355636" style="fill: none; pointer-events: all;"></circle></g><text class="tooltip" x="-127.42215208383811" y="-127.42215208383807" style="opacity: 0;">38%</text></g></svg></div>
+
+		<div style="float:right">
+			<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<!-- Color Scale -->
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 80, right: 200, bottom: 30, left: 30},
+    width = 460 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_connectedscatter.csv", function(data) {
+
+    // List of groups (here I have one group per column)
+    var allGroup = ["valueA", "valueB", "valueC"]
+
+    // Reformat the data: we need an array of arrays of {x, y} tuples
+    var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
+      return {
+        name: grpName,
+        values: data.map(function(d) {
+          return {time: d.time, value: +d[grpName]};
+        })
+      };
+    });
+    // I strongly advise to have a look to dataReady with
+    // console.log(dataReady)
+
+    // A color scale: one color for each group
+    var myColor = d3.scaleOrdinal()
+      .domain(allGroup)
+      .range(d3.schemeSet2);
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleLinear()
+      .domain([0,10])
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain( [0,20])
+      .range([ height, 0 ]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Add the lines
+    var line = d3.line()
+      .x(function(d) { return x(+d.time) })
+      .y(function(d) { return y(+d.value) })
+    svg.selectAll("myLines")
+      .data(dataReady)
+      .enter()
+      .append("path")
+        .attr("d", function(d){ return line(d.values) } )
+        .attr("stroke", function(d){ return myColor(d.name) })
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+    // Add the points
+    svg
+      // First we need to enter in a group
+      .selectAll("myDots")
+      .data(dataReady)
+      .enter()
+        .append('g')
+        .style("fill", function(d){ return myColor(d.name) })
+      // Second we need to enter in the 'values' part of this group
+      .selectAll("myPoints")
+      .data(function(d){ return d.values })
+      .enter()
+      .append("circle")
+        .attr("cx", function(d) { return x(d.time) } )
+        .attr("cy", function(d) { return y(d.value) } )
+        .attr("r", 5)
+        .attr("stroke", "white")
+
+    // Add a legend at the end of each line
+    svg
+      .selectAll("myLabels")
+      .data(dataReady)
+      .enter()
+        .append('g')
+        .append("text")
+          .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time series
+          .attr("transform", function(d) { return "translate(" + x(d.value.time) + "," + y(d.value.value) + ")"; }) // Put the text at the position of the last point
+          .attr("x", 12) // shift the text a bit more right
+          .text(function(d) { return d.name; })
+          .style("fill", function(d){ return myColor(d.name) })
+          .style("font-size", 15)
+
+})
+
+
+</script>
+		</div>
+
+		<script src="/static/js/radarChart.js"></script>	
+		<script>
+      
+      /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+      
+			////////////////////////////////////////////////////////////// 
+			//////////////////////// Set-Up ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+				width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+				height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+					
+			////////////////////////////////////////////////////////////// 
+			////////////////////////// Data ////////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var data = [
+					  [//iPhone
+						{axis:"HB",value:0.22},
+						{axis:"Brand",value:0.28},
+						{axis:"Contract Cost",value:0.29},
+						{axis:"Design And Quality",value:0.17},
+						{axis:"Have Internet Connectivity",value:0.22},
+						{axis:"Large Screen",value:0.02},
+						{axis:"Price Of Device",value:0.21},
+						{axis:"To Be A Smartphone",value:0.50}			
+					  ],[//Samsung
+						{axis:"HB",value:0.27},
+						{axis:"Brand",value:0.16},
+						{axis:"Contract Cost",value:0.35},
+						{axis:"Design And Quality",value:0.13},
+						{axis:"Have Internet Connectivity",value:0.20},
+						{axis:"Large Screen",value:0.13},
+						{axis:"Price Of Device",value:0.35},
+						{axis:"To Be A Smartphone",value:0.38}
+					  ],[//Nokia Smartphone
+						{axis:"Battery Life",value:0.26},
+						{axis:"Brand",value:0.10},
+						{axis:"Contract Cost",value:0.30},
+						{axis:"Design And Quality",value:0.14},
+						{axis:"Have Internet Connectivity",value:0.22},
+						{axis:"Large Screen",value:0.04},
+						{axis:"Price Of Device",value:0.41},
+						{axis:"To Be A Smartphone",value:0.30}
+					  ]
+					];
+			////////////////////////////////////////////////////////////// 
+			//////////////////// Draw the Chart ////////////////////////// 
+			////////////////////////////////////////////////////////////// 
+
+			var color = d3.scale.ordinal()
+				.range(["#EDC951","#CC333F","#00A0B0"]);
+				
+			var radarChartOptions = {
+			  w: width,
+			  h: height,
+			  margin: margin,
+			  maxValue: 0.5,
+			  levels: 5,
+			  roundStrokes: true,
+			  color: color
+			};
+			//Call function to draw the Radar chart
+			RadarChart(".radarChart", data, radarChartOptions);
+		</script>
+	
+</body></html>
+    {% endblock %}

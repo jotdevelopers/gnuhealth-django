@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>D3 v5 Zoomable Sunburst</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/stdlib"></script></head>
+  <style>
+    .outer
+    {
+      position: relative;
+      top: 20;
+      left: 20;
+    }
+    .inner
+    {
+      position: absolute;
+      top: 60px;
+      left: 80px;
+    }
+    </style>
+    {% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+<body>
+    <div style="position: relative; left: 0; top: 0;">
+  <svg id="partitionSVG" width="532" height="532" viewBox="0 0 1700 1700"></svg>
+  <image src="/static/img/human.png" width="150px" height="150px" style=" margin-top: 165px; margin-left:145px; z-index: px;" class="inner" />
+</div>
+  <script src="/static/js/bundle.js"></script>
+</body>
+
+    {% endblock %}

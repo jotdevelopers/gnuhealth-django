@@ -1,0 +1,29 @@
+{
+    "name": "Root", "children": [{
+        "name": "A00-B99",
+        "children": [
+            {"name": "A00-A09", "size": 5},
+            {"name": "A15-A19", "size": 5},
+            {"name": "A20-A28", "size": 5},
+            {"name": "A30-A49", "size": 5},
+            {"name": "A50-A64", "size": 5},
+            {"name": "A65-A69", "size": 5},
+            {"name": "A70-A74", "size": 5},
+            {"name": "A75-A79", "size": 5},
+            {"name": "A80-A89 Eye Diseases", 
+                "children": [
+                    {"name": "Patient visit: Family Doctor. Symptoms Eye redness & blurred vision", "size":3}
+                    ]
+                }
+        ]
+    }, {
+        "name": "C00-D49",
+        "children": [{"name": "C00-C14", "size": 5},
+            {"name": "C15-C26", "size": 3},
+            {"name": "C30-C39", "size": 4}]
+    }, {
+        "name": "D50-D89",
+        "children": [{"name": "D50-D53", "size": 4},
+            {"name": "D55-D59", "size": 4}]
+    }]
+}
