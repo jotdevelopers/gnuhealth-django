@@ -60,9 +60,8 @@ def addEthnicity(request):
 
 def editEthnicity(request, id):
     type = "edit"
-    form = gnuhealth_ethnicity.objects.get(id=id)
-    #return HttpResponse(form.code)
-    return render(request, 'health_configuration/patients/ethnicities.html', {'form': form, 'type': type})
+    editForm = gnuhealth_ethnicity.objects.get(id=id)
+    return render(request, 'health_configuration/patients/ethnicities.html', {'form': editForm, 'type': type})
 
 
 def updateEthnicity(request, id):
@@ -70,8 +69,15 @@ def updateEthnicity(request, id):
     form = ethnicityForm(request.POST, instance=eth)
     if form.is_valid():
         form.save()
-        return redirect("/health-configuration/ethnicities")
-    return render(request, 'health_configuration/patients/ethnicities.html', {'ethnicity': ethnicity})
+        msg = "3"
+        ethnicities = gnuhealth_ethnicity.objects.all()
+        return render(request, 'health_configuration/patients/ethnicities.html'
+                      , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+    msg = "4"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+
 
 def deleteEthnicity(request, id):  
     ethnicity = gnuhealth_ethnicity.objects.get(id=id)  

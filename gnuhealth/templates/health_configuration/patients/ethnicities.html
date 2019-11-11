@@ -33,10 +33,30 @@
     </div>
     </div>
     {% endif %}
-     {% if msg == "2" %}
+    {% if msg == "2" %}
     <div class="col-sm-12">
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Success!</strong> Record <a href="#" class="alert-link">deleted</a> successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    </div>
+    {% endif %}
+    {% if msg == "3" %}
+    <div class="col-sm-12">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Record <a href="#" class="alert-link">updated</a> successfully.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    </div>
+    {% endif %}
+    {% if msg == "4" %}
+    <div class="col-sm-12">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> An <a href="#" class="alert-link">error</a> occurred.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -165,7 +185,6 @@
 
 
 
-
 {% if type == "edit" %}
 <form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
     {% csrf_token %}
@@ -183,16 +202,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Record ID</label>
-                            {{ form.id|add_class:"form-control" }}
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <label>Code</label>
-                            {{ form.code|add_class:"form-control" }}
+                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -200,48 +211,45 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
-                            {{ form.name|add_class:"form-control" }}
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Notes</label>
-                            {{ form.notes|add_class:"form-control" }}
+                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            {{ form.create_date|add_class:"form-control" }}
-
+                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            {{ form.write_date|add_class:"form-control" }}
-
+                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            {{ form.create_uid|add_class:"form-control" }}
-
+                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            {{ form.write_uid|add_class:"form-control" }}
-
+                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
                         </div>
                     </div>
                 </div>
 
 
             </div>
+            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-primary">Clear</button>
         </div>
