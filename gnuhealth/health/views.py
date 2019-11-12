@@ -11,7 +11,7 @@ def index(request):
     pols = gnuhealth_pol.objects.all()
     return render(request, 'health/index.html'  , {'pols':pols})
       
-def add_pol(request):
+def addPol(request):
     if request.method == "POST":  
         form = PolForm(request.POST)  
         if form.is_valid():  
