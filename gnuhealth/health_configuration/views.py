@@ -6,6 +6,9 @@ from health_configuration.models import gnuhealth_ethnicity
 from health_configuration.forms import ethnicityForm
 from health_configuration.models import gnuhealth_occupation
 from health_configuration.forms import occupationForm
+
+from django.contrib import messages
+
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world.")
@@ -36,11 +39,13 @@ def addEthnicity(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 ethnicities = gnuhealth_ethnicity.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
                 return render(request, 'health_configuration/patients/ethnicities.html'
                               , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
             except:
                 pass
-        else:
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
         form = ethnicityForm()
@@ -81,6 +86,13 @@ def updateEthnicity(request, id):
     eth.save()
     msg = "3"
     ethnicities = gnuhealth_ethnicity.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
     return render(request, 'health_configuration/patients/ethnicities.html'
                        , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 
@@ -91,6 +103,11 @@ def deleteEthnicity(request, id):
     type = "grid"
     msg = "2"
     ethnicities = gnuhealth_ethnicity.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
     return render(request, 'health_configuration/patients/ethnicities.html'
                               , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 def citizenship(request):
