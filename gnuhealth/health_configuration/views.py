@@ -32,6 +32,8 @@ def addEthnicity(request):
             try:
                 type = "grid"
                 msg = "1"
+                latest = gnuhealth_ethnicity.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
                 form.save()
                 ethnicities = gnuhealth_ethnicity.objects.all()
                 return render(request, 'health_configuration/patients/ethnicities.html'
@@ -43,7 +45,6 @@ def addEthnicity(request):
     else:
         form = ethnicityForm()
         latest = gnuhealth_ethnicity.objects.latest('id')
-        
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
@@ -65,26 +66,31 @@ def editEthnicity(request, id):
 
 
 def updateEthnicity(request, id):
+    type = "grid"
     eth = gnuhealth_ethnicity.objects.get(id=id)
-    form = ethnicityForm(request.POST, instance=eth)
-    if form.is_valid():
-        form.save()
-        msg = "3"
-        ethnicities = gnuhealth_ethnicity.objects.all()
-        return render(request, 'health_configuration/patients/ethnicities.html'
-                      , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
-    msg = "4"
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_ethnicity(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    eth.save()
+    msg = "3"
     ethnicities = gnuhealth_ethnicity.objects.all()
     return render(request, 'health_configuration/patients/ethnicities.html'
-                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+                       , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 
 
-def deleteEthnicity(request, id):  
-    ethnicity = gnuhealth_ethnicity.objects.get(id=id)  
-    ethnicity.delete() 
+def deleteEthnicity(request, id):
+    ethnicity = gnuhealth_ethnicity.objects.get(id=id)
+    ethnicity.delete()
     type = "grid"
     msg = "2"
-    ethnicities = gnuhealth_ethnicity.objects.all() 
+    ethnicities = gnuhealth_ethnicity.objects.all()
     return render(request, 'health_configuration/patients/ethnicities.html'
                               , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 def citizenship(request):
@@ -121,7 +127,7 @@ def addOccupation(request):
     else:
         form = occupationForm()
         latest = gnuhealth_occupation.objects.latest('id')
-        
+
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
@@ -150,12 +156,12 @@ def updateOccupation(request, id):
         #return redirect("/health-configuration/ethnicities")
     return render(request, 'health_configuration/patients/occupations.html', {'occupation': occupation})
 
-def deleteOccupation(request, id):  
-    occupation = gnuhealth_occupation.objects.get(id=id)  
-    occupation.delete() 
+def deleteOccupation(request, id):
+    occupation = gnuhealth_occupation.objects.get(id=id)
+    occupation.delete()
     type = "grid"
     msg = "2"
-    occupations = gnuhealth_occupation.objects.all() 
+    occupations = gnuhealth_occupation.objects.all()
     return render(request, 'health_configuration/patients/occupations.html'
                               , {'type': type, 'msg': msg, 'occupations': occupations})
 def residence(request):
