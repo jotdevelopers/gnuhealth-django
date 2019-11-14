@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addGene';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '{% url 'addGenes' %}';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -37,47 +37,6 @@
             {% endfor %}
         {% endif %}
     </div>
-
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
     
     <div class="col-sm-12">
         <div class="card-box">
@@ -100,12 +59,17 @@
                         {% for gene in genes %}
                         <tr>
                             <td>{{gene.name}}</td>
-                            <td>{{gene.code}}</td>
-                            <td>{{gene.notes}}</td>
-                            <td>{{gene.notes}}</td>
-                            <td class="text-right"><a href="/health-configuration/editGene/{{gene.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteGene/{{gene.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
-
+                            <td>{{gene.long_name}}</td>
+                            <td>{{gene.chromosome}}</td>
+                            <td>{{gene.protein_name}}</td>
+                            <td class="text-right">
+                                <a href="/health-configuration/editGenes/{{gene.id}}">
+                                    <i class="far fa-edit"> </i>
+                                </a>
+                                <a href="/health-configuration/deleteGenes/{{gene.id}}">
+                                    <i class="far fa-trash-alt"> </i>
+                                </a>
+                            </td>
                         </tr>
                         {% endfor %}
 
@@ -119,7 +83,7 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addEthnicity">
+<form method="POST" class="post-form" action="/health-configuration/addGenes">
     {% csrf_token %}
 
     <div class="row">
@@ -137,14 +101,13 @@
                         <div class="form-group">
                             <label>Record ID</label>
                             <input type="number" value="{{ form.id }}" name="id" class="form-control">
-
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Name</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -152,34 +115,41 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Official Long Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                            <input type="text" value="{{ form.long_name }}" name="long_name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Protein Code</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="text" value="{{ form.protein_name }}" name="protein_name" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Chromosome</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="text" value="{{ form.chromosome }}" name="chromosome" class="form-control">
+
+                        </div>
+                    </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Gene Information</label>
+                            <input type="text" value="{{ form.info }}" name="info" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="number" value="{{ form.location }}" name="location" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Id</label>
-                            <input type="number" value="{{ form.gene_id }}" name="notes" class="form-control">
+                            <input type="number" value="{{ form.gene_id }}" name="gene_id" class="form-control">
 
                         </div>
                     </div>
@@ -225,7 +195,7 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateGene/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-configuration/updateGenes/{{ form.id }}/">
     {% csrf_token %}
 
     <div class="row">
@@ -242,7 +212,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Name</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -250,34 +220,33 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Official Long Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                            <input type="text" value="{{ form.long_name }}" name="long_name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Protein Code</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
-
+                            <input type="text" value="{{ form.protein_name }}" name="protein_name" class="form-control">
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Chromosome</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="text" value="{{ form.chromosome }}" name="chromosome" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="text" value="{{ form.location }}" name="location" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Id </label>
-                            <input type="number" value="{{ form.gene_id }}" name="notes" class="form-control">
+                            <input type="number" value="{{ form.gene_id }}" name="gene_id" class="form-control">
 
                         </div>
                     </div>

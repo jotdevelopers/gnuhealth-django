@@ -20,4 +20,10 @@ urlpatterns = [
     path('deleteOccupation/<id>/', views.deleteOccupation, name='deleteOccupation'),
     path('residence', views.residence, name='residence'),
     path('add_residence', views.add_residence, name='add_residence'),
+
+    path('genes', views.genes, name='genes'),
+    path('addGenes', views.addGenes, name='addGenes'),
+    path('editGenes/<id>', views.editGenes, name='editGenes'),
+    path('updateGenes/<id>/', views.updateGenes, name='updateGenes'),
+    path('deleteGenes/<id>/', views.deleteGenes, name='deleteGenes'),
 ]
