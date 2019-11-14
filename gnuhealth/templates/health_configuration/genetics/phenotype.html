@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Ethnicities</h4>
+        <h4 class="page-title">Phenotypes</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addEthnicity';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-configuration/addPhenotype';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -87,21 +87,20 @@
                     <table id="example" class=" table table-stripped  dt-responsive  ">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Code</th>
-                            <th>Notes</th>
+                            <th>Gene and Protein</th>
+                            <th>Phenotype</th>
                             <th>Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for ethnicity in ethnicities %}
+                        {% for phenotype in phenotypes %}
                         <tr>
-                            <td>{{ethnicity.name}}</td>
-                            <td>{{ethnicity.code}}</td>
-                            <td>{{ethnicity.notes}}</td>
-                            <td class="text-right"><a href="/health-configuration/editEthnicity/{{ethnicity.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteEthnicity/{{ethnicity.id}}"> <i
+                            <td>{{phenotype.name}}</td>
+                            <td>{{phenotype.code}}</td>
+                            
+                            <td class="text-right"><a href="/health-configuration/editPhenotype/{{phenotype.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deletePhenotype/{{phenotype.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -117,12 +116,12 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addEthnicity">
+<form method="POST" class="post-form" action="/health-configuration/addPhenotype">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Ethnicity</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Phenotype</h4>
         </div>
     </div>
 
@@ -149,17 +148,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Gene and Protein</label>
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Notes</label>
+                            <label>Phenotype</label>
                             <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
 
                         </div>
                     </div>
+                     
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
@@ -202,12 +202,12 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-configuration/updatePhenotype/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Phenotype</h4>
         </div>
     </div>
 
@@ -226,13 +226,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Name</label>
+                            <label>Gene and Protein</label>
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Notes</label>
+                            <label>Phenotype</label>
                             <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
 
                         </div>
