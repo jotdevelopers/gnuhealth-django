@@ -6,12 +6,10 @@ class ethnicityForm(forms.ModelForm):
         model = gnuhealth_ethnicity
         fields = "__all__"
         
-        
 class occupationForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_occupation
         fields = "__all__"
-
         
 class genesForm(forms.ModelForm):
     class Meta:  
