@@ -56,7 +56,7 @@ def addEthnicity(request):
         form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         form.fields['id'].widget.attrs['readonly'] = True
         form.fields['create_date'].widget.attrs['readonly'] = True
-        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['write_date'].widget.attrs['readonly'] = True
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
@@ -153,7 +153,7 @@ def addOccupation(request):
         form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         form.fields['id'].widget.attrs['readonly'] = True
         form.fields['create_date'].widget.attrs['readonly'] = True
-        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['write_date'].widget.attrs['readonly'] = True
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
@@ -271,3 +271,84 @@ def addGenes(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form})
+    
+def varients(request):
+    type = "grid"
+    varients = gnuhealth_gene_varient.objects.all()
+    return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients})
+
+def editVarient(request, id):
+    type = "edit"
+    editForm = gnuhealth_gene_varient.objects.get(id=id)
+    return render(request, 'health_configuration/genetics/varient.html', {'form': editForm, 'type': type})
+
+def updateVarient(request, id):
+    type = "grid"
+    varient = gnuhealth_gene_varient.objects.get(id=id)
+    varient.name = request.POST['name']
+    varient.aa_change = request.POST['aa_change']
+    varient.protein_name = request.POST['varient']
+  
+    varient.id = id
+    varient.create_date = varient.create_date
+    varient.write_date = varient.write_date
+    varient.create_uid = varient.create_uid
+    varient.write_uid = varient.write_uid
+
+    varient.save()
+    varients = gnuhealth_gene_varient.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('genes')
+
+
+def deleteVarient(request, id):
+    varient = gnuhealth_gene_varient.objects.get(id=id)
+    varient.delete()
+    type = "grid"
+    varients = gnuhealth_gene_varient.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('varients')
+
+
+def addVarient(request):
+    if request.method == "POST":
+        form = varientForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_gene_varient.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                genes = gnuhealth_gene_varient.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('genes')
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = varientForm()
+        latest = gnuhealth_gene_varient.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/genetics/varients.html', {'type': type, 'form': form})
