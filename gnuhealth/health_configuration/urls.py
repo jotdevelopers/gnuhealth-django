@@ -59,4 +59,11 @@ urlpatterns = [
     path('editBodyStructures/<id>/', views.editBodyStructures, name='editBodyStructures'),
     path('updateBodyStructures/<id>/', views.updateBodyStructures, name='updateBodyStructures'),
     path('deleteBodyStructures/<id>/', views.deleteBodyStructures, name='deleteBodyStructures'),
+
+
+    path('activityParticipation', views.activityParticipation, name='activityParticipation'),
+    path('addActivityParticipation', views.addActivityParticipation, name='addActivityParticipation'),
+    path('editActivityParticipation/<id>/', views.editActivityParticipation, name='editActivityParticipation'),
+    path('updateActivityParticipation/<id>/', views.updateActivityParticipation, name='updateActivityParticipation'),
+    path('deleteActivityParticipation/<id>/', views.deleteActivityParticipation, name='deleteActivityParticipation'),
 ]

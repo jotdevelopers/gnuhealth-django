@@ -635,3 +635,74 @@ def deleteBodyStructures(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return redirect('bodyStructures')
+
+def activityParticipation(request):
+    type = "grid"
+    tempActivityParticipation = gnuhealth_activity_and_participation.objects.all()
+    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'type': type, 'tempActivityParticipation': tempActivityParticipation})
+
+def addActivityParticipation(request):
+    if request.method == "POST":
+        form = activityParticipationForm(request.POST)
+        if form.is_valid():
+            try:
+                latest = gnuhealth_activity_and_participation.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('activityParticipation')
+            except:
+                pass
+        else:         
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = activityParticipationForm()
+        latest = gnuhealth_activity_and_participation.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'type': type, 'form': form})
+
+def editActivityParticipation(request, id):
+    type = "edit"
+    editForm = gnuhealth_activity_and_participation.objects.get(id=id)
+    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'form': editForm, 'type': type})
+
+def updateActivityParticipation(request, id):
+    temp = gnuhealth_activity_and_participation.objects.get(id=id)
+    temp.name = request.POST['name']
+    temp.code = request.POST['code']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('activityParticipation')
+
+def deleteActivityParticipation(request, id):
+    temp = gnuhealth_activity_and_participation.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('activityParticipation')

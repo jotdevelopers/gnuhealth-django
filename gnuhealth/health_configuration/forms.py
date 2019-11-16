@@ -52,6 +52,12 @@ class bodyStructuresForm(forms.ModelForm):
         fields = "__all__"
 
 
+class activityParticipationForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_activity_and_participation
+        fields = "__all__"
+
+
 
 
 
