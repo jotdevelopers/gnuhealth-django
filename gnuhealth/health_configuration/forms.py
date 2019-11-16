@@ -51,10 +51,14 @@ class bodyStructuresForm(forms.ModelForm):
         model = gnuhealth_body_structure
         fields = "__all__"
 
-
 class activityParticipationForm(forms.ModelForm):
     class Meta:
         model = gnuhealth_activity_and_participation
+        fields = "__all__"
+
+class environmentalFactorForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_environmental_factor
         fields = "__all__"
 
 

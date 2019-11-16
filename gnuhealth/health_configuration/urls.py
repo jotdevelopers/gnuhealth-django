@@ -32,13 +32,11 @@ urlpatterns = [
     path('updateVarient/<id>/', views.updateVarient, name='updateVarient'),
     path('deleteVarient/<id>/', views.deleteVarient, name='deleteVarient'),
 
-
     path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
     path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),
     path('editPathologyGroups/<id>/', views.editPathologyGroups, name='editPathologyGroups'),
     path('updatePathologyGroups/<id>/', views.updatePathologyGroups, name='updatePathologyGroups'),
     path('deletePathologyGroups/<id>/', views.deletePathologyGroups, name='deletePathologyGroups'),
-
 
     path('categories', views.categories, name='categories'),
     path('addCategories', views.addCategories, name='addCategories'),
@@ -46,13 +44,11 @@ urlpatterns = [
     path('updateCategories/<id>/', views.updateCategories, name='updateCategories'),
     path('deleteCategories/<id>/', views.deleteCategories, name='deleteCategories'),
 
-
     path('bodyFunctions', views.bodyFunctions, name='bodyFunctions'),
     path('addBodyFunctions', views.addBodyFunctions, name='addBodyFunctions'),
     path('editBodyFunctions/<id>/', views.editBodyFunctions, name='editBodyFunctions'),
     path('updateBodyFunctions/<id>/', views.updateBodyFunctions, name='updateBodyFunctions'),
     path('deleteBodyFunctions/<id>/', views.deleteBodyFunctions, name='deleteBodyFunctions'),
-
 
     path('bodyStructures', views.bodyStructures, name='bodyStructures'),
     path('addBodyStructures', views.addBodyStructures, name='addBodyStructures'),
@@ -60,10 +56,15 @@ urlpatterns = [
     path('updateBodyStructures/<id>/', views.updateBodyStructures, name='updateBodyStructures'),
     path('deleteBodyStructures/<id>/', views.deleteBodyStructures, name='deleteBodyStructures'),
 
-
     path('activityParticipation', views.activityParticipation, name='activityParticipation'),
     path('addActivityParticipation', views.addActivityParticipation, name='addActivityParticipation'),
     path('editActivityParticipation/<id>/', views.editActivityParticipation, name='editActivityParticipation'),
     path('updateActivityParticipation/<id>/', views.updateActivityParticipation, name='updateActivityParticipation'),
     path('deleteActivityParticipation/<id>/', views.deleteActivityParticipation, name='deleteActivityParticipation'),
+
+    path('environmentalFactor', views.environmentalFactor, name='environmentalFactor'),
+    path('addEnvironmentalFactor', views.addEnvironmentalFactor, name='addEnvironmentalFactor'),
+    path('editEnvironmentalFactor/<id>/', views.editEnvironmentalFactor, name='editEnvironmentalFactor'),
+    path('updateEnvironmentalFactor/<id>/', views.updateEnvironmentalFactor, name='updateEnvironmentalFactor'),
+    path('deleteEnvironmentalFactor/<id>/', views.deleteEnvironmentalFactor, name='deleteEnvironmentalFactor'),
 ]
