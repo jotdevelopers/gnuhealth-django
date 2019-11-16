@@ -37,4 +37,12 @@ urlpatterns = [
     path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),
     path('editPathologyGroups/<id>/', views.editPathologyGroups, name='editPathologyGroups'),
     path('updatePathologyGroups/<id>/', views.updatePathologyGroups, name='updatePathologyGroups'),
+    path('deletePathologyGroups/<id>/', views.deletePathologyGroups, name='deletePathologyGroups'),
+
+
+    path('categories', views.categories, name='categories'),
+    path('addCategories', views.addCategories, name='addCategories'),
+    path('editCategories/<id>/', views.editCategories, name='editCategories'),
+    path('updateCategories/<id>/', views.updateCategories, name='updateCategories'),
+    path('deleteCategories/<id>/', views.deleteCategories, name='deleteCategories'),
 ]

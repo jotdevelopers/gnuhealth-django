@@ -36,6 +36,11 @@ class pathologyGroupsForm(forms.ModelForm):
         model = gnuhealth_pathology_group
         fields = "__all__"
 
+class categoriesForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_pathology_category
+        fields = "__all__"
+
 
 
 

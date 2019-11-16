@@ -393,7 +393,6 @@ def editPathologyGroups(request, id):
     return render(request, 'health_configuration/conditions/pathology_groups.html', {'form': editForm, 'type': type})
 
 def updatePathologyGroups(request, id):
-    type = "grid"
     temp = gnuhealth_pathology_group.objects.get(id=id)
     temp.code = request.POST['code']
     temp.desc = request.POST['desc']
@@ -414,3 +413,83 @@ def updatePathologyGroups(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
     return redirect('pathologyGroups')
+
+def deletePathologyGroups(request, id):
+    temp = gnuhealth_pathology_group.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('pathologyGroups')
+
+def categories(request):
+    type = "grid"
+    tempCategories = gnuhealth_pathology_category.objects.all()
+    return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'tempCategories': tempCategories})
+
+def addCategories(request):
+    if request.method == "POST":
+        form = categoriesForm(request.POST)
+        if form.is_valid():
+            try:
+                latest = gnuhealth_pathology_category.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('categories')
+            except:
+                pass
+        else:         
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = categoriesForm()
+        latest = gnuhealth_pathology_category.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'form': form})
+
+def editCategories(request, id):
+    type = "edit"
+    editForm = gnuhealth_pathology_category.objects.get(id=id)
+    return render(request, 'health_configuration/conditions/categories.html', {'form': editForm, 'type': type})
+
+def updateCategories(request, id):
+    temp = gnuhealth_pathology_category.objects.get(id=id)
+    temp.name = request.POST['name']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('categories')
+
+def deleteCategories(request, id):
+    temp = gnuhealth_pathology_category.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('categories')
