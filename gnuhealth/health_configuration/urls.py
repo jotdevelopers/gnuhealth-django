@@ -5,7 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('condition', views.condition, name='condition'),
-    path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
     path('ethnicity', views.ethnicity, name='ethnicity'),
     path('addEthnicity', views.addEthnicity, name='addEthnicity'),
     path('editEthnicity/<id>/', views.editEthnicity, name='editEthnicity'),
@@ -32,4 +31,10 @@ urlpatterns = [
     path('editVarient/<id>', views.editVarient, name='editVarient'),
     path('updateVarient/<id>/', views.updateVarient, name='updateVarient'),
     path('deleteVarient/<id>/', views.deleteVarient, name='deleteVarient'),
+
+
+    path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
+    path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),
+    path('editPathologyGroups/<id>/', views.editPathologyGroups, name='editPathologyGroups'),
+    path('updatePathologyGroups/<id>/', views.updatePathologyGroups, name='updatePathologyGroups'),
 ]

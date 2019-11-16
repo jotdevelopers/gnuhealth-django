@@ -30,9 +30,36 @@ class varientForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_gene_varient
         fields = "__all__"
-        
-class phenotypeForm(forms.ModelForm):
+
+class pathologyGroupsForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_gene_varient_phenotype
+        model = gnuhealth_pathology_group
         fields = "__all__"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+        
+# class phenotypeForm(forms.ModelForm):
+#     class Meta:
+#         model = gnuhealth_gene_varient_phenotype
+#         fields = "__all__"
         

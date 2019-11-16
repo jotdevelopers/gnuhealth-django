@@ -17,9 +17,6 @@ def condition(request):
     conditions = gnuhealth_pathology.objects.all()
     return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions})
 
-def pathologyGroups(request):
-    return render(request, 'health_configuration/conditions/pathology_groups.html')
-
 def ethnicity(request):
     type = "grid"
     ethnicities = gnuhealth_ethnicity.objects.all()
@@ -352,3 +349,68 @@ def addVarient(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/genetics/varients.html', {'type': type, 'form': form})
+
+def pathologyGroups(request):
+    type = "grid"
+    tempPathologyGroups = gnuhealth_pathology_group.objects.all()
+    return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'tempPathologyGroups': tempPathologyGroups})
+
+def addPathologyGroups(request):
+    if request.method == "POST":
+        form = pathologyGroupsForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                latest = gnuhealth_pathology_group.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('pathologyGroups')
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = pathologyGroupsForm()
+        latest = gnuhealth_pathology_group.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'form': form})
+
+def editPathologyGroups(request, id):
+    type = "edit"
+    editForm = gnuhealth_pathology_group.objects.get(id=id)
+    return render(request, 'health_configuration/conditions/pathology_groups.html', {'form': editForm, 'type': type})
+
+def updatePathologyGroups(request, id):
+    type = "grid"
+    temp = gnuhealth_pathology_group.objects.get(id=id)
+    temp.code = request.POST['code']
+    temp.desc = request.POST['desc']
+    temp.info = request.POST['info']
+    temp.name = request.POST['name']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('pathologyGroups')
