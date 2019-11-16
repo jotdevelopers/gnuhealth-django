@@ -100,14 +100,14 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Record ID</label>
-                            <input type="number" value="{{ form.id }}" name="id" class="form-control">
+                            <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -115,70 +115,66 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Official Long Name</label>
-                            <input type="text" value="{{ form.long_name }}" name="long_name" class="form-control">
+                            <input type="text" name="long_name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Protein Code</label>
-                            <input type="text" value="{{ form.protein_name }}" name="protein_name" class="form-control">
+                            <input type="text" name="protein_name" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Chromosome</label>
-                            <input type="text" value="{{ form.chromosome }}" name="chromosome" class="form-control">
+                            <input type="text" name="chromosome" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Information</label>
-                            <input type="text" value="{{ form.info }}" name="info" class="form-control">
+                            <input type="text" name="info" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="number" value="{{ form.location }}" name="location" class="form-control">
+                            <input type="number" name="location" class="form-control">
 
                         </div>
                     </div>
                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Gene Id</label>
-                            <input type="number" value="{{ form.gene_id }}" name="gene_id" class="form-control">
+                            <input type="number" name="gene_id" class="form-control">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
-
+                            <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
-
+                            <input type="text" readonly name="write_date" class="form-control" placeholder="{{ form.write_date }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
-
+                            <input type="text" readonly name="create_uid" class="form-control"placeholder="{{ form.create_uid }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
-
+                            <input type="text" readonly name="write_uid" class="form-control" placeholder="{{ form.write_uid }}
                         </div>
                     </div>
                 </div>
