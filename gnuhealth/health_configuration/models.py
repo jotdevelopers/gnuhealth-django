@@ -78,6 +78,7 @@ class gnuhealth_pathology_category(models.Model):
 
 class gnuhealth_body_function(models.Model):
       id = models.IntegerField(primary_key=True)
+      # category = models.IntegerField()
       code = models.CharField(max_length=100)
       create_date = models.DateTimeField()
       create_uid = models.IntegerField()
@@ -86,3 +87,15 @@ class gnuhealth_body_function(models.Model):
       write_uid = models.IntegerField()
       class Meta:
               db_table = 'gnuhealth_body_function'
+
+class gnuhealth_body_structure(models.Model):
+      id = models.IntegerField(primary_key=True)
+      # category = models.IntegerField()
+      code = models.CharField(max_length=100)
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()
+      name = models.CharField(max_length=100)
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+            db_table = 'gnuhealth_body_structure'

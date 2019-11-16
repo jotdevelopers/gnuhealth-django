@@ -52,4 +52,11 @@ urlpatterns = [
     path('editBodyFunctions/<id>/', views.editBodyFunctions, name='editBodyFunctions'),
     path('updateBodyFunctions/<id>/', views.updateBodyFunctions, name='updateBodyFunctions'),
     path('deleteBodyFunctions/<id>/', views.deleteBodyFunctions, name='deleteBodyFunctions'),
+
+
+    path('bodyStructures', views.bodyStructures, name='bodyStructures'),
+    path('addBodyStructures', views.addBodyStructures, name='addBodyStructures'),
+    path('editBodyStructures/<id>/', views.editBodyStructures, name='editBodyStructures'),
+    path('updateBodyStructures/<id>/', views.updateBodyStructures, name='updateBodyStructures'),
+    path('deleteBodyStructures/<id>/', views.deleteBodyStructures, name='deleteBodyStructures'),
 ]

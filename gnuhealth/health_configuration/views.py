@@ -564,3 +564,74 @@ def deleteBodyFunctions(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return redirect('bodyFunctions')
+
+def bodyStructures(request):
+    type = "grid"
+    tempBodyStructures = gnuhealth_body_structure.objects.all()
+    return render(request, 'health_configuration/functionality_disability/body_structures.html', {'type': type, 'tempBodyStructures': tempBodyStructures})
+
+def addBodyStructures(request):
+    if request.method == "POST":
+        form = bodyStructuresForm(request.POST)
+        if form.is_valid():
+            try:
+                latest = gnuhealth_body_structure.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('bodyStructures')
+            except:
+                pass
+        else:         
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = bodyStructuresForm()
+        latest = gnuhealth_body_structure.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/functionality_disability/body_structures.html', {'type': type, 'form': form})
+
+def editBodyStructures(request, id):
+    type = "edit"
+    editForm = gnuhealth_body_structure.objects.get(id=id)
+    return render(request, 'health_configuration/functionality_disability/body_structures.html', {'form': editForm, 'type': type})
+
+def updateBodyStructures(request, id):
+    temp = gnuhealth_body_structure.objects.get(id=id)
+    temp.name = request.POST['name']
+    temp.code = request.POST['code']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('bodyStructures')
+
+def deleteBodyStructures(request, id):
+    temp = gnuhealth_body_structure.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('bodyStructures')

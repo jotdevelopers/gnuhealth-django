@@ -46,6 +46,11 @@ class bodyFunctionsForm(forms.ModelForm):
         model = gnuhealth_body_function
         fields = "__all__"
 
+class bodyStructuresForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_body_structure
+        fields = "__all__"
+
 
 
 
