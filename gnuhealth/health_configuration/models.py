@@ -74,4 +74,15 @@ class gnuhealth_pathology_category(models.Model):
     write_date = models.DateTimeField()
     write_uid = models.IntegerField()
     class Meta:
-            db_table = 'gnuhealth_pathology_category'
+            db_table = 'gnuhealth_pathology_category'            
+
+class gnuhealth_body_function(models.Model):
+      id = models.IntegerField(primary_key=True)
+      code = models.CharField(max_length=100)
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()
+      name = models.CharField(max_length=100)
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+              db_table = 'gnuhealth_body_function'

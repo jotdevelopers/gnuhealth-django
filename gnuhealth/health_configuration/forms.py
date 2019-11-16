@@ -41,6 +41,11 @@ class categoriesForm(forms.ModelForm):
         model = gnuhealth_pathology_category
         fields = "__all__"
 
+class bodyFunctionsForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_body_function
+        fields = "__all__"
+
 
 
 
