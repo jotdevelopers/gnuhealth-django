@@ -61,6 +61,11 @@ class environmentalFactorForm(forms.ModelForm):
         model = gnuhealth_environmental_factor
         fields = "__all__"
 
+class dietBeliefForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_diet_belief
+        fields = "__all__"
+
 
 
 

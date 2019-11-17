@@ -67,4 +67,10 @@ urlpatterns = [
     path('editEnvironmentalFactor/<id>/', views.editEnvironmentalFactor, name='editEnvironmentalFactor'),
     path('updateEnvironmentalFactor/<id>/', views.updateEnvironmentalFactor, name='updateEnvironmentalFactor'),
     path('deleteEnvironmentalFactor/<id>/', views.deleteEnvironmentalFactor, name='deleteEnvironmentalFactor'),
+
+    path('dietBelief', views.dietBelief, name='dietBelief'),
+    path('addDietBelief', views.addDietBelief, name='addDietBelief'),
+    path('editDietBelief/<id>/', views.editDietBelief, name='editDietBelief'),
+    path('updateDietBelief/<id>/', views.updateDietBelief, name='updateDietBelief'),
+    path('deleteDietBelief/<id>/', views.deleteDietBelief, name='deleteDietBelief'),
 ]

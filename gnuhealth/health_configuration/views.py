@@ -777,3 +777,75 @@ def deleteEnvironmentalFactor(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return redirect('environmentalFactor')
+
+def dietBelief(request):
+    type = "grid"
+    tempDietBelief = gnuhealth_diet_belief.objects.all()
+    return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'tempDietBelief': tempDietBelief})
+
+def addDietBelief(request):
+    if request.method == "POST":
+        form = dietBeliefForm(request.POST)
+        if form.is_valid():
+            try:
+                latest = gnuhealth_diet_belief.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')                
+                return redirect('dietBelief')
+            except:
+                pass
+        else:         
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = dietBeliefForm()
+        latest = gnuhealth_diet_belief.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'form': form})
+
+def editDietBelief(request, id):
+    type = "edit"
+    editForm = gnuhealth_diet_belief.objects.get(id=id)
+    return render(request, 'health_configuration/misc/diet_belief.html', {'form': editForm, 'type': type})
+
+def updateDietBelief(request, id):
+    temp = gnuhealth_diet_belief.objects.get(id=id)
+    temp.name = request.POST['name']
+    temp.code = request.POST['code']
+    temp.description = request.POST['description']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('dietBelief')
+
+def deleteDietBelief(request, id):
+    temp = gnuhealth_diet_belief.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('dietBelief')

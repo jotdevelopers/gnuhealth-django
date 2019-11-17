@@ -123,3 +123,15 @@ class gnuhealth_environmental_factor(models.Model):
       write_uid = models.IntegerField()
       class Meta:
             db_table = 'gnuhealth_environmental_factor'
+
+class gnuhealth_diet_belief(models.Model):
+      id = models.IntegerField(primary_key=True)
+      code = models.CharField(max_length=100)
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()
+      description = models.CharField(max_length=100)
+      name = models.CharField(max_length=100)
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+            db_table = 'gnuhealth_diet_belief'

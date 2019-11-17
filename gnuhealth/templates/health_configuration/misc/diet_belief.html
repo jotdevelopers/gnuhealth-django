@@ -1,0 +1,237 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% if type == "grid" %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Diet Belief</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
+
+            </select>
+            <button onclick="window.location.href = '{% url 'addDietBelief' %}';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for temp in tempDietBelief %}
+                        <tr>
+                            <td>{{temp.name}}</td>
+                            <td>{{temp.description}}</td>
+                            <td class="text-right">
+                                <a href="/health-configuration/editDietBelief/{{temp.id}}">
+                                    <i class="far fa-edit"> </i>
+                                </a>
+                                <a href="/health-configuration/deleteDietBelief/{{temp.id}}">
+                                    <i class="far fa-trash-alt"> </i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-configuration/addDietBelief">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Diet Belief</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" name="code" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly name="write_date" class="form-control" placeholder="{{ form.write_date }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly name="create_uid" class="form-control"placeholder="{{ form.create_uid }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly name="write_uid" class="form-control" placeholder="{{ form.write_uid }}
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-configuration/updateDietBelief/{{ form.id }}/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Diet Belief</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            <input type="number" name="id" class="form-control" value="{{ form.id }}" readonly="readonly">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" name="code" class="form-control" value="{{ form.code }}">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" value="{{ form.name }}">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control" value="{{ form.description }}">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly name="write_date" class="form-control" placeholder="{{ form.write_date }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly name="create_uid" class="form-control"placeholder="{{ form.create_uid }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly name="write_uid" class="form-control" placeholder="{{ form.write_uid }}">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}
