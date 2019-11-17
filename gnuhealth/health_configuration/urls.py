@@ -79,4 +79,10 @@ urlpatterns = [
     path('editDietTherapeutic/<id>/', views.editDietTherapeutic, name='editDietTherapeutic'),
     path('updateDietTherapeutic/<id>/', views.updateDietTherapeutic, name='updateDietTherapeutic'),
     path('deleteDietTherapeutic/<id>/', views.deleteDietTherapeutic, name='deleteDietTherapeutic'),
+
+    path('pediatricsGrowthChart', views.pediatricsGrowthChart, name='pediatricsGrowthChart'),
+    path('addPediatricsGrowthChart', views.addPediatricsGrowthChart, name='addPediatricsGrowthChart'),
+    path('editPediatricsGrowthChart/<id>/', views.editPediatricsGrowthChart, name='editPediatricsGrowthChart'),
+    path('updatePediatricsGrowthChart/<id>/', views.updatePediatricsGrowthChart, name='updatePediatricsGrowthChart'),
+    path('deletePediatricsGrowthChart/<id>/', views.deletePediatricsGrowthChart, name='deletePediatricsGrowthChart'),
 ]

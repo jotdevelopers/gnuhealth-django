@@ -147,3 +147,18 @@ class gnuhealth_diet_therapeutic(models.Model):
       write_uid = models.IntegerField()
       class Meta:
             db_table = 'gnuhealth_diet_therapeutic'
+
+class gnuhealth_pediatrics_growth_charts_who(models.Model):
+      id = models.IntegerField(primary_key=True)
+      indicator = models.CharField(max_length=100)
+      measure = models.CharField(max_length=100)
+      month = models.IntegerField()
+      sex = models.CharField(max_length=10)
+      type = models.CharField(max_length=100)
+      value = models.FloatField()
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()      
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+            db_table = 'gnuhealth_pediatrics_growth_charts_who'

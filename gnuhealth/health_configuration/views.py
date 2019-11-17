@@ -921,3 +921,78 @@ def deleteDietTherapeutic(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return redirect('dietTherapeutic')
+
+def pediatricsGrowthChart(request):
+    type = "grid"
+    tempPediatricsGrowthChart = gnuhealth_pediatrics_growth_charts_who.objects.all()
+    return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'type': type, 'tempPediatricsGrowthChart': tempPediatricsGrowthChart})
+
+def addPediatricsGrowthChart(request):
+    if request.method == "POST":
+        form = pediatricGrowthChartForm(request.POST)
+        if form.is_valid():
+            try:
+                latest = gnuhealth_pediatrics_growth_charts_who.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                messages.success(request, f'Success, Record Saved Successfully')             
+                return redirect('pediatricsGrowthChart')
+            except:
+                pass
+        else:         
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = pediatricGrowthChartForm()
+        latest = gnuhealth_pediatrics_growth_charts_who.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'type': type, 'form': form})
+
+def editPediatricsGrowthChart(request, id):
+    type = "edit"
+    editForm = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
+    return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'form': editForm, 'type': type})
+
+def updatePediatricsGrowthChart(request, id):
+    temp = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
+    temp.indicator = request.POST['indicator']
+    temp.measure = request.POST['measure']
+    temp.sex = request.POST['sex']
+    temp.month = request.POST['month']
+    temp.type = request.POST['type']
+    temp.value = request.POST['value']
+  
+    temp.id = id
+    temp.create_date = temp.create_date
+    temp.write_date = temp.write_date
+    temp.create_uid = temp.create_uid
+    temp.write_uid = temp.write_uid
+
+    temp.save()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('pediatricsGrowthChart')
+
+def deletePediatricsGrowthChart(request, id):
+    temp = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
+    temp.delete()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('pediatricsGrowthChart')

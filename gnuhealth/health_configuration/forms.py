@@ -72,6 +72,12 @@ class dietTherapeuticForm(forms.ModelForm):
         fields = "__all__"
 
 
+class pediatricGrowthChartForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_pediatrics_growth_charts_who
+        fields = "__all__"
+
+
 
 
 
