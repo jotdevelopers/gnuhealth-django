@@ -66,6 +66,11 @@ class dietBeliefForm(forms.ModelForm):
         model = gnuhealth_diet_belief
         fields = "__all__"
 
+class dietTherapeuticForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_diet_therapeutic
+        fields = "__all__"
+
 
 
 
