@@ -3,15 +3,15 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from health_appointment.models import *
-from health_appointment.forms import *
+from health_appointments.models import *
+from health_appointments.forms import *
 
 from django.contrib import messages
 # Create your views here.
 def index(request):
     type = "grid"
     appointments = gnuhealth_appointment.objects.all()
-    return render(request, 'health_appointment/appointments.html'
+    return render(request, 'health_appointments/appointments.html'
                   , {'appointments': appointments
                   , 'type': type})
   
@@ -23,12 +23,12 @@ def addAppointment(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_appointment.objects.latest('id')
+                latest = gnuhealth_appointments.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 appointments = gnuhealth_apppointment.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_appointment/appointments.html'
+                return render(request, 'health_appointments/appointments.html'
                               , {'type': type, 'msg': msg, 'appointments': appointments})
             except:
                 pass
@@ -49,13 +49,13 @@ def addAppointment(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_appointment/appointments.html', {'type': type, 'form': form})
+        return render(request, 'health_appointments/appointments.html', {'type': type, 'form': form})
 
 
 def editAppointment(request, id):
     type = "edit"
     editForm = gnuhealth_apppointment.objects.get(id=id)
-    return render(request, 'health_appointment/appointments.html', {'form': editForm, 'type': type})
+    return render(request, 'health_appointments/appointments.html', {'form': editForm, 'type': type})
 
 
 def updateAppointment(request, id):
@@ -96,6 +96,6 @@ def deleteAppointment(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Delete Error')
 
-    return render(request, 'health_appointment/appointments.html'
+    return render(request, 'health_appointments/appointments.html'
                               , {'type': type, 'msg': msg, 'appointments': appointments})
 
