@@ -1,5 +1,5 @@
 from django import forms  
-from health_appointment.models import *  
+from health_appointments.models import *
 class appointmentForm(forms.ModelForm):  
     class Meta:  
         model = gnuhealth_appointment   
