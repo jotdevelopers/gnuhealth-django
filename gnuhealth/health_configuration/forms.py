@@ -82,6 +82,11 @@ class operationalSectorForm(forms.ModelForm):
         model = gnuhealth_operational_sector
         fields = "__all__"
 
+class operationalAreaForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_operational_area
+        fields = "__all__"
+
 
 
 

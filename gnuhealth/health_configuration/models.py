@@ -174,3 +174,15 @@ class gnuhealth_operational_sector(models.Model):
     operational_area = models.IntegerField()
     class Meta:
         db_table = 'gnuhealth_operational_sector'            
+
+class gnuhealth_operational_area(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    info = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+   
+    class Meta:
+        db_table = 'gnuhealth_operational_area'            
