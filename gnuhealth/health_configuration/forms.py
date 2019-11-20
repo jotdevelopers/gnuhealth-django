@@ -77,7 +77,10 @@ class pediatricGrowthChartForm(forms.ModelForm):
         model = gnuhealth_pediatrics_growth_charts_who
         fields = "__all__"
 
-
+class operationalSectorForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_operational_sector
+        fields = "__all__"
 
 
 
