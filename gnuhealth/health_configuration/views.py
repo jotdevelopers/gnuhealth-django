@@ -1087,14 +1087,14 @@ def deleteOperationalSector(request, id):
     return render(request, 'health_configuration/hospitalization/operational_sectors.html'
                               , {'type': type, 'msg': msg, 'opsectors': opsectors})
 
-def operationalSectors(request):
+def operationalAreas(request):
     type = "grid"
-    opsectors = gnuhealth_operational_sector.objects.all()
-    return render(request, 'health_configuration/hospitalization/operational_sectors.html'
-                  , {'opsectors': opsectors
+    opareas = gnuhealth_operational_area.objects.all()
+    return render(request, 'health_configuration/hospitalization/operational_areas.html'
+                  , {'opareas': opareas
                   , 'type': type})
 
-def addOperationalSector(request):
+def addOperationalArea(request):
     if request.method == "POST":
         form = operationalAreaForm(request.POST)
         if form.is_valid():

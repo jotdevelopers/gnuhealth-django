@@ -96,11 +96,11 @@
                         </thead>
                         <tbody>
 
-                        {% for opareas in opareas %}
+                        {% for oparea in opareas %}
                         <tr>
-                            <td>{{opsector.name}}</td>
-                            <td>{{opsector.info}}</td>
-                            <td class="text-right"><a href="/health-configuration/editOperationalArea/{{oparea.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteOperationalArea/{{oparear.id}}"> <i
+                            <td>{{oparea.name}}</td>
+                            <td>{{oparea.info}}</td>
+                            <td class="text-right"><a href="/health-configuration/editOperationalArea/{{oparea.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteOperationalArea/{{oparea.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -116,7 +116,7 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addOperationalArea>
+<form method="POST" class="post-form" action="/health-configuration/addOperationalArea">
     {% csrf_token %}
 
     <div class="row">
