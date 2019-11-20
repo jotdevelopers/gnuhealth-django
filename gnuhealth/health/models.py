@@ -35,7 +35,6 @@ class gnuhealth_pol(models.Model):
     write_date = models.DateTimeField()
     write_uid = models.IntegerField()
     fsync = models.BooleanField()
-    author_acct = models.CharField(max_length=100)
 
     class Meta:
         db_table = 'gnuhealth_pol'
