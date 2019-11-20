@@ -2,7 +2,6 @@ from django.shortcuts import render
 from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
 from health_appointments.models import *
 from health_appointments.forms import *
 
@@ -23,7 +22,7 @@ def addAppointment(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_appointments.objects.latest('id')
+                latest = gnuhealth_appointment.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 appointments = gnuhealth_apppointment.objects.all()
