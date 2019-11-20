@@ -11,7 +11,7 @@ class gnuhealth_inpatient_meal_order(models.Model):
     meal_order = models.CharField(max_length=100)
     meal_warning = models.BooleanField()
     meal_warning_ack = models.BooleanField()
-    mealtime = modelsCharField(max_length=100)
+    mealtime = models.CharField(max_length=100)
     name = models.IntegerField()
     order_date = models.DateTimeField()
     remarks = models.CharField(max_length=100)

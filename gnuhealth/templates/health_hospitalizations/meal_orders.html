@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Operational Areas</h4>
+        <h4 class="page-title">Meal Orders</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addOperationalArea';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-hospitalizations/addMealOrder';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -88,19 +88,28 @@
                         <thead>
                         <tr>
                           
-                            <th>Operational Area</th>
-                            <th>Extra Information</th>
+                            <th>Registration Time</th>
+                            <th>Order</th>
+                            <th>Meal Time</th>
+                            <th>Items</th>
+                            <th>Done</th>
+                            <th>Status</th>
                             <th>Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for oparea in opareas %}
+                        {% for order in orders %}
                         <tr>
-                            <td>{{oparea.name}}</td>
-                            <td>{{oparea.info}}</td>
-                            <td class="text-right"><a href="/health-configuration/editOperationalArea/{{oparea.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteOperationalArea/{{oparea.id}}"> <i
+                            <td>{{order.id}}</td>
+                            <td>{{order.meal_order}}</td>
+                            <td>{{order.mealtime}}</td>
+                            <td>{{order.meal_order}}</td>
+                            <td>{{order.remarks}}</td>
+                            <td>{{order.meal_state}}</td>
+                            
+                            <td class="text-right"><a href="/health-hospitalizations/editMealOrder/{{order.id}}"><i class="far fa-edit"> </i></a><a href="/health-hospitalizations/deleteMealOrder/{{order.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -116,12 +125,12 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addOperationalArea">
+<form method="POST" class="post-form" action="/health-hospitalizations/addOperationalArea">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Operational Area</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Meal Order</h4>
         </div>
     </div>
 
