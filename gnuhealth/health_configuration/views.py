@@ -164,12 +164,29 @@ def editOccupation(request, id):
 
 
 def updateOccupation(request, id):
-    occupation = gnuhealth_occupation.objects.get(id=id)
-    form = occupationForm(request.POST, instance=occupation)
-    if form.is_valid():
-        form.save()
-        #return redirect("/health-configuration/ethnicities")
-    return render(request, 'health_configuration/patients/occupations.html', {'occupation': occupation})
+    type = "grid"
+    occ= gnuhealth_occupation.objects.get(id=id)
+    name = request.POST['name']
+    code = request.POST['code']
+    occ_id = occ.id
+    create_date = occ.create_date
+    write_date = occ.write_date
+    create_uid = occ.create_uid
+    write_uid = occ.write_uid
+    occ = gnuhealth_occupation(id=occ_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, code=code)
+    occ.save()
+    msg = "3"
+    occupations = gnuhealth_occupation.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/patients/occupations.html'
+                       , {'type': type, 'msg': msg, 'occupations': occupations})
 
 def deleteOccupation(request, id):
     occupation = gnuhealth_occupation.objects.get(id=id)
@@ -1175,3 +1192,184 @@ def deleteOperationalArea(request, id):
 
     return render(request, 'health_configuration/hospitalization/operational_areas.html'
                               , {'type': type, 'msg': msg, 'opareas': opareas})
+
+def procedures(request):
+    type = "grid"
+    procedures = gnuhealth_procedure.objects.all()
+    return render(request, 'health_configuration/procedure/procedures.html'
+                  , {'procedures': procedures
+                  , 'type': type})
+
+def addProcedure(request):
+    if request.method == "POST":
+        form = procedureForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_procedure.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                procedures = gnuhealth_procedure.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/procedure/procedures.html'
+                              , {'type': type, 'msg': msg, 'procedures': procedures})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = procedureForm()
+        latest = gnuhealth_procedure.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/procedure/procedures.html', {'type': type, 'form': form})
+
+
+#def editProcedure(request, id):
+ #   type = "edit"
+  #  editForm = gnuhealth_procedure.objects.get(id=id)
+   # return render(request, 'health_configuration/procedure/procedures.html', {'form': editForm, 'type': type})
+
+
+#def updateProcedure(request, id):
+#   type = "grid"
+#   procedure = gnuhealth_procedure.objects.get(id=id)
+#   name = request.POST['name']
+#  description = request.POST['description']
+# pro_id = procedure.id
+# create_date = procedure.create_date
+# write_date = procedure.write_date
+# create_uid = procedure.create_uid
+# write_uid = procedure.write_uid
+# procedure = gnuhealth_operational_area(id=pro_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+#                          , write_uid=write_uid, name=name, description=description)
+# procedure.save()
+# msg = "3"
+# procedures = gnuhealth_procedure.objects.all()
+
+    #if True:
+    #    messages.success(request, f'Success, Record Updated Successfully')
+    #elif False:
+     #   messages.error(request, f'Sorry, Record Update Error')
+
+
+    #return render(request, 'health_configuration/procedure/procedures.html'
+     #                  , {'type': type, 'msg': msg, 'procedures': procedures})
+
+
+def deleteProcedure(request, id):
+    procedure = gnuhealth_procedure.objects.get(id=id)
+    procedure.delete()
+    type = "grid"
+    msg = "2"
+    procedures = gnuhealth_procedure.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/procedure/procedures.html'
+                              , {'type': type, 'msg': msg, 'procedures': procedures})
+    
+def imagingTestTypes(request):
+    type = "grid"
+    types = gnuhealth_imaging_test_type.objects.all()
+    return render(request, 'health_configuration/imaging/imaging_test_types.html'
+                  , {'types': types
+                  , 'type': type})
+
+def addImagingTestType(request):
+    if request.method == "POST":
+        form = imagingTestTypeForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_imaging_test_type.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                types = gnuhealth_imaging_test_type.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/imaging/imaging_test_types.html'
+                              , {'type': type, 'msg': msg, 'types': types})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = imagingTestTypeForm()
+        latest = gnuhealth_imaging_test_type.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/imaging/imaging_test_types.html', {'type': type, 'form': form})
+
+
+def editImagingTestType(request, id):
+    type = "edit"
+    editForm = gnuhealth_imaging_test_type.objects.get(id=id)
+    return render(request, 'health_configuration/imaging/imaging_test_types.html', {'form': editForm, 'type': type})
+
+
+def updateImagingTestType(request, id):
+    type = "grid"
+    eth = gnuhealth_imaging_test_type.objects.get(id=id)
+    name = request.POST['name']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_imaging_test_type(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name,  code=code)
+    eth.save()
+    msg = "3"
+    types = gnuhealth_imaging_test_type.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/imaging/imaging_test_types.html'
+                       , {'type': type, 'msg': msg, 'types': types})
+
+
+def deleteImagingTestType(request, id):
+    test = gnuhealth_imaging_test_type.objects.get(id=id)
+    test.delete()
+    type = "grid"
+    msg = "2"
+    types = gnuhealth_imaging_test_type.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/imaging/imaging_test_types.html'
+                              , {'type': type, 'msg': msg, 'types': types})
+
+
+

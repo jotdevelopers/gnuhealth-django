@@ -5,21 +5,27 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('condition', views.condition, name='condition'),
+    
+    #Patient
     path('ethnicity', views.ethnicity, name='ethnicity'),
     path('addEthnicity', views.addEthnicity, name='addEthnicity'),
     path('editEthnicity/<id>/', views.editEthnicity, name='editEthnicity'),
     path('updateEthnicity/<id>/', views.updateEthnicity, name='updateEthnicity'),
     path('deleteEthnicity/<id>/', views.deleteEthnicity, name='deleteEthnicity'),
-    path('citienship', views.citizenship, name='citienship'),
-    path('add_citienship', views.add_citizenship, name='add_citienship'),
-    path('occupation', views.occupation, name='occupation'),
+    
+     path('occupation', views.occupation, name='occupation'),
     path('addOccupation', views.addOccupation, name='addOccupation'),
     path('editOccupation/<id>/', views.editOccupation, name='editOccupation'),
     path('updateOccupation/<id>/', views.updateOccupation, name='updateOccupation'),
     path('deleteOccupation/<id>/', views.deleteOccupation, name='deleteOccupation'),
+    
+    path('citienship', views.citizenship, name='citienship'),
+    path('add_citienship', views.add_citizenship, name='add_citienship'),
+   
     path('residence', views.residence, name='residence'),
     path('add_residence', views.add_residence, name='add_residence'),
     
+    #hospitalization
     path('operationalSectors', views.operationalSectors, name='operationalSectors'),
     path('addOperationalSector', views.addOperationalSector, name='addOperationalSector'),
     path('editOperationalSector/<id>', views.editOperationalSector, name='editOperationalSector'),
@@ -32,6 +38,7 @@ urlpatterns = [
     path('updateOperationalArea/<id>/', views.updateOperationalArea, name='updateOperationalArea'),
     path('deleteOperationalArea/<id>/', views.deleteOperationalArea, name='deleteOperationalArea'),
     
+    #Genetics
     path('genes', views.genes, name='genes'),
     path('addGenes', views.addGenes, name='addGenes'),
     path('editGenes/<id>', views.editGenes, name='editGenes'),
@@ -43,6 +50,21 @@ urlpatterns = [
     path('editVarient/<id>', views.editVarient, name='editVarient'),
     path('updateVarient/<id>/', views.updateVarient, name='updateVarient'),
     path('deleteVarient/<id>/', views.deleteVarient, name='deleteVarient'),
+
+    #procedure
+    path('procedures', views.procedures, name='procedures'),
+    path('addProcedure', views.addProcedure, name='addProcedure'),
+    #path('editProcedure/<id>', views.editProcedure, name='editProcedure'),
+    #path('updateProcedure/<id>/', views.updateProcedure, name='updateProcedure'),
+    path('deleteProcedure/<id>/', views.deleteProcedure, name='deleteProcedure'),
+    
+    #Dx Imaging
+    path('imagingTestTypes', views.imagingTestTypes, name='imagingTestTypes'),
+    path('addImagingTestType', views.addImagingTestType, name='addImagingTestType'),
+    path('editImagingTestType/<id>', views.editImagingTestType, name='editdImagingTestType'),
+    path('updateImagingTestType/<id>/', views.updateImagingTestType, name='updateImagingTestType'),
+    path('deleteImagingTestType/<id>/', views.deleteImagingTestType, name='deleteImagingTestType'),
+
 
     path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
     path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),

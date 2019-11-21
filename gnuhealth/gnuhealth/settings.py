@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'health_lab',
     'health_configuration',
     'health_appointments',
+    'health_hospitalizations',
+    
 ]
 
 MIDDLEWARE = [
@@ -85,9 +87,9 @@ WSGI_APPLICATION = 'gnuhealth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gnuhealth',
+        'NAME': 'healthdj',
         'USER': 'gnuhealth',
-        'PASSWORD': '123',
+        'PASSWORD': 'password6',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

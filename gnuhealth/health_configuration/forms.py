@@ -16,6 +16,16 @@ class residenceForm(forms.ModelForm):
         model = gnuhealth_gene_varient
         fields = "__all__"
         
+class procedureForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_procedure
+        fields = "__all__"
+        
+class imagingTestTypeForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_imaging_test_type
+        fields = "__all__"
+
 class varientForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_gene_varient

@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Occupations</h4>
+        <h4 class="page-title">DX Imaging Test Types</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addOccupation';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-configuration/addImagingTestType';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -89,19 +89,19 @@
                         <tr>
                             <th>Name</th>
                             <th>Code</th>
-                            <th>Notes</th>
+                           
                             <th>Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for occupation in occupations %}
+                        {% for type in types %}
                         <tr>
-                            <td>{{occupation.name}}</td>
-                            <td>{{occupation.code}}</td>
-                            <td>{{occupation.notes}}</td>
-                            <td class="text-right"><a href="/health-configuration/editOccupation/{{occupation.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteOccupation/{{occupation.id}}"> <i
+                            <td>{{type.name}}</td>
+                            <td>{{type.code}}</td>
+                            
+                            <td class="text-right"><a href="/health-configuration/editImagingTestType/{{type.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteImagingTestType/{{type.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -117,12 +117,12 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addOccupation">
+<form method="POST" class="post-form" action="/health-configuration/addImagingTestType">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Occupation</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Dx Imaging Test Type</h4>
         </div>
     </div>
 
@@ -152,31 +152,31 @@
                             <input type="text" class="form-control" name="name">
                         </div>
                     </div>
-                  
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}">
+                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}">
+                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" class="form-control" name="create_uid" placeholder="{{ form.create_uid }}">
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" class="form-control" name="write_uid" placeholder="{{ form.write_uid }}">
+                            <input type="text" class="form-control" name="write_uid" placeholder={{ form.write_uid }}
 
                         </div>
                     </div>
@@ -194,12 +194,12 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateOccupation/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-configuration/updateImagingTestType/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Occupation</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Dx Imaging Test Type</h4>
         </div>
     </div>
 
@@ -222,7 +222,7 @@
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
-                    
+                   
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

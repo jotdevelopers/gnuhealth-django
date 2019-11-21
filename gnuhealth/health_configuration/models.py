@@ -25,6 +25,29 @@ class gnuhealth_occupation(models.Model):
     class Meta:
         db_table = 'gnuhealth_occupation'
 
+class gnuhealth_procedure(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_procedure'
+
+class gnuhealth_imaging_test_type(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_imaging_test_type'
+
+
 class gnuhealth_disease_genes(models.Model):
       id = models.IntegerField(primary_key=True)
       chromosome = models.CharField(max_length = 100)
