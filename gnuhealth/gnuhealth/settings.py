@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'gnuhealth.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthdj',
+        'NAME': 'gnuhealth',
         'USER': 'gnuhealth',
-        'PASSWORD': 'password6',
+        'PASSWORD': '123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
