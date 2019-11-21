@@ -21,6 +21,11 @@ class procedureForm(forms.ModelForm):
         model = gnuhealth_procedure
         fields = "__all__"
         
+class specialityForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_specialty
+        fields = "__all__"
+        
 class imagingTestTypeForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_imaging_test_type

@@ -35,6 +35,17 @@ class gnuhealth_procedure(models.Model):
     description = models.CharField(max_length=100)
     class Meta:
         db_table = 'gnuhealth_procedure'
+        
+class gnuhealth_specialty(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_specialty'
 
 class gnuhealth_imaging_test_type(models.Model):
     id = models.IntegerField(primary_key=True)

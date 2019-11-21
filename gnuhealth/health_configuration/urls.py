@@ -64,7 +64,14 @@ urlpatterns = [
     path('editImagingTestType/<id>', views.editImagingTestType, name='editdImagingTestType'),
     path('updateImagingTestType/<id>/', views.updateImagingTestType, name='updateImagingTestType'),
     path('deleteImagingTestType/<id>/', views.deleteImagingTestType, name='deleteImagingTestType'),
-
+    
+    #work schedule
+    path('specialities', views.specialities, name='specialities'),
+    path('addSpeciality', views.addSpeciality, name='addSpeciality'),
+    path('editSpeciality/<id>', views.editSpeciality, name='editSpeciality'),
+    path('updateSpeciality/<id>/', views.updateSpeciality, name='updateSpeciality'),
+    path('deleteSpeciality/<id>/', views.deleteSpeciality, name='deleteSpeciality'),
+    
 
     path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
     path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),

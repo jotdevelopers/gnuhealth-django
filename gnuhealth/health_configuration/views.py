@@ -1372,4 +1372,93 @@ def deleteImagingTestType(request, id):
                               , {'type': type, 'msg': msg, 'types': types})
 
 
+def specialities(request):
+    type = "grid"
+    specialities = gnuhealth_specialty.objects.all()
+    return render(request, 'health_configuration/work_schedule/specialities.html'
+                  , {'specialities': specialities
+                  , 'type': type})
+
+def addSpeciality(request):
+    if request.method == "POST":
+        form = specialityForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_specialty.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                specialities = gnuhealth_specialty.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/work_schedule/specialities.html'
+                              , {'type': type, 'msg': msg, 'specialities': specialities})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = specialityForm()
+        latest = gnuhealth_specialty.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/work_schedule/specialities.html', {'type': type, 'form': form})
+
+
+def editSpeciality(request, id):
+    type = "edit"
+    editForm = gnuhealth_specialty.objects.get(id=id)
+    return render(request, 'health_configuration/work_schedule/specialities.html', {'form': editForm, 'type': type})
+
+
+def updateSpeciality(request, id):
+    type = "grid"
+    eth = gnuhealth_specialty.objects.get(id=id)
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_specialty(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name,  code=code)
+    eth.save()
+    msg = "3"
+    specialities = gnuhealth_specialty.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/work_schedule/specialities.html'
+                       , {'type': type, 'msg': msg, 'specialities': specialities})
+
+
+def deleteSpeciality(request, id):
+    speciality = gnuhealth_specialty.objects.get(id=id)
+    speciality.delete()
+    type = "grid"
+    msg = "2"
+    specialities = gnuhealth_specialty.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/work_schedule/specialities.html'
+                              , {'type': type, 'msg': msg, 'specialities': specialities})
 
