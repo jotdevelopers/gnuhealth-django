@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'health_configuration',
     'health_appointments',
     'health_hospitalizations',
-    'health_operational_area'
+    'health_operational_area',
+    'health_demographics'
 
 ]
 
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gnuhealth',
         'USER': 'gnuhealth',
-        'PASSWORD': '123 ',
+        'PASSWORD': '123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

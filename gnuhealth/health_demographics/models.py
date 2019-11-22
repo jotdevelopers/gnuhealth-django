@@ -56,3 +56,27 @@ class gnuhealth_death_certificate(models.Model):
     serializer = models.CharField(max_length=100)
     class Meta:
         db_table = 'gnuhealth_death_certificate'
+
+class gnuhealth_family(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    info = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_family'
+    
+class gnuhealth_family_member(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.IntegerField()
+    party= models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_family_member'
+        
