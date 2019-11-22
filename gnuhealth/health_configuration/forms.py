@@ -26,6 +26,22 @@ class specialityForm(forms.ModelForm):
         model = gnuhealth_specialty
         fields = "__all__"
         
+class buildingForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_hospital_building
+        fields = "__all__"
+        
+class familyForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_family
+        fields = "__all__"
+        
+                
+class familyMemberForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_family_member
+        fields = "__all__"
+        
 class imagingTestTypeForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_imaging_test_type

@@ -57,6 +57,49 @@ class gnuhealth_imaging_test_type(models.Model):
     code = models.CharField(max_length=100)
     class Meta:
         db_table = 'gnuhealth_imaging_test_type'
+        
+class gnuhealth_hospital_building(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    institution = models.IntegerField()
+    extra_info = models.CharField(max_length=100)
+    
+    class Meta:
+        db_table = 'gnuhealth_hospital_building'
+        
+class gnuhealth_hospital_unit(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    institution = models.IntegerField()
+    extra_info = models.CharField(max_length=100)
+    
+    class Meta:
+        db_table = 'gnuhealth_hospital_unit'
+        
+class gnuhealth_imaging_test(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=100)
+    active = models.BooleanField()
+    code = models.CharField(max_length=100)
+    product = models.IntegerField()
+    test_type = models.IntegerField()
+    class Meta:
+        db_table = 'gnuhealth_imaging_test'
 
 
 class gnuhealth_disease_genes(models.Model):
@@ -220,3 +263,27 @@ class gnuhealth_operational_area(models.Model):
    
     class Meta:
         db_table = 'gnuhealth_operational_area'            
+
+class gnuhealth_family(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.CharField(max_length=100)
+    info = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_family'
+    
+class gnuhealth_family_member(models.Model):
+    id = models.IntegerField(primary_key=True)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    name = models.IntegerField()
+    party= models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'gnuhealth_family_member'
+        

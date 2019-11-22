@@ -1462,3 +1462,93 @@ def deleteSpeciality(request, id):
     return render(request, 'health_configuration/work_schedule/specialities.html'
                               , {'type': type, 'msg': msg, 'specialities': specialities})
 
+
+def buildings(request):
+    type = "grid"
+    buildings = gnuhealth_hospital_building.objects.all()
+    return render(request, 'health_configuration/work_schedule/buildings.html'
+                  , {'buildings': buildings
+                  , 'type': type})
+
+def addBuilding(request):
+    if request.method == "POST":
+        form = specialityForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_hospital_building.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                specialities = gnuhealth_hospital_building.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/work_schedule/specialities.html'
+                              , {'type': type, 'msg': msg, 'specialities': specialities})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = specialityForm()
+        latest = gnuhealth_hospital_building.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/work_schedule/specialities.html', {'type': type, 'form': form})
+
+
+def editBuilding(request, id):
+    type = "edit"
+    editForm = gnuhealth_hospital_building.objects.get(id=id)
+    return render(request, 'health_configuration/work_schedule/specialities.html', {'form': editForm, 'type': type})
+
+
+def updateBuilding(request, id):
+    type = "grid"
+    eth = gnuhealth_hospital_building.objects.get(id=id)
+    name = request.POST['name']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_hospital_building(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name,  code=code)
+    eth.save()
+    msg = "3"
+    buildings = gnuhealth_hospital_building.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/institutions/buildings.html'
+                       , {'type': type, 'msg': msg, 'buildings': buildings})
+
+
+def deleteBuilding(request, id):
+    building = gnuhealth_hospital_building.objects.get(id=id)
+    building.delete()
+    type = "grid"
+    msg = "2"
+    buildings = gnuhealth_hospital_building.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/institutions/bulidings.html'
+                              , {'type': type, 'msg': msg, 'buildings': buildings})
+

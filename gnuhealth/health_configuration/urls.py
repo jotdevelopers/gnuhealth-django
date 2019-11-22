@@ -13,7 +13,7 @@ urlpatterns = [
     path('updateEthnicity/<id>/', views.updateEthnicity, name='updateEthnicity'),
     path('deleteEthnicity/<id>/', views.deleteEthnicity, name='deleteEthnicity'),
     
-     path('occupation', views.occupation, name='occupation'),
+    path('occupation', views.occupation, name='occupation'),
     path('addOccupation', views.addOccupation, name='addOccupation'),
     path('editOccupation/<id>/', views.editOccupation, name='editOccupation'),
     path('updateOccupation/<id>/', views.updateOccupation, name='updateOccupation'),
@@ -72,6 +72,12 @@ urlpatterns = [
     path('updateSpeciality/<id>/', views.updateSpeciality, name='updateSpeciality'),
     path('deleteSpeciality/<id>/', views.deleteSpeciality, name='deleteSpeciality'),
     
+    #institutions
+    path('buildings', views.buildings, name='buildings'),
+    path('addBuilding', views.addBuilding, name='addBuilding'),
+    path('editBuilding/<id>', views.editBuilding, name='editBuilding'),
+    path('updateBuilding/<id>/', views.updateBuilding, name='updateBuilding'),
+    path('deleteBuilding/<id>/', views.deleteBuilding, name='deleteBuilding'),
 
     path('pathologyGroups', views.pathologyGroups, name='pathologyGroups'),
     path('addPathologyGroups', views.addPathologyGroups, name='addPathologyGroups'),

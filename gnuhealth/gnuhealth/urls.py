@@ -37,6 +37,7 @@ urlpatterns = [
     path('health-ems/', include('health_ems.urls')),
     path('health-federation/', include('health_federation.urls')),
     path('health-genetics/', include('health_genetics.urls')),
+    path('health-operational-area/', include('health_operational_area.urls')),
     path('health-genetics-uniprot/', include('health_genetics_uniprot.urls')),
     path('health-gyneco/', include('health_gyneco.urls')),
     path('health-history/', include('health_history.urls')),
