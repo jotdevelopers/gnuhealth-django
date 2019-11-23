@@ -1,5 +1,5 @@
 from django import forms
-from health_configuration.models import *
+from health_operational_area.models import *
 
 class operationalSectorForm(forms.ModelForm):
     class Meta:

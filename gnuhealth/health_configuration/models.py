@@ -12,7 +12,7 @@ class gnuhealth_ethnicity(models.Model):
     notes = models.CharField(max_length=100)
     class Meta:
         db_table = 'gnuhealth_ethnicity'
-        
+
         
 class gnuhealth_occupation(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -240,27 +240,5 @@ class gnuhealth_pediatrics_growth_charts_who(models.Model):
       class Meta:
             db_table = 'gnuhealth_pediatrics_growth_charts_who'
             
-class gnuhealth_operational_sector(models.Model):
-    id = models.IntegerField(primary_key=True)
-    create_date = models.DateTimeField()
-    write_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    write_uid = models.IntegerField()
-    info = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    operational_area = models.IntegerField()
-    class Meta:
-        db_table = 'gnuhealth_operational_sector'            
 
-class gnuhealth_operational_area(models.Model):
-    id = models.IntegerField(primary_key=True)
-    create_date = models.DateTimeField()
-    write_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    write_uid = models.IntegerField()
-    info = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-   
-    class Meta:
-        db_table = 'gnuhealth_operational_area'            
 
