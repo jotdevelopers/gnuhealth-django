@@ -1,0 +1,695 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+        <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Horizontal Form</h4>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">Health</h4>
+                             <h5 class="card-title">Demographics</h5>
+                            
+                            <form action="#">
+                             <div class="form-group row">
+                                            <div class="col-md-9">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_male" value="option1" checked>
+													<label class="form-check-label" for="gender_male">
+													Person
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Patient
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Health Prof
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Institution
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Insurance Company
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Pharmacy
+													</label>
+												</div>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                
+                                    <div class="col-md-6">
+                                    
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">DOB</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Gender</label>
+                                            <div class="col-md-9">
+												 <select class="select">
+                                                    <option>Select</option>
+                                                    <option value="1">Male</option>
+                                                    <option value="2">Female</option>
+                                                    <option value="3">Florida</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Mother</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Marital Status</label>
+                                            <div class="col-md-9">
+												 <select class="select">
+                                                    <option>Select</option>
+                                                    <option value="1">Single</option>
+                                                    <option value="2">Married</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Residence</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Occupation</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Alternative IDs</label>
+                                            <div class="col-md-9">
+<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Age</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">DU</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Father</label>
+                                            <div class="col-md-9">
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Citizenship</label>
+                                            <div class="col-md-9">
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Ethnicity</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                          <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Education</label>
+                                            <div class="col-md-9">
+												 <select class="select">
+                                                    <option>Select</option>
+                                                    <option value="1">None</option>
+                                                    <option value="2">Incomplete Primary School</option>
+                                                    <option value="3">Primary School</option>
+                                                    <option value="4">Incomplete Secondary School</option>
+                                                    <option value="5">Secondary School</option>
+                                                    <option value="5">University</option>
+                                                    
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                          <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Main Address</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="card-title">Insurances</h4>
+                                <div class="row">
+                                                                    <div class="col-md-12">
+                                
+                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> 
+									<tr>
+										<th>Number</th>
+										<th>Plan</th>
+										<th>Insurance Type</th>
+										<th>Insurance Company</th>
+										<th>Category</th>
+										<th>Member Since</th>
+										<th>Expiration Date</th>
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td> </td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										
+									</tr>
+								
+								</tbody>
+							</table>
+							</div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">UnIndentified</label>
+                                            <div class="col-md-9">
+	                                          <div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													
+												</div>                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Prefix</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Federation ID</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Activitation Date</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Internal User</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">General</h4>
+                             <h5 class="card-title">Addresses</h5>
+                            
+                            <form action="#">
+                            
+                                <div class="row">
+                                
+                                    <div class="col-md-6">
+                                    
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Contact</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Building Name</label>
+                                            <div class="col-md-9">
+								             <input type="text" class="form-control">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Street</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Zip</label>
+                                            <div class="col-md-9">
+										 <input type="text" class="form-control">
+
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Country</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Realtionship</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Sequence</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <div class="col-md-12">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_male" value="option1" checked>
+													<label class="form-check-label" for="gender_male">
+													Active
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Invoice
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+Work													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													School
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													<label class="form-check-label" for="gender_female">
+													Delivery
+													</label>
+												</div>
+												
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">City</label>
+                                            <div class="col-md-9">
+                                                <input type="password" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                          <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Subdivision</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                                                                                    <div class="col-md-12">
+                                
+                                <h4 class="card-title">Contact Mechanisams</h4>
+                                <div class="row">
+                                                                    <div class="col-md-6">
+                                
+                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> 
+									<tr>
+										<th>Type</th>
+										<th>Value</th>
+										<th> Url</th>
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td> </td>
+										<td></td>
+										
+										
+										
+									</tr>
+								
+								</tbody>
+							</table>
+							</div>
+							 <h4 class="card-title">Categories</h4>
+                                <div class="row">
+                                                                    <div class="col-md-6">
+                                
+                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> 
+									<tr>
+										<th>Record Name</th>
+																							<th></th>
+																																														<th></th>
+																																														<th></th>
+																																														<th></th>
+																																														<th></th>
+																							
+																											
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										
+										
+										
+									</tr>
+								
+								</tbody>
+							</table>
+							</div>
+                                   </div>
+                                   </div>
+                                 
+                                    
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+               
+                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">Identifiers</h4>
+                            
+                            <form action="#">
+                                <div class="row">
+                                                                                                    <div class="col-md-12">
+                                
+                                <h6 class="card-title">Person Names</h6>
+                                <div class="row">
+                                                                    <div class="col-md-12">
+                                
+                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> 
+									<tr>
+										<th>Use</th>
+										<th>Prefix</th>
+										<th>given</th>
+										<th>Family</th>
+										<th>Suffix</th>
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td> </td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										
+									</tr>
+								
+								</tbody>
+							</table>
+							</div>
+							</div>
+							</div>
+							<div class="row">
+                                                                                                    <div class="col-md-12">
+                                
+                                <h6 class="card-title">Indentifiers</h6>
+                                <div class="row">
+                                                                    <div class="col-md-12">
+                                
+                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> 
+									<tr>
+										<th>Type</th>
+										<th>Code</th>
+										
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td> </td>
+										
+										
+										
+										
+									</tr>
+								
+								</tbody>
+							</table>
+							</div>
+							</div>
+							</div>
+                                    <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">UnIndentified</label>
+                                            <div class="col-md-9">
+	                                          <div class="form-check form-check-inline">
+													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+													
+												</div>                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                  
+                                     
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Activitation Date</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Internal User</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">Accounting</h4>
+                             <h5 class="card-title">Payment Terms</h5>
+                            
+                            <form action="#">
+                             <div class="form-group row">
+                                           
+                                <div class="row">
+                                
+                                    <div class="col-md-6">
+                                    
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Customer Payment Term</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                       
+                                       
+                                      
+                                       
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Supplier Payment Term</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                       
+                                      
+                                </div>
+                              
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Recievable Today</label>
+                                            <div class="col-md-9">
+	                                          <div class="form-check form-check-inline">
+                                                <input type="text" class="form-control">
+													
+												</div>                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Payable Today</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Recieveable</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label"> Payable</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+                                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-box">
+                            <h4 class="card-title">Stock</h4>
+                            
+                            <form action="#">
+                             <div class="form-group row">
+                                           
+                                <div class="row">
+                                
+                                    <div class="col-md-6">
+                                    
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Customer Location</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Supplier Location</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                       
+                                      
+                                </div>
+                              
+                                   
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+                </div>    
+                
+                </div>
+            </div>
+        </div>
+        
+    </div>
+   {% endif %}
+
+{% endblock %}
