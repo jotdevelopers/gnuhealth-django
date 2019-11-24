@@ -203,7 +203,7 @@
 
                 
                     <div class="card-box">
-                     <button class="btn btn-primary tog" type="button" style="float:right">Add Insurance</button>
+                     <button class="btn btn-primary insurance-btn" type="button" style="float:right">Add Insurance</button>
                     
                     <div class=" view">
                     <div class="row">
@@ -503,9 +503,9 @@
             </div>
 
             <div class="card-box">
-                                 <button class="btn btn-primary tog" type="button" style="float:right">Add Contact Mechanism</button>
+              <button class="btn btn-primary contact-mechanism-btn" type="button" style="float:right">Add Contact Mechanism</button>
             
-            <div class="view">
+            <div class="view-contact-mechanism">
             <div class="row">
                 <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Contact Mechanisms</span></div>
             </div>
@@ -533,7 +533,7 @@
 
                             </div>
                             </div>
-                            <div class="add">
+                            <div class="add-contact-mechanism">
                               <div class="row">
                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Contact Mechanism</span></div>
                     </div>
@@ -611,9 +611,9 @@
                         </div>
            
                 <div class="card-box">
-                 <button class="btn btn-primary tog" type="button" style="float:right">Add Categories</button>
+                 <button class="btn btn-primary categories-btn" type="button" style="float:right">Add Categories</button>
                 
-                <div class="view">
+                <div class="view-categories">
                 <div class="row">
                   <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Categories</span></div>
                 </div>
@@ -638,7 +638,7 @@
                     </div>
                                 </div>
                                 </div>
-                                <div class="add">
+                                <div class="add-categories">
                                   <div class="row">
                                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Categories</span></div>
                                </div>
@@ -685,9 +685,9 @@
         <div class="tab-pane" id="identifiers">
                  
                     <div class="card-box">
-                    <button class="btn btn-primary tog" type="button" style="float:right">Add Person Names</button>
+                    <button class="btn btn-primary person-name-btn" type="button" style="float:right">Add Person Names</button>
                     
-                    <div class="view">
+                    <div class="view-person-name">
                       <div class="row">
                 <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Person Names</span></div>
                    
@@ -718,7 +718,7 @@
                         </div>
                                     </div>
                                     </div>
-                                    <div class="add">
+                                    <div class="add-person-name">
                                        <div class="row">
                                         <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Person Names</span></div>
                                         </div>
@@ -798,8 +798,8 @@
     
                                 
                                     <div class="card-box">
-                                    <button class="btn btn-primary tog" type="button" style="float:right">Add Identifier</button>
-                                    <div class="view">
+                                    <button class="btn btn-primary identifier-btn" type="button" style="float:right">Add Identifier</button>
+                                    <div class="view-identifier">
                                     <div class="row">
                                      <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Indentifiers</span></div>
                                     
@@ -825,7 +825,7 @@
                                         </div>
                                                     </div>
                                                     </div>
-                                                    <div class="add">
+                                                    <div class="add-identifier">
                                                       <div class="row">
                                                         <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Identifier</span></div>
                                                         </div>
@@ -969,9 +969,27 @@
 
 $(function(){
 	  $('div.add').hide();// hide it initially
-	  $('button').on('click', function(){
+	  $('div.add-identifier').hide();// hide it initially
+	  $('div.add-person-name').hide();// hide it initially
+	  $('div.add-categories').hide();// hide it initially
+	  $('div.add-contact-mechanism').hide();// hide it initially
+
+
+	  $('button.contact-mechanism-btn').on('click', function(){
+		     $('div.view-contact-mechanism, div.add-contact-mechanism').toggle();
+		  });
+	  $('button.categories-btn').on('click', function(){
+		     $('div.view-categories, div.add-categories').toggle();
+		  });
+	  $('button.insurance-btn').on('click', function(){
 	     $('div.view, div.add').toggle();
 	  });
+	  $('button.person-name-btn').on('click', function(){
+		     $('div.view-person-name, div.add-person-name').toggle();
+		  });
+	  $('button.identifier-btn').on('click', function(){
+		     $('div.view-identifier, div.add-identifier').toggle();
+		  });
 	});
 </script>
 
