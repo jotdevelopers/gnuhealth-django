@@ -1,22 +1,21 @@
-{% extends "layouts/base.html" %}
+{% extends 'layouts/base.html' %}
+
 {% block content %}
-{% load widget_tweaks %}
-
-
 
 <div class="row">
     <div class="col-md-8 offset">
-        <h4 class="page-title">Add Party</h4>
+        <h4 class="page-title">Add Person</h4>
     </div>
 </div>
 
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
         <li class="nav-item"><a class="nav-link active" href="#health" data-toggle="tab">Health</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="tab">General</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#identifiers" data-toggle="tab">Identifiers</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#accounting" data-toggle="tab">Accounting</a></li>
+        <li class="nav-item"><a class="nav-link" href="#general" data-toggle="tab">General</a></li>
+        <li class="nav-item"><a class="nav-link" href="#identifiers" data-toggle="tab">Identifiers</a></li>
+        <li class="nav-item"><a class="nav-link" href="#accounting" data-toggle="tab">Accounting</a></li>
         <li class="nav-item"><a class="nav-link" href="#stock" data-toggle="tab">Stock</a></li>
+
     </ul>
 
     <div class="tab-content">
@@ -29,39 +28,39 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_male" value="option1" checked>
-                                    <label class="form-check-label" for="gender_male">
+                                    <input class="form-check-input" type="checkbox" name="is_person" id="is_person"  checked>
+                                    <label class="form-check-label" for="is_person">
                                     Person
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-                                    <label class="form-check-label" for="gender_female">
+                                    <input class="form-check-input" type="checkbox" name="is_patient" id="is_patient" >
+                                    <label class="form-check-label" for="is_patient">
                                     Patient
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-                                    <label class="form-check-label" for="gender_female">
+                                    <input class="form-check-input" type="checkbox" name="is_healthprof" id="is_healthprof" >
+                                    <label class="form-check-label" for="is_healthprof">
                                     Health Prof
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-                                    <label class="form-check-label" for="gender_female">
+                                    <input class="form-check-input" type="checkbox" name="is_institution" id="is_institution" >
+                                    <label class="form-check-label" for="is_institution">
                                     Institution
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
+                                    <input class="form-check-input" type="checkbox" name="is_insurance_company" id="is_insurance_company" >
                                     <label class="form-check-label" for="gender_female">
                                     Insurance Company
                                     </label>
@@ -69,8 +68,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-                                    <label class="form-check-label" for="gender_female">
+                                    <input class="form-check-input" type="checkbox" name="is_pharmacy" id="is_pharmacy" >
+                                    <label class="form-check-label" for="is_pharmacy">
                                     Pharmacy
                                     </label>
                                 </div>
@@ -84,14 +83,14 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">DOB</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="dob">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Gender</label>
                                             <div class="col-md-9">
-												 <select class="select">
+												 <select class="select" name="gender">
                                                     <option>Select</option>
                                                     <option value="1">Male</option>
                                                     <option value="2">Female</option>
@@ -101,13 +100,13 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Mother</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="">
                                             </div>
                                         </div>
                                          <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Marital Status</label>
                                             <div class="col-md-9">
-												 <select class="select">
+												 <select class="select" name="marital_status">
                                                     <option>Select</option>
                                                     <option value="1">Single</option>
                                                     <option value="2">Married</option>
@@ -117,20 +116,20 @@
                                          <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Residence</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="residence">
                                             </div>
                                         </div>
                                          <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Occupation</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="occupation">
                                             </div>
                                         </div>
                                          <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Alternative IDs</label>
                                             <div class="col-md-9">
-<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													                                          </div>
+                                                 <input class="form-check-input" type="checkbox" name="alternative_identification" id="alternative_identification" >
+									       </div>
                                         </div>
                                     </div>
 
@@ -141,37 +140,37 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Age</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="age">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">DU</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="du">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Father</label>
                                             <div class="col-md-9">
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" name="">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Citizenship</label>
                                             <div class="col-md-9">
-                                                <input type="password" class="form-control">
+                                                <input type="password" class="form-control" name="citizenship">
                                             </div>
                                         </div>
                                          <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Ethnicity</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="ethinicty">
                                             </div>
                                         </div>
                                           <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Education</label>
                                             <div class="col-md-9">
-												 <select class="select">
+												 <select class="select" name="education">
                                                     <option>Select</option>
                                                     <option value="1">None</option>
                                                     <option value="2">Incomplete Primary School</option>
@@ -187,7 +186,7 @@
                                           <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Main Address</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="">
                                             </div>
                                         </div>
                                     </div>
@@ -195,68 +194,16 @@
 
 
                         </div>
-
+                        
 
                     </div>
 
 
+
                     <div class="card-box">
-                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add New Insurance</span></div>
-                        <div class="col-md-12">
-                            <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Age</label>
-                                            <div class="col-md-9">
-                                                <input name="" type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">DU</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Father</label>
-                                            <div class="col-md-9">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Citizenship</label>
-                                            <div class="col-md-9">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Ethnicity</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Education</label>
-                                            <div class="col-md-9">
-												 <select class="select">
-                                                    <option>Select</option>
-                                                    <option value="1">None</option>
-                                                    <option value="2">Incomplete Primary School</option>
-                                                    <option value="3">Primary School</option>
-                                                    <option value="4">Incomplete Secondary School</option>
-                                                    <option value="5">Secondary School</option>
-                                                    <option value="5">University</option>
-
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Main Address</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                        </div>
-                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Insurances</span></div>
+                        <div class="col-md-14">
+                            <div class="form-group">
+                                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Insurances</span></div>
                                 <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 								<thead>
 									<tr>
@@ -284,410 +231,32 @@
 								</tbody>
 							</table>
                     </div>
+                                </div>
+                            </div>
 
-
-                    <button type="button" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-primary">Clear</button>
-                    <button type="button" class="btn btn-primary">Print</button>
-
-
-        </div>
-        </div>
-        </div>
-
-
-        <div class="tab-pane" id="bottom-tab2">
-
-            <div class="card-box">
-                <span style="font-weight: bold;">Neonatal Signs & Symptoms:<br /><br /></span>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Meconium :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Positive Ortolani :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Positive Barlow :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Hernia :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Ambiguous Genitalia :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Erbs Palsy :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Hematomas :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Talipes Equinovarus :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Transversal Palmer Crease :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Polydactyly :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Syndactyly :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-box">
-                <span style="font-weight: bold;">Neonatal Reflex Check:<br /><br /></span>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Moro Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Grasp Refles Ortolani :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Stepping Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Babinski Refles :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Blink Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Sucking Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Swimming Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Tonic Neck Reflex :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-box">
-                <span style="font-weight: bold;">Tests:<br /><br /></span>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> VDRL :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Toxoplasmosis :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Chagas :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Billirubin :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Audition :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <span class="title"> Metabolic (Heel Stick Screening) :</span>
-                            <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="button" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Edit</button>
-            <button type="button" class="btn btn-primary">Clear</button>
-            <button type="button" class="btn btn-primary">Print</button>
-        </div>
-    </div>
-</div>
-
-
-
-
-<h4 class="page-title">Health : Add Party</h4>
-
-                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                             <h5 class="card-title">Demographics</h5>
-                            <form action="#">
-                             <div class="form-group row">
-                                            <div class="col-md-9">
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_male" value="option1" checked>
-													<label class="form-check-label" for="gender_male">
-													Person
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Patient
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Health Prof
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Institution
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Insurance Company
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Pharmacy
-													</label>
-												</div>
-                                            </div>
-                                        </div>
-                                <div class="row">
-                                
-                                    <div class="col-md-6">
-                                    
+                            <div class="card-box">
+                                    <div class="row">
+                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Insurance</span></div>
+                                    <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">DOB</label>
+                                            <label class="col-md-3 col-form-label">Number</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
+                                              <div class="form-check form-check-inline">
+                                                    <input class="form-control" name="unidentified" id="unidentified" >
+                                                </div>                                           
+                                             </div>
                                         </div>
                                        
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Gender</label>
-                                            <div class="col-md-9">
-												 <select class="select">
-                                                    <option>Select</option>
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                    <option value="3">Florida</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Mother</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Marital Status</label>
-                                            <div class="col-md-9">
-												 <select class="select">
-                                                    <option>Select</option>
-                                                    <option value="1">Single</option>
-                                                    <option value="2">Married</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Residence</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Occupation</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Alternative IDs</label>
-                                            <div class="col-md-9">
-<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													                                          </div>
-                                        </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Age</label>
+                                            <label class="col-md-3 col-form-label">Insurance Type</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">DU</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Father</label>
-                                            <div class="col-md-9">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Citizenship</label>
-                                            <div class="col-md-9">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Ethnicity</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Education</label>
-                                            <div class="col-md-9">
-												 <select class="select">
+                                                    <select class="select" name="insurance_company_type">
                                                     <option>Select</option>
                                                     <option value="1">None</option>
-                                                    <option value="2">Incomplete Primary School</option>
-                                                    <option value="3">Primary School</option>
-                                                    <option value="4">Incomplete Secondary School</option>
-                                                    <option value="5">Secondary School</option>
-                                                    <option value="5">University</option>
-                                                    
                                                     
                                                 </select>
-                                            </div>
-                                        </div>
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Main Address</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4 class="card-title">Insurances</h4>
-                                <div class="row">
-                                                                    <div class="col-md-12">
-                                
-                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
-								<thead> 
-									<tr>
-										<th>Number</th>
-										<th>Plan</th>
-										<th>Insurance Type</th>
-										<th>Insurance Company</th>
-										<th>Category</th>
-										<th>Member Since</th>
-										<th>Expiration Date</th>
-										
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td> </td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										
-										
-										
-									</tr>
-								
-								</tbody>
-							</table>
-							</div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">UnIndentified</label>
-                                            <div class="col-md-9">
-	                                          <div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													
-												</div>                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Prefix</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -695,9 +264,21 @@
                                     </div>
                                      <div class="col-md-4">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Federation ID</label>
+                                            <label class="col-md-3 col-form-label">Insurance Company</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="insurance_company">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                     <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Plan </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="activation_date">
                                             </div>
                                         </div>
                                         
@@ -705,443 +286,650 @@
                                     </div>
                                      <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Activitation Date</label>
+                                            <label class="col-md-3 col-form-label">Category</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Internal User</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="internal_user">
                                             </div>
                                         </div>
                                         
                                         
                                     </div>
                                 </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                           <div class="form-group row">
+                                               <label class="col-md-3 col-form-label">Member Since </label>
+                                               <div class="col-md-9">
+                                                   <input type="text" class="form-control" name="activation_date">
+                                               </div>
+                                           </div>
+                                           
+                                           
+                                       </div>
+                                        <div class="col-md-6">
+                                           <div class="form-group row">
+                                               <label class="col-md-3 col-form-label">Expiration Date</label>
+                                               <div class="col-md-9">
+                                                   <input type="text" class="form-control" name="internal_user">
+                                               </div>
+                                           </div>
+                                           
+                                           
+                                       </div>
+                                   </div>
                                 </div>
-                            </form>
+
+                            <div class="card-box">
+                                <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">UnIndentified</label>
+                                        <div class="col-md-9">
+                                          <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" name="unidentified" id="unidentified" >
+                                            </div>                                           
+                                         </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Prefix</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                 <div class="col-md-4">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Federation ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="federation_account">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Activitation Date</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="activation_date">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Internal User</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="internal_user">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                    
+        <div class="tab-pane" id="general">
+
+            <div class="card-box">
+                <span style="font-weight: bold;">Addresses:<br /><br /></span>
+                <div class="row">
+                                
+                        <div class="col-md-6">
+                        
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Contact</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                           
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Building Name</label>
+                                <div class="col-md-9">
+                                 <input type="text" class="form-control">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Street</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Zip</label>
+                                <div class="col-md-9">
+                             <input type="text" class="form-control">
+
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Country</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                             
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Realtionship</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Sequence</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <div class="col-md-12">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="active" id="active" checked>
+                                        <label class="form-check-label" for="active">
+                                        Active
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
+                                        <label class="form-check-label" for="gender_female">
+                                        Invoice
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
+                                        <label class="form-check-label" for="gender_female">
+Work													</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
+                                        <label class="form-check-label" for="gender_female">
+                                        School
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
+                                        <label class="form-check-label" for="gender_female">
+                                        Delivery
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">City</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            
+                            
+                              <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Subdivision</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>    
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="card-title">General</h4>
-                             <h5 class="card-title">Addresses</h5>
-                            
-                            <form action="#">
-                            
-                                <div class="row">
-                                
-                                    <div class="col-md-6">
-                                    
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Contact</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Building Name</label>
-                                            <div class="col-md-9">
-								             <input type="text" class="form-control">
+            </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Street</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Zip</label>
-                                            <div class="col-md-9">
-										 <input type="text" class="form-control">
+            <div class="card-box">
+                    <div class="col-md-14">
+                        <div class="form-group">
+                            <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Contact Mechanisms</span></div>
+                            <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
 
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Country</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         
-                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Realtionship</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Sequence</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <div class="col-md-12">
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_male" value="option1" checked>
-													<label class="form-check-label" for="gender_male">
-													Active
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Invoice
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-Work													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													School
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													<label class="form-check-label" for="gender_female">
-													Delivery
-													</label>
-												</div>
-												
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">City</label>
-                                            <div class="col-md-9">
-                                                <input type="password" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Subdivision</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                                                                                    <div class="col-md-12">
-                                
-                                <h4 class="card-title">Contact Mechanisams</h4>
-                                <div class="row">
-                                                                    <div class="col-md-6">
-                                
-                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
-								<thead> 
-									<tr>
-										<th>Type</th>
-										<th>Value</th>
-										<th> Url</th>
-										
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td> </td>
-										<td></td>
-										
-										
-										
-									</tr>
-								
-								</tbody>
-							</table>
-							</div>
-							 <h4 class="card-title">Categories</h4>
-                                <div class="row">
-                                   <div class="col-md-6">
-                                      <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Record Name</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                      </table>
-							        </div>
-                                </div>
-                                </div>
-                                 
-                                    
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+
+                            </div>
                         </div>
+            <div class="card-box">
+                 
+                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Contact Mechanism</span></div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Type</label>
+                            <div class="col-md-9">
+                                    <input class="form-contol" name="unidentified" id="unidentified" >
+                             </div>
+                        </div>
+                       
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Value</label>
+                            <div class="col-md-9">
+                                    <input class="form-control" name="unidentified" id="unidentified" >
+                            </div>
+                        </div>     
                     </div>
                 </div>
                
-                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="card-title">Identifiers</h4>
-                            
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                
-                                <h6 class="card-title">Person Names</h6>
-                                <div class="row">
-                                                                    <div class="col-md-12">
-                                
-                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
-								<thead> 
-									<tr>
-										<th>Use</th>
-										<th>Prefix</th>
-										<th>given</th>
-										<th>Family</th>
-										<th>Suffix</th>
-										
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td> </td>
-										<td></td>
-										<td></td>
-										<td></td>
-										
-										
-										
-									</tr>
-								
-								</tbody>
-							</table>
-							</div>
-							</div>
-							</div>
-							<div class="row">
-                                                                                                    <div class="col-md-12">
-                                
-                                <h6 class="card-title">Indentifiers</h6>
-                                <div class="row">
-                                                                    <div class="col-md-12">
-                                
-                                  <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
-								<thead> 
-									<tr>
-										<th>Type</th>
-										<th>Code</th>
-										
-										
-										
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td> </td>
-										
-										
-										
-										
-									</tr>
-								
-								</tbody>
-							</table>
-							</div>
-							</div>
-							</div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">UnIndentified</label>
-                                            <div class="col-md-9">
-	                                          <div class="form-check form-check-inline">
-													<input class="form-check-input" type="checkbox" name="gender" id="gender_female" value="option2">
-													
-												</div>                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                  
-                                     
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Activitation Date</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Internal User</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
+                <div class="row">
+                        <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Website</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="insurance_company">
                                     </div>
                                 </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                                
+                                
+                            </div>
+                     <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Email </label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="activation_date">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                     <div class="col-md-3">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Skype</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="internal_user">
+                            </div>
                         </div>
                     </div>
-                        <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="card-title">Accounting</h4>
-                             <h5 class="card-title">Payment Terms</h5>
-                            
-                            <form action="#">
-                             <div class="form-group row">
-                                           
-                                <div class="row">
-                                
-                                    <div class="col-md-6">
-                                    
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Customer Payment Term</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                       
-                                       
-                                      
-                                       
-                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Supplier Payment Term</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                       
-                                      
+
+                    <div class="col-md-3">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">SIP </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="activation_date">
                                 </div>
-                              
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Recievable Today</label>
-                                            <div class="col-md-9">
-	                                          <div class="form-check form-check-inline">
-                                                <input type="text" class="form-control">
-													
-												</div>                                            </div>
-                                        </div>
-                                       
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Payable Today</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Recieveable</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label"> Payable</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                     
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                            </div>  
                         </div>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="card-title">Stock</h4>
-                            
-                            <form action="#">
-                             <div class="form-group row">
-                                           
-                                <div class="row">
-                                
-                                    <div class="col-md-6">
-                                    
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Customer Location</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Supplier Location</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                       
-                                      
-                                </div>
-                              
-                                   
-                                </div>
-                                <div class="text-right">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> 
+                        
+                        <div class="col-md-12">
+                           <div class="form-group row">
+                               <label class="col-md-3 col-form-label"> Comments</label>
+                               <div class="col-md-9">
+                                   <input type="text" class="form-control" name="internal_user">
+                               </div>
+                           </div>
+                           
+                           
+                       </div>
+                   </div>
+                </div>
 
-{% endblock %}
+                <div class="card-box">
+                        <div class="col-md-14">
+                            <div class="form-group">
+                                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Categories</span></div>
+                                <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Record Name</th>
+                                     
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                       
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+    
+    
+                                </div>
+                            </div>
+                            <div class="card-box">
+                 
+                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Categories</span></div>
+                               
+                                <div class="row">
+                                        <div class="col-md-4">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 col-form-label">Name</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="insurance_company">
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                     <div class="col-md-4">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Parent </label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="activation_date">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                     <div class="col-md-3">
+                                        <div class="form-group row">
+                                                <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="checkbox" name="is_active" id="is_active" >
+                                                        <label class="form-check-label" for="is_active">
+                                                        Active
+                                                        </label>
+                                                    </div>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                             
+                                </div>
+                            
+        </div>
+        <div class="tab-pane" id="identifiers">
+
+                    <div class="card-box">
+                            <div class="col-md-14">
+                                <div class="form-group">
+                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Person Names</span></div>
+                                    <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Use</th>
+                                            <th>Prefix</th>
+                                            <th>Given </th>
+                                            <th>Family</th>
+                                            <th>Suffix</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="card-box">
+                                        <div class="row">
+                                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Insurance</span></div>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Use</label>
+                                                <div class="col-md-9">
+                                                  <div class="form-check form-check-inline">
+                                                        <select class="select" name="insurance_company_type">
+                                                                <option>Select</option>
+                                                                <option value="1">None</option>
+                                                        </select>
+                                                    </div>                                           
+                                                 </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Family </label>
+                                                <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="family">
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                         <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Given</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="insurance_company">
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Prefix </label>
+                                                <div class="col-md-9">
+                                                        <select class="select" name="insurance_company_type">
+                                                                <option>Select</option>
+                                                                <option value="1">None</option>
+                                                            </select>            
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                         <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Suffix</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="internal_user">
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                               <div class="form-group row">
+                                                   <label class="col-md-3 col-form-label"> From </label>
+                                                   <div class="col-md-9">
+                                                       <input type="text" class="form-control" name="activation_date">
+                                                   </div>
+                                               </div>
+                                               
+                                               
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="card-box">
+                                            <div class="col-md-14">
+                                                <div class="form-group">
+                                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Indentifiers</span></div>
+                                                    <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Type</th>
+                                                            <th>Code</th>
+                                                   
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td> </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="card-box">
+                                                        <div class="row">
+                                                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Identifier</span></div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-md-3 col-form-label">Sequence</label>
+                                                                <div class="col-md-9">
+                                                                  <div class="form-check form-check-inline">
+                                                                        <input class="form-control" name="unidentified" id="unidentified" >
+                                                                    </div>                                           
+                                                                 </div>
+                                                            </div>
+                                                           
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-md-3 col-form-label"> Type</label>
+                                                                <div class="col-md-9">
+                                                                        <input type="text" class="form-control" name="insurance_company">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                         <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label class="col-md-3 col-form-label">Code</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" name="insurance_company">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+                                                  
+                                                    </div>
+            </div>
+
+         <div class="tab-pane" id="accounting">
+
+            <div class="card-box">
+                    <div class="row">
+                                
+                            <div class="col-md-6">
+                            
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Customer Payment Term</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                               
+                               
+                              
+                               
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Supplier Payment Term</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                               
+                              
+                        </div>
+                      
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Recievable Today</label>
+                                    <div class="col-md-9">
+                                      <div class="form-check form-check-inline">
+                                        <input type="text" class="form-control">
+                                            
+                                        </div>                                            </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Payable Today</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                             <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label">Recieveable</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                             <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label"> Payable</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="stock">
+
+            <div class="card-box">
+                <div class="row">
+                    <div class="col-md-6">
+                                    
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Customer Location</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Supplier Location</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                           
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
