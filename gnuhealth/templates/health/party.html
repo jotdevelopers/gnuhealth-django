@@ -21,12 +21,10 @@
     <div class="tab-content">
         <div class="tab-pane show active" id="health">
 
-            <div class="tab-content">
-                <div class="tab-pane show active" id="top-tab1">
-
+         
                     <div class="card-box">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_person" id="is_person"  checked>
                                     <label class="form-check-label" for="is_person">
@@ -34,7 +32,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_patient" id="is_patient" >
                                     <label class="form-check-label" for="is_patient">
@@ -42,7 +40,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_healthprof" id="is_healthprof" >
                                     <label class="form-check-label" for="is_healthprof">
@@ -50,7 +48,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_institution" id="is_institution" >
                                     <label class="form-check-label" for="is_institution">
@@ -58,7 +56,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_insurance_company" id="is_insurance_company" >
                                     <label class="form-check-label" for="gender_female">
@@ -66,7 +64,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_pharmacy" id="is_pharmacy" >
                                     <label class="form-check-label" for="is_pharmacy">
@@ -125,12 +123,22 @@
                                                 <input type="text" class="form-control" name="occupation">
                                             </div>
                                         </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Alternative IDs</label>
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Main Address</label>
                                             <div class="col-md-9">
-                                                 <input class="form-check-input" type="checkbox" name="alternative_identification" id="alternative_identification" >
-									       </div>
+                                                <input type="text" class="form-control" name="">
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                         <div class="col-md-6">
+                                           <div class="form-check form-check-inline">
+                                             <input class="form-check-input" type="checkbox" name="alternative_identification" id="alternative_identification" >
+                                             <label class="form-check-label" for="alternative_identification">
+                                  			Alternative IDs
+                                             </label>
+                                           </div>
+                                         </div>
+                                       </div>
                                     </div>
 
 
@@ -183,12 +191,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Main Address</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="">
-                                            </div>
-                                        </div>
+                                          
                                     </div>
 
 
@@ -198,12 +201,17 @@
 
                     </div>
 
-
-
+                
                     <div class="card-box">
+                     <button class="btn btn-primary tog" type="button" style="float:right">Add Insurance</button>
+                    
+                    <div class=" view">
+                    <div class="row">
+                            <div class="col-md-6 p-md-3"><span style="font-weight: bold;">Insurances</span></div>
+                            
+                            </div>
                         <div class="col-md-14">
                             <div class="form-group">
-                                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Insurances</span></div>
                                 <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 								<thead>
 									<tr>
@@ -231,24 +239,25 @@
 								</tbody>
 							</table>
                     </div>
+                    </div>
                                 </div>
-                            </div>
-
-                            <div class="card-box">
-                                    <div class="row">
+                                 <div class=" add">
+                                <div class="row">
                                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Insurance</span></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Number</label>
-                                            <div class="col-md-9">
-                                              <div class="form-check form-check-inline">
-                                                    <input class="form-control" name="unidentified" id="unidentified" >
-                                                </div>                                           
-                                             </div>
-                                        </div>
-                                       
                                     </div>
-                                    <div class="col-md-4">
+                                   
+                                    <div class="row ">
+                                    <div class="col-md-6">
+                                           <div class="form-group row">
+                                               <label class="col-md-3 col-form-label">Number </label>
+                                               <div class="col-md-9">
+                                                   <input type="text" class="form-control" name="number">
+                                               </div>
+                                           </div>
+                                           
+                                           
+                                       </div>
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Insurance Type</label>
                                             <div class="col-md-9">
@@ -258,11 +267,11 @@
                                                     
                                                 </select>
                                             </div>
-                                        </div>
-                                        
-                                        
+                                        </div>            
                                     </div>
-                                     <div class="col-md-4">
+                                </div>
+                                <div class="row">
+                                <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Insurance Company</label>
                                             <div class="col-md-9">
@@ -272,87 +281,90 @@
                                         
                                         
                                     </div>
-                                </div>
-                                <div class="row">
                                      <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Plan </label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="activation_date">
+                                                <input type="text" class="form-control" name="insurance_plan">
                                             </div>
                                         </div>
                                         
                                         
                                     </div>
-                                     <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Category</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="internal_user">
+                                                <input type="text" class="form-control" name="insurance_category">
                                             </div>
-                                        </div>
-                                        
-                                        
+                                        </div>                         
                                     </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-md-6">
+                                     <div class="col-md-6">
                                            <div class="form-group row">
                                                <label class="col-md-3 col-form-label">Member Since </label>
                                                <div class="col-md-9">
-                                                   <input type="text" class="form-control" name="activation_date">
+                                                   <input type="text" class="form-control" name="member_since">
                                                </div>
                                            </div>
                                            
                                            
                                        </div>
+                                  </div>
+                                <div class="row">
+                                       
                                         <div class="col-md-6">
                                            <div class="form-group row">
                                                <label class="col-md-3 col-form-label">Expiration Date</label>
                                                <div class="col-md-9">
-                                                   <input type="text" class="form-control" name="internal_user">
+                                                   <input type="text" class="form-control" name="expiration_date">
                                                </div>
                                            </div>
                                            
                                            
                                        </div>
                                    </div>
+                                   </div>
                                 </div>
 
                             <div class="card-box">
-                                <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label">UnIndentified</label>
-                                        <div class="col-md-9">
-                                          <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" name="unidentified" id="unidentified" >
-                                            </div>                                           
+                            		<div class="row">
+                                         <div class="col-md-6">
+                                           <div class="form-check form-check-inline">
+                                             <input class="form-check-input" type="checkbox" name="unidentified" id="unidentified" >
+                                             <label class="form-check-label" for="unidentified">
+                                  			Unidentified 
+                                             </label>
+                                           </div>
                                          </div>
+                                       </div>
+                                       <div class="row">
+                                   <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Prefix</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="prefix">
+                                            </div>
+                                        </div>                         
                                     </div>
-                                   
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label">Prefix</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                </div>
-                                 <div class="col-md-4">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label">Federation ID</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="federation_account">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                </div>
+                                     <div class="col-md-6">
+                                           <div class="form-group row">
+                                               <label class="col-md-3 col-form-label">Federation ID</label>
+                                               <div class="col-md-9">
+                                                   <input type="text" class="form-control" name="federation_account">
+                                               </div>
+                                           </div>
+                                           
+                                           
+                                       </div>
                             </div>
+
+                            <div class="card-box add" >
+                                    
+                                  </div>
+                              
                             <div class="row">
                                  <div class="col-md-6">
                                     <div class="form-group row">
@@ -437,6 +449,21 @@
                                     <input type="text" class="form-control">
                                 </div>
                             </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label">City</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                            
+                            
+                              <div class="form-group row">
+                                <label class="col-md-3 col-form-label">Subdivision</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
                              <div class="form-group row">
                                 <div class="col-md-12">
                                     <div class="form-check form-check-inline">
@@ -454,7 +481,7 @@
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
                                         <label class="form-check-label" for="gender_female">
-Work													</label>
+										Work													</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
@@ -471,28 +498,19 @@ Work													</label>
                                     
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 col-form-label">City</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control">
-                                </div>
-                            </div>
-                            
-                            
-                              <div class="form-group row">
-                                <label class="col-md-3 col-form-label">Subdivision</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
                         </div>
                     </div>
             </div>
 
             <div class="card-box">
+                                 <button class="btn btn-primary tog" type="button" style="float:right">Add Contact Mechanism</button>
+            
+            <div class="view">
+            <div class="row">
+                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Contact Mechanisms</span></div>
+            </div>
                     <div class="col-md-14">
                         <div class="form-group">
-                            <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Contact Mechanisms</span></div>
                             <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -514,52 +532,51 @@ Work													</label>
 
 
                             </div>
-                        </div>
-            <div class="card-box">
-                 
+                            </div>
+                            <div class="add">
+                              <div class="row">
                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Contact Mechanism</span></div>
+                    </div>
                     <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Type</label>
                             <div class="col-md-9">
-                                    <input class="form-contol" name="unidentified" id="unidentified" >
-                             </div>
-                        </div>
-                       
+                                    <input class="form-control" name="type" id="type" >
+                            </div>
+                        </div>     
                     </div>
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Value</label>
                             <div class="col-md-9">
-                                    <input class="form-control" name="unidentified" id="unidentified" >
+                                    <input class="form-control" name="value" id="value" >
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Website</label>
+                            <div class="col-md-9">
+                                    <input class="form-control" name="website" id="website" >
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Email</label>
+                            <div class="col-md-9">
+                                    <input class="form-control" name="email" id="email" >
                             </div>
                         </div>     
                     </div>
                 </div>
                
                 <div class="row">
-                        <div class="col-md-3">
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Website</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="insurance_company">
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                     <div class="col-md-3">
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Email </label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" name="activation_date">
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                     <div class="col-md-3">
+                       
+                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Skype</label>
                             <div class="col-md-9">
@@ -568,7 +585,7 @@ Work													</label>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label">SIP </label>
                                 <div class="col-md-9">
@@ -579,7 +596,7 @@ Work													</label>
                 </div>
                 <div class="row">
                         
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                            <div class="form-group row">
                                <label class="col-md-3 col-form-label"> Comments</label>
                                <div class="col-md-9">
@@ -590,12 +607,19 @@ Work													</label>
                            
                        </div>
                    </div>
-                </div>
-
+                            </div>
+                        </div>
+           
                 <div class="card-box">
+                 <button class="btn btn-primary tog" type="button" style="float:right">Add Categories</button>
+                
+                <div class="view">
+                <div class="row">
+                  <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Categories</span></div>
+                </div>
                         <div class="col-md-14">
                             <div class="form-group">
-                                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Categories</span></div>
+                              
                                 <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
@@ -612,16 +636,14 @@ Work													</label>
                                 </tbody>
                             </table>
                     </div>
-    
-    
                                 </div>
-                            </div>
-                            <div class="card-box">
-                 
+                                </div>
+                                <div class="add">
+                                  <div class="row">
                                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Categories</span></div>
-                               
+                               </div>
                                 <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                                 <div class="form-group row">
                                                     <label class="col-md-3 col-form-label">Name</label>
                                                     <div class="col-md-9">
@@ -631,7 +653,7 @@ Work													</label>
                                                 
                                                 
                                             </div>
-                                     <div class="col-md-4">
+                                     <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Parent </label>
                                             <div class="col-md-9">
@@ -641,7 +663,9 @@ Work													</label>
                                         
                                         
                                     </div>
-                                     <div class="col-md-3">
+                                     </div>
+                                     
+                                     <div class="col-md-4">
                                         <div class="form-group row">
                                                 <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="checkbox" name="is_active" id="is_active" >
@@ -651,18 +675,25 @@ Work													</label>
                                                     </div>
                                         </div>
                                     </div>
-            
-                                </div>
+           							                               
                              
                                 </div>
-                            
-        </div>
+                                </div>
+                                
+                            </div>
+                         
         <div class="tab-pane" id="identifiers">
-
+                 
                     <div class="card-box">
+                    <button class="btn btn-primary tog" type="button" style="float:right">Add Person Names</button>
+                    
+                    <div class="view">
+                      <div class="row">
+                <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Person Names</span></div>
+                   
+                   </div>
                             <div class="col-md-14">
                                 <div class="form-group">
-                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Person Names</span></div>
                                     <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -686,45 +717,35 @@ Work													</label>
                                 </table>
                         </div>
                                     </div>
-                                </div>
-    
-                                <div class="card-box">
-                                        <div class="row">
-                                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Insurance</span></div>
-                                        <div class="col-md-4">
+                                    </div>
+                                    <div class="add">
+                                       <div class="row">
+                                        <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Person Names</span></div>
+                                        </div>
+                                       <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-md-3 col-form-label">Use</label>
+                                                <label class="col-md-3 col-form-label">Use </label>
                                                 <div class="col-md-9">
-                                                  <div class="form-check form-check-inline">
                                                         <select class="select" name="insurance_company_type">
                                                                 <option>Select</option>
                                                                 <option value="1">None</option>
-                                                        </select>
-                                                    </div>                                           
-                                                 </div>
+                                                            </select>            
+                                                </div>
                                             </div>
-                                           
+                                            
+                                            
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-md-3 col-form-label">Family </label>
                                                 <div class="col-md-9">
                                                         <input type="text" class="form-control" name="family">
                                                 </div>
-                                            </div>
-                                            
-                                            
+                                            </div> 
                                         </div>
-                                         <div class="col-md-4">
-                                            <div class="form-group row">
-                                                <label class="col-md-3 col-form-label">Given</label>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="insurance_company">
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                        </div>
+                                       
+                                       
                                     </div>
                                     <div class="row">
                                          <div class="col-md-6">
@@ -752,6 +773,16 @@ Work													</label>
                                         </div>
                                     </div>
                                     <div class="row">
+                                      <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Given</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="insurance_company">
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
                                             <div class="col-md-6">
                                                <div class="form-group row">
                                                    <label class="col-md-3 col-form-label"> From </label>
@@ -762,12 +793,19 @@ Work													</label>
                                                
                                                
                                            </div>
-                                       </div>
-                                    </div>
+                                       </div></div>
+                                </div>
+    
+                                
                                     <div class="card-box">
+                                    <button class="btn btn-primary tog" type="button" style="float:right">Add Identifier</button>
+                                    <div class="view">
+                                    <div class="row">
+                                     <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Indentifiers</span></div>
+                                    
+                                    </div>
                                             <div class="col-md-14">
                                                 <div class="form-group">
-                                                    <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Indentifiers</span></div>
                                                     <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
                                                     <thead>
                                                         <tr>
@@ -786,46 +824,47 @@ Work													</label>
                                                 </table>
                                         </div>
                                                     </div>
-                                                </div>
-                    
-                                                <div class="card-box">
-                                                        <div class="row">
+                                                    </div>
+                                                    <div class="add">
+                                                      <div class="row">
                                                         <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Add Identifier</span></div>
-                                                        <div class="col-md-4">
+                                                        </div>
+                                                        <div class="row">
+                                                        <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label">Sequence</label>
                                                                 <div class="col-md-9">
-                                                                  <div class="form-check form-check-inline">
-                                                                        <input class="form-control" name="unidentified" id="unidentified" >
-                                                                    </div>                                           
-                                                                 </div>
+                                                                    <input type="text" class="form-control" name="sequence">
+                                                                </div>
                                                             </div>
-                                                           
                                                         </div>
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label"> Type</label>
                                                                 <div class="col-md-9">
-                                                                        <input type="text" class="form-control" name="insurance_company">
+                                                                        <input type="text" class="form-control" name="type">
                                                                 </div>
                                                             </div>
                                                             
                                                             
                                                         </div>
-                                                         <div class="col-md-4">
+                                                        </div>
+                                                        <div class="row">
+                                                         <div class="col-md-6">
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label">Code</label>
                                                                 <div class="col-md-9">
-                                                                    <input type="text" class="form-control" name="insurance_company">
+                                                                    <input type="text" class="form-control" name="code">
                                                                 </div>
                                                             </div>
-                                                            
-                                                            
                                                         </div>
                                                     </div>
                                                   
                                                     </div>
-            </div>
+                                                    </div>
+                                                    
+                                                </div>
+                   
 
          <div class="tab-pane" id="accounting">
 
@@ -833,18 +872,12 @@ Work													</label>
                     <div class="row">
                                 
                             <div class="col-md-6">
-                            
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">Customer Payment Term</label>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
-                               
-                               
-                              
-                               
-                                
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
@@ -853,8 +886,6 @@ Work													</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
-                               
-                              
                         </div>
                       
                             <div class="col-md-6">
@@ -864,7 +895,8 @@ Work													</label>
                                       <div class="form-check form-check-inline">
                                         <input type="text" class="form-control">
                                             
-                                        </div>                                            </div>
+                                        </div>                                          
+                                          </div>
                                 </div>
                                
                             </div>
@@ -931,5 +963,16 @@ Work													</label>
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function(){
+	  $('div.add').hide();// hide it initially
+	  $('button').on('click', function(){
+	     $('div.view, div.add').toggle();
+	  });
+	});
+</script>
 
 {% endblock content %}
