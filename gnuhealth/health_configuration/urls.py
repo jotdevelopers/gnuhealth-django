@@ -26,19 +26,7 @@ urlpatterns = [
     path('add_residence', views.add_residence, name='add_residence'),
     
     #hospitalization
-    path('operationalSectors', views.operationalSectors, name='operationalSectors'),
-    path('addOperationalSector', views.addOperationalSector, name='addOperationalSector'),
-    path('editOperationalSector/<id>', views.editOperationalSector, name='editOperationalSector'),
-    path('updateOperationalSector/<id>/', views.updateOperationalSector, name='updateOperationalSector'),
-    path('deleteOperationalSector/<id>/', views.deleteOperationalSector, name='deleteOperationalSector'),
-    
-    path('operationalAreas', views.operationalAreas, name='operationalAreas'),
-    path('addOperationalArea', views.addOperationalArea, name='addOperationalArea'),
-    path('editOperationalArea/<id>', views.editOperationalArea, name='editOperationalArea'),
-    path('updateOperationalArea/<id>/', views.updateOperationalArea, name='updateOperationalArea'),
-    path('deleteOperationalArea/<id>/', views.deleteOperationalArea, name='deleteOperationalArea'),
-    
-    #Genetics
+
     path('genes', views.genes, name='genes'),
     path('addGenes', views.addGenes, name='addGenes'),
     path('editGenes/<id>', views.editGenes, name='editGenes'),
