@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addOperationalSector';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-operational-area/addOperationalSector';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -101,7 +101,7 @@
                             <td>{{opsector.name}}</td>
                             <td>{{opsector.operational_area}}</td>
                             <td>{{opsector.info}}</td>
-                            <td class="text-right"><a href="/health-configuration/editOperationalSector/{{opsector.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteOperationalSector/{{opsector.id}}"> <i
+                            <td class="text-right"><a href="/health-operational-area/editOperationalSector/{{opsector.id}}"><i class="far fa-edit"> </i></a><a href="/health-operational-area/deleteOperationalSector/{{opsector.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -117,7 +117,7 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addOperationalSector">
+<form method="POST" class="post-form" action="/health-operational-area/addOperationalSector">
     {% csrf_token %}
 
     <div class="row">
@@ -200,7 +200,7 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateOperationalSector/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-operational-area/updateOperationalSector/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
