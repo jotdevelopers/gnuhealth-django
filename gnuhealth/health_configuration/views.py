@@ -1469,33 +1469,33 @@ def deleteCountry(request, id):
 
 def subdivisions(request):
     type = "grid"
-    countries = country_country.objects.all()
-    return render(request, 'health_configuration/demographics/countries.html'
-                  , {'countries': countries
+    divisions = country_subdivision.objects.all()
+    return render(request, 'health_configuration/demographics/sub_divisions.html'
+                  , {'divisions': divisions
                   , 'type': type})
 
 def addSubdivision(request):
     if request.method == "POST":
-        form = countryForm(request.POST)
+        form = subdivisionForm(request.POST)
         if form.is_valid():
             try:
                 type = "grid"
                 msg = "1"
-                latest = country_country.objects.latest('id')
+                latest = country_subdivision.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                countries = country_country.objects.all()
+                divisions = country_subdivision.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_configuration/demographics/countries.html'
-                              , {'type': type, 'msg': msg, 'countries': countries})
+                return render(request, 'health_configuration/demographics/sub_divisions.html'
+                              , {'type': type, 'msg': msg, 'divisions': divisions})
             except:
                 pass
         else:                
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
-        form = countryForm()
-        latest = gnuhealth_ethnicity.objects.latest('id')
+        form = subdivisionForm()
+        latest = country_subdivision.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
@@ -1507,32 +1507,33 @@ def addSubdivision(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/demographics/countries.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/demographics/sub_divisions.html', {'type': type, 'form': form})
 
 
 def editSubdivision(request, id):
     type = "edit"
-    editForm = country_country.objects.get(id=id)
-    return render(request, 'health_configuration/demographics/countries.html', {'form': editForm, 'type': type})
+    editForm = country_subdivision.objects.get(id=id)
+    return render(request, 'health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type})
 
 
 def updateSubdivision(request, id):
     type = "grid"
-    eth = country_country.objects.get(id=id)
+    eth = country_subdivision.objects.get(id=id)
     name = request.POST['name']
-    code3 = request.POST['code3']
+    type = request.POST['type']
     code = request.POST['code']
-    code_numeric = request.POST['code_numeric']
+    parent = request.POST['parent']
+    country = request.POST['country']
     eth_id = eth.id
     create_date = eth.create_date
     write_date = eth.write_date
     create_uid = eth.create_uid
     write_uid = eth.write_uid
-    eth = country_country(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, code3=code3, code=code, code_numeric=code_numeric)
+    eth = country_subdivision(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name,code=code ,country=country, type=type, parent=parent)
     eth.save()
     msg = "3"
-    countires = country_country.objects.all()
+    divisions = country_subdivision.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -1540,21 +1541,21 @@ def updateSubdivision(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
 
-    return render(request, 'health_configuration/demographics/countries.html'
-                       , {'type': type, 'msg': msg, 'countries': countries})
+    return render(request, 'health_configuration/demographics/sub_divisions.html'
+                       , {'type': type, 'msg': msg, 'divisions': divisions})
 
 
 def deleteSubdivision(request, id):
-    country = country_country.objects.get(id=id)
-    country.delete()
+    division = country_subdivision.objects.get(id=id)
+    division.delete()
     type = "grid"
     msg = "2"
-    countries = country_country.objects.all()
+    divisions = country_subdivision.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
         messages.error(request, f'Sorry, Record Delete Error')
 
-    return render(request, 'health_configuration/demographics/countires.html'
-                              , {'type': type, 'msg': msg, 'countries': countries})
+    return render(request, 'health_configuration/demographics/sub_divisions.html'
+                              , {'type': type, 'msg': msg, 'divisions': divisions})
 

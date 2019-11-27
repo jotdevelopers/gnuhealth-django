@@ -128,7 +128,7 @@ urlpatterns = [
     path('updateCountry/<id>/', views.updateCountry, name='updateCountry'),
     path('deleteCountry/<id>/', views.deleteCountry, name='deleteCountry'),
     
-     path('subdivisions', views.country, name='country'),
+     path('subdivisions', views.subdivisions, name='subdivisions'),
     path('addSubdivision', views.addSubdivision, name='addSubdivision'),
     path('editSubdivision/<id>/', views.editSubdivision, name='editSubdivision'),
     path('updateSubdivision/<id>/', views.updateSubdivision, name='updateSubdivision'),
