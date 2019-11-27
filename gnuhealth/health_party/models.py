@@ -109,46 +109,7 @@ class gnuhealth_birth_certificate(models.Model):
     class Meta:
         db_table = 'gnuhealth_birth_certificate'
 
-class gnuhealth_du(models.Model):
-    id = models.IntegerField(primary_key=True)
-    address_city = models.CharField(max_length=100)
-    address_country = models.IntegerField()
-    address_district = models.CharField(max_length=100)
-    address_municipality = models.CharField(max_length=100)
-    address_street = models.CharField(max_length=100)
-    address_street_bis = models.CharField(max_length=100)
-    address_street_number = models.IntegerField()
-    address_subdivision = models.IntegerField()
-    address_zip = models.CharField(max_length=100)
-    altitude = models.IntegerField()
-    bathrooms = models.IntegerField()
-    bedrooms = models.IntegerField()
-    create_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    desc = models.CharField(max_length=100)
-    dwelling = models.CharField(max_length=100)
-    electricity = models.BooleanField()
-    gas = models.BooleanField()
-    housing = models.CharField(max_length=100)
-    internet = models.BooleanField()
-    latitude = models.IntegerField()
-    longitude = models.IntegerField()
-    materials = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    operational_sector = models.IntegerField()
-    picture = models.CharField(max_length=100)
-    roof_type = models.CharField(max_length=100)
-    sewers = models.BooleanField()
-    telephone = models.BooleanField()
-    television = models.BooleanField()
-    total_surface = models.IntegerField()
-    trash = models.BooleanField()
-    urladdr = models.CharField(max_length=100)
-    water = models.BooleanField()
-    write_date = models.DateTimeField()
-    write_uid = models.IntegerField()
-    class Meta:
-        db_table = 'gnuhealth_du'
+
 
 class gnuhealth_operational_sector(models.Model):
     id = models.IntegerField(primary_key=True)    
