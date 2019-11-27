@@ -1,5 +1,7 @@
 from django import forms
 from health_configuration.models import *
+from health_party.models import *
+
 
 class ethnicityForm(forms.ModelForm):
     class Meta:  
@@ -14,6 +16,11 @@ class occupationForm(forms.ModelForm):
 class residenceForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_gene_varient
+        fields = "__all__"
+        
+class countryForm(forms.ModelForm):
+    class Meta:  
+        model = country_country
         fields = "__all__"
         
 class procedureForm(forms.ModelForm):

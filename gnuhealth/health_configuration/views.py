@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from health.models import gnuhealth_pathology
 
 from health_configuration.models import *
+from health_party.models import *
 from health_configuration.forms import *
 
 from django.contrib import messages
@@ -1373,4 +1374,187 @@ def deleteBuilding(request, id):
 
     return render(request, 'health_configuration/institutions/bulidings.html'
                               , {'type': type, 'msg': msg, 'buildings': buildings})
+
+def country(request):
+    type = "grid"
+    countries = country_country.objects.all()
+    return render(request, 'health_configuration/demographics/countries.html'
+                  , {'countries': countries
+                  , 'type': type})
+
+def addCountry(request):
+    if request.method == "POST":
+        form = countryForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = country_country.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                countries = country_country.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/demographics/countries.html'
+                              , {'type': type, 'msg': msg, 'countries': countries})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = countryForm()
+        latest = country_country.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/demographics/countries.html', {'type': type, 'form': form})
+
+
+def editCountry(request, id):
+    type = "edit"
+    editForm = country_country.objects.get(id=id)
+    return render(request, 'health_configuration/demographics/countries.html', {'form': editForm, 'type': type})
+
+
+def updateCountry(request, id):
+    type = "grid"
+    eth = country_country.objects.get(id=id)
+    name = request.POST['name']
+    code3 = eth.code3
+    code = request.POST['code']
+    code_numeric = eth.code_numeric
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = country_country(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, code3=code3, code=code, code_numeric=code_numeric)
+    eth.save()
+    msg = "3"
+    countries = country_country.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/demographics/countries.html'
+                       , {'type': type, 'msg': msg, 'countries': countries})
+
+
+def deleteCountry(request, id):
+    country = country_country.objects.get(id=id)
+    country.delete()
+    type = "grid"
+    msg = "2"
+    countries = country_country.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/demographics/countries.html'
+                              , {'type': type, 'msg': msg, 'countries': countries})
+
+
+def subdivisions(request):
+    type = "grid"
+    countries = country_country.objects.all()
+    return render(request, 'health_configuration/demographics/countries.html'
+                  , {'countries': countries
+                  , 'type': type})
+
+def addSubdivision(request):
+    if request.method == "POST":
+        form = countryForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = country_country.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                countries = country_country.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/demographics/countries.html'
+                              , {'type': type, 'msg': msg, 'countries': countries})
+            except:
+                pass
+        else:                
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = countryForm()
+        latest = gnuhealth_ethnicity.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/demographics/countries.html', {'type': type, 'form': form})
+
+
+def editSubdivision(request, id):
+    type = "edit"
+    editForm = country_country.objects.get(id=id)
+    return render(request, 'health_configuration/demographics/countries.html', {'form': editForm, 'type': type})
+
+
+def updateSubdivision(request, id):
+    type = "grid"
+    eth = country_country.objects.get(id=id)
+    name = request.POST['name']
+    code3 = request.POST['code3']
+    code = request.POST['code']
+    code_numeric = request.POST['code_numeric']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = country_country(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, code3=code3, code=code, code_numeric=code_numeric)
+    eth.save()
+    msg = "3"
+    countires = country_country.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_configuration/demographics/countries.html'
+                       , {'type': type, 'msg': msg, 'countries': countries})
+
+
+def deleteSubdivision(request, id):
+    country = country_country.objects.get(id=id)
+    country.delete()
+    type = "grid"
+    msg = "2"
+    countries = country_country.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/demographics/countires.html'
+                              , {'type': type, 'msg': msg, 'countries': countries})
 

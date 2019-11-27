@@ -120,4 +120,17 @@ urlpatterns = [
     path('editPediatricsGrowthChart/<id>/', views.editPediatricsGrowthChart, name='editPediatricsGrowthChart'),
     path('updatePediatricsGrowthChart/<id>/', views.updatePediatricsGrowthChart, name='updatePediatricsGrowthChart'),
     path('deletePediatricsGrowthChart/<id>/', views.deletePediatricsGrowthChart, name='deletePediatricsGrowthChart'),
+    
+    #demographics
+    path('country', views.country, name='country'),
+    path('addCountry', views.addCountry, name='addCountry'),
+    path('editCountry/<id>/', views.editCountry, name='editCountry'),
+    path('updateCountry/<id>/', views.updateCountry, name='updateCountry'),
+    path('deleteCountry/<id>/', views.deleteCountry, name='deleteCountry'),
+    
+     path('subdivisions', views.country, name='country'),
+    path('addSubdivision', views.addSubdivision, name='addSubdivision'),
+    path('editSubdivision/<id>/', views.editSubdivision, name='editSubdivision'),
+    path('updateSubdivision/<id>/', views.updateSubdivision, name='updateSubdivision'),
+    path('deleteSubdivision/<id>/', views.deleteSubdivision, name='deleteSubdivision'),
 ]
