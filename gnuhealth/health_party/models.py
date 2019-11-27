@@ -48,9 +48,3 @@ class party_party(models.Model):
         db_table = 'party_party'
 
 
-class country(models.Model):
-    class stock_location(models.Model):
-
-        class gnuhealth_birth_certificate(models.Model):
-
-        class gnuhealth_du(models.Model):
