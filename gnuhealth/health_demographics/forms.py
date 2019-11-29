@@ -1,6 +1,5 @@
 from django import forms
 from health_demographics.models import *
-from ajax_select.fields import AutoCompleteSelectMultipleField
 
 
 class familyForm(forms.ModelForm):
