@@ -23,6 +23,11 @@ class countryForm(forms.ModelForm):
         model = country_country
         fields = "__all__"
         
+class subdivisionForm(forms.ModelForm):
+    class Meta:  
+        model = country_subdivision
+        fields = "__all__"
+        
 class procedureForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_procedure
