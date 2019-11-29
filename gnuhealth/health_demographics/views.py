@@ -6,6 +6,7 @@ from health_demographics.models import *
 from health_demographics.forms import *
 from django.contrib import messages
 
+
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world.")
