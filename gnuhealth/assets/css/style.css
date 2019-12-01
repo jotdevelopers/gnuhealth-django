@@ -2296,6 +2296,15 @@ blockquote p {font-style: italic;font-weight: 400;}
   margin: 0;
 }
 
+#search
+{
+    background-image: url(/static/svgs/solid/search.svg);
+    background-position: 12.5px 12.5px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    padding-left:40px;
+}
+
 #search-results li a {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
