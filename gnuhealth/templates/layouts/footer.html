@@ -9,16 +9,12 @@
 <script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="/static/js/app.js"></script>
 
-<!-- <script type="text/javascript" src="/static/backend-js/health_configuration/js.js"></script> -->
-
 <script type="text/javascript">
 	
 	$(document).ready(function () {
 	    $('#example').DataTable();
 	    $('.select2').select2();
 	});
-
-
 
 	$(function () {
 	    $('#datetimepicker3').datetimepicker({
@@ -46,7 +42,7 @@
 	// these HTTP methods do not require CSRF protection
 	return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 	}
-	    $('#search').ready(function(){
+	    $('#search').keyup(function(){
 
 	        $.ajax({
 	            beforeSend: function (xhr, settings) {
@@ -69,3 +65,5 @@
 	    $('#search-results').html(data);
 	}
 </script>
+
+<script type="text/javascript" src="/static/backend-js/health_configuration/js.js"></script>

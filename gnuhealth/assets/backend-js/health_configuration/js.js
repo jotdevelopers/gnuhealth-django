@@ -1,15 +1,4 @@
 
-$(document).ready(function () {
-    $('#example').DataTable();
-    $('.select2').select2();
-});
-
-
-
-$(function () {
-    $('#datetimepicker3').datetimepicker({
-        format: 'LT'
-    });
 
 function getCookie(name) {
 var cookieValue = null;
