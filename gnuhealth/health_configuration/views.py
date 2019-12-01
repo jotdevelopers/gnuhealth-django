@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.template.context_processors import csrf
+from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 
 from health_configuration.models import *
@@ -8,6 +10,7 @@ from health_party.models import *
 from health_configuration.forms import *
 
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def index(request):
@@ -116,6 +119,11 @@ def citizenship(request):
                   , {'countries': countries
                   , 'type': type})
 
+
+def add_citizenship(request):
+    return render(request, 'health_configuration/patients/add_citizenship.html')
+
+
 def occupation(request):
     type = "grid"
     occupations = gnuhealth_occupation.objects.all()
@@ -202,6 +210,10 @@ def residence(request):
     return render(request, 'health_configuration/patients/residence.html'
                   , {'countries': countries
                   , 'type': type})
+
+def add_residence(request):
+    return render(request, 'health_configuration/patients/add_residence.html')
+
 def genes(request):
     type = "grid"
     genes = gnuhealth_disease_genes.objects.all()
@@ -1512,7 +1524,24 @@ def addSubdivision(request):
 def editSubdivision(request, id):
     type = "edit"
     editForm = country_subdivision.objects.get(id=id)
-    return render(request, 'health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type})
+    language = 'en-gb'
+    session_language = 'en-gb'
+    if 'lang' in request.COOKIES:
+        language = request.COOKIES['lang']
+
+    if 'lang' in request.session:
+        session_language = request.session['lang']
+
+    args = {}
+    args.update(csrf(request))
+
+    tempCountries = country_country.objects.all()
+
+    args['countries'] = country_country.objects.all()
+    args['language'] = language
+    args['session_language'] = session_language
+
+    return render_to_response('health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type, 'tempCountries': tempCountries}, args)
 
 
 def updateSubdivision(request, id):
@@ -1557,4 +1586,14 @@ def deleteSubdivision(request, id):
 
     return render(request, 'health_configuration/demographics/sub_divisions.html'
                               , {'type': type, 'msg': msg, 'divisions': divisions})
+
+def searchCountry(request,search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    countries = country_country.objects.filter(name__contains=search_text)
+
+    return render_to_response('health_configuration/js/ajax-search.html', {'countries': countries})
 

@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'health_appointments',
     'health_hospitalizations',
     'health_operational_area',
-    'health_demographics'
+    'health_demographics',
+    'health_party',
 
 ]
 
@@ -96,7 +97,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 
 REST_FRAMEWORK = {

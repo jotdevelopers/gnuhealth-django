@@ -109,9 +109,6 @@ class gnuhealth_birth_certificate(models.Model):
     class Meta:
         db_table = 'gnuhealth_birth_certificate'
 
-
-
-
 class country_subdivision(models.Model):
     id = models.IntegerField(primary_key=True)    
     code = models.CharField(max_length=100)

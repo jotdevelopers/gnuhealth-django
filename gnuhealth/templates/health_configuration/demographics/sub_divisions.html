@@ -37,47 +37,6 @@
             {% endfor %}
         {% endif %}
     </div>
-
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
     
     <div class="col-sm-12">
         <div class="card-box">
@@ -102,7 +61,7 @@
                             <td>{{division.code}}</td>
                             <td>{{division.type}}</td>
                             <td class="text-right"><a href="/health-configuration/editSubdivision/{{division.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteSubdivision/{{division.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
+                                    class="far fa-trash-alt "> </i> </a></td>
 
                         </tr>
                         {% endfor %}
@@ -256,13 +215,18 @@
 
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Country</label>
-                            <input type="text" value="{{ form.country }}" name="notes" class="form-control">
 
-                        </div>
+                    <div class="col-md-12">
+                        <label>Search Country</label>
+                        <input type="hidden" list="search-results" name="search" id="search" class="form-control" value="a">
+
+                        <datalist id="search-results" class="form-control select2">
+                            
+                        </datalist>
+
+                        <br/><br/>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

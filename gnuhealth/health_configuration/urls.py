@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import *
+from django.conf.urls import url, include
 
 from . import views
 
@@ -19,9 +20,11 @@ urlpatterns = [
     path('updateOccupation/<id>/', views.updateOccupation, name='updateOccupation'),
     path('deleteOccupation/<id>/', views.deleteOccupation, name='deleteOccupation'),
     
-    path('citizenship', views.citizenship, name='citizenship'),
+    path('citienship', views.citizenship, name='citienship'),
+    path('add_citienship', views.add_citizenship, name='add_citienship'),
+
     path('residence', views.residence, name='residence'),
-    
+    path('add_residence', views.add_residence, name='add_residence'),
     
     #hospitalization
 
@@ -125,10 +128,12 @@ urlpatterns = [
     path('editCountry/<id>/', views.editCountry, name='editCountry'),
     path('updateCountry/<id>/', views.updateCountry, name='updateCountry'),
     path('deleteCountry/<id>/', views.deleteCountry, name='deleteCountry'),
-    
-     path('subdivisions', views.subdivisions, name='subdivisions'),
+
+    path('subdivisions', views.subdivisions, name='subdivisions'),
     path('addSubdivision', views.addSubdivision, name='addSubdivision'),
     path('editSubdivision/<id>/', views.editSubdivision, name='editSubdivision'),
     path('updateSubdivision/<id>/', views.updateSubdivision, name='updateSubdivision'),
     path('deleteSubdivision/<id>/', views.deleteSubdivision, name='deleteSubdivision'),
+    path('searchCountry/<search_text>/', views.searchCountry, name='searchCountry'),
 ]
+
