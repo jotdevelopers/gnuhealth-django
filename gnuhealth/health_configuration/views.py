@@ -1524,24 +1524,7 @@ def addSubdivision(request):
 def editSubdivision(request, id):
     type = "edit"
     editForm = country_subdivision.objects.get(id=id)
-    language = 'en-gb'
-    session_language = 'en-gb'
-    if 'lang' in request.COOKIES:
-        language = request.COOKIES['lang']
-
-    if 'lang' in request.session:
-        session_language = request.session['lang']
-
-    args = {}
-    args.update(csrf(request))
-
-    tempCountries = country_country.objects.all()
-
-    args['countries'] = country_country.objects.all()
-    args['language'] = language
-    args['session_language'] = session_language
-
-    return render_to_response('health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type, 'tempCountries': tempCountries}, args)
+    return render_to_response('health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type})
 
 
 def updateSubdivision(request, id):

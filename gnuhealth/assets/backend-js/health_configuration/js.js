@@ -1,54 +1,47 @@
+alert(csrftoken);
 
-$(document).ready(function () {
-    $('#example').DataTable();
-    $('.select2').select2();
-});
+$('input.select2-search__field').on('keyup', function() {
+      alert($(this).val()); // it alerts with the string that the user is searching
+ });
 
 
+function countrySearch()
 
-$(function () {
-    $('#datetimepicker3').datetimepicker({
-        format: 'LT'
+{
+
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-configuration/searchCountry/" + $('#country-search').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccess,
+        datatype: 'html'
     });
 
-function getCookie(name) {
-var cookieValue = null;
-if (document.cookie && document.cookie !== '') {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        // Does this cookie string begin with the name we want?
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
+
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('country-search');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("search-results");
+      li = ul.getElementsByTagName('li');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
         }
-    }
-}
-return cookieValue;
-}
-var csrftoken = getCookie('csrftoken');
+        }
 
-function csrfSafeMethod(method) {
-// these HTTP methods do not require CSRF protection
-return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
-    $('#search').ready(function(){
 
-        $.ajax({
-            beforeSend: function (xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            },
-            type: "POST",
-            url: "/health-configuration/searchCountry/"+$('#search').val()+"/",
-            data: 'csrfmiddlewaretoken={{csrf_token}}',
-            success: searchSuccess,
-            datatype: 'html'
-        });
-
-    });
-});
 
 function searchSuccess(data, textStatus, jqXHR)
 {
