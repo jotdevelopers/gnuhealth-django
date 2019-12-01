@@ -19,11 +19,9 @@ urlpatterns = [
     path('updateOccupation/<id>/', views.updateOccupation, name='updateOccupation'),
     path('deleteOccupation/<id>/', views.deleteOccupation, name='deleteOccupation'),
     
-    path('citienship', views.citizenship, name='citienship'),
-    path('add_citienship', views.add_citizenship, name='add_citienship'),
-   
+    path('citizenship', views.citizenship, name='citizenship'),
     path('residence', views.residence, name='residence'),
-    path('add_residence', views.add_residence, name='add_residence'),
+    
     
     #hospitalization
 

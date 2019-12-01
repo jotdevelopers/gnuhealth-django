@@ -110,12 +110,11 @@ def deleteEthnicity(request, id):
 
 
 def citizenship(request):
-    return render(request, 'health_configuration/patients/citizenships.html')
-
-
-def add_citizenship(request):
-    return render(request, 'health_configuration/patients/add_citizenship.html')
-
+    type = "grid"
+    countries = country_country.objects.all()
+    return render(request, 'health_configuration/patients/citizenships.html'
+                  , {'countries': countries
+                  , 'type': type})
 
 def occupation(request):
     type = "grid"
@@ -198,11 +197,11 @@ def deleteOccupation(request, id):
     return render(request, 'health_configuration/patients/occupations.html'
                               , {'type': type, 'msg': msg, 'occupations': occupations})
 def residence(request):
-    return render(request, 'health_configuration/patients/residence.html')
-
-def add_residence(request):
-    return render(request, 'health_configuration/patients/add_residence.html')
-
+    type = "grid"
+    countries = country_country.objects.all()
+    return render(request, 'health_configuration/patients/residence.html'
+                  , {'countries': countries
+                  , 'type': type})
 def genes(request):
     type = "grid"
     genes = gnuhealth_disease_genes.objects.all()
