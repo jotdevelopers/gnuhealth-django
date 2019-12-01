@@ -11,5 +11,10 @@ class familyMemberForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_family_member
         fields = "__all__"
+        
+class duForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_du
+        fields = "__all__"
 
 

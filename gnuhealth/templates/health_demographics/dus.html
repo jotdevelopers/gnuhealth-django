@@ -1,0 +1,528 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% if type == "grid" %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Domiciliary Units</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
+
+            </select>
+            <button onclick="window.location.href = '/health-demographics/addDu';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+							<th>Desc</th>
+							<th>DU Address</th>
+							<th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for du in dus %}
+                        <tr>
+                            <td>{{du.id}}</td>
+                            <td>{{du.desc}}</td>
+                            <td>{{du.address_city}}</td>
+                            <td class="text-right"><a href="/health-demographics/editDu/{{du.id}}"><i class="far fa-edit"> </i></a><a href="/health-demographics/deleteDu/{{du.id}}"> <i
+                                    class="far fa-trash-alt	"> </i> </a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if type == "add" %}
+
+<form method="POST" class="post-form" action="/health-demographics/addDu">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Domiciliary Unit</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+                            <div class="row">
+                           
+                           
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Code</label>
+										<input class="form-control" type="text" name="id" placeholder="{{ form.id }}
+									</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Desc</label>
+                                        
+                                            <input type="text" class="form-control " type="text" name="desc">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Street</label>
+                                        <input type = "text" name="address_street" class="form-control"> 
+                                            
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Number</label>
+                                        <input type = "number"  name="address_street_number" class="form-control"> 
+                                            
+                                          
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Appartment</label>
+                                        <input type = "text"  name="housing" class="form-control"> 
+                                        
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Zip Code</label>
+										<input class="form-control" type="text" name="address_zip" >
+									</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input type = "number"  name="address_country" class="form-control"> 
+                                           
+                                    </div>
+                                </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Sub Division</label>
+                                        <input type = "text"  name="address_subdivision" class="form-control"> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+ <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Longitude</label>
+										<input class="form-control" type="text" name="longitude" >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Latitude</label>
+                                        
+                                            <input type="text" class="form-control " type="text" name="latitude">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                           
+                         
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Altitude</label>
+										<input class="form-control" type="text" name="altitude" >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>OSM Map</label>
+                                        
+                                            <input type="text" class="form-control " type="text" value="">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Conditions</label>
+                                        <input type = "text" list = "conditions" name="conditions" class="form-control"> 
+                                            <datalist id="conditions">
+                                                <option value = "Normal">
+                                                <option value = "Critical"> 
+                                                                     
+                                            </datalist>
+                                    </div>
+                                </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <input type = "text" list = "type" name="type" class="form-control"> 
+                                            <datalist id="type">
+                                                <option value = "First">
+                                                <option value = "Second">
+                                                <option value = "Third"> 
+                                                <option value = "Forth">
+                                                                   
+                                            </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="form-group">
+                                <label>Upload Image</label>
+                                <div>
+                                    <input class="form-control" type="file">
+                                    <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-4 col-lg-3 col-xl-2">
+                                        <div class="product-thumbnail">
+											<img src="assets/img/blog/blog-thumb-01.jpg" class="img-thumbnail img-fluid" name="picture" alt="">
+                                            <span class="product-remove" title="remove"><i class="fa fa-close"></i></span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                                 <strong> <label>Infrastructure</label> </strong>
+                            <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Material</label>
+                                        <input type = "text" list = "materials" name="materials" class="form-control"> 
+                                            <datalist id="materials">
+                                                <option value = "Normal">
+                                                <option value = "Critical"> 
+                                                                     
+                                            </datalist>
+                                    </div>
+                                </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Roof</label>
+                                        <input type = "text" list = "roof_type" name="roof_type" class="form-control"> 
+                                            <datalist id="roof_type">
+                                                <option value = "First">
+                                                <option value = "Second">
+                                                <option value = "Third"> 
+                                                <option value = "Forth">
+                                                                   
+                                            </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Surface</label>
+										<input class="form-control" type="number" name="total_surface" >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Bedrooms</label>
+                                        
+                                            <input type="number" class="form-control " type="text" name="bedrooms">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                               <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Bathrooms</label>
+										<input class="form-control" type="number" name="bathrooms" >
+									</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Operational Sectors</label>
+                                        
+                                             <input type = "number"  name="operational_sector" class="form-control"> 
+                                            
+                                        
+                                    </div>
+                                </div>
+                            </div>   
+                                <div class="row">
+                                <div class="col-md-3">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="water" id="water"  checked>
+									<label class="form-check-label" for="water">
+									Running Water
+									</label>
+								</div>
+								</div>
+                            </div>
+                             <div class="col-md-3">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="sewers" id="sewers"  checked>
+									<label class="form-check-label" for="sewers">
+									Sanitary Sewers
+									</label>
+								</div>
+								</div>
+                            </div>
+                             <div class="col-md-3">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="electricity" id="electricity"  checked>
+									<label class="form-check-label" for="electricity">
+									Electrical Supply
+									</label>
+								</div>
+								</div>
+                            </div>
+                             <div class="col-md-3">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="gas" id="gas" checked>
+									<label class="form-check-label" for="gas">
+									Gas Supply
+									</label>
+								</div>
+								</div>
+                            </div>
+                         	</div>
+                            <div class="row">
+                                <div class="col-md-4">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="telephone" id="telephone"  checked>
+									<label class="form-check-label" for="telephone">
+									Telephone
+									</label>
+								</div>
+								</div>
+                            </div>
+                             <div class="col-md-4">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="internet" id="internet"  checked>
+									<label class="form-check-label" for="internet">
+									Internet
+									</label>
+								</div>
+								</div>
+                            </div>
+                             <div class="col-md-4">
+ <div class="form-group">
+                                
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="checkbox" name="television" id="television"  checked>
+									<label class="form-check-label" for="television">
+									Television
+									</label>
+								</div>
+								</div>
+                            </div>
+                             
+                         	</div>
+                            <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+								<thead> <b> Members </b>
+									<tr>
+										<th>Federation</th>
+										<th>Name</th>
+										<th>Family Names</th>
+										<th>Recieval</th>
+										<th>Payable</th>
+										
+										
+										
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										
+										
+										
+										
+									</tr>
+									
+								</tbody>
+							</table>
+							<div class="row">
+                            <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" class="form-control" name="write_uid" placeholder={{ form.write_uid }}
+
+                        </div>
+                    </div>
+                    </div>
+                                <input type="hidden" readonly  name="address_city" class="form-control">
+                                <input type="hidden" readonly  name="address_district" class="form-control">
+                                <input type="hidden" readonly  name="address_municipality" class="form-control">
+                                <input type="hidden" readonly  name="street_address_bis" class="form-control">
+                                <input type="hidden" readonly  name="dwelling" class="form-control">
+                                <input type="hidden" readonly  name="name" class="form-control">
+                                <input type="hidden" readonly  name="trash" class="form-control">
+                                <input type="hidden" readonly  value="" name="urladdr" class="form-control">
+                                
+                               
+                    
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-demographics/updateFamily/{{form.id}}/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Family</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Extra Info</label>
+                            <input type="text" value="{{ form.info }}" name="notes" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}
