@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'health_operational_area',
     'health_demographics',
     'health_party',
-
 ]
 
 MIDDLEWARE = [
@@ -68,7 +67,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
-            
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -97,6 +96,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 
 REST_FRAMEWORK = {
