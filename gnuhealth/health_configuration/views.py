@@ -12,21 +12,25 @@ from health_configuration.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 
+
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world.")
+
 
 # Create Conditions Views
 def condition(request):
     conditions = gnuhealth_pathology.objects.all()
     return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions})
 
+
 def ethnicity(request):
     type = "grid"
     ethnicities = gnuhealth_ethnicity.objects.all()
     return render(request, 'health_configuration/patients/ethnicities.html'
                   , {'ethnicities': ethnicities
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addEthnicity(request):
     if request.method == "POST":
@@ -44,7 +48,7 @@ def addEthnicity(request):
                               , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -92,9 +96,8 @@ def updateEthnicity(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/patients/ethnicities.html'
-                       , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 
 
 def deleteEthnicity(request, id):
@@ -109,7 +112,7 @@ def deleteEthnicity(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/patients/ethnicities.html'
-                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
 
 
 def citizenship(request):
@@ -117,7 +120,7 @@ def citizenship(request):
     countries = country_country.objects.all()
     return render(request, 'health_configuration/patients/citizenships.html'
                   , {'countries': countries
-                  , 'type': type})
+                      , 'type': type})
 
 
 def add_citizenship(request):
@@ -129,7 +132,7 @@ def occupation(request):
     occupations = gnuhealth_occupation.objects.all()
     return render(request, 'health_configuration/patients/occupations.html'
                   , {'occupations': occupations
-                  , 'type': type})
+                      , 'type': type})
 
 
 def addOccupation(request):
@@ -164,16 +167,17 @@ def addOccupation(request):
         type = "add"
         return render(request, 'health_configuration/patients/occupations.html', {'type': type, 'form': form})
 
+
 def editOccupation(request, id):
     type = "edit"
     form = gnuhealth_occupation.objects.get(id=id)
-    #return HttpResponse(form.code)
+    # return HttpResponse(form.code)
     return render(request, 'health_configuration/patients/occupations.html', {'form': form, 'type': type})
 
 
 def updateOccupation(request, id):
     type = "grid"
-    occ= gnuhealth_occupation.objects.get(id=id)
+    occ = gnuhealth_occupation.objects.get(id=id)
     name = request.POST['name']
     code = request.POST['code']
     occ_id = occ.id
@@ -182,7 +186,7 @@ def updateOccupation(request, id):
     create_uid = occ.create_uid
     write_uid = occ.write_uid
     occ = gnuhealth_occupation(id=occ_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, code=code)
+                               , write_uid=write_uid, name=name, code=code)
     occ.save()
     msg = "3"
     occupations = gnuhealth_occupation.objects.all()
@@ -192,9 +196,9 @@ def updateOccupation(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/patients/occupations.html'
-                       , {'type': type, 'msg': msg, 'occupations': occupations})
+                  , {'type': type, 'msg': msg, 'occupations': occupations})
+
 
 def deleteOccupation(request, id):
     occupation = gnuhealth_occupation.objects.get(id=id)
@@ -203,26 +207,32 @@ def deleteOccupation(request, id):
     msg = "2"
     occupations = gnuhealth_occupation.objects.all()
     return render(request, 'health_configuration/patients/occupations.html'
-                              , {'type': type, 'msg': msg, 'occupations': occupations})
+                  , {'type': type, 'msg': msg, 'occupations': occupations})
+
+
 def residence(request):
     type = "grid"
     countries = country_country.objects.all()
     return render(request, 'health_configuration/patients/residence.html'
                   , {'countries': countries
-                  , 'type': type})
+                      , 'type': type})
+
 
 def add_residence(request):
     return render(request, 'health_configuration/patients/add_residence.html')
+
 
 def genes(request):
     type = "grid"
     genes = gnuhealth_disease_genes.objects.all()
     return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'genes': genes})
 
+
 def editGenes(request, id):
     type = "edit"
     editForm = gnuhealth_disease_genes.objects.get(id=id)
     return render(request, 'health_configuration/genetics/genes.html', {'form': editForm, 'type': type})
+
 
 def updateGenes(request, id):
     type = "grid"
@@ -275,11 +285,11 @@ def addGenes(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 genes = gnuhealth_disease_genes.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('genes')
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -297,16 +307,19 @@ def addGenes(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form})
-    
+
+
 def varients(request):
     type = "grid"
     varients = gnuhealth_gene_varient.objects.all()
     return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients})
 
+
 def editVarient(request, id):
     type = "edit"
     editForm = gnuhealth_gene_varient.objects.get(id=id)
     return render(request, 'health_configuration/genetics/varient.html', {'form': editForm, 'type': type})
+
 
 def updateVarient(request, id):
     type = "grid"
@@ -314,7 +327,7 @@ def updateVarient(request, id):
     varient.name = request.POST['name']
     varient.aa_change = request.POST['aa_change']
     varient.protein_name = request.POST['varient']
-  
+
     varient.id = id
     varient.create_date = varient.create_date
     varient.write_date = varient.write_date
@@ -356,11 +369,11 @@ def addVarient(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 genes = gnuhealth_gene_varient.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('genes')
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -379,10 +392,13 @@ def addVarient(request):
         type = "add"
         return render(request, 'health_configuration/genetics/varients.html', {'type': type, 'form': form})
 
+
 def pathologyGroups(request):
     type = "grid"
     tempPathologyGroups = gnuhealth_pathology_group.objects.all()
-    return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'tempPathologyGroups': tempPathologyGroups})
+    return render(request, 'health_configuration/conditions/pathology_groups.html',
+                  {'type': type, 'tempPathologyGroups': tempPathologyGroups})
+
 
 def addPathologyGroups(request):
     if request.method == "POST":
@@ -393,11 +409,11 @@ def addPathologyGroups(request):
                 latest = gnuhealth_pathology_group.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('pathologyGroups')
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -416,10 +432,12 @@ def addPathologyGroups(request):
         type = "add"
         return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'form': form})
 
+
 def editPathologyGroups(request, id):
     type = "edit"
     editForm = gnuhealth_pathology_group.objects.get(id=id)
     return render(request, 'health_configuration/conditions/pathology_groups.html', {'form': editForm, 'type': type})
+
 
 def updatePathologyGroups(request, id):
     temp = gnuhealth_pathology_group.objects.get(id=id)
@@ -427,7 +445,7 @@ def updatePathologyGroups(request, id):
     temp.desc = request.POST['desc']
     temp.info = request.POST['info']
     temp.name = request.POST['name']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -443,6 +461,7 @@ def updatePathologyGroups(request, id):
 
     return redirect('pathologyGroups')
 
+
 def deletePathologyGroups(request, id):
     temp = gnuhealth_pathology_group.objects.get(id=id)
     temp.delete()
@@ -453,10 +472,13 @@ def deletePathologyGroups(request, id):
 
     return redirect('pathologyGroups')
 
+
 def categories(request):
     type = "grid"
     tempCategories = gnuhealth_pathology_category.objects.all()
-    return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'tempCategories': tempCategories})
+    return render(request, 'health_configuration/conditions/categories.html',
+                  {'type': type, 'tempCategories': tempCategories})
+
 
 def addCategories(request):
     if request.method == "POST":
@@ -466,11 +488,11 @@ def addCategories(request):
                 latest = gnuhealth_pathology_category.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('categories')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -489,15 +511,17 @@ def addCategories(request):
         type = "add"
         return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'form': form})
 
+
 def editCategories(request, id):
     type = "edit"
     editForm = gnuhealth_pathology_category.objects.get(id=id)
     return render(request, 'health_configuration/conditions/categories.html', {'form': editForm, 'type': type})
 
+
 def updateCategories(request, id):
     temp = gnuhealth_pathology_category.objects.get(id=id)
     temp.name = request.POST['name']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -513,6 +537,7 @@ def updateCategories(request, id):
 
     return redirect('categories')
 
+
 def deleteCategories(request, id):
     temp = gnuhealth_pathology_category.objects.get(id=id)
     temp.delete()
@@ -523,10 +548,13 @@ def deleteCategories(request, id):
 
     return redirect('categories')
 
+
 def bodyFunctions(request):
     type = "grid"
     tempBodyFunctions = gnuhealth_body_function.objects.all()
-    return render(request, 'health_configuration/functionality_disability/body_functions.html', {'type': type, 'tempBodyFunctions': tempBodyFunctions})
+    return render(request, 'health_configuration/functionality_disability/body_functions.html',
+                  {'type': type, 'tempBodyFunctions': tempBodyFunctions})
+
 
 def addBodyFunctions(request):
     if request.method == "POST":
@@ -536,11 +564,11 @@ def addBodyFunctions(request):
                 latest = gnuhealth_body_function.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('bodyFunctions')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -557,18 +585,22 @@ def addBodyFunctions(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/functionality_disability/body_functions.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/functionality_disability/body_functions.html',
+                      {'type': type, 'form': form})
+
 
 def editBodyFunctions(request, id):
     type = "edit"
     editForm = gnuhealth_body_function.objects.get(id=id)
-    return render(request, 'health_configuration/functionality_disability/body_functions.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/functionality_disability/body_functions.html',
+                  {'form': editForm, 'type': type})
+
 
 def updateBodyFunctions(request, id):
     temp = gnuhealth_body_function.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -584,6 +616,7 @@ def updateBodyFunctions(request, id):
 
     return redirect('bodyFunctions')
 
+
 def deleteBodyFunctions(request, id):
     temp = gnuhealth_body_function.objects.get(id=id)
     temp.delete()
@@ -594,10 +627,13 @@ def deleteBodyFunctions(request, id):
 
     return redirect('bodyFunctions')
 
+
 def bodyStructures(request):
     type = "grid"
     tempBodyStructures = gnuhealth_body_structure.objects.all()
-    return render(request, 'health_configuration/functionality_disability/body_structures.html', {'type': type, 'tempBodyStructures': tempBodyStructures})
+    return render(request, 'health_configuration/functionality_disability/body_structures.html',
+                  {'type': type, 'tempBodyStructures': tempBodyStructures})
+
 
 def addBodyStructures(request):
     if request.method == "POST":
@@ -607,11 +643,11 @@ def addBodyStructures(request):
                 latest = gnuhealth_body_structure.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('bodyStructures')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -628,18 +664,22 @@ def addBodyStructures(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/functionality_disability/body_structures.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/functionality_disability/body_structures.html',
+                      {'type': type, 'form': form})
+
 
 def editBodyStructures(request, id):
     type = "edit"
     editForm = gnuhealth_body_structure.objects.get(id=id)
-    return render(request, 'health_configuration/functionality_disability/body_structures.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/functionality_disability/body_structures.html',
+                  {'form': editForm, 'type': type})
+
 
 def updateBodyStructures(request, id):
     temp = gnuhealth_body_structure.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -655,6 +695,7 @@ def updateBodyStructures(request, id):
 
     return redirect('bodyStructures')
 
+
 def deleteBodyStructures(request, id):
     temp = gnuhealth_body_structure.objects.get(id=id)
     temp.delete()
@@ -665,10 +706,13 @@ def deleteBodyStructures(request, id):
 
     return redirect('bodyStructures')
 
+
 def activityParticipation(request):
     type = "grid"
     tempActivityParticipation = gnuhealth_activity_and_participation.objects.all()
-    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'type': type, 'tempActivityParticipation': tempActivityParticipation})
+    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
+                  {'type': type, 'tempActivityParticipation': tempActivityParticipation})
+
 
 def addActivityParticipation(request):
     if request.method == "POST":
@@ -678,11 +722,11 @@ def addActivityParticipation(request):
                 latest = gnuhealth_activity_and_participation.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('activityParticipation')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -699,18 +743,22 @@ def addActivityParticipation(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
+                      {'type': type, 'form': form})
+
 
 def editActivityParticipation(request, id):
     type = "edit"
     editForm = gnuhealth_activity_and_participation.objects.get(id=id)
-    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
+                  {'form': editForm, 'type': type})
+
 
 def updateActivityParticipation(request, id):
     temp = gnuhealth_activity_and_participation.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -726,6 +774,7 @@ def updateActivityParticipation(request, id):
 
     return redirect('activityParticipation')
 
+
 def deleteActivityParticipation(request, id):
     temp = gnuhealth_activity_and_participation.objects.get(id=id)
     temp.delete()
@@ -736,10 +785,13 @@ def deleteActivityParticipation(request, id):
 
     return redirect('activityParticipation')
 
+
 def environmentalFactor(request):
     type = "grid"
     tempEnvironmentalFactor = gnuhealth_environmental_factor.objects.all()
-    return render(request, 'health_configuration/functionality_disability/environmental_factor.html', {'type': type, 'tempEnvironmentalFactor': tempEnvironmentalFactor})
+    return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
+                  {'type': type, 'tempEnvironmentalFactor': tempEnvironmentalFactor})
+
 
 def addEnvironmentalFactor(request):
     if request.method == "POST":
@@ -749,11 +801,11 @@ def addEnvironmentalFactor(request):
                 latest = gnuhealth_environmental_factor.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('environmentalFactor')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -770,18 +822,22 @@ def addEnvironmentalFactor(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/functionality_disability/environmental_factor.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
+                      {'type': type, 'form': form})
+
 
 def editEnvironmentalFactor(request, id):
     type = "edit"
     editForm = gnuhealth_environmental_factor.objects.get(id=id)
-    return render(request, 'health_configuration/functionality_disability/environmental_factor.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
+                  {'form': editForm, 'type': type})
+
 
 def updateEnvironmentalFactor(request, id):
     temp = gnuhealth_environmental_factor.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -797,6 +853,7 @@ def updateEnvironmentalFactor(request, id):
 
     return redirect('environmentalFactor')
 
+
 def deleteEnvironmentalFactor(request, id):
     temp = gnuhealth_environmental_factor.objects.get(id=id)
     temp.delete()
@@ -807,10 +864,13 @@ def deleteEnvironmentalFactor(request, id):
 
     return redirect('environmentalFactor')
 
+
 def dietBelief(request):
     type = "grid"
     tempDietBelief = gnuhealth_diet_belief.objects.all()
-    return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'tempDietBelief': tempDietBelief})
+    return render(request, 'health_configuration/misc/diet_belief.html',
+                  {'type': type, 'tempDietBelief': tempDietBelief})
+
 
 def addDietBelief(request):
     if request.method == "POST":
@@ -820,11 +880,11 @@ def addDietBelief(request):
                 latest = gnuhealth_diet_belief.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('dietBelief')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -843,17 +903,19 @@ def addDietBelief(request):
         type = "add"
         return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'form': form})
 
+
 def editDietBelief(request, id):
     type = "edit"
     editForm = gnuhealth_diet_belief.objects.get(id=id)
     return render(request, 'health_configuration/misc/diet_belief.html', {'form': editForm, 'type': type})
+
 
 def updateDietBelief(request, id):
     temp = gnuhealth_diet_belief.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
     temp.description = request.POST['description']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -869,6 +931,7 @@ def updateDietBelief(request, id):
 
     return redirect('dietBelief')
 
+
 def deleteDietBelief(request, id):
     temp = gnuhealth_diet_belief.objects.get(id=id)
     temp.delete()
@@ -879,10 +942,13 @@ def deleteDietBelief(request, id):
 
     return redirect('dietBelief')
 
+
 def dietTherapeutic(request):
     type = "grid"
     tempDietTherapeutic = gnuhealth_diet_therapeutic.objects.all()
-    return render(request, 'health_configuration/misc/diet_therapeutic.html', {'type': type, 'tempDietTherapeutic': tempDietTherapeutic})
+    return render(request, 'health_configuration/misc/diet_therapeutic.html',
+                  {'type': type, 'tempDietTherapeutic': tempDietTherapeutic})
+
 
 def addDietTherapeutic(request):
     if request.method == "POST":
@@ -892,11 +958,11 @@ def addDietTherapeutic(request):
                 latest = gnuhealth_diet_therapeutic.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')                
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('dietTherapeutic')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -915,17 +981,19 @@ def addDietTherapeutic(request):
         type = "add"
         return render(request, 'health_configuration/misc/diet_therapeutic.html', {'type': type, 'form': form})
 
+
 def editDietTherapeutic(request, id):
     type = "edit"
     editForm = gnuhealth_diet_therapeutic.objects.get(id=id)
     return render(request, 'health_configuration/misc/diet_therapeutic.html', {'form': editForm, 'type': type})
+
 
 def updateDietTherapeutic(request, id):
     temp = gnuhealth_diet_therapeutic.objects.get(id=id)
     temp.name = request.POST['name']
     temp.code = request.POST['code']
     temp.description = request.POST['description']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -941,6 +1009,7 @@ def updateDietTherapeutic(request, id):
 
     return redirect('dietTherapeutic')
 
+
 def deleteDietTherapeutic(request, id):
     temp = gnuhealth_diet_therapeutic.objects.get(id=id)
     temp.delete()
@@ -951,10 +1020,13 @@ def deleteDietTherapeutic(request, id):
 
     return redirect('dietTherapeutic')
 
+
 def pediatricsGrowthChart(request):
     type = "grid"
     tempPediatricsGrowthChart = gnuhealth_pediatrics_growth_charts_who.objects.all()
-    return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'type': type, 'tempPediatricsGrowthChart': tempPediatricsGrowthChart})
+    return render(request, 'health_configuration/misc/pediatrics_growth_chart.html',
+                  {'type': type, 'tempPediatricsGrowthChart': tempPediatricsGrowthChart})
+
 
 def addPediatricsGrowthChart(request):
     if request.method == "POST":
@@ -964,11 +1036,11 @@ def addPediatricsGrowthChart(request):
                 latest = gnuhealth_pediatrics_growth_charts_who.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                messages.success(request, f'Success, Record Saved Successfully')             
+                messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('pediatricsGrowthChart')
             except:
                 pass
-        else:         
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -987,10 +1059,12 @@ def addPediatricsGrowthChart(request):
         type = "add"
         return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'type': type, 'form': form})
 
+
 def editPediatricsGrowthChart(request, id):
     type = "edit"
     editForm = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
     return render(request, 'health_configuration/misc/pediatrics_growth_chart.html', {'form': editForm, 'type': type})
+
 
 def updatePediatricsGrowthChart(request, id):
     temp = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
@@ -1000,7 +1074,7 @@ def updatePediatricsGrowthChart(request, id):
     temp.month = request.POST['month']
     temp.type = request.POST['type']
     temp.value = request.POST['value']
-  
+
     temp.id = id
     temp.create_date = temp.create_date
     temp.write_date = temp.write_date
@@ -1015,6 +1089,7 @@ def updatePediatricsGrowthChart(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
     return redirect('pediatricsGrowthChart')
+
 
 def deletePediatricsGrowthChart(request, id):
     temp = gnuhealth_pediatrics_growth_charts_who.objects.get(id=id)
@@ -1032,7 +1107,8 @@ def procedures(request):
     procedures = gnuhealth_procedure.objects.all()
     return render(request, 'health_configuration/procedure/procedures.html'
                   , {'procedures': procedures
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addProcedure(request):
     if request.method == "POST":
@@ -1050,7 +1126,7 @@ def addProcedure(request):
                               , {'type': type, 'msg': msg, 'procedures': procedures})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1070,13 +1146,13 @@ def addProcedure(request):
         return render(request, 'health_configuration/procedure/procedures.html', {'type': type, 'form': form})
 
 
-#def editProcedure(request, id):
- #   type = "edit"
-  #  editForm = gnuhealth_procedure.objects.get(id=id)
-   # return render(request, 'health_configuration/procedure/procedures.html', {'form': editForm, 'type': type})
+# def editProcedure(request, id):
+#   type = "edit"
+#  editForm = gnuhealth_procedure.objects.get(id=id)
+# return render(request, 'health_configuration/procedure/procedures.html', {'form': editForm, 'type': type})
 
 
-#def updateProcedure(request, id):
+# def updateProcedure(request, id):
 #   type = "grid"
 #   procedure = gnuhealth_procedure.objects.get(id=id)
 #   name = request.POST['name']
@@ -1092,14 +1168,14 @@ def addProcedure(request):
 # msg = "3"
 # procedures = gnuhealth_procedure.objects.all()
 
-    #if True:
-    #    messages.success(request, f'Success, Record Updated Successfully')
-    #elif False:
-     #   messages.error(request, f'Sorry, Record Update Error')
+# if True:
+#    messages.success(request, f'Success, Record Updated Successfully')
+# elif False:
+#   messages.error(request, f'Sorry, Record Update Error')
 
 
-    #return render(request, 'health_configuration/procedure/procedures.html'
-     #                  , {'type': type, 'msg': msg, 'procedures': procedures})
+# return render(request, 'health_configuration/procedure/procedures.html'
+#                  , {'type': type, 'msg': msg, 'procedures': procedures})
 
 
 def deleteProcedure(request, id):
@@ -1114,14 +1190,16 @@ def deleteProcedure(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/procedure/procedures.html'
-                              , {'type': type, 'msg': msg, 'procedures': procedures})
-    
+                  , {'type': type, 'msg': msg, 'procedures': procedures})
+
+
 def imagingTestTypes(request):
     type = "grid"
     types = gnuhealth_imaging_test_type.objects.all()
     return render(request, 'health_configuration/imaging/imaging_test_types.html'
                   , {'types': types
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addImagingTestType(request):
     if request.method == "POST":
@@ -1139,7 +1217,7 @@ def addImagingTestType(request):
                               , {'type': type, 'msg': msg, 'types': types})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1176,7 +1254,7 @@ def updateImagingTestType(request, id):
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = gnuhealth_imaging_test_type(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name,  code=code)
+                                      , write_uid=write_uid, name=name, code=code)
     eth.save()
     msg = "3"
     types = gnuhealth_imaging_test_type.objects.all()
@@ -1186,9 +1264,8 @@ def updateImagingTestType(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/imaging/imaging_test_types.html'
-                       , {'type': type, 'msg': msg, 'types': types})
+                  , {'type': type, 'msg': msg, 'types': types})
 
 
 def deleteImagingTestType(request, id):
@@ -1203,7 +1280,7 @@ def deleteImagingTestType(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/imaging/imaging_test_types.html'
-                              , {'type': type, 'msg': msg, 'types': types})
+                  , {'type': type, 'msg': msg, 'types': types})
 
 
 def specialities(request):
@@ -1211,7 +1288,8 @@ def specialities(request):
     specialities = gnuhealth_specialty.objects.all()
     return render(request, 'health_configuration/work_schedule/specialities.html'
                   , {'specialities': specialities
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addSpeciality(request):
     if request.method == "POST":
@@ -1229,7 +1307,7 @@ def addSpeciality(request):
                               , {'type': type, 'msg': msg, 'specialities': specialities})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1267,7 +1345,7 @@ def updateSpeciality(request, id):
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = gnuhealth_specialty(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name,  code=code)
+                              , write_uid=write_uid, name=name, code=code)
     eth.save()
     msg = "3"
     specialities = gnuhealth_specialty.objects.all()
@@ -1277,9 +1355,8 @@ def updateSpeciality(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/work_schedule/specialities.html'
-                       , {'type': type, 'msg': msg, 'specialities': specialities})
+                  , {'type': type, 'msg': msg, 'specialities': specialities})
 
 
 def deleteSpeciality(request, id):
@@ -1294,7 +1371,7 @@ def deleteSpeciality(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/work_schedule/specialities.html'
-                              , {'type': type, 'msg': msg, 'specialities': specialities})
+                  , {'type': type, 'msg': msg, 'specialities': specialities})
 
 
 def buildings(request):
@@ -1302,7 +1379,8 @@ def buildings(request):
     buildings = gnuhealth_hospital_building.objects.all()
     return render(request, 'health_configuration/work_schedule/buildings.html'
                   , {'buildings': buildings
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addBuilding(request):
     if request.method == "POST":
@@ -1320,7 +1398,7 @@ def addBuilding(request):
                               , {'type': type, 'msg': msg, 'specialities': specialities})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1357,7 +1435,7 @@ def updateBuilding(request, id):
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = gnuhealth_hospital_building(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name,  code=code)
+                                      , write_uid=write_uid, name=name, code=code)
     eth.save()
     msg = "3"
     buildings = gnuhealth_hospital_building.objects.all()
@@ -1367,9 +1445,8 @@ def updateBuilding(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/institutions/buildings.html'
-                       , {'type': type, 'msg': msg, 'buildings': buildings})
+                  , {'type': type, 'msg': msg, 'buildings': buildings})
 
 
 def deleteBuilding(request, id):
@@ -1384,14 +1461,16 @@ def deleteBuilding(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/institutions/bulidings.html'
-                              , {'type': type, 'msg': msg, 'buildings': buildings})
+                  , {'type': type, 'msg': msg, 'buildings': buildings})
+
 
 def country(request):
     type = "grid"
     countries = country_country.objects.all()
     return render(request, 'health_configuration/demographics/countries.html'
                   , {'countries': countries
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addCountry(request):
     if request.method == "POST":
@@ -1409,7 +1488,7 @@ def addCountry(request):
                               , {'type': type, 'msg': msg, 'countries': countries})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1448,7 +1527,7 @@ def updateCountry(request, id):
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = country_country(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, code3=code3, code=code, code_numeric=code_numeric)
+                          , write_uid=write_uid, name=name, code3=code3, code=code, code_numeric=code_numeric)
     eth.save()
     msg = "3"
     countries = country_country.objects.all()
@@ -1458,9 +1537,8 @@ def updateCountry(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/demographics/countries.html'
-                       , {'type': type, 'msg': msg, 'countries': countries})
+                  , {'type': type, 'msg': msg, 'countries': countries})
 
 
 def deleteCountry(request, id):
@@ -1475,7 +1553,7 @@ def deleteCountry(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/demographics/countries.html'
-                              , {'type': type, 'msg': msg, 'countries': countries})
+                  , {'type': type, 'msg': msg, 'countries': countries})
 
 
 def subdivisions(request):
@@ -1483,7 +1561,8 @@ def subdivisions(request):
     divisions = country_subdivision.objects.all()
     return render(request, 'health_configuration/demographics/sub_divisions.html'
                   , {'divisions': divisions
-                  , 'type': type})
+                      , 'type': type})
+
 
 def addSubdivision(request):
     if request.method == "POST":
@@ -1501,7 +1580,7 @@ def addSubdivision(request):
                               , {'type': type, 'msg': msg, 'divisions': divisions})
             except:
                 pass
-        else:                
+        else:
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
@@ -1518,14 +1597,15 @@ def addSubdivision(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/demographics/sub_divisions.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/demographics/sub_divisions.html'
+                      , {'type': type, 'form': form})
 
 
 def editSubdivision(request, id):
     type = "edit"
     editForm = country_subdivision.objects.get(id=id)
     return render_to_response('health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type})
-    
+
 
 def updateSubdivision(request, id):
     type = "grid"
@@ -1541,7 +1621,7 @@ def updateSubdivision(request, id):
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = country_subdivision(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name,code=code ,country=country, type=type, parent=parent)
+                              , write_uid=write_uid, name=name, code=code, country=country, type=type, parent=parent)
     eth.save()
     msg = "3"
     divisions = country_subdivision.objects.all()
@@ -1551,9 +1631,8 @@ def updateSubdivision(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-
     return render(request, 'health_configuration/demographics/sub_divisions.html'
-                       , {'type': type, 'msg': msg, 'divisions': divisions})
+                  , {'type': type, 'msg': msg, 'divisions': divisions})
 
 
 def deleteSubdivision(request, id):
@@ -1568,15 +1647,18 @@ def deleteSubdivision(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/demographics/sub_divisions.html'
-                              , {'type': type, 'msg': msg, 'divisions': divisions})
+                  , {'type': type, 'msg': msg, 'divisions': divisions})
 
-def searchCountry(request,search_text):
+
+def searchCountry(request, search_text):
     if request.method == "POST":
         search_text = search_text
     else:
         search_text = ''
 
-    countries = country_country.objects.filter(name__startswith=search_text.capitalize())
+    if str(search_text):
+        countries = country_country.objects.filter(name__startswith=search_text.capitalize())
+    if int(search_text):
+        countries = country_country.objects.filter(id=search_text)
 
     return render_to_response('health_configuration/js/ajax-search.html', {'countries': countries})
-

@@ -1,5 +1,3 @@
-
-
 {% for var in countries %}
-	<option id="{{ var.id }}">{{ var.name }}</option>
+<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
 {% endfor %}

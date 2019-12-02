@@ -1,7 +1,8 @@
 from django import forms
+from django.forms import ModelMultipleChoiceField
 from health_configuration.models import *
 from health_party.models import *
-
+from django_select2.forms import Select2MultipleWidget
 
 class ethnicityForm(forms.ModelForm):
     class Meta:  
@@ -24,10 +25,11 @@ class countryForm(forms.ModelForm):
         fields = "__all__"
         
 class subdivisionForm(forms.ModelForm):
-    class Meta:  
+    class Meta:
         model = country_subdivision
         fields = "__all__"
-        
+        country = ModelMultipleChoiceField(queryset=country_country.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+
 class procedureForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_procedure
@@ -108,30 +110,3 @@ class pediatricGrowthChartForm(forms.ModelForm):
     class Meta:
         model = gnuhealth_pediatrics_growth_charts_who
         fields = "__all__"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-        
-# class phenotypeForm(forms.ModelForm):
-#     class Meta:
-#         model = gnuhealth_gene_varient_phenotype
-#         fields = "__all__"
-        

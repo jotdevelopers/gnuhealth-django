@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addSubdivision/" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-configuration/addSubdivision';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -216,18 +216,27 @@
                         </div>
                     </div>
 
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Search Country</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.country.id }}" id="country-search"
+                                       onkeyup="countrySearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="countrySearch()">Search Country</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-12">
-                        <label>Search Country</label>
-
-                        <!-- <datalist name="search" id="search" class="form-control">
-                            <option id="search-result"></option>
-                        </datalist> -->
-
-                        <input type = "text" list="search-results" name="search" id="search" class="form-control">
-                        <datalist id="search-results">
-
-                        </datalist>
-                        <br/>
+                         <div class="form-group">
+                            <select class="select" name="country" id="search-results"></select >
+                         </div>
                     </div>
 
                     <div class="col-md-6">

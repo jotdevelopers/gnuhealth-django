@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include,path
 
+
 urlpatterns = [
     path('', include('health_dashboard.urls')),
     path('admin/', admin.site.urls),
@@ -96,4 +97,5 @@ urlpatterns = [
     path('health-hospitalizations/', include('health_hospitalizations.urls')),
     path('health-prescriptions/', include('health_prescriptions.urls')),
     path('health-health-professionals/', include('health_health_professionals.urls')),
+    path('select2/', include('django_select2.urls')),
 ]

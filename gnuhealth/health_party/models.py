@@ -112,7 +112,7 @@ class gnuhealth_birth_certificate(models.Model):
 class country_subdivision(models.Model):
     id = models.IntegerField(primary_key=True)    
     code = models.CharField(max_length=100)
-    country = models.IntegerField()
+    country = models.ForeignKey('country_country', db_column="country", on_delete='')
     name = models.CharField(max_length=100)
     parent = models.IntegerField()
     type = models.CharField(max_length=100)
