@@ -16,5 +16,7 @@ urlpatterns = [
     path('editOperationalArea/<id>', views.editOperationalArea, name='editOperationalArea'),
     path('updateOperationalArea/<id>/', views.updateOperationalArea, name='updateOperationalArea'),
     path('deleteOperationalArea/<id>/', views.deleteOperationalArea, name='deleteOperationalArea'),
+    path('searchOperationalArea/<search_text>/', views.searchOperationalArea, name='searchOperationalArea'),
+
     
 ]

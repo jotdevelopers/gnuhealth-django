@@ -7,7 +7,7 @@ class gnuhealth_gene_variant(models.Model):
     create_date = models.DateTimeField()
     create_uid = models.IntegerField()
     name = models.IntegerField()
-    varient = models.CharField(max_length=100)
+    variant = models.CharField(max_length=100)
     write_date = models.DateTimeField()
     write_uid = models.IntegerField()
     
@@ -15,7 +15,7 @@ class gnuhealth_gene_variant_phenotype(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.IntegerField()
     phenotype = models.IntegerField()
-    varient = models.CharField(max_length=100)
+    variant = models.CharField(max_length=100)
     
 class gnuhealth_patient_genetic_risk(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -28,7 +28,7 @@ class gnuhealth_patient_genetic_risk(models.Model):
     notes = models.CharField(max_length=100)
     onset = models.IntegerField()
     patient = models.IntegerField()
-    varient_phenotype = models.IntegerField()
+    variant_phenotype = models.IntegerField()
     #write_date = models.DateField()
     #write_uid = models.IntegerField()
 

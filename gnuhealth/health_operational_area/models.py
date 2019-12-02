@@ -10,7 +10,7 @@ class gnuhealth_operational_sector(models.Model):
     write_uid = models.IntegerField()
     info = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    operational_area = models.IntegerField()
+    operational_area = models.ForeignKey('gnuhealth_operational_area', db_column="operational_area", on_delete='')
     class Meta:
         db_table = 'gnuhealth_operational_sector'            
 

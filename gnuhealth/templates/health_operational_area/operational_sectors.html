@@ -38,46 +38,7 @@
         {% endif %}
     </div>
 
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
+
     
     <div class="col-sm-12">
         <div class="card-box">
@@ -121,13 +82,13 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12 ">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Operational Sector</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12  ">
             <div class="card-box">
 
                 <div class="row">
@@ -152,13 +113,30 @@
                             <input type="text" class="form-control" name="name">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Operational Area</label>
-                            <input type="text" class="form-control" name="operational_area">
-
+                            <label>Search OperationalArea</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.operational_area.id }}" id="operational-area-search"
+                                       onkeyup="operationalAreaSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="operationalAreaSearch()">Search
+                                        Operational Area
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                       <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="operational_area" id="search-results"></select>
+                        </div>
+                    </div>
+                    
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
@@ -228,13 +206,29 @@
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Operational Area</label>
-                            <input type="text" value="{{ form.operational_area }}" name="operational_area" class="form-control">
-
+                            <label>Search Operational Area</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.operational_area.id }}" id="operational-area-search"
+                                       onkeyup="operationalAreaSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="operationalAreaSearch()">Search
+                                        Operational Area
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                       <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="operational_area" id="search-results-operational"></select>
+                        </div>
+                    </div>
+                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

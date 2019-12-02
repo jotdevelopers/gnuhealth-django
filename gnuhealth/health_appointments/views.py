@@ -14,7 +14,13 @@ def index(request):
                   , {'appointments': appointments
                   , 'type': type})
   
-
+def appointments(request):
+    type = "grid"
+    appointments = gnuhealth_appointment.objects.all()
+    return render(request, 'health_appointments/appointments.html'
+                  , {'appointments': appointments
+                  , 'type': type})
+    
 def addAppointment(request):
     if request.method == "POST":
         form = appointmentForm(request.POST)
@@ -22,8 +28,9 @@ def addAppointment(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_appointment.objects.latest('id')
-                form.fields["id"].initial = latest.id + 1
+                #latest = gnuhealth_appointment.objects.latest('id')
+                #form.fields["id"].initial = latest.id + 1
+                form.fields["id"].initial =  1
                 form.save()
                 appointments = gnuhealth_apppointment.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
@@ -36,8 +43,9 @@ def addAppointment(request):
             return HttpResponse("Invalid Form.")
     else:
         form = appointmentForm()
-        latest = gnuhealth_appointment.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        #latest = gnuhealth_appointment.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

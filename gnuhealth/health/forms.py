@@ -1,6 +1,6 @@
 from django import forms  
-from health.models import gnuhealth_pol  
-class PolForm(forms.ModelForm):  
+from health.models import * 
+class polForm(forms.ModelForm):  
     class Meta:  
         model = gnuhealth_pol   
         fields = "__all__" 
