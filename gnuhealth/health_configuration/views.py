@@ -1656,9 +1656,9 @@ def searchCountry(request, search_text):
     else:
         search_text = ''
 
-    if str(search_text):
-        countries = country_country.objects.filter(name__startswith=search_text.capitalize())
-    if int(search_text):
+    countries = country_country.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(countries) == 0:
         countries = country_country.objects.filter(id=search_text)
 
     return render_to_response('health_configuration/js/ajax-search.html', {'countries': countries})
