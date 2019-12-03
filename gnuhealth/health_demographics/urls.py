@@ -24,6 +24,7 @@ urlpatterns = [
     path('deleteFamilyMember/<id>/', views.deleteFamilyMember, name='deleteFamilyMember'),
     path('searchCountry/<search_text>/', views.searchCountry, name='searchCountry'),
     path('searchSubdiv/<search_text>/', views.searchSubdiv, name='searchSubdiv'),
+    path('searchOpsector/<search_text>/', views.searchOpsector, name='searchOpsector'),
 
    
 ]

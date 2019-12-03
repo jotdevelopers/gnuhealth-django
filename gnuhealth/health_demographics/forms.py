@@ -21,6 +21,7 @@ class duForm(forms.ModelForm):
         fields = "__all__"
         address_country = ModelMultipleChoiceField(queryset=country_country.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         address_subdivision = ModelMultipleChoiceField(queryset=country_subdivision.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+        operational_sector = ModelMultipleChoiceField(queryset=gnuhealth_operational_sector.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
 
 
 

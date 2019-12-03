@@ -398,6 +398,21 @@ def searchCountry(request, search_text):
 
     return render_to_response('health_demographics/js/ajax-search.html', {'countries': countries})
 
+def searchOpsector(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    opsectors = gnuhealth_operational_sector.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(countries) == 0:
+        opsectors = gnuhealth_operational_sector.objects.filter(id=search_text)
+
+    return render_to_response('health_demographics/js/ajax-search.html', {'opsectors': opsectors})
+
+
+
 def searchSubdiv(request, search_text):
     if request.method == "POST":
         search_text = search_text
@@ -406,7 +421,7 @@ def searchSubdiv(request, search_text):
 
     subdivs = country_subdivision.objects.filter(name__startswith=search_text.capitalize())
 
-    if len(countries) == 0:
+    if len(subdivs) == 0:
         subdivs = country_subdivision.objects.filter(id=search_text)
 
     return render_to_response('health_demographics/js/ajax-search.html', {'subdivs': subdivs})

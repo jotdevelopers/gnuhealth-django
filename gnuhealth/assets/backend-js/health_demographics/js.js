@@ -1,22 +1,4 @@
 //alert(csrftoken);
-$("#search-results-ethnicity").ready(function () {
-	ethnicitySearch();
-});
-
-function ethnicitySearch() {
-    $.ajax({
-        beforeSend: function (xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        },
-        type: "POST",
-        url: "/health-party/searchEthnicity/" + $('#ethnicity-search').val() + "/",
-        data: 'csrfmiddlewaretoken=' + csrftoken,
-        success: searchSuccess,
-        datatype: 'html'
-    });
-}
 
 //alert(csrftoken);
 $("#search-results-country").ready(function () {
@@ -67,15 +49,11 @@ function searchSuccessSubdiv(data, textStatus, jqXHR) {
 }
 
 
-function searchSuccess(data, textStatus, jqXHR) {
-    $('#search-results-ethnicity').html(data);
-}
-
-$("#search-results-citizenship").ready(function () {
-	citizenshipSearch();
+$("#search-results-opsector").ready(function () {
+    opsectorSearchDu();
 });
 
-function citizenshipSearch() {
+function opsectorSearchDu() {
     $.ajax({
         beforeSend: function (xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -83,13 +61,13 @@ function citizenshipSearch() {
             }
         },
         type: "POST",
-        url: "/health-party/searchCitizenship/" + $('#citizenship-search').val() + "/",
+        url: "/health-demographics/searchOpsector/" + $('#opsector-search-du').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
-        success: searchSuccessCitizenship,
+        success: searchSuccessOpsector,
         datatype: 'html'
     });
 }
 
-function searchSuccessCitizenship(data, textStatus, jqXHR) {
-    $('#search-results-citizenship').html(data);
+function searchSuccessOpsector(data, textStatus, jqXHR) {
+    $('#search-results-opsector').html(data);
 }

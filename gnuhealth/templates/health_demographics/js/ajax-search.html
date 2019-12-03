@@ -2,6 +2,10 @@
 <option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
 {% endfor %}
 
-{% for var in subdivs %}
-<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
+{% for div in subdivs %}
+<option value="{{ div.id }}"><a href="#">{{ div.name }} </a></option>
+{% endfor %}
+
+{% for op in opsectors %}
+<option value="{{ op.id }}"><a href="#">{{ op.name }} </a></option>
 {% endfor %}
