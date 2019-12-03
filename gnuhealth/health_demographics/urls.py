@@ -22,6 +22,7 @@ urlpatterns = [
     path('editFamilyMember/<id>/', views.editFamilyMember, name='editFamilyMember'),
     path('updateFamilyMember/<id>/', views.updateFamilyMember, name='updateFamilyMember'),
     path('deleteFamilyMember/<id>/', views.deleteFamilyMember, name='deleteFamilyMember'),
+    path('searchCountry/<search_text>/', views.searchCountry, name='searchCountry'),
 
    
 ]

@@ -144,14 +144,30 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Country</label>
-                                        <input type = "number"  name="address_country" class="form-control"> 
-                                           
-                                    </div>
+                           <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Search Country</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
+                                <input class="form-control" value="{{ form.country.id }}" id="country-search-du"
+                                       onkeyup="countrySearchDu()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="countrySearchDu()">Search
+                                        Country
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="address_country" id="search-results-country"></select>
+                        </div>
+                    </div>
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Sub Division</label>

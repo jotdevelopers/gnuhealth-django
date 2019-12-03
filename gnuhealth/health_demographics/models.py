@@ -1,10 +1,11 @@
 from django.db import models
+from health_party.models import *
 
 # Create your models here.
 class gnuhealth_du(models.Model):
     id = models.IntegerField(primary_key=True)
     address_city = models.CharField(max_length=100)
-    address_country = models.IntegerField()
+    address_country = models.ForeignKey('country_country', db_column="address_country", on_delete='')
     address_district = models.CharField(max_length=100)
     address_municipality = models.CharField(max_length=100)
     address_street = models.CharField(max_length=100)
@@ -94,3 +95,16 @@ class gnuhealth_family_member(models.Model):
     class Meta:
         db_table = 'gnuhealth_family_member'
         
+        
+class country_country(models.Model):
+    id = models.IntegerField(primary_key=True)    
+    code = models.CharField(max_length=100)
+    code3 = models.CharField(max_length=100)
+    code_numeric = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    class Meta:
+        db_table = 'country_country'
