@@ -397,3 +397,16 @@ def searchCountry(request, search_text):
         countries = country_country.objects.filter(id=search_text)
 
     return render_to_response('health_demographics/js/ajax-search.html', {'countries': countries})
+
+def searchSubdiv(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    subdivs = country_subdivision.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(countries) == 0:
+        subdivs = country_subdivision.objects.filter(id=search_text)
+
+    return render_to_response('health_demographics/js/ajax-search.html', {'subdivs': subdivs})

@@ -43,6 +43,30 @@ function searchSuccessCountry(data, textStatus, jqXHR) {
 }
 
 
+$("#search-results-subdiv").ready(function () {
+    subdivSearchDu();
+});
+
+function subdivSearchDu() {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-demographics/searchSubdiv/" + $('#subdiv-search-du').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccessSubdiv,
+        datatype: 'html'
+    });
+}
+
+function searchSuccessSubdiv(data, textStatus, jqXHR) {
+    $('#search-results-subdiv').html(data);
+}
+
+
 function searchSuccess(data, textStatus, jqXHR) {
     $('#search-results-ethnicity').html(data);
 }

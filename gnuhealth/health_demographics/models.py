@@ -11,7 +11,7 @@ class gnuhealth_du(models.Model):
     address_street = models.CharField(max_length=100)
     address_street_bis = models.CharField(max_length=100)
     address_street_number = models.IntegerField()
-    address_subdivision = models.IntegerField()
+    address_subdivision =  models.ForeignKey('country_subdivision', db_column="address_subdivision", on_delete='')
     address_zip = models.CharField(max_length=100)
     altitude = models.IntegerField()
     bathrooms = models.IntegerField()
@@ -108,3 +108,18 @@ class country_country(models.Model):
     write_uid = models.IntegerField()
     class Meta:
         db_table = 'country_country'
+
+
+class country_subdivision(models.Model):
+    id = models.IntegerField(primary_key=True)    
+    code = models.CharField(max_length=100)
+    country = models.ForeignKey('country_country', db_column="country", on_delete='')
+    name = models.CharField(max_length=100)
+    parent = models.IntegerField()
+    type = models.CharField(max_length=100)
+    create_date = models.DateTimeField()
+    write_date = models.DateTimeField()
+    create_uid = models.IntegerField()
+    write_uid = models.IntegerField()
+    class Meta:
+        db_table = 'country_subdivision'

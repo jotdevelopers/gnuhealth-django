@@ -1,0 +1,7 @@
+{% for var in countries %}
+<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
+{% endfor %}
+
+{% for var in subdivs %}
+<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
+{% endfor %}
