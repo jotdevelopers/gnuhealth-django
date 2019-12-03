@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 from health_configuration.models import *
 from health_party.models import *
-from health_configuration.forms import *
+from health_demographics.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt

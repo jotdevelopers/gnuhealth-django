@@ -1,18 +1,21 @@
 from django.db import models
-from health_party.models import *
+from health_configuration.models import *
+from health_party.models import country_country, country_subdivision
+from health_demographics.models import *
+from health_operational_area.models import gnuhealth_operational_sector
 from health_demographics.models import *
 
 # Create your models here.
 class gnuhealth_du(models.Model):
     id = models.IntegerField(primary_key=True)
     address_city = models.CharField(max_length=100)
-    #address_country = models.ForeignKey('country_country', db_column="address_country", on_delete='')
+    address_country = models.IntegerField()
     address_district = models.CharField(max_length=100)
     address_municipality = models.CharField(max_length=100)
     address_street = models.CharField(max_length=100)
     address_street_bis = models.CharField(max_length=100)
     address_street_number = models.IntegerField()
-    #address_subdivision =  models.ForeignKey('country_subdivision', db_column="address_subdivision", on_delete='')
+    address_subdivision =  models.IntegerField()
     address_zip = models.CharField(max_length=100)
     altitude = models.IntegerField()
     bathrooms = models.IntegerField()
@@ -29,7 +32,7 @@ class gnuhealth_du(models.Model):
     longitude = models.IntegerField()
     materials = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    #operational_sector = models.ForeignKey('gnuhealth_operational_sector', db_column="operational_sector", on_delete='')
+    operational_sector = models.IntegerField()
     picture = models.CharField(max_length=100)
     roof_type = models.CharField(max_length=100)
     sewers = models.BooleanField()
