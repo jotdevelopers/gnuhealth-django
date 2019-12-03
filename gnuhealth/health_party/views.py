@@ -65,3 +65,15 @@ def searchOccupation(request, search_text):
         occupation = gnuhealth_occupation.objects.filter(id=search_text)
 
     return render_to_response('health_party/js/ajax-search.html', {'occupation': occupation})
+
+
+def searchDU(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+    du = gnuhealth_du.objects.filter(name__startswith=search_text.capitalize())
+    if len(du) == 0:
+        du = gnuhealth_du.objects.filter(id=search_text)
+
+    return render_to_response('health_party/js/ajax-search.html', {'du': du})

@@ -185,12 +185,28 @@
                                                 <input type="text" class="form-control" name="age">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">DU</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="du">
-                                            </div>
-                                        </div>
+                                         <div class="col-sm-12">
+                        <div class="form-group">
+                           <label class="col-md-3 col-form-label">DU</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control"  id="du-search"
+                                       onkeyup="duSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="duSearch()">Search
+                                        DU
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="du" id="search-results-du"></select>
+                        </div>
+                    </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Father</label>
                                             <div class="col-md-9">

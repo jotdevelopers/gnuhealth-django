@@ -67,3 +67,28 @@ function occupationSearch() {
 function searchSuccessOccupation(data, textStatus, jqXHR) {
     $('#search-results-occupation').html(data);
 }
+
+
+
+$("#search-results-du").ready(function () {
+	duSearch();
+});
+
+function duSearch() {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-party/searchDU/" + $('#du-search').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccessDU,
+        datatype: 'html'
+    });
+}
+
+function searchSuccessDU(data, textStatus, jqXHR) {
+    $('#search-results-du').html(data);
+}

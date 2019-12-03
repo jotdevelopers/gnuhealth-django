@@ -14,5 +14,6 @@ urlpatterns = [
     path('searchCitizenship/<search_text>/', views.searchCitizenship, name='searchCitizenship'),
     path('searchEthnicity/<search_text>/', views.searchEthnicity, name='searchEthnicity'),
     path('searchOccupation/<search_text>/', views.searchOccupation, name='searchOccupation'),
+    path('searchDU/<search_text>/', views.searchDU, name='searchDU'),
 
 ]
