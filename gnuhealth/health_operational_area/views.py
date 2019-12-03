@@ -5,6 +5,10 @@ from django.http import HttpResponse
 from health_operational_area.models import *
 from health_operational_area.forms import *
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render_to_response
+
+
 # Create your views here.
 
 def index(request):
@@ -189,14 +193,16 @@ def deleteOperationalArea(request, id):
     return render(request, 'health_operational_area/operational_areas.html'
                               , {'type': type, 'msg': msg, 'opareas': opareas})
 
-
 def searchOperationalArea(request, search_text):
     if request.method == "POST":
         search_text = search_text
     else:
         search_text = ''
+
     operationalareas = gnuhealth_operational_area.objects.filter(name__startswith=search_text.capitalize())
+
     if len(operationalareas) == 0:
         operationalareas = gnuhealth_operational_area.objects.filter(id=search_text)
 
     return render_to_response('health_operational_area/js/ajax-search.html', {'operationalareas': operationalareas})
+

@@ -4,13 +4,13 @@ from django.http import HttpResponse
 from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
-
 from health_configuration.models import *
 from health_party.models import *
 from health_configuration.forms import *
-
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 # Create your views here.
@@ -1607,6 +1607,7 @@ def editSubdivision(request, id):
     return render_to_response('health_configuration/demographics/sub_divisions.html', {'form': editForm, 'type': type})
 
 
+@csrf_exempt
 def updateSubdivision(request, id):
     type = "grid"
     eth = country_subdivision.objects.get(id=id)
@@ -1631,7 +1632,7 @@ def updateSubdivision(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-    return render(request, 'health_configuration/demographics/sub_divisions.html'
+    return render_to_response(request, 'health_configuration/demographics/sub_divisions.html'
                   , {'type': type, 'msg': msg, 'divisions': divisions})
 
 

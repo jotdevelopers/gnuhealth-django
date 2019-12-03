@@ -13,11 +13,11 @@ function operationalAreaSearch() {
         type: "POST",
         url: "/health-operational-area/searchOperationalArea/" + $('#operational-area-search').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
-        success: searchSuccess,
+        success: searchSuccessOperational,
         datatype: 'html'
     });
 }
 
-function searchSuccess(data, textStatus, jqXHR) {
+function searchSuccessOperational(data, textStatus, jqXHR) {
     $('#search-results-operational').html(data);
 }

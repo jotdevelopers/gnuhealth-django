@@ -21,3 +21,4 @@ function countrySearch() {
 function searchSuccess(data, textStatus, jqXHR) {
     $('#search-results').html(data);
 }
+

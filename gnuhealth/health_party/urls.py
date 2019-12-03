@@ -9,6 +9,7 @@ urlpatterns = [
     path('addParty', views.addParty, name='addParty'),
     path('editParty/<id>', views.editParty, name='editParty'),
     path('updateParty/<id>/', views.updateParty, name='updateParty'),
+    path('searchEthnicity/<search_text>/', views.searchEthnicity, name='searchEthnicity'),
     path('deleteParty/<id>/', views.deleteParty, name='deleteParty'),
 
 ]

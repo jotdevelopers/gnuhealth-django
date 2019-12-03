@@ -1,4 +1,6 @@
 from django.db import models
+from health_configuration.models import *
+
 
 # Create your models here.
 class party_party(models.Model):
@@ -22,7 +24,7 @@ class party_party(models.Model):
     is_insurance_company = models.BooleanField()
     ref = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
-    ethnic_group = models.IntegerField()
+    #ethnic_group = models.ForeignKey('gnuhealth_ethnicity', db_column="ethnic_group", on_delete='')
     du = models.IntegerField()
     unidentified = models.BooleanField()
     dob = models.DateTimeField()
@@ -30,10 +32,10 @@ class party_party(models.Model):
     marital_status = models.CharField(max_length=100)
     gender = models.CharField(max_length=100)
     is_pharmacy = models.BooleanField()
-    residence = models.IntegerField()
+    #residence = models.ForeignKey('country_country', db_column="residence", on_delete='')
     is_person = models.BooleanField()
     education = models.CharField(max_length=100)
-    occupation = models.IntegerField()
+    #occupation = models.ForeignKey('gnuhealth_occupation', db_column="occupation", on_delete='')
     warehouse = models.IntegerField()
     death_certificate = models.IntegerField()
     birth_certificate = models.IntegerField()

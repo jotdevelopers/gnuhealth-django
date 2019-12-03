@@ -24,6 +24,13 @@ def pols(request):
     return render(request, 'health/pols.html'
                   , {'pols': pols
                       , 'type': type})
+    
+def patients(request):
+    type = "grid"
+    pols = gnuhealth_pol.objects.all()
+    return render(request, 'health/patients.html'
+                  , {'pols': pols
+                      , 'type': type})
 
 def addPol(request):
     if request.method == "POST":
