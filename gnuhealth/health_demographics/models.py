@@ -1,17 +1,18 @@
 from django.db import models
 from health_party.models import *
+from health_demographics.models import *
 
 # Create your models here.
 class gnuhealth_du(models.Model):
     id = models.IntegerField(primary_key=True)
     address_city = models.CharField(max_length=100)
-    address_country = models.ForeignKey('country_country', db_column="address_country", on_delete='')
+    #address_country = models.ForeignKey('country_country', db_column="address_country", on_delete='')
     address_district = models.CharField(max_length=100)
     address_municipality = models.CharField(max_length=100)
     address_street = models.CharField(max_length=100)
     address_street_bis = models.CharField(max_length=100)
     address_street_number = models.IntegerField()
-    address_subdivision =  models.ForeignKey('country_subdivision', db_column="address_subdivision", on_delete='')
+    #address_subdivision =  models.ForeignKey('country_subdivision', db_column="address_subdivision", on_delete='')
     address_zip = models.CharField(max_length=100)
     altitude = models.IntegerField()
     bathrooms = models.IntegerField()
@@ -28,7 +29,7 @@ class gnuhealth_du(models.Model):
     longitude = models.IntegerField()
     materials = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    operational_sector = models.ForeignKey('gnuhealth_operational_sector', db_column="operational_sector", on_delete='')
+    #operational_sector = models.ForeignKey('gnuhealth_operational_sector', db_column="operational_sector", on_delete='')
     picture = models.CharField(max_length=100)
     roof_type = models.CharField(max_length=100)
     sewers = models.BooleanField()
@@ -42,19 +43,7 @@ class gnuhealth_du(models.Model):
     write_uid = models.IntegerField()
     class Meta:
         db_table = 'gnuhealth_du'
-        
-class gnuhealth_operational_sector(models.Model):
-    id = models.IntegerField(primary_key=True)
-    create_date = models.DateTimeField()
-    write_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    write_uid = models.IntegerField()
-    info = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    operational_area = models.IntegerField()
-    #operational_area = models.ForeignKey('gnuhealth_operational_area', db_column="operational_area", on_delete='')
-    class Meta:
-        db_table = 'gnuhealth_operational_sector'      
+             
         
 class gnuhealth_death_certificate(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -109,30 +98,3 @@ class gnuhealth_family_member(models.Model):
         db_table = 'gnuhealth_family_member'
         
         
-class country_country(models.Model):
-    id = models.IntegerField(primary_key=True)    
-    code = models.CharField(max_length=100)
-    code3 = models.CharField(max_length=100)
-    code_numeric = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    create_date = models.DateTimeField()
-    write_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    write_uid = models.IntegerField()
-    class Meta:
-        db_table = 'country_country'
-
-
-class country_subdivision(models.Model):
-    id = models.IntegerField(primary_key=True)    
-    code = models.CharField(max_length=100)
-    country = models.ForeignKey('country_country', db_column="country", on_delete='')
-    name = models.CharField(max_length=100)
-    parent = models.IntegerField()
-    type = models.CharField(max_length=100)
-    create_date = models.DateTimeField()
-    write_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    write_uid = models.IntegerField()
-    class Meta:
-        db_table = 'country_subdivision'

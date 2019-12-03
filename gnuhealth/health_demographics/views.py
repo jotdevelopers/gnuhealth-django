@@ -1,23 +1,18 @@
-from django.shortcuts import render
 from datetime import datetime
-from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from health_demographics.models import *
 from health_demographics.forms import *
 from django.contrib import messages
-from datetime import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
-from health.models import gnuhealth_pathology
 from health_configuration.models import *
-from health_party.models import *
 from health_configuration.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
-
+from health_party.models import *
+from health_operational_area.models import *
 
 
 # Create your views here.
@@ -406,7 +401,7 @@ def searchOpsector(request, search_text):
 
     opsectors = gnuhealth_operational_sector.objects.filter(name__startswith=search_text.capitalize())
 
-    if len(countries) == 0:
+    if len(opsectors) == 0:
         opsectors = gnuhealth_operational_sector.objects.filter(id=search_text)
 
     return render_to_response('health_demographics/js/ajax-search.html', {'opsectors': opsectors})

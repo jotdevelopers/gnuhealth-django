@@ -17,7 +17,6 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     return HttpResponse("Hello, world.")
 
-
 # Create Conditions Views
 def condition(request):
     conditions = gnuhealth_pathology.objects.all()
