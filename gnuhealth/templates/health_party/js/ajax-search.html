@@ -2,6 +2,10 @@
 <option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
 {% endfor %}
 
-{% for var in citizenship %}
-<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
+{% for citi in citizenship %}
+<option value="{{ citi.id }}"><a href="#">{{ citi.name }} </a></option>
+{% endfor %}
+
+{% for occ in occupation %}
+<option value="{{ occ.id }}"><a href="#">{{ occ.name }} </a></option>
 {% endfor %}

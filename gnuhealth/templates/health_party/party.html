@@ -111,24 +111,58 @@
                                                 </select>
                                             </div>
                                         </div>
-                                         <div class="form-group row">
+                                        
+                                      <!--  -->   <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Residence</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" name="residence">
                                             </div>
                                         </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Occupation</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="occupation">
-                                            </div>
-                                        </div>
+                                          <div class="col-sm-12">
+                        <div class="form-group">
+                           <label class="col-md-3 col-form-label">Occupation</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control"  id="occupation-search"
+                                       onkeyup="occupationSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="occupationSearch()">Search
+                                        Occupation
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="occupation" id="search-results-occupation"></select>
+                        </div>
+                    </div>
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Main Address</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" name="">
                                             </div>
                                         </div>
+                                         <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Education</label>
+                                            <div class="col-md-9">
+												 <select class="select" name="education">
+                                                    <option>Select</option>
+                                                    <option value="1">None</option>
+                                                    <option value="2">Incomplete Primary School</option>
+                                                    <option value="3">Primary School</option>
+                                                    <option value="4">Incomplete Secondary School</option>
+                                                    <option value="5">Secondary School</option>
+                                                    <option value="5">University</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                          
                                         <div class="row">
                                          <div class="col-md-6">
                                            <div class="form-check form-check-inline">
@@ -165,12 +199,12 @@
                                         </div>
                                          <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Search Citizenship</label>
+                            <label>Citizenship</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input class="form-control" value="{{ form.citizenship.id }}" id="citizenship-search"
+                                <input class="form-control" id="citizenship-search"
                                        onkeyup="citizenshipSearch()" type="text">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button" onclick="citizenshipSearch()">Search
@@ -219,23 +253,7 @@
                                                 <input type="text" class="form-control" name="ethinicty">
                                             </div>
                                         </div> -->
-                                          <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Education</label>
-                                            <div class="col-md-9">
-												 <select class="select" name="education">
-                                                    <option>Select</option>
-                                                    <option value="1">None</option>
-                                                    <option value="2">Incomplete Primary School</option>
-                                                    <option value="3">Primary School</option>
-                                                    <option value="4">Incomplete Secondary School</option>
-                                                    <option value="5">Secondary School</option>
-                                                    <option value="5">University</option>
-
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                          
+                                         
                                     </div>
 
 

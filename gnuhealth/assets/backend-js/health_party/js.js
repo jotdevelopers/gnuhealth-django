@@ -44,3 +44,26 @@ function citizenshipSearch() {
 function searchSuccessCitizenship(data, textStatus, jqXHR) {
     $('#search-results-citizenship').html(data);
 }
+
+$("#search-results-occupation").ready(function () {
+	occupationSearch();
+});
+
+function occupationSearch() {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-party/searchOccupation/" + $('#occupation-search').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccessOccupation,
+        datatype: 'html'
+    });
+}
+
+function searchSuccessOccupation(data, textStatus, jqXHR) {
+    $('#search-results-occupation').html(data);
+}
