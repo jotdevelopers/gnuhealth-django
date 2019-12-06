@@ -1,7 +1,9 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-party/addParty">
+    {% csrf_token %}
 <div class="row">
     <div class="col-md-8 offset">
         <h4 class="page-title">Add Person</h4>
@@ -76,6 +78,8 @@
 
                         <div class="row">
                             <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Demographics</span></div>
+                         
+                       
                             <div class="col-md-6">
 
                                         <div class="form-group row">
@@ -98,7 +102,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Mother</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="">
+                                                <input type="text" class="form-control">
                                             </div>
                                         </div>
                                          <div class="form-group row">
@@ -112,12 +116,29 @@
                                             </div>
                                         </div>
                                         
-                                      <!--  -->   <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Residence</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="residence">
-                                            </div>
-                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                      <!--  -->  
+                           <label class="col-md-3 col-form-label">Residence</label>
+                           <div class="input-group">
+                               <div class="input-group-prepend">
+                                   <span class="input-group-text"><i class="fas fa-search"></i></span>
+                               </div>
+                               <input class="form-control"  id="residence-search"
+                                      onkeyup="residenceSearch()" type="text">
+                               <div class="input-group-append">
+                                   <button class="btn btn-primary" type="button" onclick="residenceSearch()">Search
+                                       Residence
+                                   </button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                      <div class="col-md-12">
+                       <div class="form-group">
+                           <select class="select" name="residence" id="search-results-residence"></select>
+                       </div>
+                   </div>
                                           <div class="col-sm-12">
                         <div class="form-group">
                            <label class="col-md-3 col-form-label">Occupation</label>
@@ -201,7 +222,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                        <div class="col-md-12">
                         <div class="form-group">
                             <select class="select" name="du" id="search-results-du"></select>
@@ -210,7 +231,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Father</label>
                                             <div class="col-md-9">
-                                                <input type="password" class="form-control" name="">
+                                                <input type="text" class="form-control" >
                                             </div>
                                         </div>
                                          <div class="col-sm-12">
@@ -272,8 +293,6 @@
                                          
                                     </div>
 
-
-
                         </div>
                         
 
@@ -329,7 +348,7 @@
                                            <div class="form-group row">
                                                <label class="col-md-3 col-form-label">Number </label>
                                                <div class="col-md-9">
-                                                   <input type="text" class="form-control" name="number">
+                                                   <input type="text" class="form-control" >
                                                </div>
                                            </div>
                                            
@@ -353,7 +372,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Insurance Company</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="insurance_company">
+                                                <input type="text" class="form-control" >
                                             </div>
                                         </div>
                                         
@@ -363,7 +382,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Plan </label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="insurance_plan">
+                                                <input type="text" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -376,7 +395,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Category</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="insurance_category">
+                                                <input type="text" class="form-control" >
                                             </div>
                                         </div>                         
                                     </div>
@@ -384,7 +403,7 @@
                                            <div class="form-group row">
                                                <label class="col-md-3 col-form-label">Member Since </label>
                                                <div class="col-md-9">
-                                                   <input type="text" class="form-control" name="member_since">
+                                                   <input type="text" class="form-control" >
                                                </div>
                                            </div>
                                            
@@ -411,7 +430,7 @@
                             		<div class="row">
                                          <div class="col-md-6">
                                            <div class="form-check form-check-inline">
-                                             <input class="form-check-input" type="checkbox" name="unidentified" id="unidentified" >
+                                             <input class="form-check-input" type="checkbox" name="unidentified"  >
                                              <label class="form-check-label" for="unidentified">
                                   			Unidentified 
                                              </label>
@@ -423,7 +442,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Prefix</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="prefix">
+                                                <input type="text" class="form-control" >
                                             </div>
                                         </div>                         
                                     </div>
@@ -464,6 +483,31 @@
                                     
                                     
                                 </div>
+                                
+                                 <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly name="create_date" value="{{ form.create_date }}"  class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                        </div>
+                    </div>
                             </div>
                             </div>
                         </div>
@@ -545,31 +589,31 @@
                              <div class="form-group row">
                                 <div class="col-md-12">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="active" id="active" checked>
-                                        <label class="form-check-label" for="active">
+                                        <input class="form-check-input" type="checkbox"  checked>
+                                        <label class="form-check-label" >
                                         Active
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
-                                        <label class="form-check-label" for="gender_female">
+                                        <input class="form-check-input" type="checkbox"  >
+                                        <label class="form-check-label" >
                                         Invoice
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
-                                        <label class="form-check-label" for="gender_female">
+                                        <input class="form-check-input" type="checkbox"  >
+                                        <label class="form-check-label">
 										Work													</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
-                                        <label class="form-check-label" for="gender_female">
+                                        <input class="form-check-input" type="checkbox"  >
+                                        <label class="form-check-label" >
                                         School
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="gender" id="gender_female" >
-                                        <label class="form-check-label" for="gender_female">
+                                        <input class="form-check-input" type="checkbox"  >
+                                        <label class="form-check-label" >
                                         Delivery
                                         </label>
                                     </div>
@@ -620,7 +664,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Type</label>
                             <div class="col-md-9">
-                                    <input class="form-control" name="type" id="type" >
+                                    <input class="form-control"   >
                             </div>
                         </div>     
                     </div>
@@ -628,7 +672,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Value</label>
                             <div class="col-md-9">
-                                    <input class="form-control" name="value" id="value" >
+                                    <input class="form-control"  >
                             </div>
                         </div>     
                     </div>
@@ -638,7 +682,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Website</label>
                             <div class="col-md-9">
-                                    <input class="form-control" name="website" id="website" >
+                                    <input class="form-control"  >
                             </div>
                         </div>     
                     </div>
@@ -646,7 +690,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Email</label>
                             <div class="col-md-9">
-                                    <input class="form-control" name="email" id="email" >
+                                    <input class="form-control" >
                             </div>
                         </div>     
                     </div>
@@ -658,7 +702,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Skype</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="internal_user">
+                                <input type="text" class="form-control" >
                             </div>
                         </div>
                     </div>
@@ -667,7 +711,7 @@
                             <div class="form-group row">
                                 <label class="col-md-3 col-form-label">SIP </label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="activation_date">
+                                    <input type="text" class="form-control" >
                                 </div>
                             </div>  
                         </div>
@@ -678,7 +722,7 @@
                            <div class="form-group row">
                                <label class="col-md-3 col-form-label"> Comments</label>
                                <div class="col-md-9">
-                                   <input type="text" class="form-control" name="internal_user">
+                                   <input type="text" class="form-control" >
                                </div>
                            </div>
                            
@@ -725,7 +769,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-md-3 col-form-label">Name</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" class="form-control" name="insurance_company">
+                                                        <input type="text" class="form-control" >
                                                     </div>
                                                 </div>
                                                 
@@ -735,7 +779,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Parent </label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="activation_date">
+                                                <input type="text" class="form-control" >
                                             </div>
                                         </div>
                                         
@@ -805,7 +849,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3 col-form-label">Use </label>
                                                 <div class="col-md-9">
-                                                        <select class="select" name="insurance_company_type">
+                                                        <select class="select" >
                                                                 <option>Select</option>
                                                                 <option value="1">None</option>
                                                             </select>            
@@ -818,7 +862,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3 col-form-label">Family </label>
                                                 <div class="col-md-9">
-                                                        <input type="text" class="form-control" name="family">
+                                                        <input type="text" class="form-control" >
                                                 </div>
                                             </div> 
                                         </div>
@@ -843,7 +887,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3 col-form-label">Suffix</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="internal_user">
+                                                    <input type="text" class="form-control">
                                                 </div>
                                             </div>
                                             
@@ -855,7 +899,7 @@
                                             <div class="form-group row">
                                                 <label class="col-md-3 col-form-label">Given</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="insurance_company">
+                                                    <input type="text" class="form-control" >
                                                 </div>
                                             </div>
                                             
@@ -865,7 +909,7 @@
                                                <div class="form-group row">
                                                    <label class="col-md-3 col-form-label"> From </label>
                                                    <div class="col-md-9">
-                                                       <input type="text" class="form-control" name="activation_date">
+                                                       <input type="text" class="form-control" >
                                                    </div>
                                                </div>
                                                
@@ -912,7 +956,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label">Sequence</label>
                                                                 <div class="col-md-9">
-                                                                    <input type="text" class="form-control" name="sequence">
+                                                                    <input type="text" class="form-control" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -920,7 +964,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label"> Type</label>
                                                                 <div class="col-md-9">
-                                                                        <input type="text" class="form-control" name="type">
+                                                                        <input type="text" class="form-control" >
                                                                 </div>
                                                             </div>
                                                             
@@ -932,7 +976,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-md-3 col-form-label">Code</label>
                                                                 <div class="col-md-9">
-                                                                    <input type="text" class="form-control" name="code">
+                                                                    <input type="text" class="form-control" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1041,6 +1085,11 @@
         </div>
     </div>
 </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+            </form>
+            {% endif %}
+            
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script>

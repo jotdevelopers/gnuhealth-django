@@ -16,6 +16,7 @@ class partyForm(forms.ModelForm):
         ethnicity = ModelMultipleChoiceField(queryset=gnuhealth_ethnicity.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         occupation = ModelMultipleChoiceField(queryset=gnuhealth_occupation.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         du = ModelMultipleChoiceField(queryset=gnuhealth_du.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+        residence = ModelMultipleChoiceField(queryset=country_country.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
 
 
 

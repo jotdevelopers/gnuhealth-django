@@ -22,6 +22,29 @@ function searchSuccess(data, textStatus, jqXHR) {
     $('#search-results-ethnicity').html(data);
 }
 
+$("#search-results-residence").ready(function () {
+	residenceSearch();
+});
+
+function residenceSearch() {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-party/searchResidence/" + $('#residence-search').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccessResidence,
+        datatype: 'html'
+    });
+}
+
+function searchSuccessResidence(data, textStatus, jqXHR) {
+    $('#search-results-residence').html(data);
+}
+
 $("#search-results-citizenship").ready(function () {
 	citizenshipSearch();
 });

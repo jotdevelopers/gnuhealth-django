@@ -8,7 +8,7 @@ from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 from health_configuration.models import *
 from health_party.models import *
-from health_demographics.forms import *
+from health_party.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
@@ -18,11 +18,47 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     return HttpResponse("Hello, world.")
 
-def party(request):
-    return render(request, 'health_party/party.html')
-
 def addParty(request):
-    return render(request, 'health_party/party.html')
+    if request.method == "POST":
+        form = partyForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                #latest = party_party.objects.latest('id')
+                #form.fields["id"].initial = latest.id + 1
+                form.fields["id"].initial =  1
+                form.save()
+                parties = party_party.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_party/party.html'
+                              , {'type': type, 'msg': msg, 'parties': parties})
+            except:
+                pass
+        else:
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = partyForm()
+        #latest = party_party.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_party/party.html', {'type': type, 'form': form})
+      
+    
+def party(request):
+        return render(request, 'health_party/party.html')
+
 
 def editParty(request):
     return render(request, 'health_party/party.html')
@@ -77,3 +113,14 @@ def searchDU(request, search_text):
         du = gnuhealth_du.objects.filter(id=search_text)
 
     return render_to_response('health_party/js/ajax-search.html', {'du': du})
+
+def searchResidence(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+    residence = country_country.objects.filter(name__startswith=search_text.capitalize())
+    if len(residence) == 0:
+        residence = country_country.objects.filter(id=search_text)
+
+    return render_to_response('health_party/js/ajax-search.html', {'residence': residence})
