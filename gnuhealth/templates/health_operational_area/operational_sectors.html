@@ -60,7 +60,7 @@
                         {% for opsector in opsectors %}
                         <tr>
                             <td>{{opsector.name}}</td>
-                            <td>{{opsector.operational_area.id}}</td>
+                            <td>{{opsector.operational_area}}</td>
                             <td>{{opsector.info}}</td>
                             <td class="text-right"><a href="/health-operational-area/editOperationalSector/{{opsector.id}}"><i class="far fa-edit"> </i></a><a href="/health-operational-area/deleteOperationalSector/{{opsector.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
@@ -211,7 +211,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input class="form-control" value="{{ form.operational_area.id }}" id="operational-area-search"
+                                <input class="form-control" value="{{ form.operational_area }}" id="operational-area-search"
                                        onkeyup="operationalAreaSearch()" type="text">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button" onclick="operationalAreaSearch()">Search
