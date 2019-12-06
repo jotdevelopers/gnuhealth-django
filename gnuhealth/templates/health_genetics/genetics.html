@@ -1,0 +1,297 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% if type == "grid" %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Genetics</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
+
+            </select>
+            <button onclick="window.location.href = '/health-genetics/addGenetic';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                             <tr>
+                                 <th>Patient</th>
+                                 <th>Gene</th>
+                                 <th>Varient</th>
+                                 <th>Phenotype</th>
+                                 <th>Onset</th>
+                                 <th>Notes</th>
+                                 <th>Health Professional</th>
+                                 
+                                 
+                                 <th class="text-right">Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                          {% for gen in ethnicities %}  
+                             <tr>
+                                 
+                                 <td>{{gen.patient}}</td>
+                                 <td>{{gen.disease_gene}}</td>
+                                 <td>{{gen.natural_varient}}</td>
+                                 <td>{{gen.varient_phenotype}}</td>
+                                 <td>{{gen.onset}}</td>
+                                 <td>{{gen.notes}}</td>
+                                 <td>{{gen.healthprof}}</td>
+                                 
+                       <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
+
+                             </tr>
+                                {% endfor %} 
+                             
+                         </tbody>
+                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-configuration/addGenetic">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Person Genetic Info</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            <input type="number" class="form-control" name="id" placeholder="{{ form.id }}
+                        </div>
+                    </div>
+
+                   
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Patient</label>
+                                    <input type="text" class="form-control" name="patient">
+                                </div>
+                            </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Gene</label>
+                            <input type="text" class="form-control" name="gene">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Varient</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.natural_varient.id }}" id="varient-search"
+                                           onkeyup="varientSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                            Varient
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="natural_varient" id="search-results-varient"></select>
+                            </div>
+                        </div>
+
+                        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Varient</label>
+                            <input type="text" class="form-control" name="natural_varient">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phenotype</label>
+                            <input type="text" class="form-control" name="varient_phenotype">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Onset</label>
+                            <input type="text" class="form-control" name="onset">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <input type="text" class="form-control" name="healthprof">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <input type="text" class="form-control" name="notes">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" class="form-control" name="write_uid" placeholder={{ form.write_uid }}
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}

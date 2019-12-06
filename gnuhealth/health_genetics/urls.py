@@ -5,7 +5,12 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('addgenetics', views.addgenetics, name='addgenetics'),
-
+    path('genetics', views.genetics, name='genetics'),
+    path('addGenetic', views.addGenetic, name='addGenetic'),
+    path('editGenetic/<id>/', views.editGenetic, name='editGenetic'),
+    path('updateGenetic/<id>/', views.updateGenetic, name='updateGenetic'),
+    path('deleteGenetic/<id>/', views.deleteGenetic, name='deleteGenetics'),
+    path('searchVarient/<search_text>/', views.searchVarient, name='searchVarient'),
     # Genetics module urls start
     
     path('disease_genes/', views.disease_genes, name = "disease_genes"),
