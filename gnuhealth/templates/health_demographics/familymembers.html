@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Families</h4>
+        <h4 class="page-title">Family Members  </h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-demographics/addFamily';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-demographics/addFamilyMember';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -38,7 +38,7 @@
         {% endif %}
     </div>
 
-    
+
     <div class="col-sm-12">
         <div class="card-box">
             <div class="card-block">
@@ -47,19 +47,20 @@
                     <table id="example" class=" table table-stripped  dt-responsive  ">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Extra Info</th>
+                            <th>Family</th>
+                            <th>Party</th>
+                            <th>Role</th>
                             <th>Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for family in families %}
+                        {% for member in members %}
                         <tr>
-                            <td>{{family.name}}</td>
-                            <td>{{family.info}}</td>
-                            <td class="text-right"><a href="/health-demographics/editFamily/{{family.id}}"><i class="far fa-edit"> </i></a><a href="/health-demographics/deleteFamily/{{family.id}}"> <i
+                            <td>{{member.name}}</td>
+                            <td>{{member.info}}</td>
+                            <td class="text-right"><a href="/health-demographics/editFamilyMember/{{member.id}}"><i class="far fa-edit"> </i></a><a href="/health-demographics/deleteFamilyMember/{{member.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>
@@ -76,17 +77,17 @@
 
 {% if type == "add" %}
 
-<form method="POST" class="post-form" action="/health-demographics/addFamily">
+<form method="POST" class="post-form" action="/health-demographics/addFamilyMember">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-12 ">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Family</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Family Member</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 ">
             <div class="card-box">
 
                 <div class="row">
@@ -105,9 +106,16 @@
                             <input type="text" class="form-control" name="name">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Extra Info</label>
+                            <label>Party</label>
+                            <input type="text" class="form-control" name="info">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Role</label>
                             <input type="text" class="form-control" name="info">
 
                         </div>
@@ -157,13 +165,13 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-12 ">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Family</h4>
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Family Member</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="card-box">
 
                 
