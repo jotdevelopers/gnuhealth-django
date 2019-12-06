@@ -16,7 +16,7 @@ class occupationForm(forms.ModelForm):
         
 class residenceForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_gene_varient
+        model = country_country
         fields = "__all__"
         
 class countryForm(forms.ModelForm):
@@ -52,18 +52,14 @@ class imagingTestTypeForm(forms.ModelForm):
 
 class varientForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_gene_varient
+        model = gnuhealth_gene_variant
         fields = "__all__"
         
 class genesForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_disease_genes
         fields = "__all__"
-        
-class varientForm(forms.ModelForm):
-    class Meta:  
-        model = gnuhealth_gene_varient
-        fields = "__all__"
+ 
 
 class pathologyGroupsForm(forms.ModelForm):
     class Meta:  

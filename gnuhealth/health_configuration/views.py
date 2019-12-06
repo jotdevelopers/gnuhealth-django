@@ -310,19 +310,19 @@ def addGenes(request):
 
 def varients(request):
     type = "grid"
-    varients = gnuhealth_gene_varient.objects.all()
+    varients = gnuhealth_gene_variant.objects.all()
     return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients})
 
 
 def editVarient(request, id):
     type = "edit"
-    editForm = gnuhealth_gene_varient.objects.get(id=id)
+    editForm = gnuhealth_gene_variant.objects.get(id=id)
     return render(request, 'health_configuration/genetics/varient.html', {'form': editForm, 'type': type})
 
 
 def updateVarient(request, id):
     type = "grid"
-    varient = gnuhealth_gene_varient.objects.get(id=id)
+    varient = gnuhealth_gene_variant.objects.get(id=id)
     varient.name = request.POST['name']
     varient.aa_change = request.POST['aa_change']
     varient.protein_name = request.POST['varient']
@@ -334,7 +334,7 @@ def updateVarient(request, id):
     varient.write_uid = varient.write_uid
 
     varient.save()
-    varients = gnuhealth_gene_varient.objects.all()
+    varients = gnuhealth_gene_variant.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -345,10 +345,10 @@ def updateVarient(request, id):
 
 
 def deleteVarient(request, id):
-    varient = gnuhealth_gene_varient.objects.get(id=id)
+    varient = gnuhealth_gene_variant.objects.get(id=id)
     varient.delete()
     type = "grid"
-    varients = gnuhealth_gene_varient.objects.all()
+    varients = gnuhealth_gene_variant.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
@@ -364,10 +364,10 @@ def addVarient(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_gene_varient.objects.latest('id')
+                latest = gnuhealth_gene_variant.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                genes = gnuhealth_gene_varient.objects.all()
+                genes = gnuhealth_gene_variant.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('genes')
             except:
@@ -377,7 +377,7 @@ def addVarient(request):
             return HttpResponse("Invalid Form.")
     else:
         form = varientForm()
-        latest = gnuhealth_gene_varient.objects.latest('id')
+        latest = gnuhealth_gene_variant.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
