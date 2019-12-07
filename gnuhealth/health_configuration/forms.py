@@ -54,7 +54,17 @@ class varientForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_gene_variant
         fields = "__all__"
-        
+
+class phenotypeForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_gene_variant
+        fields = "__all__"
+
+class proteinForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_protein_disease
+        fields = "__all__"    
+
 class genesForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_disease_genes

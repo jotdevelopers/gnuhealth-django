@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Varients</h4>
+        <h4 class="page-title">Protein Disease</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addVarient';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-configuration/addProtein';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -37,7 +37,7 @@
             {% endfor %}
         {% endif %}
     </div>
-
+    
     <div class="col-sm-12">
         <div class="card-box">
             <div class="card-block">
@@ -46,24 +46,30 @@
                     <table id="example" class=" table table-stripped  dt-responsive  ">
                         <thead>
                         <tr>
-                            <th>Gene and protein</th>
-                            <th>Protein Varient</th>
-                            <th>Change</th>
+                            <th>Disease</th>
+                            <th>Disease Name</th>
+                            <th>Acronym</th>
+                            <th>Dominance</th>
                             <th>Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for varient in varients %}
+                        {% for protein in proteins %}
                         <tr>
-                             <td>{{varient.name}}</td>
-                            <td>{{varient.variant}}</td>
-                            <td>{{varient.aa_change}}</td>
-                    
-                            <td class="text-right"><a href="/health-configuration/editVarient/{{varient.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteVarient/{{varient.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
-
+                            <td>{{protein.name}}</td>
+                            <td>{{protein.disease_name}}</td>
+                            <td>{{protein.acronym}}</td>
+                            <td>{{protein.dominance}}</td>
+                            <td class="text-right">
+                                <a href="/health-configuration/editProtein/{{protein.id}}">
+                                    <i class="far fa-edit"> </i>
+                                </a>
+                                <a href="/health-configuration/deleteProtein/{{protein.id}}">
+                                    <i class="far fa-trash-alt"> </i>
+                                </a>
+                            </td>
                         </tr>
                         {% endfor %}
 
@@ -77,12 +83,12 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addVarient">
+<form method="POST" class="post-form" action="/health-configuration/addProtien">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-12">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Varient</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Protein Disease</h4>
         </div>
     </div>
 
@@ -91,36 +97,43 @@
             <div class="card-box">
 
                 <div class="row">
-                      <div class="col-md-12">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label>Record ID</label>
+                            <label>Disease ID</label>
                             <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Gene and Protein</label>
-                            <input type="text"  name="name" class="form-control">
+                            <label>Disease Name</label>
+                            <input type="text" name="name" class="form-control">
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Protein Varient</label>
-                            <input type="text"  name="variant" class="form-control">
+                            <label>Acronym</label>
+                            <input type="text" name="long_name" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Change</label>
-                            <input type="text"  name="aa_change" class="form-control">
+                            <label>Dominance</label>
+                            <input type="text" name="protein_name" class="form-control">
 
                         </div>
                     </div>
-                    
-                   <div class="col-md-6">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>MIM</label>
+                            <input type="text" name="chromosome" class="form-control">
+
+                        </div>
+                    </div>
+                     
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
                             <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}
@@ -158,12 +171,12 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateVarient/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-configuration/updateGenes/{{ form.id }}/">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Varient</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Gene</h4>
         </div>
     </div>
 
@@ -174,7 +187,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Gene and Protein</label>
+                            <label>Gene Name</label>
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
@@ -182,14 +195,34 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Protein Varient</label>
-                            <input type="text" value="{{ form.variant }}" name="variant" class="form-control">
+                            <label>Official Long Name</label>
+                            <input type="text" value="{{ form.long_name }}" name="long_name" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Change</label>
-                            <input type="text" value="{{ form.aa_change }}" name="aa_change" class="form-control">
+                            <label>Protein Code</label>
+                            <input type="text" value="{{ form.protein_name }}" name="protein_name" class="form-control">
+                        </div>
+                    </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Chromosome</label>
+                            <input type="text" value="{{ form.chromosome }}" name="chromosome" class="form-control">
+
+                        </div>
+                    </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" value="{{ form.location }}" name="location" class="form-control">
+
+                        </div>
+                    </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Gene Id </label>
+                            <input type="number" value="{{ form.gene_id }}" name="gene_id" class="form-control">
 
                         </div>
                     </div>

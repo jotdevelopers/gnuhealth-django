@@ -38,46 +38,6 @@
         {% endif %}
     </div>
 
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
     
     <div class="col-sm-12">
         <div class="card-box">
@@ -88,6 +48,7 @@
                         <thead>
                         <tr>
                             <th>Gene and Protein</th>
+                            <th>Varient</th>
                             <th>Phenotype</th>
                             <th>Action</th>
 
@@ -99,6 +60,8 @@
                         <tr>
                             <td>{{phenotype.name}}</td>
                             <td>{{phenotype.code}}</td>
+                            <td>{{phenotype.code}}</td>
+
                             
                             <td class="text-right"><a href="/health-configuration/editPhenotype/{{phenotype.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deletePhenotype/{{phenotype.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
@@ -120,72 +83,67 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Phenotype</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
-                    <div class="col-md-12">
+                      <div class="col-md-12">
                         <div class="form-group">
                             <label>Record ID</label>
-                            <input type="number" value="{{ form.id }}" name="id" class="form-control">
-
+                            <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
                         </div>
                     </div>
-
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Code</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                            <input type="text"  name="name" class="form-control">
                         </div>
                     </div>
-                </div>
+              
+                    </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Gene and Protein</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Phenotype</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
-
-                        </div>
-                    </div>
-                     
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Create Date</label>
-                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                            <label>Varient</label>
+                            <input type="text"  name="variant" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phenotype</label>
+                            <input type="text"  name="aa_change" class="form-control">
 
+                        </div>
+                    </div>
+                    
+                   <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
-
+                            <input type="text" readonly name="write_date" class="form-control" placeholder="{{ form.write_date }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
-
+                            <input type="text" readonly name="create_uid" class="form-control"placeholder="{{ form.create_uid }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
-
+                            <input type="text" readonly name="write_uid" class="form-control" placeholder="{{ form.write_uid }}
                         </div>
                     </div>
                 </div>

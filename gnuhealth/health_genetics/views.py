@@ -1,7 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from health_genetics.models import gnuhealth_patient_genetic_risk
-from health_genetics.forms import HealthGeneticsForm
+from health_genetics.models import *
+from health_genetics.forms import *
+from datetime import datetime
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.template.context_processors import csrf
+from django.shortcuts import render_to_response
+from health.models import gnuhealth_pathology
+from health_configuration.models import *
+from health_party.models import *
+from health_demographics.forms import *
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
+
+
 
 # Create your views here.
 
@@ -108,10 +122,10 @@ def searchVarient(request, search_text):
     else:
         search_text = ''
 
-    varients = gnuhealth_gene_varient.objects.filter(name__startswith=search_text.capitalize())
+    varients = gnuhealth_gene_variant.objects.filter(name__startswith=search_text.capitalize())
 
-    if len(countries) == 0:
-        varients = gnuhealth_gene_varient.objects.filter(id=search_text)
+    if len(varients) == 0:
+        varients = gnuhealth_gene_variant.objects.filter(id=search_text)
 
     return render_to_response('health_configuration/js/ajax-search.html', {'varients': varients})
 

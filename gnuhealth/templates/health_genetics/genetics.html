@@ -89,13 +89,13 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Person Genetic Info</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -128,7 +128,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input class="form-control" value="{{ form.natural_varient.id }}" id="varient-search"
+                                    <input class="form-control" value="{{ form.natural_variant.id }}" id="varient-search"
                                            onkeyup="varientSearch()" type="text">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
@@ -142,7 +142,7 @@
     
                         <div class="col-md-12">
                             <div class="form-group">
-                                <select class="select" name="natural_varient" id="search-results-varient"></select>
+                                <select class="select" name="natural_variant" id="search-results-varient"></select>
                             </div>
                         </div>
 
