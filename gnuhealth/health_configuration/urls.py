@@ -40,6 +40,18 @@ urlpatterns = [
     path('updateVarient/<id>/', views.updateVarient, name='updateVarient'),
     path('deleteVarient/<id>/', views.deleteVarient, name='deleteVarient'),
 
+    path('phenotypes', views.phenotypes, name='phenotypes'),
+    path('addPhenotype', views.addPhenotype, name='addPhenotype'),
+    path('editPhenotype/<id>', views.editPhenotype, name='editPhenotype'),
+    path('updatePhenotype/<id>/', views.updatePhenotype, name='updatePhenotype'),
+    path('deletePhenotype/<id>/', views.deleteVarient, name='deleteVarient'),
+
+    path('proteins', views.proteins, name='proteins'),
+    path('addProtein', views.addProtein, name='addProtein'),
+    path('editProtein/<id>', views.editProtein, name='editProtein'),
+    path('updateProtein/<id>/', views.updateProtein, name='updateProtein'),
+    path('deleteProtein/<id>/', views.deleteProtein, name='deleteProtein'),
+
     #procedure
     path('procedures', views.procedures, name='procedures'),
     path('addProcedure', views.addProcedure, name='addProcedure'),

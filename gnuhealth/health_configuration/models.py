@@ -130,6 +130,21 @@ class gnuhealth_gene_variant(models.Model):
       class Meta:
              db_table = 'gnuhealth_gene_variant'
 
+class gnuhealth_protein_disease(models.Model):
+      id = models.IntegerField(primary_key=True)
+      acronym = models.CharField(max_length = 100)
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()
+      description = models.CharField(max_length=100)
+      disease_name = models.CharField(max_length=100)
+      dominance = models.CharField(max_length=100)
+      mim_reference = models.CharField(max_length=100)
+      name = models.CharField(max_length=100)
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+             db_table = 'gnuhealth_protein_disease'
+
 class gnuhealth_pathology_group(models.Model):
     id = models.IntegerField(primary_key=True)
     code = models.CharField(max_length=100)

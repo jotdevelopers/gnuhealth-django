@@ -7,6 +7,7 @@ from health.models import gnuhealth_pathology
 from health_configuration.models import *
 from health_party.models import *
 from health_demographics.forms import *
+from health_configuration.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
@@ -306,6 +307,182 @@ def addGenes(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form})
+
+
+def phenotypes(request):
+    type = "grid"
+    genes = gnuhealth_disease_genes.objects.all()
+    return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'genes': genes})
+
+
+def editPhenotype(request, id):
+    type = "edit"
+    editForm = gnuhealth_disease_genes.objects.get(id=id)
+    return render(request, 'health_configuration/genetics/phenotype.html', {'form': editForm, 'type': type})
+
+
+def updatePhenotype(request, id):
+    type = "grid"
+    gene = gnuhealth_disease_genes.objects.get(id=id)
+    gene.name = request.POST['name']
+    gene.long_name = request.POST['long_name']
+    gene.protein_name = request.POST['protein_name']
+    gene.chromosome = request.POST['chromosome']
+    gene.location = request.POST['location']
+    gene.gene_id = request.POST['gene_id']
+    gene.gene_id = gene.id
+    gene.create_date = gene.create_date
+    gene.write_date = gene.write_date
+    gene.create_uid = gene.create_uid
+    gene.write_uid = gene.write_uid
+
+    gene.save()
+    genes = gnuhealth_disease_genes.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return redirect('genes')
+
+
+def deletePhenotype(request, id):
+    gene = gnuhealth_disease_genes.objects.get(id=id)
+    gene.delete()
+    type = "grid"
+    genes = gnuhealth_disease_genes.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return redirect('genes')
+
+
+def addPhenotype(request):
+    if request.method == "POST":
+        form = phenotypeForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_disease_genes.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                genes = gnuhealth_disease_genes.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return redirect('genes')
+            except:
+                pass
+        else:
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = phenotypeForm()
+        latest = gnuhealth_disease_genes.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'form': form})
+
+def proteins(request):
+    type = "grid"
+    proteins = gnuhealth_protein_disease.objects.all()
+    return render(request, 'health_configuration/genetics/proteins.html'
+                  , {'proteins': proteins
+                      , 'type': type})
+
+
+def addProtein(request):
+    if request.method == "POST":
+        form = proteinForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_protein_disease.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                proteins = gnuhealth_protein_disease.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/genetics/proteins.html'
+                              , {'type': type, 'msg': msg, 'proteins': proteins})
+            except:
+                pass
+        else:
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = proteinForm()
+        latest = gnuhealth_protein_disease.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/genetics/proteins.html', {'type': type, 'form': form})
+
+
+def editProtein(request, id):
+    type = "edit"
+    editForm = gnuhealth_protein_disease.objects.get(id=id)
+    return render(request, 'health_configuration/genetics/proteins.html', {'form': editForm, 'type': type})
+
+
+def updateProtein(request, id):
+    type = "grid"
+    eth = gnuhealth_protein_disease.objects.get(id=id)
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_protein_disease(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    eth.save()
+    msg = "3"
+    proteins = gnuhealth_protein_disease.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return render(request, 'health_configuration/genetics/proteins.html'
+                  , {'type': type, 'msg': msg, 'proteins': proteins})
+
+
+def deleteProtein(request, id):
+    protein = gnuhealth_protein_disease.objects.get(id=id)
+    protein.delete()
+    type = "grid"
+    msg = "2"
+    proteins = gnuhealth_protein_disease.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/genetics/proteins.html'
+                  , {'type': type, 'msg': msg, 'proteins': proteins})
 
 
 def varients(request):

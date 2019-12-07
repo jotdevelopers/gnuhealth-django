@@ -11,7 +11,7 @@ function varientSearch() {
             }
         },
         type: "POST",
-        url: "/health-party/searchVarient/" + $('#varient-search').val() + "/",
+        url: "/health-genetics/searchVarient/" + $('#varient-search').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
         success: searchSuccessVarient,
         datatype: 'html'
