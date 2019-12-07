@@ -197,7 +197,7 @@
                             </div>
                             <div class="col-md-12 ">
                             <div class="card-box">
- <div class="row">
+                <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Longitude</label>
@@ -222,20 +222,20 @@
 										<input class="form-control" type="text" name="altitude" >
 									</div>
                                 </div>
-                                <div class="col-md-6">
+                           <!--    <div class="col-md-6">
                                     <div class="form-group">
                                         <label>OSM Map</label>
                                         
                                             <input type="text" class="form-control " type="text" value="">
                                         
                                     </div>
-                                </div>
+                                </div>--> 
                             </div>
-                              <div class="row">
+                           <!--   <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Conditions</label>
-                                        <input type = "text" list = "conditions" name="conditions" class="form-control"> 
+                                        <input type = "text" list = "conditions"  class="form-control"> 
                                             <datalist id="conditions">
                                                 <option value = "Normal">
                                                 <option value = "Critical"> 
@@ -246,8 +246,8 @@
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Type</label>
-                                        <input type = "text" list = "type" name="type" class="form-control"> 
-                                            <datalist id="type">
+                                        <input type = "text" list = "typ" class="form-control"> 
+                                            <datalist id="tye">
                                                 <option value = "First">
                                                 <option value = "Second">
                                                 <option value = "Third"> 
@@ -256,7 +256,7 @@
                                             </datalist>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                               <div class="form-group">
                                 <label>Upload Image</label>
                                 <div>
@@ -278,8 +278,8 @@
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Material</label>
-                                        <input type = "text" list = "materials" name="materials" class="form-control"> 
-                                            <datalist id="materials">
+                                        <input type = "text" list = "mat" name="materials" class="form-control"> 
+                                            <datalist id="mat">
                                                 <option value = "Normal">
                                                 <option value = "Critical"> 
                                                                      
@@ -289,8 +289,8 @@
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Roof</label>
-                                        <input type = "text" list = "roof_type" name="roof_type" class="form-control"> 
-                                            <datalist id="roof_type">
+                                        <input type = "text" list = "type" name="roof_type" class="form-control"> 
+                                            <datalist id="type">
                                                 <option value = "First">
                                                 <option value = "Second">
                                                 <option value = "Third"> 
@@ -311,7 +311,7 @@
                                     <div class="form-group">
                                         <label>Bedrooms</label>
                                         
-                                            <input type="number" class="form-control " type="text" name="bedrooms">
+                                            <input type="number" class="form-control " type="number" name="bedrooms">
                                         
                                     </div>
                                 </div>
@@ -326,7 +326,7 @@
                                 </div>
                                  <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Search Operaational Sector</label>
+                            <label>Search Operational Sector</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -341,11 +341,9 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="col-md-12">
                         <div class="form-group">
-                            <select class="select" name="address_subdivision" id="search-results-opsector"></select>
+                            <select class="select" name="operational_sector" id="search-results-opsector"></select>
                         </div>
                     </div>
                             </div>   
@@ -354,7 +352,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="water" id="water"  checked>
+									<input class="form-check-input" type="checkbox"    checked>
 									<label class="form-check-label" for="water">
 									Running Water
 									</label>
@@ -365,7 +363,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="sewers" id="sewers"  checked>
+									<input class="form-check-input" type="checkbox"  checked>
 									<label class="form-check-label" for="sewers">
 									Sanitary Sewers
 									</label>
@@ -376,7 +374,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="electricity" id="electricity"  checked>
+									<input class="form-check-input" type="checkbox"    checked>
 									<label class="form-check-label" for="electricity">
 									Electrical Supply
 									</label>
@@ -387,7 +385,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="gas" id="gas" checked>
+									<input class="form-check-input" type="checkbox"   checked>
 									<label class="form-check-label" for="gas">
 									Gas Supply
 									</label>
@@ -400,7 +398,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="telephone" id="telephone"  checked>
+									<input class="form-check-input" type="checkbox"   checked>
 									<label class="form-check-label" for="telephone">
 									Telephone
 									</label>
@@ -411,7 +409,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="internet" id="internet"  checked>
+									<input class="form-check-input" type="checkbox"   checked>
 									<label class="form-check-label" for="internet">
 									Internet
 									</label>
@@ -422,7 +420,7 @@
  <div class="form-group">
                                 
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox" name="television" id="television"  checked>
+									<input class="form-check-input" type="checkbox"  checked>
 									<label class="form-check-label" for="television">
 									Television
 									</label>
@@ -430,7 +428,8 @@
 								</div>
                             </div>
                              
-                         	</div>
+                             </div>
+                             <!--
                             <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
 								<thead> <b> Members </b>
 									<tr>
@@ -460,7 +459,8 @@
 									</tr>
 									
 								</tbody>
-							</table>
+                            </table>
+                            -->
 							<div class="row">
                             <div class="col-md-6">
                         <div class="form-group">
@@ -481,7 +481,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }} 
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -492,17 +492,16 @@
                         </div>
                     </div>
                     </div>
-                                <input type="hidden" readonly  name="address_city" class="form-control">
-                                <input type="hidden" readonly  name="address_district" class="form-control">
-                                <input type="hidden" readonly  name="address_municipality" class="form-control">
-                                <input type="hidden" readonly  name="street_address_bis" class="form-control">
-                                <input type="hidden" readonly  name="dwelling" class="form-control">
-                                <input type="hidden" readonly  name="name" class="form-control">
-                                <input type="hidden" readonly  name="trash" class="form-control">
-                                <input type="hidden" readonly  value="" name="urladdr" class="form-control">
-                                
-                               
-                    
+
+                    <input type="hidden" class="form-control" name="address_city" value="xyz">
+                    <input type="hidden" class="form-control" name="address_district" value="34">
+                    <input type="hidden" class="form-control" name="address_municipality" value="kjsd">
+                    <input type="hidden" class="form-control" name="address_street_bis" value="jsjsd">
+                    <input type="hidden" class="form-control" name="dwelling" value="1">
+                    <input type="hidden" class="form-control" name="name" value="2">
+                   <!-- <input type="hidden"  name="trash" class="form-check-input" type="checkbox"    checked>
+                   --><input type="hidden" class="form-control" name="urladdr" value="23">
+
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="button" class="btn btn-primary">Clear</button>
         </div>
@@ -513,12 +512,12 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-demographics/updateFamily/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-demographics/updateDu/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Family</h4>
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Domiciliary Unit</h4>
         </div>
     </div>
 

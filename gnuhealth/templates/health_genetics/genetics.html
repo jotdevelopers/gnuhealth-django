@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Operational Sectors</h4>
+        <h4 class="page-title">Genetics</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-operational-area/addOperationalSector';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-genetics/addGenetic';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -38,38 +38,45 @@
         {% endif %}
     </div>
 
-
-    
     <div class="col-sm-12">
         <div class="card-box">
             <div class="card-block">
 
                 <div class="table-responsive">
-                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                    <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
-                        <tr>
-                            <th>Operational Sector</th>
-                            <th>Operational Area</th>
-                            <th>Extra Information</th>
-                            <th>Action</th>
+                             <tr>
+                                 <th>Patient</th>
+                                 <th>Gene</th>
+                                 <th>Varient</th>
+                                 <th>Phenotype</th>
+                                 <th>Onset</th>
+                                 <th>Notes</th>
+                                 <th>Health Professional</th>
+                                 
+                                 
+                                 <th class="text-right">Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                          {% for gen in ethnicities %}  
+                             <tr>
+                                 
+                                 <td>{{gen.patient}}</td>
+                                 <td>{{gen.disease_gene}}</td>
+                                 <td>{{gen.natural_varient}}</td>
+                                 <td>{{gen.varient_phenotype}}</td>
+                                 <td>{{gen.onset}}</td>
+                                 <td>{{gen.notes}}</td>
+                                 <td>{{gen.healthprof}}</td>
+                                 
+                       <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
 
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        {% for opsector in opsectors %}
-                        <tr>
-                            <td>{{opsector.name}}</td>
-                            <td>{{opsector.operational_area}}</td>
-                            <td>{{opsector.info}}</td>
-                            <td class="text-right"><a href="/health-operational-area/editOperationalSector/{{opsector.id}}"><i class="far fa-edit"> </i></a><a href="/health-operational-area/deleteOperationalSector/{{opsector.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
-
-                        </tr>
-                        {% endfor %}
-
-                        </tbody>
-                    </table>
+                             </tr>
+                                {% endfor %} 
+                             
+                         </tbody>
+                     </table>
                 </div>
             </div>
         </div>
@@ -78,17 +85,17 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-operational-area/addOperationalSector">
+<form method="POST" class="post-form" action="/health-configuration/addGenetic">
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-12 ">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Operational Sector</h4>
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Person Genetic Info</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12  ">
+        <div class="col-md-8 offset-md-2">
             <div class="card-box">
 
                 <div class="row">
@@ -99,40 +106,80 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Info</label>
-                            <input type="text" class="form-control" name="info">
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Patient</label>
+                                    <input type="text" class="form-control" name="patient">
+                                </div>
+                            </div>
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <label>Gene</label>
+                            <input type="text" class="form-control" name="gene">
                         </div>
                     </div>
-                  <div class="col-sm-12">
-                        <div class="form-group">
-                            <label>Search Operational Area</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control" value="{{ form.operational_area.id }}" id="operational-area-search"
-                                       onkeyup="operationalAreaSearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="operationalAreaSearch()">Search
-                                        Operational Area
-                                    </button>
+                    <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Varient</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.natural_varient.id }}" id="varient-search"
+                                           onkeyup="varientSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                            Varient
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                       <div class="col-md-12">
+    
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="natural_varient" id="search-results-varient"></select>
+                            </div>
+                        </div>
+
+                        
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <select class="select" name="operational_area" id="search-results-operational"></select>
+                            <label>Varient</label>
+                            <input type="text" class="form-control" name="natural_varient">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Phenotype</label>
+                            <input type="text" class="form-control" name="varient_phenotype">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Onset</label>
+                            <input type="text" class="form-control" name="onset">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <input type="text" class="form-control" name="healthprof">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <input type="text" class="form-control" name="notes">
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -176,24 +223,24 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-operational-area/updateOperationalSector/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-12 ">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Operational Sector</h4>
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="card-box">
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Info</label>
-                            <input type="text" value="{{ form.info }}" name="info" class="form-control">
+                            <label>Code</label>
+                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -204,29 +251,13 @@
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label>Search Operational Area</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control" value="{{ form.operational_area }}" id="operational-area-search"
-                                       onkeyup="operationalAreaSearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="operationalAreaSearch()">Search
-                                        Operational Area
-                                    </button>
-                                </div>
-                            </div>
+                            <label>Notes</label>
+                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+
                         </div>
                     </div>
-                       <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="operational_area" id="search-results-operational"></select>
-                        </div>
-                    </div>
-                    
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

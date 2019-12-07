@@ -111,34 +111,36 @@ def deleteFamily(request, id):
 
 def familyMembers(request):
     type = "grid"
-    families = gnuhealth_family.objects.all()
-    return render(request, 'health_demographics/families.html'
-                  , {'families': families
+    members = gnuhealth_family_member.objects.all()
+    return render(request, 'health_demographics/familymembers.html'
+                  , {'members': members
                   , 'type': type})
 
 def addFamilyMember(request):
     if request.method == "POST":
-        form = familyForm(request.POST)
+        form = familyMemberForm(request.POST)
         if form.is_valid():
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_family.objects.latest('id')
-                form.fields["id"].initial = latest.id + 1
+                #latest = gnuhealth_family_member.objects.latest('id')
+                #form.fields["id"].initial = latest.id + 1
+                form.fields["id"].initial = 1
                 form.save()
-                families = gnuhealth_family.objects.all()
+                members = gnuhealth_family_member.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_demographics/families.html'
-                              , {'type': type, 'msg': msg, 'families': families})
+                return render(request, 'health_demographics/familymembers.html'
+                              , {'type': type, 'msg': msg, 'members': members})
             except:
                 pass
         else:                
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
-        form = familyForm()
-        latest = gnuhealth_family.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        form = familyMemberForm()
+        #latest = gnuhealth_family_member.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -149,30 +151,31 @@ def addFamilyMember(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_demographics/families.html', {'type': type, 'form': form})
+        return render(request, 'health_demographics/familymembers.html', {'type': type, 'form': form})
 
 
 def editFamilyMember(request, id):
     type = "edit"
-    editForm = gnuhealth_family.objects.get(id=id)
-    return render(request, 'health_demographics/families.html', {'form': editForm, 'type': type})
+    editForm = gnuhealth_family_member.objects.get(id=id)
+    return render(request, 'health_demographics/familymembers.html', {'form': editForm, 'type': type})
 
 
 def updateFamilyMember(request, id):
     type = "grid"
-    eth = gnuhealth_family.objects.get(id=id)
+    eth = gnuhealth_family_member.objects.get(id=id)
     name = request.POST['name']
-    info = request.POST['info']
+    role = request.POST['role']
+    party = request.POST['party']
     eth_id = eth.id
     create_date = eth.create_date
     write_date = eth.write_date
     create_uid = eth.create_uid
     write_uid = eth.write_uid
-    eth = gnuhealth_family(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, info=info)
+    eth = gnuhealth_family_member(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, role=role, party=party)
     eth.save()
     msg = "3"
-    families = gnuhealth_family.objects.all()
+    members = gnuhealth_family_member.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -180,23 +183,23 @@ def updateFamilyMember(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
 
-    return render(request, 'health_demographics/families.html'
-                       , {'type': type, 'msg': msg, 'families': families})
+    return render(request, 'health_demographics/familymembers.html'
+                       , {'type': type, 'msg': msg, 'members': members})
 
 
 def deleteFamilyMember(request, id):
-    family = gnuhealth_family.objects.get(id=id)
-    family.delete()
+    member = gnuhealth_family_member.objects.get(id=id)
+    member.delete()
     type = "grid"
     msg = "2"
-    families = gnuhealth_family.objects.all()
+    members = gnuhealth_family_member.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
         messages.error(request, f'Sorry, Record Delete Error')
 
-    return render(request, 'health_demographics/families.html'
-                              , {'type': type, 'msg': msg, 'families': families})
+    return render(request, 'health_demographics/familymembers.html'
+                              , {'type': type, 'msg': msg, 'members': members})
 
 
 
@@ -301,22 +304,38 @@ def du(request):
 def addDu(request):
     if request.method == "POST":
         form = duForm(request.POST)
-        if form.is_valid():
-            try:
-                type = "grid"
-                msg = "1"
-                latest = gnuhealth_du.objects.latest('id')
-                form.fields["id"].initial = latest.id + 1
-                form.save()
-                dus = gnuhealth_du.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_demographics/dus.html'
+      #  if form.is_valid():
+          #  try:
+        type = "grid"
+        msg = "1"
+        latest = gnuhealth_du.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+       # if request.POST["telephone"] == "on":
+        #    form.fields["telephone"] = 1
+        #if request.POST["television"] == "on":
+        #    form.fields["television"] = 1
+        #if request.POST["electricity"] == "on":
+        #    form.fields["electricity"] = 1
+        #if request.POST["gas"] == "on":
+        #    form.fields["gas"] = 1
+        #if request.POST["internet"] == "on":
+         #   form.fields["internet"] = 1
+        #if request.POST["sewers"] == "on":
+         #   form.fields["sewers"] = 1
+        #if request.POST["water"] == "on":
+         #   form.fields["water"] = 1
+        #if request.POST["trash"] == "on":
+         #   form.fields["trash"] = 1
+        form.save()
+        dus = gnuhealth_du.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health_demographics/dus.html'
                               , {'type': type, 'msg': msg, 'dus': dus})
-            except:
-                pass
-        else:                
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+          #  except:
+           #     pass
+       # else:                
+        #    messages.error(request, f'Sorry, Record Save Error')
+         #   return HttpResponse("Invalid Form.")
     else:
         form = duForm()
         latest = gnuhealth_family.objects.latest('id')
