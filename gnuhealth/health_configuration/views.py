@@ -224,7 +224,7 @@ def add_residence(request):
 
 def genes(request):
     type = "grid"
-    genes = gnuhealth_disease_genes.objects.all()
+    genes = gnuhealth_disease_genes.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'genes': genes})
 
 
@@ -310,7 +310,7 @@ def addGenes(request):
 
 def phenotypes(request):
     type = "grid"
-    phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/phenotype.html'
                   , {'phenotypes': phenotypes
                       , 'type': type})
@@ -400,7 +400,7 @@ def deletePhenotype(request, id):
 
 def proteins(request):
     type = "grid"
-    proteins = gnuhealth_protein_disease.objects.all()
+    proteins = gnuhealth_protein_disease.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/proteins.html'
                   , {'proteins': proteins
                       , 'type': type})
@@ -452,7 +452,7 @@ def updateProtein(request, id):
     type = "grid"
     eth = gnuhealth_protein_disease.objects.get(id=id)
     name = request.POST['name']
-    diesease_name = request.POST['diesease_name']
+    disease_name = request.POST['disease_name']
     acronym = request.POST['acronym']
     description = request.POST['description']
     dominance = request.POST['dominance']
@@ -466,7 +466,7 @@ def updateProtein(request, id):
                               , write_uid=write_uid, name=name, disease_name=disease_name, acronym=acronym, description=description, dominance=dominance, mim_reference=mim_reference)
     eth.save()
     msg = "3"
-    proteins = gnuhealth_protein_disease.objects.all()
+    proteins = gnuhealth_protein_disease.objects.order_by('-id')[:200]
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -519,7 +519,7 @@ def searchPhenotype(request, search_text):
 
 def varients(request):
     type = "grid"
-    varients = gnuhealth_gene_variant.objects.all()
+    varients = gnuhealth_gene_variant.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients})
 
 
@@ -598,7 +598,7 @@ def addVarient(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/genetics/varients.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'form': form})
 
 
 def pathologyGroups(request):

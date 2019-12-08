@@ -62,8 +62,14 @@
                             <td>{{ temp.age_dose }}</td>
                             <td>{{ temp.remarks }}</td>
                             
-                            <td class="text-right"><a href="/health-immunization-schedule/editVaccineDoses/{{temp.id}}"><i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i></a><a href="/health-immunization-schedule/deleteVaccineDoses/{{temp.id}}"> <i
-                                    class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i> </a></td>
+                            <td class="text-right">
+                                <a href="/health-immunization-schedule/editVaccineDoses/{{temp.id}}">
+                                    <i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i>
+                                </a>
+                                <a href="/health-immunization-schedule/deleteVaccineDoses/{{temp.id}}"> 
+                                    <i class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i>
+                                </a>
+                            </td>
 
                         </tr>
                         {% endfor %}
