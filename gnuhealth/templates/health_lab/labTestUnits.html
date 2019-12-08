@@ -1,0 +1,266 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+{% if type == "grid" %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Lab Test Units</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>PDF</option>
+                <option>CSV</option>
+
+            </select>
+            <button onclick="window.location.href = '/health-laboratory-info/addLabTestUnits';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Unit Name</th>
+                            <th>Code</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for temp in labTestUnits %}
+                        <tr>
+                            <td>{{ temp.id }}</td>
+                            <td>{{ temp.name }}</td>
+                            <td>{{ temp.code }}</td>
+                            
+                            <td class="text-right"><a href="/health-lab/editLabTestUnits/{{temp.id}}"><i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i></a><a href="/health-lab/deleteLabTestUnits/{{temp.id}}"> <i
+                                    class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i> </a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-laboratory-info/addLabTestUnits">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-10">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Lab Test Units</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'labTestUnits' %}" style="color:#003366;">Go To Home</a>
+        </div>
+    </div>
+
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Record No. </label>
+                            <input type="number" class="form-control" readonly="" name="id" placeholder="{{ form.id }}
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Code </label>
+                            <input type="text" class="form-control" name="code" required="required">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label> Unit Name </label>
+                            <input type="text" class="form-control"required="required" name="name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Create Date </label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control datetimepicker" name="create_date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Write Date </label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control datetimepicker" name="write_date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Create UID </label>
+                            <select class="form-control">
+                                <option>Administrator</option>
+                                <option>Guest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Write UID </label>
+                            <select class="form-control">
+                                <option>Administrator</option>
+                                <option>Guest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+                <button type="submit" class="btn btn-primary"> Add Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
+            </div>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-lab/updateLabTestUnits/{{form.id}}/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-10">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Lab Test Units</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'labTestUnits' %}" style="color:#003366;">Go To Home</a>
+        </div>
+    </div>
+
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Record No. </label>
+                            <input type="number" class="form-control" readonly="" name="id" placeholder="{{ form.id }}">
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Code </label>
+                            <input type="text" class="form-control" name="code" required="required" value="{{ form.code }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label> Unit Name </label>
+                            <input type="text" class="form-control"required="required" name="name" value="{{ form.name }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Create Date </label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control datetimepicker" name="create_date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Write Date </label>
+                            <div class="cal-icon">
+                                <input type="text" class="form-control datetimepicker" name="write_date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Create UID </label>
+                            <select class="form-control">
+                                <option>Administrator</option>
+                                <option>Guest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Write UID </label>
+                            <select class="form-control">
+                                <option>Administrator</option>
+                                <option>Guest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+                <button type="submit" class="btn btn-primary"> Update Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
+            </div>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock content %}
