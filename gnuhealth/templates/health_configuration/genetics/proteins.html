@@ -83,7 +83,7 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-configuration/addProtien">
+<form method="POST" class="post-form" action="/health-configuration/addProtein">
     {% csrf_token %}
 
     <div class="row">
@@ -97,17 +97,17 @@
             <div class="card-box">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Disease ID</label>
                             <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Disease Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="disease_name" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -115,20 +115,35 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Acronym</label>
-                            <input type="text" name="long_name" class="form-control">
+                            <input type="text" name="acronym" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Dominance</label>
-                            <input type="text" name="protein_name" class="form-control">
+                            <input type="text" name="dominance" class="form-control">
 
                         </div>
                     </div>
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                         <div class="form-group">
                             <label>MIM</label>
-                            <input type="text" name="chromosome" class="form-control">
+                            <input type="text" name="mim_reference" class="form-control">
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control">
 
                         </div>
                     </div>

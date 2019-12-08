@@ -51,6 +51,8 @@ urlpatterns = [
     path('editProtein/<id>', views.editProtein, name='editProtein'),
     path('updateProtein/<id>/', views.updateProtein, name='updateProtein'),
     path('deleteProtein/<id>/', views.deleteProtein, name='deleteProtein'),
+    path('searchVarient/<search_text>/', views.searchVarient, name='searchVarient'),
+    path('searchPhenotype/<search_text>/', views.searchPhenotype, name='searchPhenotype'),
 
     #procedure
     path('procedures', views.procedures, name='procedures'),

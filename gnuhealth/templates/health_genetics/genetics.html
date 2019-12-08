@@ -147,20 +147,33 @@
                         </div>
 
                         
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Varient</label>
-                            <input type="text" class="form-control" name="natural_varient">
-
+                   
+                   
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Phenotype</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.phenotype.id }}" id="phenotype-search"
+                                           onkeyup="phenotypeSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
+                                            Phenotype
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                     </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="phenotype" id="search-results-phenotype"></select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Phenotype</label>
-                            <input type="text" class="form-control" name="varient_phenotype">
-
-                        </div>
-                    </div>
+                       
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Onset</label>

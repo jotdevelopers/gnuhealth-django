@@ -44,3 +44,26 @@ function geneSearch() {
 function searchSuccessGene(data, textStatus, jqXHR) {
     $('#search-results-residence').html(data);
 }
+
+$("#search-results-phenotype").ready(function () {
+	phenotypeSearch();
+});
+
+function phenotypeSearch() {
+    $.ajax({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        },
+        type: "POST",
+        url: "/health-genetics/searchPhenotype/" + $('#phenotype-search').val() + "/",
+        data: 'csrfmiddlewaretoken=' + csrftoken,
+        success: searchSuccessPhenotype,
+        datatype: 'html'
+    });
+}
+
+function searchSuccessPhenotype(data, textStatus, jqXHR) {
+    $('#search-results-phenotype').html(data);
+}

@@ -59,6 +59,9 @@ class phenotypeForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_gene_variant
         fields = "__all__"
+        variant = ModelMultipleChoiceField(queryset=gnuhealth_gene_variant_phenotype.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+        phenotype = ModelMultipleChoiceField(queryset=gnuhealth_gene_variant_phenotype.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+
 
 class proteinForm(forms.ModelForm):
     class Meta:  

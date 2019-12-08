@@ -130,6 +130,18 @@ class gnuhealth_gene_variant(models.Model):
       class Meta:
              db_table = 'gnuhealth_gene_variant'
 
+class gnuhealth_gene_variant_phenotype(models.Model):
+      id = models.IntegerField(primary_key=True)
+      create_date = models.DateTimeField()
+      create_uid = models.IntegerField()
+      variant = models.IntegerField()
+      name = models.CharField(max_length=100)
+      phenotype = models.IntegerField()
+      write_date = models.DateTimeField()
+      write_uid = models.IntegerField()
+      class Meta:
+             db_table = 'gnuhealth_gene_variant_phenotype'
+
 class gnuhealth_protein_disease(models.Model):
       id = models.IntegerField(primary_key=True)
       acronym = models.CharField(max_length = 100)

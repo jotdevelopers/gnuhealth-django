@@ -59,8 +59,8 @@
                         {% for phenotype in phenotypes %}
                         <tr>
                             <td>{{phenotype.name}}</td>
-                            <td>{{phenotype.code}}</td>
-                            <td>{{phenotype.code}}</td>
+                            <td>{{phenotype.variant}}</td>
+                            <td>{{phenotype.phenotype}}</td>
 
                             
                             <td class="text-right"><a href="/health-configuration/editPhenotype/{{phenotype.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deletePhenotype/{{phenotype.id}}"> <i
@@ -108,20 +108,58 @@
               
                     </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Varient</label>
-                            <input type="text"  name="variant" class="form-control">
+                            <label>Search Varient</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.variant.id }}" id="varient-search-config"
+                                       onkeyup="varientSearchConfig()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="varientSearchConfig()">Search
+                                        Varient
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Phenotype</label>
-                            <input type="text"  name="aa_change" class="form-control">
 
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="variant" id="search-results-varient-config"></select>
                         </div>
                     </div>
-                    
+
+                   
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Phenotype</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.phenotype.id }}" id="phenotype-search-config"
+                                           onkeyup="phenotypeSearchConfig()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="phenotypeSearchConfig()">Search
+                                            Phenotype
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                     </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="phenotype" id="search-results-phenotype-config"></select>
+                            </div>
+                        </div>
+                       
+                  
                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

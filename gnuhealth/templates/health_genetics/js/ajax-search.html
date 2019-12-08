@@ -2,3 +2,8 @@
 <option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
 {% endfor %}
 
+{% for phenotype in phenotypes %}
+<option value="{{ phenotype.id }}"><a href="#">{{ phenotype.name }} </a></option>
+{% endfor %}
+
+

@@ -308,56 +308,12 @@ def addGenes(request):
         type = "add"
         return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form})
 
-
 def phenotypes(request):
     type = "grid"
-    genes = gnuhealth_disease_genes.objects.all()
-    return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'genes': genes})
-
-
-def editPhenotype(request, id):
-    type = "edit"
-    editForm = gnuhealth_disease_genes.objects.get(id=id)
-    return render(request, 'health_configuration/genetics/phenotype.html', {'form': editForm, 'type': type})
-
-
-def updatePhenotype(request, id):
-    type = "grid"
-    gene = gnuhealth_disease_genes.objects.get(id=id)
-    gene.name = request.POST['name']
-    gene.long_name = request.POST['long_name']
-    gene.protein_name = request.POST['protein_name']
-    gene.chromosome = request.POST['chromosome']
-    gene.location = request.POST['location']
-    gene.gene_id = request.POST['gene_id']
-    gene.gene_id = gene.id
-    gene.create_date = gene.create_date
-    gene.write_date = gene.write_date
-    gene.create_uid = gene.create_uid
-    gene.write_uid = gene.write_uid
-
-    gene.save()
-    genes = gnuhealth_disease_genes.objects.all()
-
-    if True:
-        messages.success(request, f'Success, Record Updated Successfully')
-    elif False:
-        messages.error(request, f'Sorry, Record Update Error')
-
-    return redirect('genes')
-
-
-def deletePhenotype(request, id):
-    gene = gnuhealth_disease_genes.objects.get(id=id)
-    gene.delete()
-    type = "grid"
-    genes = gnuhealth_disease_genes.objects.all()
-    if True:
-        messages.success(request, f'Success, Record Deleted Successfully')
-    elif False:
-        messages.error(request, f'Sorry, Record Delete Error')
-
-    return redirect('genes')
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
+    return render(request, 'health_configuration/genetics/phenotype.html'
+                  , {'phenotypes': phenotypes
+                      , 'type': type})
 
 
 def addPhenotype(request):
@@ -367,12 +323,13 @@ def addPhenotype(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_disease_genes.objects.latest('id')
+                latest = gnuhealth_gene_variant_phenotype.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                genes = gnuhealth_disease_genes.objects.all()
+                phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect('genes')
+                return render(request, 'health_configuration/genetics/phenotype.html'
+                              , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
             except:
                 pass
         else:
@@ -380,7 +337,7 @@ def addPhenotype(request):
             return HttpResponse("Invalid Form.")
     else:
         form = phenotypeForm()
-        latest = gnuhealth_disease_genes.objects.latest('id')
+        latest = gnuhealth_gene_variant_phenotype.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
@@ -388,11 +345,58 @@ def addPhenotype(request):
         form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         form.fields['id'].widget.attrs['readonly'] = True
         form.fields['create_date'].widget.attrs['readonly'] = True
-        form.fields['write_date'].widget.attrs['readonly'] = False
+        form.fields['write_date'].widget.attrs['readonly'] = True
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'form': form})
+
+
+def editPhenotype(request, id):
+    type = "edit"
+    editForm = gnuhealth_gene_variant_phenotype.objects.get(id=id)
+    return render(request, 'health_configuration/genetics/phenotype.html', {'form': editForm, 'type': type})
+
+
+def updatePhenotype(request, id):
+    type = "grid"
+    eth = gnuhealth_gene_variant_phenotype.objects.get(id=id)
+    name = request.POST['name']
+    variant = request.POST['variant']
+    phenotype = request.POST['phenotype']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_gene_variant_phenotype(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, variant=variant, phenotype=phenotype)
+    eth.save()
+    msg = "3"
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return render(request, 'health_configuration/genetics/phenotype.html'
+                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
+
+
+def deletePhenotype(request, id):
+    phenotype = gnuhealth_gene_variant_phenotype.objects.get(id=id)
+    phenotype.delete()
+    type = "grid"
+    msg = "2"
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/genetics/phenotype.html'
+                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
 
 def proteins(request):
     type = "grid"
@@ -448,15 +452,18 @@ def updateProtein(request, id):
     type = "grid"
     eth = gnuhealth_protein_disease.objects.get(id=id)
     name = request.POST['name']
-    notes = request.POST['notes']
-    code = request.POST['code']
+    diesease_name = request.POST['diesease_name']
+    acronym = request.POST['acronym']
+    description = request.POST['description']
+    dominance = request.POST['dominance']
+    mim_reference = request.POST['mim_reference']
     eth_id = eth.id
     create_date = eth.create_date
     write_date = eth.write_date
     create_uid = eth.create_uid
     write_uid = eth.write_uid
     eth = gnuhealth_protein_disease(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
+                              , write_uid=write_uid, name=name, disease_name=disease_name, acronym=acronym, description=description, dominance=dominance, mim_reference=mim_reference)
     eth.save()
     msg = "3"
     proteins = gnuhealth_protein_disease.objects.all()
@@ -483,6 +490,31 @@ def deleteProtein(request, id):
 
     return render(request, 'health_configuration/genetics/proteins.html'
                   , {'type': type, 'msg': msg, 'proteins': proteins})
+def searchVarient(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    varients = gnuhealth_gene_variant.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(varients) == 0:
+        varients = gnuhealth_gene_variant.objects.filter(id=search_text)
+
+    return render_to_response('health_configuration/js/ajax-search.html', {'varients': varients})
+
+def searchPhenotype(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(phenotypes) == 0:
+        phenotypes = gnuhealth_gene_variant_phenotype.objects.filter(id=search_text)
+
+    return render_to_response('health_configuration/js/ajax-search.html', {'phenotypes': phenotypes})
 
 
 def varients(request):
