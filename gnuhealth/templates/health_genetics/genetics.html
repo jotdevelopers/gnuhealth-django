@@ -115,12 +115,31 @@
                                     <input type="text" class="form-control" name="patient">
                                 </div>
                             </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Gene</label>
-                            <input type="text" class="form-control" name="gene">
-                        </div>
-                    </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Search Gene</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.disease_gene.id }}" id="gene-search"
+                                               onkeyup="geneSearch()" type="text">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
+                                                Gene
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
+                                </div>
+                            </div>
+    
                     <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Search Varient</label>

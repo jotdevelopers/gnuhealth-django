@@ -1,14 +1,5 @@
 from django.db import models
     
-class gnuhealth_gene_variant_phenotype(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.IntegerField()
-    phenotype = models.IntegerField()
-    variant = models.CharField(max_length=100)
-
-class Meta:
-    db_table ='gnuhealth_gene_variant_phenotype'
-    
 class gnuhealth_patient_genetic_risk(models.Model):
     id = models.IntegerField(primary_key=True)
     create_date = models.DateField()

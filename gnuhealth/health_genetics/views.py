@@ -129,6 +129,32 @@ def searchVarient(request, search_text):
 
     return render_to_response('health_configuration/js/ajax-search.html', {'varients': varients})
 
+def searchPhenotype(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    phenotypes = gnuhealth_gene_variant_phenotype.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(phenotypes) == 0:
+        phenotypes = gnuhealth_gene_variant_phenotype.objects.filter(id=search_text)
+
+    return render_to_response('health_configuration/js/ajax-search.html', {'phenotypes': phenotypes})
+
+def searchGene(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    genes = gnuhealth_disease_gene.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(genes) == 0:
+        genes = gnuhealth_disease_gene.objects.filter(id=search_text)
+
+    return render_to_response('health_configuration/js/ajax-search.html', {'genes': genes})
+
 def addgenetics(request):
     if request.method == "POST":  
         form = HealthGeneticsForm(request.POST)  
