@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+{% extends "layouts/base.html" %}
+{% block content %}
+
 <html class="ocks-org do-not-copy">
 <meta charset="utf-8">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
 <title>Procedures</title>
+
 <style>
 
-@import url(style.css?aea6f0a);
+@import url(c1);
+
+
 
 #chart {
   margin-left: -40px;
@@ -52,11 +57,15 @@ text {
   <a href="../" rel="author">Mike Bostock</a>
 </header> -->
 
-<h2>Procedures & Success Rate Over the Years</h2>
 
-<p id="chart"></p>
 
-<aside>Mouseover the year to move forward and backwards through time.</aside>
+<h2 style="margin-left: 40px;">Procedures & Success Rate Over the Years</h2>
+
+<div style="width: 120px;margin-left: 50px; margin-top: 10px;">
+  <p id="chart"></p>  
+</div>
+
+<aside style="margin-left: 40px;">Mouseover the year to move forward and backwards through time.</aside>
 
 <!-- <p class="attribution">Source: <a href="https://github.com/RandomEtc/mind-gapper-js">Tom Carden</a>, <a href="http://gapminder.org">Gapminder</a>.
 
@@ -71,7 +80,8 @@ text {
   <a href="../" rel="author">Mike Bostock</a>
 </footer> -->
 
-<script src="d3.v3.min.js" charset="utf-8"></script></script>
+<script src="d1" charset="utf-8"></script>
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 <script>
 
 // Various accessors that specify the four dimensions of data to visualize.
@@ -140,7 +150,7 @@ var label = svg.append("text")
     .text(1800);
 
 // Load the data.
-d3.json("nations.json", function(nations) {
+d3.json("n1", function(nations) {
 
   // A bisector since many nation's data is sparsely-defined.
   var bisect = d3.bisector(function(d) { return d[0]; });
@@ -259,4 +269,6 @@ d3.json("nations.json", function(nations) {
 });
 
 </script>
+
+{% endblock content %}
 

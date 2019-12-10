@@ -119,3 +119,9 @@ class pediatricGrowthChartForm(forms.ModelForm):
     class Meta:
         model = gnuhealth_pediatrics_growth_charts_who
         fields = "__all__"
+
+
+class mainImagingTestForm(forms.ModelForm):
+    class Meta:
+        model = gnuhealth_imaging_test
+        fields = ['id','active','code','name','product','test_type','create_date', 'write_date']
