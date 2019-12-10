@@ -38,9 +38,4 @@ urlpatterns = [
     path('editMedicament/<id>/', views.editMedicament, name='editMedicament'),
     path('updateMedicament/<id>/', views.updateMedicament, name='updateMedicament'),
     path('deleteMedicament/<id>/', views.deleteMedicament, name='deleteMedicament'),
-
-    path('medicament_main/', views.medicament_main, name = "medicament_main"),
-    path('medication_frequencies/', views.medication_frequencies, name = "medication_frequencies"),
-	
-	# Medicaments urls end
 ]

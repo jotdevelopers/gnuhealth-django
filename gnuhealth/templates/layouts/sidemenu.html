@@ -53,8 +53,8 @@
                 <a href=""><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
                     <li><a href="{% url 'coming_soon' %}">Request New Order</a></li>
-                    <li><a href="/health-lab/">Lab Test Requests</a></li>
-                    <li><a href="lab-test-results.html"></i>Lab Test Results</a></li>
+                    <li><a href="{% url 'coming_soon' %}">Lab Test Requests</a></li>
+                    <li><a href="{% url 'coming_soon' %}"></i>Lab Test Results</a></li>
 
                 </ul>
             </li>
@@ -184,10 +184,10 @@
                 <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="{% url 'disease_genes' %}">Disease Genes</a></li>
-                    <li><a href="{% url 'natural_variants' %}">Natural Variants</a></li>
-                    <li><a href="{% url 'variants_phenotype' %}">Variant Phenotype</a></li>
-                    <li><a href="{% url 'protein_related_diseases' %}">Protein Related Diseases</a></li>
+                    <li><a href="{% url 'genes' %}">Disease Genes</a></li>
+                    <li><a href="{% url 'varients' %}">Natural Variants</a></li>
+                    <li><a href="{% url 'phenotypes' %}">Variant Phenotype</a></li>
+                    <li><a href="{% url 'proteins' %}">Protein Related Diseases</a></li>
 
                 </ul>
             </li>
@@ -203,8 +203,8 @@
             <li class="submenu">
                 <a href="#"><i class="fas fa-bong"></i> <span>Laboratory </span> <span class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="{% url 'lab_test_units' %}">Lab Test Units</a></li>
-                    <li><a href="{% url 'lab_test_types' %}">Lab Test Types</a></li>
+                    <li><a href="{% url 'labTestUnits' %}">Lab Test Units</a></li>
+                    <li><a href="{% url 'labTestType' %}">Lab Test Types</a></li>
                 </ul>
             </li>
             <li class="submenu">
@@ -237,6 +237,16 @@
                 <ul style="display: none;">
                     <li><a href="{% url 'mainProcedures' %}">Procedures</a></li>
 
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality Disability </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'bodyFunctions' %}">Body Functions</a></li>
+                    <li><a href="{% url 'bodyStructures' %}">Body Structures</a></li>
+                    <li><a href="{% url 'activityParticipation' %}">Activities and Participtions</a></li>
+                    <li><a href="{% url 'environmentalFactor' %}">Environmental Factors</a></li>
                 </ul>
             </li>
             <li class="submenu">

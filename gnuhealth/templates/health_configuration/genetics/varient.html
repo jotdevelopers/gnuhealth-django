@@ -12,9 +12,8 @@
         <div class="btn-group btn-group-sm" style="margin-right: 8px">
             <select class="select">
                 <option>Export As</option>
-                <option>Pdf</option>
+                <option>PDF</option>
                 <option>CSV</option>
-                <option>Print</option>
 
             </select>
             <button onclick="window.location.href = '/health-configuration/addVarient';" class="btn btn-primary"><i
@@ -49,7 +48,7 @@
                             <th>Gene and protein</th>
                             <th>Protein Varient</th>
                             <th>Change</th>
-                            <th>Action</th>
+                            <th class="text-right">Action</th>
 
                         </tr>
                         </thead>
@@ -57,13 +56,18 @@
 
                         {% for varient in varients %}
                         <tr>
-                             <td>{{varient.name}}</td>
+                            <td>{{varient.name}}</td>
                             <td>{{varient.variant}}</td>
                             <td>{{varient.aa_change}}</td>
                     
-                            <td class="text-right"><a href="/health-configuration/editVarient/{{varient.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteVarient/{{varient.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
-
+                            <td class="text-right">
+                                <a href="/health-configuration/editVarient/{{varient.id}}">
+                                    <i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i>
+                                </a>
+                                <a href="/health-configuration/deleteVarient/{{varient.id}}">
+                                    <i class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i>
+                                </a>
+                            </td>
                         </tr>
                         {% endfor %}
 
@@ -81,24 +85,26 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Varient</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'varients' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="color: #003366;">
         <div class="col-md-12">
             <div class="card-box">
-
-                <div class="row">
-                      <div class="col-md-12">
+                <div class="row" style="margin-top: 10px;">
+                      <div class="col-md-6">
                         <div class="form-group">
                             <label>Record ID</label>
                             <input type="number" name="id" class="form-control" placeholder="{{ form.id }}
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Gene and Protein</label>
                             <input type="text"  name="name" class="form-control">
@@ -106,13 +112,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Protein Varient</label>
                             <input type="text"  name="variant" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Change</label>
                             <input type="text"  name="aa_change" class="form-control">
@@ -146,10 +152,12 @@
                     </div>
                 </div>
 
+                <br/>
+                <button type="submit" class="btn btn-primary"> Add Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
@@ -162,30 +170,32 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Varient</h4>
+        <div class="col-md-10">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Varient</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'varients' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
             <div class="card-box">
-
-                <div class="row">
-                    <div class="col-md-12">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Gene and Protein</label>
                             <input type="text" value="{{ form.name }}" name="name" class="form-control">
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Protein Varient</label>
                             <input type="text" value="{{ form.variant }}" name="variant" class="form-control">
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Change</label>
@@ -218,12 +228,14 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+
+                <br/>
+                <button type="submit" class="btn btn-primary"> Update Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
 
 
             </div>
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
