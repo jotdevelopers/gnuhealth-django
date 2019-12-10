@@ -123,7 +123,7 @@ def addOperationalArea(request):
                 form.save()
                 opareas = gnuhealth_operational_area.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_health-operational-area/operational_areas.html'
+                return render(request, 'health_operational_area/operational_areas.html'
                               , {'type': type, 'msg': msg, 'opareas': opareas})
             except:
                 pass

@@ -116,7 +116,7 @@ class gnuhealth_disease_genes(models.Model):
       write_date = models.DateTimeField()
       write_uid = models.IntegerField()
       class Meta:
-             db_table = 'gnuhealth_disease_gene'
+             db_table = 'gnuhealth_disease_genes'
              
 class gnuhealth_gene_variant(models.Model):
       id = models.IntegerField(primary_key=True)

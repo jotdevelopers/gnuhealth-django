@@ -14,9 +14,8 @@ from django.views.decorators.csrf import csrf_exempt
 from health_party.models import *
 from health_operational_area.models import *
 
-
 # Create your views here.
-def index(request):
+def index(request): 
     return HttpResponse("Hello, world.")
 
 def families(request):
@@ -310,23 +309,60 @@ def addDu(request):
         msg = "1"
         latest = gnuhealth_du.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
-       # if request.POST["telephone"] == "on":
-        #    form.fields["telephone"] = 1
-        #if request.POST["television"] == "on":
-        #    form.fields["television"] = 1
-        #if request.POST["electricity"] == "on":
-        #    form.fields["electricity"] = 1
-        #if request.POST["gas"] == "on":
-        #    form.fields["gas"] = 1
-        #if request.POST["internet"] == "on":
-         #   form.fields["internet"] = 1
-        #if request.POST["sewers"] == "on":
-         #   form.fields["sewers"] = 1
-        #if request.POST["water"] == "on":
-         #   form.fields["water"] = 1
-        #if request.POST["trash"] == "on":
-         #   form.fields["trash"] = 1
-        form.save()
+        id = request.POST['id']
+        address_city = request.POST['address_city']
+        address_country = request.POST['address_country']
+        address_city = request.POST['address_city']
+        address_district = request.POST['address_district']
+        address_municipality = request.POST['address_municipality']
+        address_street = request.POST['address_street']
+        address_street_bis = request.POST['address_street_bis']
+        address_street_number = request.POST['address_street_number']
+        address_subdivision = request.POST['address_subdivision']
+        address_zip = request.POST['address_zip']
+        altitude = request.POST['altitude']
+        bathrooms = request.POST['bathrooms']
+        bedrooms = request.POST['bedrooms']
+        create_date = request.POST['create_date']
+        create_uid = request.POST['create_uid']
+        desc = request.POST['desc']
+        dwelling = request.POST['dwelling']
+        electricity = True
+        gas = True
+        housing = request.POST['housing']
+        internet = True
+        latitude = request.POST['latitude']
+        longitude = request.POST['longitude']
+        latitude = request.POST['latitude']
+        materials = request.POST['materials']
+        name = request.POST['name']
+        operational_sector = request.POST['operational_sector']
+        #picture = request.POST['picture']
+        roof_type = request.POST['roof_type']
+        sewers = True
+        telephone = True
+        television = True
+        total_surface = request.POST['total_surface']
+        trash = True
+        urladdr = request.POST['urladdr']
+        water = True
+        write_date = request.POST['write_date']
+        write_uid = request.POST['write_uid']
+
+        du = gnuhealth_du(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, water=water, urladdr=urladdr,trash=trash,
+                              total_surface=total_surface, telephone=telephone,television=television,
+                              sewers=sewers, roof_type=roof_type, picture='', operational_sector=operational_sector,
+                              name=name , materials=materials, longitude=longitude, latitude=latitude,
+                              internet=internet, housing=housing, gas=gas, electricity=electricity, dwelling=dwelling,
+                              desc=desc,bedrooms=bedrooms, bathrooms=bathrooms, altitude=altitude,
+                              address_city = address_city,address_country = address_country,
+        address_district = address_district,address_municipality = address_municipality,address_street = address_street,
+        address_street_bis = address_street_bis,
+        address_street_number = address_street_number,
+        address_subdivision = address_subdivision,
+        address_zip = address_zip)
+        du.save()
         dus = gnuhealth_du.objects.all()
         messages.success(request, f'Success, Record Saved Successfully')
         return render(request, 'health_demographics/dus.html'
@@ -361,17 +397,61 @@ def editDu(request, id):
 
 def updateDu(request, id):
     type = "grid"
-    eth = gnuhealth_du.objects.get(id=id)
+    du = gnuhealth_du.objects.get(id=id)
+    id = request.POST['id']
+    address_city = request.POST['address_city']
+    address_country = request.POST['address_country']
+    address_city = request.POST['address_city']
+    address_district = request.POST['address_district']
+    address_municipality = request.POST['address_municipality']
+    address_street = request.POST['address_street']
+    address_street_bis = request.POST['address_street_bis']
+    address_street_number = request.POST['address_street_number']
+    address_subdivision = request.POST['address_subdivision']
+    address_zip = request.POST['address_zip']
+    altitude = request.POST['altitude']
+    bathrooms = request.POST['bathrooms']
+    bedrooms = request.POST['bedrooms']
+    create_date = request.POST['create_date']
+    create_uid = request.POST['create_uid']
+    desc = request.POST['desc']
+    dwelling = request.POST['dwelling']
+    electricity = True
+    gas = True
+    housing = request.POST['housing']
+    internet = True
+    latitude = request.POST['latitude']
+    longitude = request.POST['longitude']
+    latitude = request.POST['latitude']
+    materials = request.POST['materials']
     name = request.POST['name']
-    info = request.POST['info']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    eth = gnuhealth_du(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, info=info)
-    eth.save()
+    operational_sector = request.POST['operational_sector']
+    #picture = request.POST['picture']
+    roof_type = request.POST['roof_type']
+    sewers = True
+    telephone = True
+    television = True
+    total_surface = request.POST['total_surface']
+    trash = True
+    urladdr = request.POST['urladdr']
+    water = True
+    write_date = request.POST['write_date']
+    write_uid = request.POST['write_uid']
+
+    du = gnuhealth_du(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, water=water, urladdr=urladdr,trash=trash,
+                              total_surface=total_surface, telephone=telephone,television=television,
+                              sewers=sewers, roof_type=roof_type, picture='', operational_sector=operational_sector,
+                              name=name , materials=materials, longitude=longitude, latitude=latitude,
+                              internet=internet, housing=housing, gas=gas, electricity=electricity, dwelling=dwelling,
+                              desc=desc,bedrooms=bedrooms, bathrooms=bathrooms, altitude=altitude,
+                              address_city = address_city,address_country = address_country,
+        address_district = address_district,address_municipality = address_municipality,address_street = address_street,
+        address_street_bis = address_street_bis,
+        address_street_number = address_street_number,
+        address_subdivision = address_subdivision,
+        address_zip = address_zip)
+    du.save()
     msg = "3"
     dus = gnuhealth_du.objects.all()
 
