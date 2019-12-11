@@ -212,23 +212,48 @@ def birthCertificates(request):
 def addBirthCertificate(request):
     if request.method == "POST":
         form = birthCertificateForm(request.POST)
-        if form.is_valid():
-            try:
-                type = "grid"
-                msg = "1"
+        #if form.is_valid():
+         #   try:
+        type = "grid"
+        msg = "1"
                 #latest = gnuhealth_birth_certificate.objects.latest('id')
                 #form.fields["id"].initial = latest.id + 1
-                form.fields["id"].initial =  1
-                form.save()
-                dobs = gnuhealth_birth_certificate.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_demographics/birth_certificates.html'
-                              , {'type': type, 'msg': msg, 'orders': orders})
-            except:
-                pass
-        else:                
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+        form.fields["id"].initial =  1
+        id = request.POST['id']
+        write_date = request.POST['write_date']
+        write_uid = request.POST['write_uid']
+        create_date = request.POST['create_date']
+        create_uid = request.POST['create_uid']
+        name = request.POST['name']
+        father = None
+        mother = None
+        dob = request.POST['dob']
+        code = request.POST['code']
+        country = request.POST['country']
+        country_subdivision = request.POST['country_subdivision']
+        institution = None
+        signed_by = None
+        document_digest = request.POST['document_digest']
+        certification_date = request.POST['certification_date']
+        state = request.POST['state']
+        observations = request.POST['observations']
+
+
+        bcir = gnuhealth_birth_certificate(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,name=name,father=father,mother=mother,dob=dob,code=code,country=country,
+        country_subdivision=country_subdivision,institution=institution,signed_by=signed_by,
+        document_digest=document_digest,certification_date=certification_date,state=state,
+        observations=observations)
+        bcir.save()
+        dobs = gnuhealth_birth_certificate.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health_demographics/birth_certificates.html'
+                              , {'type': type, 'msg': msg, 'dobs': dobs})
+           # except:
+            #    pass
+       # else:                
+        #    messages.error(request, f'Sorry, Record Save Error')
+         #   return HttpResponse("Invalid Form.")
     else:
         form = birthCertificateForm()
         #latest = gnuhealth_birth_certificate.objects.latest('id')

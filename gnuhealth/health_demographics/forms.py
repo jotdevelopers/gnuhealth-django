@@ -2,9 +2,9 @@ from django import forms
 from health_demographics.models import *
 from django.forms import ModelMultipleChoiceField
 from health_configuration.models import *
-from health_party.models import country_country, country_subdivision
+from health_party.models import *
 from health_demographics.models import *
-from health_operational_area.models import gnuhealth_operational_sector
+from health_operational_area.models import *
 from django_select2.forms import Select2MultipleWidget
 
 class familyForm(forms.ModelForm):
@@ -19,12 +19,12 @@ class familyMemberForm(forms.ModelForm):
 
 class birthCertificateForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_family_member
+        model = gnuhealth_birth_certificate
         fields = "__all__"
 
 class deathCertificateForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_family_member
+        model = gnuhealth_death_certificate
         fields = "__all__"
         
 class duForm(forms.ModelForm):

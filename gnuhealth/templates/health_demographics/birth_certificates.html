@@ -100,7 +100,9 @@
                         {% for dob in dobs %}
                         <tr>
                             <td>{{dob.name}}</td>
-                            <td>{{dob.info}}</td>
+                            <td>{{dob.code}}</td>
+                            <td>{{dob.dob}}</td>
+
                             <td class="text-right"><a href="/health-demographics/editBirthCertificate/{{dob.id}}"><i class="far fa-edit"> </i></a><a href="/health-demographics/deleteBirthCertificate/{{dob.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
@@ -141,14 +143,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Person</label>
-                                <input class="form-control" type="text" value="" >
+                                <input class="form-control" type="text" name="name" >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Date of Birth</label>
                                 <div class="cal-icon">
-                                    <input type="text" class="form-control datetimepicker">
+                                    <input type="text" name="dob" class="form-control ">
                                 </div>
                             </div>
                         </div>
@@ -156,7 +158,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Father</label>
-                                <input type = "text" list = "malepatients" name="malepatients" class="form-control"> 
+                                <input type = "text" list = "malepatients" name="father" class="form-control"> 
                                     <datalist id="malepatients">
                                          <option value = "hamza">
                                         <option value = "Ali">
@@ -167,7 +169,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Mother</label>
-                                <input type = "text" list = "inpatients" name="inpatients" class="form-control"> 
+                                <input type = "text" list = "inpatients" name="mother" class="form-control"> 
                                     <datalist id="inpatients">
                                         <option value = "Alia">
                                         <option value = "Amber">
@@ -181,7 +183,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Institution</label>
-                                <input type = "text" list = "institutions" name="institutions" class="form-control"> 
+                                <input type = "text" list = "institutions" name="institution" class="form-control"> 
                                     <datalist id="institutions">
                                       <option value = "Riphah Hospital">
                                         <option value = "Shifa International">
@@ -193,7 +195,7 @@
                          <div class="col-md-6">
                             <div class="form-group">
                                 <label>Code</label>
-                                <input class="form-control" type="text" value="" >
+                                <input class="form-control" type="text" name="code" >
                             </div>
                         </div>
                     
@@ -201,7 +203,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                                 <label>Country</label>
-                                <input type = "text" list = "countries" name="countries" class="form-control"> 
+                                <input type = "text" list = "countries" name="country" class="form-control"> 
                                     <datalist id="countries">
                                         <option value = "Pakistan">
                                         <option value = "China">
@@ -215,7 +217,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                                 <label>Sub Division</label>
-                                <input type = "text" list = "subdivisions" name="subdivisions" class="form-control"> 
+                                <input type = "text" list = "subdivisions" name="country_subdivision" class="form-control"> 
                                     <datalist id="subdivisions">
                                         <option value = "Sub div 1">
                                         <option value = "Sub Div 2">
@@ -226,15 +228,16 @@
                             </div>
                         </div>
     
-
-                    <div class="form-group">
-                        <label>Observations<span class="text-danger">*</span></label>
-                        <textarea rows="15" cols="5" class="form-control"></textarea>
-                    </div>
-
-<div class="row">
-                         <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
+                                <label>Observations</label>
+                                <input class="form-control" type="text" name="observations" >
+                            </div>
+                        </div>
+
+
+                         <div class="col-md-6">
+                          
                                 <label>State</label>
                                 <input type = "text" list = "state" name="state" class="form-control"> 
                                     <datalist id="state">
@@ -243,55 +246,70 @@
                                         
                                                                
                                     </datalist>
-                            </div>
+                            
                         </div>
                          <div class="col-md-6">
-                            <div class="form-group">
+                          
                                 <label>Certifier</label>
-                                <input class="form-control" type="text" value="" >
-                            </div>
+                                <input class="form-control" type="text" name="certifier" >
+                            
                         </div>
-                    </div>
 
-<div class="row">
+                        
+                   
+
+
                         <div class="col-md-6">
-                             <div class="form-group">
+                             
                                 <label>Sign</label>
-                                <input class="form-control" type="text" value="" >
-                            </div>
+                                <input class="form-control" type="text" name="signed_by" >
+                            
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                           
                                 <label>Signed on</label>
                                 <div class="cal-icon">
-                                      <input type="text" class="form-control datetimepicker">
+                                      <input name="certification_date" type="text" class="form-control ">
                                 </div>
+                            
+                        </div>
+                        <br />
+                   
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Digital Signature</label>
+                            <input class="form-control" type="text" name="digital_signature" >
+                        </div>
+                    </div>
+                            
+                                <input hidden class="form-control hidden" type="text" name="document_digest" >                        
+                                <input hidden class="form-control hidden" type="text" name="serializer" >
+                        
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Original String</label>
+                            <div >
+                                <input type="text" class="form-control datetimepicker">
                             </div>
                         </div>
                     </div>
-                     <b> <label>Document Validation</label>   </b>
-<div class="form-group">
-                        <label>Digital Signature</label>
-                        <textarea rows="4" cols="2" class="form-control"></textarea>
-                    </div>
-                     <div class="form-group">
-                        <label>Original String</label>
-                        <textarea rows="4" cols="2" class="form-control"></textarea>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Info</label>
-                            <input type="text" class="form-control" name="info">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                 
+                   
+                
+                
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Info</label>
+                                    <input type="text" class="form-control" name="info">
+                                </div>
+                            </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" class="form-control" name="name">
                         </div>
                     </div>
+                    
                    
                     <div class="col-md-6">
                         <div class="form-group">
