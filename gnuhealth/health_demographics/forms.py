@@ -16,6 +16,16 @@ class familyMemberForm(forms.ModelForm):
     class Meta:  
         model = gnuhealth_family_member
         fields = "__all__"
+
+class birthCertificateForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_family_member
+        fields = "__all__"
+
+class deathCertificateForm(forms.ModelForm):
+    class Meta:  
+        model = gnuhealth_family_member
+        fields = "__all__"
         
 class duForm(forms.ModelForm):
     class Meta:  

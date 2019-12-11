@@ -79,7 +79,12 @@
                         <div class="row">
                             <div class="col-md-12 p-md-3"><span style="font-weight: bold;">Demographics</span></div>
                          
-                       
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Record ID</label>
+                                    <input type="number" class="form-control" name="id" placeholder="{{ form.id }}
+                                </div>
+                            </div>
                             <div class="col-md-6">
 
                                         <div class="form-group row">
@@ -484,28 +489,32 @@
                                     
                                 </div>
                                 
-                                 <div class="col-md-6">
+                                
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly name="create_date" value="{{ form.create_date }}"  class="form-control">
+                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                            <input type="text" class="form-control" name="write_uid" placeholder={{ form.write_uid }}
+
                         </div>
                     </div>
                             </div>

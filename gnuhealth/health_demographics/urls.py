@@ -17,6 +17,12 @@ urlpatterns = [
     path('updateDu/<id>/', views.updateDu, name='updateDu'),
     path('deleteDu/<id>/', views.deleteDu, name='deleteDu'),
 
+    path('birthCertificates', views.birthCertificates, name='birthCertificates'),
+    path('addBirthCertificate', views.addBirthCertificate, name='addBirthCertificate'),
+    path('editBirthCertificate/<id>/', views.editBirthCertificate, name='editBirthCertificate'),
+    path('updateBirthCertificate/<id>/', views.updateBirthCertificate, name='updateBirthCertificate'),
+    path('deleteBirthCertificate/<id>/', views.deleteBirthCertificate, name='deleteBirthCertificate'),
+
     path('familyMembers', views.familyMembers, name='familyMembers'),
     path('addFamilyMember', views.addFamilyMember, name='addFamilyMember'),
     path('editFamilyMember/<id>/', views.editFamilyMember, name='editFamilyMember'),

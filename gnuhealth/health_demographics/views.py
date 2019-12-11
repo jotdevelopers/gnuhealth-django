@@ -204,22 +204,23 @@ def deleteFamilyMember(request, id):
 
 def birthCertificates(request):
     type = "grid"
-    bods = gnuhealth_inpatient_meal_order.objects.all()
+    dobs = gnuhealth_birth_certificate.objects.all()
     return render(request, 'health_demographics/birth_certificates.html'
-                  , {'orders': orders
+                  , {'dobs': dobs
                   , 'type': type})
 
 def addBirthCertificate(request):
     if request.method == "POST":
-        form = mealOrderForm(request.POST)
+        form = birthCertificateForm(request.POST)
         if form.is_valid():
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_inpatient_meal_order.objects.latest('id')
-                form.fields["id"].initial = latest.id + 1
+                #latest = gnuhealth_birth_certificate.objects.latest('id')
+                #form.fields["id"].initial = latest.id + 1
+                form.fields["id"].initial =  1
                 form.save()
-                orders = gnuhealth_inpatient_meal_order.objects.all()
+                dobs = gnuhealth_birth_certificate.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
                 return render(request, 'health_demographics/birth_certificates.html'
                               , {'type': type, 'msg': msg, 'orders': orders})
@@ -229,9 +230,10 @@ def addBirthCertificate(request):
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
-        form = mealOrderForm()
-        latest = gnuhealth_inpatient_meal_order.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        form = birthCertificateForm()
+        #latest = gnuhealth_birth_certificate.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -247,13 +249,13 @@ def addBirthCertificate(request):
 
 def editBirthCertificate(request, id):
     type = "edit"
-    editForm = gnuhealth_inpatient_meal_order.objects.get(id=id)
+    editForm = gnuhealth_birth_certificate.objects.get(id=id)
     return render(request, 'health_demographics/birth_certificates.html', {'form': editForm, 'type': type})
 
 
 def updateBirthCertificate(request, id):
     type = "grid"
-    order = gnuhealth_inpatient_meal_order.objects.get(id=id)
+    order = gnuhealth_birth_certificate.objects.get(id=id)
     name = request.POST['name']
     notes = request.POST['notes']
     code = request.POST['code']
@@ -262,11 +264,11 @@ def updateBirthCertificate(request, id):
     write_date = order.write_date
     create_uid = order.create_uid
     write_uid = order.write_uid
-    order = gnuhealth_inpatient_meal_order(id=order_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+    order = gnuhealth_birth_certificate(id=order_id, create_date=create_date, write_date=write_date, create_uid=create_uid
                               , write_uid=write_uid, name=name, notes=notes, code=code)
     order.save()
     msg = "3"
-    orders = gnuhealth_inpatient_meal_order.objects.all()
+    dobs = gnuhealth_birth_certificate.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -275,22 +277,22 @@ def updateBirthCertificate(request, id):
 
 
     return render(request, 'health_demographics/birth_certificates.html'
-                       , {'type': type, 'msg': msg, 'orders': orders})
+                       , {'type': type, 'msg': msg, 'dobs': dobs})
 
 
 def deleteBirthCertificate(request, id):
-    order = gnuhealth_inpatient_meal_order.objects.get(id=id)
+    order = gnuhealth_birth_certificate.objects.get(id=id)
     ordery.delete()
     type = "grid"
     msg = "2"
-    orders = gnuhealth_inpatient_meal_order.objects.all()
+    dobs = gnuhealth_birth_certificate.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_demographics/birth_certificates.html'
-                              , {'type': type, 'msg': msg, 'orders': orders})
+                              , {'type': type, 'msg': msg, 'dobs': dobs})
 
 
 def du(request):
@@ -308,7 +310,7 @@ def addDu(request):
         type = "grid"
         msg = "1"
         latest = gnuhealth_du.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial = 2
         id = request.POST['id']
         address_city = request.POST['address_city']
         address_country = request.POST['address_country']
@@ -375,7 +377,7 @@ def addDu(request):
     else:
         form = duForm()
         latest = gnuhealth_family.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial = 2
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
