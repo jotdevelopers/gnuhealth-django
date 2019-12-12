@@ -37,47 +37,6 @@
             {% endfor %}
         {% endif %}
     </div>
-
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
     
     <div class="col-sm-12">
         <div class="card-box">
@@ -134,12 +93,12 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Appointment
     </div>
-
+</div>
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -150,80 +109,128 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    
+                </div>
+                  <div class="row">
+                <div class="col-md-6">
                         <div class="form-group">
                             <label>Institution</label>
-                            <input type="text" class="form-control" name="code">
+                            <input type="text" class="form-control" name="institution">
                         </div>
                     </div>
+              
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Patient</label>
+                                    <input type="text" class="form-control" name="patient">
+        
+                                </div>
+                            </div>
                 </div>
+                <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date and Time</label>
+                                    <input type="text" class="form-control" name="appointment_date">
+                                </div>
+                            </div>
+                      
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>End Date and Time</label>
+                                            <input type="text" class="form-control" name="appointment_date_end">
+                
+                                        </div>
+                                    </div>
+                        </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Inpatient Registration</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="inpatient_registration_code">
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Patient</label>
-                            <input type="text" class="form-control" name="patient">
-
-                        </div>
-                    </div>
+                   
                      <div class="col-md-6">
                         <div class="form-group">
                             <label>Visit</label>
-                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.visit }}
+                            <select class="select" name="visit_type">
+                                    <option>Select</option>
+                                    <option>New Health Condition</option>
+                                    <option>Followup</option>
+                                    <option>Well Child Visit</option>
+                                    <option>Well Woman Visit</option>
+                                    <option>Well Man Visit</option>
+                                   
+                                </select>
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Urgency</label>
-                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.urgency }}
+                            <select class="select" name="urgency">
+                                    <option>Select</option>
+                                    <option>Normal</option>
+                                    <option>Urgent</option>
+                                    <option>Medical Emergency</option>
 
+                                </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Type</label>
-                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.appointment_type }}
+                            <select class="select" name="appointment_type">
+                                    <option>Select</option>
+                                    <option>Inpatient</option>
+                                    <option>Outpatient</option>
+                                   
+                                </select>
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>State</label>
-                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.state }}
-
+                            <select class="select" name="state">
+                                    <option>Select</option>
+                                    <option>Free</option>
+                                    <option>Confirmed</option>
+                                    <option>Checked in</option>
+                                    <option>Done</option>
+                                    <option>Cancelled By Patient</option>
+                                    <option>Cancelled By Health Center</option>
+                                    <option>No Show</option>
+                                   
+                                </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>CalDav Event</label>
-                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.event }}
+                            <input type="text" class="form-control" name="event" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Health Prof</label>
-                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.healthprof }}
+                            <input type="text" class="form-control" name="healthprof" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Speciality</label>
-                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.speciality }}
+                            <input type="text" class="form-control" name="speciality" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Information</label>
-                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.comments }}
+                            <input type="text" class="form-control" name="comments" >
 
                         </div>
                     </div>
@@ -269,7 +276,7 @@
 
 {% if type == "edit" %}
 <form method="POST" class="post-form" action="/health-configuration/updateAppointment/{{form.id}}/">
-    {% csrf_token %}
+    {% csrf_token %} 
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
