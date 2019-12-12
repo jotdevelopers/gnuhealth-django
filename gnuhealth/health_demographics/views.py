@@ -216,9 +216,9 @@ def addBirthCertificate(request):
          #   try:
         type = "grid"
         msg = "1"
-                #latest = gnuhealth_birth_certificate.objects.latest('id')
-                #form.fields["id"].initial = latest.id + 1
-        form.fields["id"].initial =  1
+        latest = gnuhealth_birth_certificate.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        #form.fields["id"].initial =  1
         id = request.POST['id']
         write_date = request.POST['write_date']
         write_uid = request.POST['write_uid']
@@ -256,9 +256,9 @@ def addBirthCertificate(request):
          #   return HttpResponse("Invalid Form.")
     else:
         form = birthCertificateForm()
-        #latest = gnuhealth_birth_certificate.objects.latest('id')
-        #form.fields["id"].initial = latest.id + 1
-        form.fields["id"].initial =  1
+        latest = gnuhealth_birth_certificate.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        #form.fields["id"].initial =  1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -318,6 +318,123 @@ def deleteBirthCertificate(request, id):
 
     return render(request, 'health_demographics/birth_certificates.html'
                               , {'type': type, 'msg': msg, 'dobs': dobs})
+
+def deathCertificates(request):
+    type = "grid"
+    dods = gnuhealth_death_certificate.objects.all()
+    return render(request, 'health_demographics/death_certificates.html'
+                  , {'dods': dods
+                  , 'type': type})
+
+def addDeathCertificate(request):
+    if request.method == "POST":
+        form = deathCertificateForm(request.POST)
+        #if form.is_valid():
+         #   try:
+        type = "grid"
+        msg = "1"
+        #latest = gnuhealth_death_certificate.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
+        id = request.POST['id']
+        write_date = request.POST['write_date']
+        write_uid = request.POST['write_uid']
+        create_date = request.POST['create_date']
+        create_uid = request.POST['create_uid']
+        name = request.POST['name']
+        father = None
+        mother = None
+        dob = request.POST['dob']
+        code = request.POST['code']
+        country = request.POST['country']
+        country_subdivision = request.POST['country_subdivision']
+        institution = None
+        signed_by = None
+        document_digest = request.POST['document_digest']
+        certification_date = request.POST['certification_date']
+        state = request.POST['state']
+        observations = request.POST['observations']
+
+
+        bcir = gnuhealth_birth_certificate(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,name=name,father=father,mother=mother,dob=dob,code=code,country=country,
+        country_subdivision=country_subdivision,institution=institution,signed_by=signed_by,
+        document_digest=document_digest,certification_date=certification_date,state=state,
+        observations=observations)
+        bcir.save()
+        dods = gnuhealth_death_certificate.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health_demographics/death_certificates.html'
+                              , {'type': type, 'msg': msg, 'dods': dods})
+           # except:
+            #    pass
+       # else:                
+        #    messages.error(request, f'Sorry, Record Save Error')
+         #   return HttpResponse("Invalid Form.")
+    else:
+        form = deathCertificateForm()
+        #latest = gnuhealth_death_certificate.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_demographics/death_certificates.html', {'type': type, 'form': form})
+
+
+def editDeathCertificate(request, id):
+    type = "edit"
+    editForm = gnuhealth_death_certificate.objects.get(id=id)
+    return render(request, 'health_demographics/death_certificates.html', {'form': editForm, 'type': type})
+
+
+def updateDeathCertificate(request, id):
+    type = "grid"
+    dod = gnuhealth_death_certificate.objects.get(id=id)
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    order_id = order.id
+    create_date = order.create_date
+    write_date = order.write_date
+    create_uid = order.create_uid
+    write_uid = order.write_uid
+    dod = gnuhealth_death_certificate(id=order_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    dod.save()
+    msg = "3"
+    dods = gnuhealth_death_certificate.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+
+    return render(request, 'health_demographics/death_certificates.html'
+                       , {'type': type, 'msg': msg, 'dods': dods})
+
+
+def deleteDeathCertificate(request, id):
+    dod = gnuhealth_death_certificate.objects.get(id=id)
+    dod.delete()
+    type = "grid"
+    msg = "2"
+    dods = gnuhealth_death_certificate.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_demographics/death_certificates.html'
+                              , {'type': type, 'msg': msg, 'dods': dods})
 
 
 def du(request):

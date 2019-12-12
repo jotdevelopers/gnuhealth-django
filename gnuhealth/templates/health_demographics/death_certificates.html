@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Birth Certificates</h4>
+        <h4 class="page-title">Death Certificates</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-demographics/addBirthCertificate';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-demographics/addDeathCertificate';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -38,47 +38,6 @@
         {% endif %}
     </div>
 
-<!--     {% if msg == "1" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Saved</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "2" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Deleted</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "3" %}
-    <div class="col-sm-12">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Record <a href="#" class="alert-link">Updated</a> Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %}
-    {% if msg == "4" %}
-    <div class="col-sm-12">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> An <a href="#" class="alert-link">Error</a> Occurred.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    </div>
-    {% endif %} -->
-    
     <div class="col-sm-12">
         <div class="card-box">
             <div class="card-block">
@@ -89,8 +48,9 @@
                         <tr>
                           
                             <th>Person</th>
-                            <th>Code</th>
-                            <th>Date Of Birth</th>
+                            <th>Date of Death</th>
+                            <th>Cause</th>
+
                             <th>Action</th>
 
                         </tr>
@@ -100,7 +60,8 @@
                         {% for dod in dods %}
                         <tr>
                             <td>{{dod.name}}</td>
-                            <td>{{dod.info}}</td>
+                            <td>{{dod.dod}}</td>
+                            <td>{{dod.type_of_death}}</td>
                             <td class="text-right"><a href="/health-demographics/editDeathCertificate/{{dod.id}}"><i class="far fa-edit"> </i></a><a href="/health-demographics/deleteDeathCertificate/{{dod.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 

@@ -64,7 +64,7 @@ class gnuhealth_death_certificate(models.Model):
     observations = models.CharField(max_length=100)
     operational_sector = models.IntegerField()
     place_details = models.CharField(max_length=100)
-    place_of_birth = models.CharField(max_length=100)
+    place_of_death = models.CharField(max_length=100)
     state= models.CharField(max_length=100)
     type_of_death = models.CharField(max_length=100)
     certification_date = models.DateTimeField()

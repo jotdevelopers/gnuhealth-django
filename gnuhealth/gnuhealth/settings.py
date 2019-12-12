@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'health_party',
     'health_immunization_schedule',
     'health_medicaments',
+    'health_institutions'
 ]
 
 MIDDLEWARE = [

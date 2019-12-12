@@ -23,6 +23,12 @@ urlpatterns = [
     path('updateBirthCertificate/<id>/', views.updateBirthCertificate, name='updateBirthCertificate'),
     path('deleteBirthCertificate/<id>/', views.deleteBirthCertificate, name='deleteBirthCertificate'),
 
+    path('deathCertificates', views.deathCertificates, name='deathCertificates'),
+    path('addDeathCertificate', views.addDeathCertificate, name='addDeathCertificate'),
+    path('editDeathCertificate/<id>/', views.editDeathCertificate, name='editDeathCertificate'),
+    path('updateDeathCertificate/<id>/', views.updateDeathCertificate, name='updateDeathCertificate'),
+    path('deleteDeathCertificate/<id>/', views.deleteDeathCertificate, name='deleteDeathCertificate'),
+
     path('familyMembers', views.familyMembers, name='familyMembers'),
     path('addFamilyMember', views.addFamilyMember, name='addFamilyMember'),
     path('editFamilyMember/<id>/', views.editFamilyMember, name='editFamilyMember'),

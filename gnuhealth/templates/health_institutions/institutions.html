@@ -1,442 +1,345 @@
-<!DOCTYPE html>
-<html>
+{% extends "layouts/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% if type == "grid" %}
 
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Institutions</h4>
+    </div>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-    <title>Life - A Patient Care Project</title>
-    <link href="../../../../fonts.googleapis.com/css278f.css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
 
-<body>
-    <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index-2.html" class="logo">
-                    <img src="assets/img/Logo_Hospital.png" alt="" style="width: auto; height: 40px;">
-                </a>
-            </div>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-            <ul class="nav user-menu float-right">
-                
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
-							<span class="status online"></span></span>
-                        <span>Admin</span>
-                    </a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="profile.html">My Profile</a>
-						<a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-						<a class="dropdown-item" href="settings.html">Settings</a>
-						<a class="dropdown-item" href="login.html">Logout</a>
-					</div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+            </select>
+            <button onclick="window.location.href = '/health-institutions/addInstitution';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                                <th>Instituion</th>
+                                <th>Type</th>
+                                <th>Trauma Center</th>
+                                <th>Heliport</th>
+                                <th>Operating Room</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for institution in institutions %}
+                        <tr>
+                            <td>{{institution.code}}</td>
+                            <td>{{institution.institution_type}}</td>
+                            <td>{{institution.trauma_center}}</td>
+                            <td>{{institution.heliport}}</td>
+                            <td>{{institution.operating_room}}</td>
+
+                            <td class="text-right"><a href="/health-institutions/editInstitution/{{institution.id}}"><i class="far fa-edit"> </i></a><a href="/health-institutions/deleteInstitution/{{institution.id}}"> <i
+                                    class="far fa-trash-alt	"> </i> </a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-                <div id="sidebar-menu" class="sidebar-menu">
-                    <ul>
-                        <br/>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-book-medical"></i> <span> Books of Life </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="pages-of-life.html">Pages of Life</a></li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a href="patients.html"><i class="fa fa-wheelchair"></i> Patients</a>
-                        </li>
-                         <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="person-genetic-information.html">Person Genetic Information</a></li>
-                            </ul>
-                        </li>
-                         <li class="submenu">
-                            <a href="appointments.html"><i class="far fa-calendar-alt"></i> <span> Appointments </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="appointments.html">Appointments Calendar</a></li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a href="coming-soon.html"><i class="far fa-calendar-plus"></i> New Work Schedule</a>
-                        </li>
-                         <li>
-                            <a href="prescriptions.html"><i class="fas fa-prescription"></i> Prescriptions</a>
-                        </li>
-                         <li>
-                            <a href="health-professionals.html"><i class="fas fa-user-md"></i> Health Professionals</a>
-                        </li>
-                         <li class="active" style="text-decoration: none;">
-                            <a href="institutions.html"><i class="far fa-hospital"></i> Institutions</a>
-                        </li>
-                         <li class="submenu">
-                            <a href=""><i class="fas fa-vials"></i> <span> Laboratory </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Request New Order</a></li>
-                                <li><a href="lab-test-requests.html">Lab Test Requests</a></li>
-                                <li><a href="lab-test-results.html"></i>Lab Test Results</a></li>
-                                
-                            </ul>
-                        </li>
-                         <li class="submenu">
-                            <a href="#"><i class="fas fa-x-ray"></i> <span> Imaging </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">DX Imaging New</a></li>
-                                <li><a href="dx-imaging-requests.html">DX Imaging Requests</a></li>
-                                <li><a href="dx-imaging-results.html">DX Imaging Results</a></li>
-                                
-                            </ul>
-                        </li>
-                         <li class="submenu">
-                            <a href="#"><i class="fas fa-notes-medical"></i> <span> Demographics </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="domiciliary-units.html">Domiciliay Units</a></li>
-                                <li><a href="birth-certificates.html">Birth Certificates</a></li>
-                                <li><a href="death-certificates.html">Death Certificates</a></li>
-                                <li><a href="families.html">Families</a></li>
-                                <li><a href="family-members.html">Family Members</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Operational Areas </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="operational-areas.html">Operational Areas</a></li>
-                                <li><a href="operational-sectors.html">Operational Sectors</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="surgeries.html"><i class="fa fa-plus-square"></i> Surgeries</a>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-procedures"></i> <span> Hospitalization </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="meal-orders.html">Meal Orders</a></li>
-                                <li class="submenu">
-                            <a href=""> <span> Intensive Care </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="patient-icu-info.html">Patient ICU Info</a></li>
-                                <li><a href="gcs.html">GCS</a></li>
-                                <li><a href="apache.html">APACHE II Score</a></li>
-                                <li><a href="ecgs.html">ECGs</a></li>
-                            
-                            </ul>
-                        </li>                           
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-file-medical-alt"></i> <span> Pediatrics </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="pediatrics-newborn-main.html">New Born</a></li>
-                                <li><a href="pediatrics-psc-main.html">PSC</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-file-medical"></i> <span> Obstetrics </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="obstetric-main.html">Obstetric History</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="medical-archives-main.html"><i class="fas fa-file-alt"></i> Archives</a>
-                        </li>
-                        <li>
-                            <a href="support-center-main.html"><i class="fas fa-wrench"></i> Support Center</a>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-user-nurse"></i> <span> Nursing </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="nursing-roundings-main.html">Roundings</a></li>
-                                <li><a href="nursing-ambulatory-care-main.html">Ambulatory Care</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="ambulances-in-support-requests-main.html">Ambulance In Support Requests</a></li>
-                            
-                            </ul>
-                        </li>
-                        
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-plus"></i> <span> Health Services </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="health-services-main.html">Health Services</a></li>
-                                <li><a href="health-services-created-invoices.html">Created Invoices</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-microscope"></i> <span> Reporting </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="reporting-specialties-by-institution.html">Specialties By Institution</a></li>
-                                <li><a href="reporting-operational-sectors-by-institution.html">Operational Sectors By Institution</a></li>
-                                <li><a href="reporting-summary-report.html">Summary Report</a></li>
-                                <li><a href="reporting-patient-evaluations.html">Patient Evaluations</a></li>
-                                <li><a href="reporting-socio-economic-assessments.html">Socioeconomic Assessments</a></li>
-                                <li><a href="reporting-injury-surveillance-system.html">Injury Surveillance System Registration</a></li>
-                                <li><a href="reporting-ophthalmology-evaluation-main.html">Ophthalmologic Evaluations</a></li>
-                                <li><a href="reporting-top-diseases.html">Top Diseases</a></li>
-                                <li><a href="reporting-amputations.html">Amputations</a></li>
-                                <li><a href="reporting-protheses.html">Protheses</a></li>
-                                <li><a href="reporting-specialties-by-health-professionals.html">Specialties By Health Professionals</a></li>
-                                <li><a href="coming-soon.html">Appointments With Dx Report</a></li>
-                                <li><a href="reporting-evaluations-report.html">Evaluations Report</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="genetics-disease-genes.html">Disease Genes</a></li>
-                                <li><a href="genetics-natural-variants.html">Natural Variants</a></li>
-                                <li><a href="genetics-variants-phenotype.html">Variant Phenotype</a></li>
-                                <li><a href="genetics-protein-related-diseases.html">Protein Related Diseases</a></li>
+    </div>
+</div>
+{% endif %}
 
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span>DX Imaging </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="dx-imaging-test-types.html">DX Imaging Test Types</a></li>
-                                <li><a href="coming-soon.html">DX Imaging Tests</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-bong"></i> <span>Laboratory </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="laboratory-lab-test-units.html">Lab Test Units</a></li>
-                                <li><a href="laboratory-lab-test-types.html">Lab Test Types</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-capsules"></i> <span>Medicaments</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="medicaments-medicament.html">Medicaments</a></li>
-                                <li><a href="medicaments-medication-frequencies.html">Medication Frequencies</a></li>
-                                <li><a href="coming-soon.html">Drug Dose Units</a></li>
-                                <li><a href="coming-soon.html">Drug Administration Routes</a></li>
-                                <li><a href="coming-soon.html">Drug Forms</a></li>
-                                <li><a href="coming-soon.html">Medicament Categories</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-syringe"></i> <span>Immunization Schedule</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Schedule Vaccines</a></li>
-                                <li><a href="immunization-vaccine-doses.html">Vaccine Doses</a></li>
-                            
-                            </ul>
-                        </li>
+{% if type == "add" %}
+<form method="POST" class="post-form" action="/health-institutions/addInstitution">
+    {% csrf_token %}
 
-                         <li class="submenu">
-                            <a href="#"><i class="fas fa-procedures"></i> <span>Procedures </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="procedures-main.html">Procedures</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Federation </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="federation-queue-manager-main.html">Federation Queue Manager</a></li>
-                            
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-cog"></i> <span> Configuration </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                
-                                <li class="submenu">
-                            <a href="#"> <span> Conditions </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Conditions</a></li>
-                                <li><a href="coming-soon.html">Pathology Groups</a></li>
-                                <li><a href="coming-soon.html">Categories</a></li>
-                            
-                            </ul>
-                        </li>                           
-                            </ul>
-                        </li>
-                        
-                        
-                         <li class="submenu">
-                            <a href="#"><i class="fa fa-wheelchair"></i> <span>Functionality Disability </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Body Functions</a></li>
-                                <li><a href="coming-soon.html">Body Structures</a></li>
-                                <li><a href="coming-soon.html">Activities and Participtions</a></li>
-                                <li><a href="coming-soon.html">Environmental Factors</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="institutions.html"><i class="fas fa-hospital"></i> <span>Institutions </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Buildings</a></li>
-                                <li><a href="coming-soon.html">Units</a></li>
-                                <li><a href="coming-soon.html">Wards</a></li>
-                                <li><a href="coming-soon.html">Beds</a></li>
-                                <li><a href="coming-soon.html">Operating Rooms</a></li>
-                            
-                            </ul>
-                        </li>
-                        
-                        <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span>Federation</span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="federation-queue-manager-main.html">Federation Country Configuration</a></li>
-                                <li><a href="coming-soon.html">Node Configuration</a></li>
-                                <li><a href="coming-soon.html">Federation Objects</a></li>
-                            
-                            </ul>
-                        </li>
-                          <li class="submenu">
-                            <a href="#"><i class="fa fa-clinic-medical"></i> <span> Misc </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li class="submenu">
-                            <a href="#"> <span> Insurances </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Insurances</a></li>
-                                <li><a href="coming-soon.html">Insurances Company</a></li>
-                                
-                            
-                            </ul>
-                        </li>   
-                        <li><a href="coming-soon.html">Plan Product Policies</a></li>              
-                        <li><a href="coming-soon.html">Occupations</a></li>                
-                        <li><a href="coming-soon.html">Ethnicities</a></li>                
-                        <li><a href="coming-soon.html">Medical Specialties</a></li>    
-                        <li><a href="coming-soon.html">Health Commands</a></li>    
-                        <li><a href="coming-soon.html">Recreational Drugs</a></li> 
-                        <li><a href="coming-soon.html">Inpatient Meals</a></li>    
-                        <li><a href="misc-pediatrics-growth-charts-who.html">Pediatrics Growth Charts WHO</a></li>
-                          <li class="submenu">
-                            <a href="#"> <span> Diets </span> <span class="menu-arrow"></span></a>
-                            <ul style="display: none;">
-                                <li><a href="coming-soon.html">Belief diets</a></li>
-                                <li><a href="coming-soon.html">Therapeutic diets</a></li>
-                                
-                            
-                            </ul>
-                        </li>   
-                            </ul>
-                        </li>
-            
-                     
-                      
-                    </ul>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Institution</h4>
         </div>
-        <div class="page-wrapper">
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Institutions</h4>
-                    </div>
-                    <div class="col-sm-8 col-9 text-right m-b-20">
-<div class="btn-group btn-group-sm" style="margin-right: 8px">
-                             <button class="btn btn-white"> <i class="far fa-file-excel"> </i> CSV</button>
-                            <button class="btn btn-white"><i class="far fa-file-pdf	"> </i> PDF </button>
-                            <button class="btn btn-white"><i class="fas fa-print	"></i> Print</button>
-                              <a href="add-institution.html" class="btn btn btn-primary  float-right"><i class="fa fa-plus"></i> Add New</a>
-                        </div>                    </div>
-                </div>
-                
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-box">
+
                 <div class="row">
                     <div class="col-md-12">
-						<div class="table-responsive">
-                            <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
-                               <thead>
-									<tr>
-									<th>Instituion</th>
-										<th>Type</th>
-										<th>Trauma Center</th>
-										<th>Heliport</th>
-										<th>Operating Room</th>
-									
-										
-										<th class="text-right">Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										
-										
-										
-										<td class="text-right">
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-									
-									
-								</tbody>
-                            </table>
-						</div>
+                        <div class="form-group">
+                            <label>Record ID</label>
+                            <input type="number" class="form-control" name="id" placeholder="{{ form.id }}
+                        </div>
+                    </div>
+
+                                                           
+                    <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Institution</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.name.id }}" id="institution-search"
+                                           onkeyup="institutionSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="institutionSearch()">Search
+                                            Institution
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="name" id="search-results-institution"></select>
+                            </div>
+                        </div>
+    
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Code</label>
+                                        <input class="form-control" type="text" name="code">
+                                    </div>
+                                    </div>
+                                    
+                                  
+                                    
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Specialty</label>
+                                        <input class="form-control" type="text" name="main_speciality">
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Beds</label>
+                                        <input class="form-control" type="number" name="beds">
+                                    </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Institution Image</label>
+                                        <div>
+                                            <input class="form-control" type="file">
+                                            <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
+                                        </div>
+                                       
+                                     
+                                            <div class="col-md-3 col-sm-3 col-4 col-lg-3 col-xl-2">
+                                                <div class="product-thumbnail">
+                                                    <img src="assets/img/placeholder-thumb.jpg" class="img-thumbnail img-fluid" name="picture" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                  
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select class="select" name="institution_type">
+                                                    <option>Doctor Office</option>
+                                                    <option>Primary Care Center</option>
+                                                    <option>Clinic</option>
+                                                    <option>General Hospital</option>
+                                                    <option>Specialized Hospital</option>
+                                                    <option>Nursing Home</option>
+                                                    <option>Hospice</option>
+                                                    <option>Rural Facility</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Public Level</label>
+                                                <select class="select" name="public_level">
+                                                    <option>Private</option>
+                                                    <option>Public</option>
+                                                    <option>Private - State</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">                                     <div class="form-group">
+                                        <label class="display-block"></label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="teaching" id="teaching" value="option1" checked>
+                                            <label class="form-check-label" for="teaching">
+                                            Teaching
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="heliport" id="heliport" value="option2">
+                                            <label class="form-check-label" for="heliport">
+                                            Heliport
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="trauma_center" id="trauma_center" value="option3">
+                                            <label class="form-check-label" for="trauma_center">
+                                            Trauma Center
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="operating_room" id="operating_room" value="option4">
+                                            <label class="form-check-label" for="operating_room">
+                                            Operating Room
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Extra Info</label>
+                                            <input type="text" class="form-control" name="extra_info" >
+                
+                                        </div>
+                                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" class="form-control" name="create_uid" placeholder={{ form.create_uid }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" class="form-control" name="write_uid" placeholder={{ form.write_uid }}
+
+                        </div>
                     </div>
                 </div>
+
+
             </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-primary">Clear</button>
         </div>
-		
     </div>
-    <div class="sidebar-overlay" data-reff=""></div>
-    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="assets/js/popper.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="assets/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
-    <script type="text/javascript" src="assets/js/select2.min.js"></script>
-    <script type="text/javascript" src="assets/js/moment.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-	<script>
-		$(document).ready(function() {
-    $('#example').DataTable();
-} );
-	</script>
-</body>
+</form>
+{% endif %}
 
 
-</html>
+
+{% if type == "edit" %}
+<form method="POST" class="post-form" action="/health-institutions/updateInstitution/{{form.id}}/">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Institution</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create Date</label>
+                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write Date</label>
+                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Create UID</label>
+                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Write UID</label>
+                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+{% endblock %}
