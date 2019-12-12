@@ -269,29 +269,6 @@ class stock_location(models.Model):
     class Meta:
         db_table = 'stock_location'
 
-class gnuhealth_birth_certificate(models.Model):
-    id = models.IntegerField(primary_key=True)
-    code = models.CharField(max_length=100)
-    country = models.IntegerField()
-    country_subdivision = models.IntegerField()
-    create_date = models.DateTimeField()
-    create_uid = models.IntegerField()
-    dob = models.DateTimeField()
-    father = models.IntegerField()
-    mother = models.IntegerField()
-    name = models.IntegerField()
-    observations = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    write_date = models.DateTimeField()
-    write_uid = models.IntegerField()
-    certification_date = models.DateTimeField()
-    institution = models.IntegerField()
-    signed_by = models.IntegerField()
-    digital_signature = models.CharField(max_length=100)
-    document_digest = models.CharField(max_length=100)
-    serializer = models.CharField(max_length=100)
-    class Meta:
-        db_table = 'gnuhealth_birth_certificate'
 
 class country_subdivision(models.Model):
     id = models.IntegerField(primary_key=True)    
