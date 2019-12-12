@@ -10,7 +10,7 @@ def immunizationSchedule(request):
     type = "grid"
     immunizationSchedules = gnuhealth_immunization_schedule.objects.order_by('id')[:200]
     return render(request, 'health_immunization/immunizationSchedule.html',
-                  {'immunizationSchedules': immunizationSchedules, 'type': type})
+                  {'immunizationSchedules': immunizationSchedules, 'type': type, 'selected': 'Schedule Vaccines'})
 
 
 def addImmunizationSchedule(request):
@@ -28,13 +28,13 @@ def addImmunizationSchedule(request):
         form = immunizationScheduleForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule.objects.count()+1
         type = "add"
-        return render(request, 'health_immunization/immunizationSchedule.html', {'type': type, 'form': form})
+        return render(request, 'health_immunization/immunizationSchedule.html', {'type': type, 'form': form, 'selected': 'Schedule Vaccines'})
 
 
 def editImmunizationSchedule(request, id):
     type = "edit"
     editForm = gnuhealth_immunization_schedule.objects.get(id=id)
-    return render(request, 'health_immunization/immunizationSchedule.html', {'form': editForm, 'type': type})
+    return render(request, 'health_immunization/immunizationSchedule.html', {'form': editForm, 'type': type, 'selected': 'Schedule Vaccines'})
 
 
 def updateImmunizationSchedule(request, id):
@@ -79,7 +79,7 @@ def vaccineDoses(request):
     type = "grid"
     vaccineDoses = gnuhealth_immunization_schedule_dose.objects.all()
     return render(request, 'health_immunization/vaccineDoses.html',
-                  {'vaccineDoses': vaccineDoses, 'type': type})
+                  {'vaccineDoses': vaccineDoses, 'type': type, 'selected': 'Vaccine Doses'})
 
 
 def addVaccineDoses(request):
@@ -97,13 +97,13 @@ def addVaccineDoses(request):
         form = vaccineDosesForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule_dose.objects.count()+1
         type = "add"
-        return render(request, 'health_immunization/vaccineDoses.html', {'type': type, 'form': form})
+        return render(request, 'health_immunization/vaccineDoses.html', {'type': type, 'form': form, 'selected': 'Vaccine Doses'})
 
 
 def editVaccineDoses(request, id):
     type = "edit"
     editForm = gnuhealth_immunization_schedule_dose.objects.get(id=id)
-    return render(request, 'health_immunization/vaccineDoses.html', {'form': editForm, 'type': type})
+    return render(request, 'health_immunization/vaccineDoses.html', {'form': editForm, 'type': type, 'selected': 'Vaccine Doses'})
 
 
 def updateVaccineDoses(request, id):
@@ -151,7 +151,7 @@ def scheduleLine(request):
     type = "grid"
     scheduleLine = gnuhealth_immunization_schedule_line.objects.all()
     return render(request, 'health_immunization/scheduleLine.html',
-                  {'scheduleLine': scheduleLine, 'type': type})
+                  {'scheduleLine': scheduleLine, 'type': type, 'selected': 'Schedule Line'})
 
 
 def addScheduleLine(request):
@@ -169,13 +169,13 @@ def addScheduleLine(request):
         form = scheduleLineForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule_line.objects.count()+1
         type = "add"
-        return render(request, 'health_immunization/scheduleLine.html', {'type': type, 'form': form})
+        return render(request, 'health_immunization/scheduleLine.html', {'type': type, 'form': form, 'selected': 'Schedule Line'})
 
 
 def editScheduleLine(request, id):
     type = "edit"
     editForm = gnuhealth_immunization_schedule_line.objects.get(id=id)
-    return render(request, 'health_immunization/scheduleLine.html', {'form': editForm, 'type': type})
+    return render(request, 'health_immunization/scheduleLine.html', {'form': editForm, 'type': type, 'selected': 'Schedule Line'})
 
 
 def updateScheduleLine(request, id):

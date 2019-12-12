@@ -10,7 +10,7 @@ def mainProcedures(request):
     procedures = gnuhealth_procedure.objects.order_by('id')[:200]
     return render(request, 'health_procedures/procedures.html'
                   , {'procedures': procedures
-                      , 'type': type})
+                      , 'type': type, 'selected': 'Procedures'})
 
 
 def mainAddProcedure(request):
@@ -44,7 +44,7 @@ def mainAddProcedure(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_procedures/procedures.html', {'type': type, 'form': form})
+        return render(request, 'health_procedures/procedures.html', {'type': type, 'form': form, 'selected': 'Procedures'})
 
 
 def mainEditProcedure(request, id):

@@ -12,7 +12,7 @@ from health_configuration.forms import *
 def mainImagingTestTypes(request):
     type = "grid"
     test_types = gnuhealth_imaging_test_type.objects.all()
-    return render(request, 'health_dx_imaging/imaging_test_types.html', {'test_types': test_types, 'type': type})
+    return render(request, 'health_dx_imaging/imaging_test_types.html', {'test_types': test_types, 'type': type, 'selected': 'DX Imaging Test Types'})
 
 
 def mainAddImagingTestType(request):
@@ -46,13 +46,13 @@ def mainAddImagingTestType(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_dx_imaging/imaging_test_types.html', {'type': type, 'form': form})
+        return render(request, 'health_dx_imaging/imaging_test_types.html', {'type': type, 'form': form, 'selected': 'DX Imaging Test Types'})
 
 
 def mainEditImagingTestType(request, id):
     type = "edit"
     editForm = gnuhealth_imaging_test_type.objects.get(id=id)
-    return render(request, 'health_dx_imaging/imaging_test_types.html', {'form': editForm, 'type': type})
+    return render(request, 'health_dx_imaging/imaging_test_types.html', {'form': editForm, 'type': type, 'selected': 'DX Imaging Test Types'})
 
 
 def mainUpdateImagingTestType(request, id):
@@ -95,7 +95,7 @@ def mainImagingTest(request):
     type = "grid"
     mainImagingTest = gnuhealth_imaging_test.objects.all()
     return render(request, 'health_dx_imaging/imaging_tests.html',
-                  {'mainImagingTest': mainImagingTest, 'type': type})
+                  {'mainImagingTest': mainImagingTest, 'type': type, 'selected': 'DX Imaging Tests'})
 
 
 def mainAddImagingTest(request):
@@ -113,13 +113,13 @@ def mainAddImagingTest(request):
         form = mainImagingTestForm()
         form.fields["id"].initial = gnuhealth_imaging_test.objects.count()+1
         type = "add"
-        return render(request, 'health_dx_imaging/imaging_tests.html', {'type': type, 'form': form})
+        return render(request, 'health_dx_imaging/imaging_tests.html', {'type': type, 'form': form, 'selected': 'DX Imaging Tests'})
 
 
 def mainEditImagingTest(request, id):
     type = "edit"
     editForm = gnuhealth_imaging_test.objects.get(id=id)
-    return render(request, 'health_dx_imaging/imaging_tests.html', {'form': editForm, 'type': type})
+    return render(request, 'health_dx_imaging/imaging_tests.html', {'form': editForm, 'type': type, 'selected': 'DX Imaging Tests'})
 
 
 def mainUpdateImagingTest(request, id):

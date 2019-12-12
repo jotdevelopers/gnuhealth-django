@@ -30,7 +30,7 @@ def labTestUnits(request):
     type = "grid"
     labTestUnits = gnuhealth_lab_test_units.objects.all()
     return render(request, 'health_lab/labTestUnits.html',
-                  {'labTestUnits': labTestUnits, 'type': type})
+                  {'labTestUnits': labTestUnits, 'type': type, 'selected': 'Lab Test Units'})
 
 
 def addLabTestUnits(request):
@@ -48,13 +48,13 @@ def addLabTestUnits(request):
         form = labTestUnitsForm()
         form.fields["id"].initial = gnuhealth_lab_test_units.objects.count()+1
         type = "add"
-        return render(request, 'health_lab/labTestUnits.html', {'type': type, 'form': form})
+        return render(request, 'health_lab/labTestUnits.html', {'type': type, 'form': form, 'selected': 'Lab Test Units'})
 
 
 def editLabTestUnits(request, id):
     type = "edit"
     editForm = gnuhealth_lab_test_units.objects.get(id=id)
-    return render(request, 'health_lab/labTestUnits.html', {'form': editForm, 'type': type})
+    return render(request, 'health_lab/labTestUnits.html', {'form': editForm, 'type': type, 'selected': 'Lab Test Units'})
 
 
 def updateLabTestUnits(request, id):
@@ -96,7 +96,7 @@ def labTestType(request):
 	type = "grid"
 	labTestType = gnuhealth_lab_test_type.objects.all()
 	return render(request, 'health_lab/labTestType.html',
-	              {'labTestType': labTestType, 'type': type})
+	              {'labTestType': labTestType, 'type': type, 'selected': 'Lab Test Types'})
 
 
 def addLabTestType(request):
@@ -114,13 +114,13 @@ def addLabTestType(request):
         form = labTestTypeForm()
         form.fields["id"].initial = gnuhealth_lab_test_type.objects.count()+1
         type = "add"
-        return render(request, 'health_lab/labTestType.html', {'type': type, 'form': form})
+        return render(request, 'health_lab/labTestType.html', {'type': type, 'form': form, 'selected': 'Lab Test Types'})
 
 
 def editLabTestType(request, id):
     type = "edit"
     editForm = gnuhealth_lab_test_type.objects.get(id=id)
-    return render(request, 'health_lab/labTestType.html', {'form': editForm, 'type': type})
+    return render(request, 'health_lab/labTestType.html', {'form': editForm, 'type': type, 'selected': 'Lab Test Types'})
 
 
 def updateLabTestType(request, id):

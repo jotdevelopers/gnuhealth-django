@@ -21,7 +21,7 @@ def medicamentCategory(request):
     type = "grid"
     medicamentCategory = gnuhealth_medicament_category.objects.all()
     return render(request, 'health_medicaments/medicamentCategory.html',
-                  {'medicamentCategory': medicamentCategory, 'type': type})
+                  {'medicamentCategory': medicamentCategory, 'type': type, 'selected': 'Medicament Categories'})
 
 
 def addMedicamentCategory(request):
@@ -39,13 +39,13 @@ def addMedicamentCategory(request):
         form = medicamentCategoryForm()
         form.fields["id"].initial = gnuhealth_medicament_category.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/medicamentCategory.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/medicamentCategory.html', {'type': type, 'form': form, 'selected': 'Medicament Categories'})
 
 
 def editMedicamentCategory(request, id):
     type = "edit"
     editForm = gnuhealth_medicament_category.objects.get(id=id)
-    return render(request, 'health_medicaments/medicamentCategory.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/medicamentCategory.html', {'form': editForm, 'type': type, 'selected': 'Medicament Categories'})
 
 
 def updateMedicamentCategory(request, id):
@@ -86,7 +86,7 @@ def drugForm(request):
     type = "grid"
     drugForm = gnuhealth_drug_form.objects.all()
     return render(request, 'health_medicaments/drugForm.html',
-                  {'drugForm': drugForm, 'type': type})
+                  {'drugForm': drugForm, 'type': type, 'selected': 'Drug Forms'})
 
 
 def addDrugForm(request):
@@ -104,13 +104,13 @@ def addDrugForm(request):
         form = medicamentCategoryForm()
         form.fields["id"].initial = gnuhealth_drug_form.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/drugForm.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/drugForm.html', {'type': type, 'form': form, 'selected': 'Drug Forms'})
 
 
 def editDrugForm(request, id):
     type = "edit"
     editForm = gnuhealth_drug_form.objects.get(id=id)
-    return render(request, 'health_medicaments/drugForm.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/drugForm.html', {'form': editForm, 'type': type, 'selected': 'Drug Forms'})
 
 
 def updateDrugForm(request, id):
@@ -151,7 +151,7 @@ def drugRoute(request):
     type = "grid"
     drugRoute = gnuhealth_drug_route.objects.all()
     return render(request, 'health_medicaments/drugRoute.html',
-                  {'drugRoute': drugRoute, 'type': type})
+                  {'drugRoute': drugRoute, 'type': type, 'selected': 'Drug Administration Routes'})
 
 
 def addDrugRoute(request):
@@ -169,13 +169,13 @@ def addDrugRoute(request):
         form = drugRouteForm()
         form.fields["id"].initial = gnuhealth_drug_route.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/drugRoute.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/drugRoute.html', {'type': type, 'form': form, 'selected': 'Drug Administration Routes'})
 
 
 def editDrugRoute(request, id):
     type = "edit"
     editForm = gnuhealth_drug_route.objects.get(id=id)
-    return render(request, 'health_medicaments/drugRoute.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/drugRoute.html', {'form': editForm, 'type': type, 'selected': 'Drug Administration Routes'})
 
 
 def updateDrugRoute(request, id):
@@ -216,7 +216,7 @@ def doseUnit(request):
     type = "grid"
     doseUnit = gnuhealth_dose_unit.objects.all()
     return render(request, 'health_medicaments/doseUnit.html',
-                  {'doseUnit': doseUnit, 'type': type})
+                  {'doseUnit': doseUnit, 'type': type, 'selected': 'Drug Dose Units'})
 
 
 def addDoseUnit(request):
@@ -234,13 +234,13 @@ def addDoseUnit(request):
         form = doseUnitForm()
         form.fields["id"].initial = gnuhealth_dose_unit.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/doseUnit.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/doseUnit.html', {'type': type, 'form': form, 'selected': 'Drug Dose Units'})
 
 
 def editDoseUnit(request, id):
     type = "edit"
     editForm = gnuhealth_dose_unit.objects.get(id=id)
-    return render(request, 'health_medicaments/doseUnit.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/doseUnit.html', {'form': editForm, 'type': type, 'selected': 'Drug Dose Units'})
 
 
 def updateDoseUnit(request, id):
@@ -281,7 +281,7 @@ def medicationDosage(request):
     type = "grid"
     medicationDosage = gnuhealth_medication_dosage.objects.all()
     return render(request, 'health_medicaments/medicationDosage.html',
-                  {'medicationDosage': medicationDosage, 'type': type})
+                  {'medicationDosage': medicationDosage, 'type': type, 'selected': 'Medication Frequencies'})
 
 
 def addMedicationDosage(request):
@@ -299,13 +299,13 @@ def addMedicationDosage(request):
         form = medicationDosageForm()
         form.fields["id"].initial = gnuhealth_medication_dosage.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/medicationDosage.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/medicationDosage.html', {'type': type, 'form': form, 'selected': 'Medication Frequencies'})
 
 
 def editMedicationDosage(request, id):
     type = "edit"
     editForm = gnuhealth_medication_dosage.objects.get(id=id)
-    return render(request, 'health_medicaments/medicationDosage.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/medicationDosage.html', {'form': editForm, 'type': type, 'selected': 'Medication Frequencies'})
 
 
 def updateMedicationDosage(request, id):
@@ -347,7 +347,7 @@ def medicament(request):
     type = "grid"
     medicament = gnuhealth_medicament.objects.all()
     return render(request, 'health_medicaments/medicament.html',
-                  {'medicament': medicament, 'type': type})
+                  {'medicament': medicament, 'type': type, 'selected': 'Medicaments'})
 
 
 def addMedicament(request):
@@ -365,13 +365,13 @@ def addMedicament(request):
         form = medicamentForm()
         form.fields["id"].initial = gnuhealth_medicament.objects.count()+1
         type = "add"
-        return render(request, 'health_medicaments/medicament.html', {'type': type, 'form': form})
+        return render(request, 'health_medicaments/medicament.html', {'type': type, 'form': form, 'selected': 'Medicaments'})
 
 
 def editMedicament(request, id):
     type = "edit"
     editForm = gnuhealth_medicament.objects.get(id=id)
-    return render(request, 'health_medicaments/medicament.html', {'form': editForm, 'type': type})
+    return render(request, 'health_medicaments/medicament.html', {'form': editForm, 'type': type, 'selected': 'Medicaments'})
 
 
 def updateMedicament(request, id):

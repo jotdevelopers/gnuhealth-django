@@ -21,7 +21,7 @@ def index(request):
 # Create Conditions Views
 def condition(request):
     conditions = gnuhealth_pathology.objects.all()
-    return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions})
+    return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions, 'selected': 'Conditions'})
 
 
 def ethnicity(request):
@@ -225,13 +225,13 @@ def add_residence(request):
 def genes(request):
     type = "grid"
     genes = gnuhealth_disease_genes.objects.order_by('-id')[:200]
-    return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'genes': genes})
+    return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'genes': genes, 'selected': 'Disease Genes'})
 
 
 def editGenes(request, id):
     type = "edit"
     editForm = gnuhealth_disease_genes.objects.get(id=id)
-    return render(request, 'health_configuration/genetics/genes.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/genetics/genes.html', {'form': editForm, 'type': type, 'selected': 'Disease Genes'})
 
 
 def updateGenes(request, id):
@@ -306,14 +306,14 @@ def addGenes(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'form': form, 'selected': 'Disease Genes'})
 
 def phenotypes(request):
     type = "grid"
     phenotypes = gnuhealth_gene_variant_phenotype.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/phenotype.html'
                   , {'phenotypes': phenotypes
-                      , 'type': type})
+                      , 'type': type, 'selected': 'Variant Phenotype'})
 
 
 def addPhenotype(request):
@@ -329,7 +329,7 @@ def addPhenotype(request):
                 phenotypes = gnuhealth_gene_variant_phenotype.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
                 return render(request, 'health_configuration/genetics/phenotype.html'
-                              , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
+                              , {'type': type, 'msg': msg, 'phenotypes': phenotypes, 'selected': 'Variant Phenotype'})
             except:
                 pass
         else:
@@ -349,13 +349,13 @@ def addPhenotype(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/genetics/phenotype.html', {'type': type, 'form': form, 'selected': 'Variant Phenotype'})
 
 
 def editPhenotype(request, id):
     type = "edit"
     editForm = gnuhealth_gene_variant_phenotype.objects.get(id=id)
-    return render(request, 'health_configuration/genetics/phenotype.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/genetics/phenotype.html', {'form': editForm, 'type': type, 'selected': 'Variant Phenotype'})
 
 
 def updatePhenotype(request, id):
@@ -381,7 +381,7 @@ def updatePhenotype(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
     return render(request, 'health_configuration/genetics/phenotype.html'
-                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
+                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes, 'selected': 'Variant Phenotype'})
 
 
 def deletePhenotype(request, id):
@@ -396,14 +396,14 @@ def deletePhenotype(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/genetics/phenotype.html'
-                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes})
+                  , {'type': type, 'msg': msg, 'phenotypes': phenotypes, 'selected': 'Variant Phenotype'})
 
 def proteins(request):
     type = "grid"
     proteins = gnuhealth_protein_disease.objects.order_by('-id')[:200]
     return render(request, 'health_configuration/genetics/proteins.html'
                   , {'proteins': proteins
-                      , 'type': type})
+                      , 'type': type, 'selected': 'Protein Related Diseases'})
 
 
 def addProtein(request):
@@ -419,7 +419,7 @@ def addProtein(request):
                 proteins = gnuhealth_protein_disease.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
                 return render(request, 'health_configuration/genetics/proteins.html'
-                              , {'type': type, 'msg': msg, 'proteins': proteins})
+                              , {'type': type, 'msg': msg, 'proteins': proteins, 'selected': 'Protein Related Diseases'})
             except:
                 pass
         else:
@@ -439,13 +439,13 @@ def addProtein(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/genetics/proteins.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/genetics/proteins.html', {'type': type, 'form': form, 'selected': 'Protein Related Diseases'})
 
 
 def editProtein(request, id):
     type = "edit"
     editForm = gnuhealth_protein_disease.objects.get(id=id)
-    return render(request, 'health_configuration/genetics/proteins.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/genetics/proteins.html', {'form': editForm, 'type': type, 'selected': 'Protein Related Diseases'})
 
 
 def updateProtein(request, id):
@@ -474,7 +474,7 @@ def updateProtein(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
     return render(request, 'health_configuration/genetics/proteins.html'
-                  , {'type': type, 'msg': msg, 'proteins': proteins})
+                  , {'type': type, 'msg': msg, 'proteins': proteins, 'selected': 'Protein Related Diseases'})
 
 
 def deleteProtein(request, id):
@@ -489,7 +489,8 @@ def deleteProtein(request, id):
         messages.error(request, f'Sorry, Record Delete Error')
 
     return render(request, 'health_configuration/genetics/proteins.html'
-                  , {'type': type, 'msg': msg, 'proteins': proteins})
+                  , {'type': type, 'msg': msg, 'proteins': proteins, 'selected': 'Protein Related Diseases'})
+
 def searchVarient(request, search_text):
     if request.method == "POST":
         search_text = search_text
@@ -520,13 +521,13 @@ def searchPhenotype(request, search_text):
 def varients(request):
     type = "grid"
     varients = gnuhealth_gene_variant.objects.order_by('-id')[:200]
-    return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients})
+    return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'varients': varients, 'selected': 'Natural Variants'})
 
 
 def editVarient(request, id):
     type = "edit"
     editForm = gnuhealth_gene_variant.objects.get(id=id)
-    return render(request, 'health_configuration/genetics/varient.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/genetics/varient.html', {'form': editForm, 'type': type, 'selected': 'Natural Variants'})
 
 
 def updateVarient(request, id):
@@ -598,14 +599,14 @@ def addVarient(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/genetics/varient.html', {'type': type, 'form': form, 'selected': 'Natural Variants'})
 
 
 def pathologyGroups(request):
     type = "grid"
     tempPathologyGroups = gnuhealth_pathology_group.objects.all()
     return render(request, 'health_configuration/conditions/pathology_groups.html',
-                  {'type': type, 'tempPathologyGroups': tempPathologyGroups})
+                  {'type': type, 'tempPathologyGroups': tempPathologyGroups, 'selected': 'Pathology Groups'})
 
 
 def addPathologyGroups(request):
@@ -638,13 +639,13 @@ def addPathologyGroups(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/conditions/pathology_groups.html', {'type': type, 'form': form, 'selected': 'Pathology Groups'})
 
 
 def editPathologyGroups(request, id):
     type = "edit"
     editForm = gnuhealth_pathology_group.objects.get(id=id)
-    return render(request, 'health_configuration/conditions/pathology_groups.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/conditions/pathology_groups.html', {'form': editForm, 'type': type, 'selected': 'Pathology Groups'})
 
 
 def updatePathologyGroups(request, id):
@@ -685,7 +686,7 @@ def categories(request):
     type = "grid"
     tempCategories = gnuhealth_pathology_category.objects.all()
     return render(request, 'health_configuration/conditions/categories.html',
-                  {'type': type, 'tempCategories': tempCategories})
+                  {'type': type, 'tempCategories': tempCategories, 'selected': 'Categories'})
 
 
 def addCategories(request):
@@ -717,13 +718,13 @@ def addCategories(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/conditions/categories.html', {'type': type, 'form': form, 'selected': 'Categories'})
 
 
 def editCategories(request, id):
     type = "edit"
     editForm = gnuhealth_pathology_category.objects.get(id=id)
-    return render(request, 'health_configuration/conditions/categories.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/conditions/categories.html', {'form': editForm, 'type': type, 'selected': 'Categories'})
 
 
 def updateCategories(request, id):
@@ -761,7 +762,7 @@ def bodyFunctions(request):
     type = "grid"
     tempBodyFunctions = gnuhealth_body_function.objects.all()
     return render(request, 'health_configuration/functionality_disability/body_functions.html',
-                  {'type': type, 'tempBodyFunctions': tempBodyFunctions})
+                  {'type': type, 'tempBodyFunctions': tempBodyFunctions, 'selected': 'Body Functions'})
 
 
 def addBodyFunctions(request):
@@ -794,14 +795,14 @@ def addBodyFunctions(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/functionality_disability/body_functions.html',
-                      {'type': type, 'form': form})
+                      {'type': type, 'form': form, 'selected': 'Body Functions'})
 
 
 def editBodyFunctions(request, id):
     type = "edit"
     editForm = gnuhealth_body_function.objects.get(id=id)
     return render(request, 'health_configuration/functionality_disability/body_functions.html',
-                  {'form': editForm, 'type': type})
+                  {'form': editForm, 'type': type, 'selected': 'Body Functions'})
 
 
 def updateBodyFunctions(request, id):
@@ -840,7 +841,7 @@ def bodyStructures(request):
     type = "grid"
     tempBodyStructures = gnuhealth_body_structure.objects.all()
     return render(request, 'health_configuration/functionality_disability/body_structures.html',
-                  {'type': type, 'tempBodyStructures': tempBodyStructures})
+                  {'type': type, 'tempBodyStructures': tempBodyStructures, 'selected': 'Body Structures'})
 
 
 def addBodyStructures(request):
@@ -873,14 +874,14 @@ def addBodyStructures(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/functionality_disability/body_structures.html',
-                      {'type': type, 'form': form})
+                      {'type': type, 'form': form, 'selected': 'Body Structures'})
 
 
 def editBodyStructures(request, id):
     type = "edit"
     editForm = gnuhealth_body_structure.objects.get(id=id)
     return render(request, 'health_configuration/functionality_disability/body_structures.html',
-                  {'form': editForm, 'type': type})
+                  {'form': editForm, 'type': type, 'selected': 'Body Structures'})
 
 
 def updateBodyStructures(request, id):
@@ -919,7 +920,7 @@ def activityParticipation(request):
     type = "grid"
     tempActivityParticipation = gnuhealth_activity_and_participation.objects.all()
     return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
-                  {'type': type, 'tempActivityParticipation': tempActivityParticipation})
+                  {'type': type, 'tempActivityParticipation': tempActivityParticipation, 'selected': 'Activities and Participtions'})
 
 
 def addActivityParticipation(request):
@@ -952,14 +953,14 @@ def addActivityParticipation(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
-                      {'type': type, 'form': form})
+                      {'type': type, 'form': form, 'selected': 'Activities and Participtions'})
 
 
 def editActivityParticipation(request, id):
     type = "edit"
     editForm = gnuhealth_activity_and_participation.objects.get(id=id)
     return render(request, 'health_configuration/functionality_disability/activity_patricipation.html',
-                  {'form': editForm, 'type': type})
+                  {'form': editForm, 'type': type, 'selected': 'Activities and Participtions'})
 
 
 def updateActivityParticipation(request, id):
@@ -998,7 +999,7 @@ def environmentalFactor(request):
     type = "grid"
     tempEnvironmentalFactor = gnuhealth_environmental_factor.objects.all()
     return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
-                  {'type': type, 'tempEnvironmentalFactor': tempEnvironmentalFactor})
+                  {'type': type, 'tempEnvironmentalFactor': tempEnvironmentalFactor, 'selected': 'Environmental Factors'})
 
 
 def addEnvironmentalFactor(request):
@@ -1031,14 +1032,14 @@ def addEnvironmentalFactor(request):
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
         return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
-                      {'type': type, 'form': form})
+                      {'type': type, 'form': form, 'selected': 'Environmental Factors'})
 
 
 def editEnvironmentalFactor(request, id):
     type = "edit"
     editForm = gnuhealth_environmental_factor.objects.get(id=id)
     return render(request, 'health_configuration/functionality_disability/environmental_factor.html',
-                  {'form': editForm, 'type': type})
+                  {'form': editForm, 'type': type, 'selected': 'Environmental Factors'})
 
 
 def updateEnvironmentalFactor(request, id):
