@@ -1,14 +1,12 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from health_genetics.models import *
 from health_genetics.forms import *
 from datetime import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
-from health_genetics.models import *
+from health_configuration.models import *
 from health_party.models import *
 from health_demographics.forms import *
 from django.contrib import messages
@@ -44,13 +42,13 @@ def addGenetic(request):
         id = request.POST['id']
         create_date = request.POST['create_date']
         create_uid = request.POST['create_uid']
-        disease_gene = None
+        disease_gene = 2
         healthprof = None
         institution = None
         natural_variant = request.POST['natural_variant']
         notes = request.POST['notes']
         onset = request.POST['onset']
-        patient = request.POST['patient']
+        patient = None
         variant_phenotype = request.POST['variant_phenotype']
         write_date = request.POST['write_date']
         write_uid = request.POST['write_uid']

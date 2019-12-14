@@ -14,6 +14,5 @@ class gnuhealth_patient_genetic_risk(models.Model):
     variant_phenotype = models.IntegerField()
     write_date = models.DateField()
     write_uid = models.IntegerField()
-
-class Meta:
-    db_table ='gnuhealth_patient_genetic_risk'
+    class Meta:
+        db_table ='gnuhealth_patient_genetic_risk'

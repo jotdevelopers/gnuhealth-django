@@ -25,6 +25,7 @@ class gnuhealth_occupation(models.Model):
     class Meta:
         db_table = 'gnuhealth_occupation'
 
+
 class gnuhealth_procedure(models.Model):
     id = models.IntegerField(primary_key=True)
     create_date = models.DateTimeField()
