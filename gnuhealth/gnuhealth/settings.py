@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'health_operational_area',
     'health_demographics',
     'health_party',
+    'health_imaging',
     'health_immunization_schedule',
     'health_medicaments',
     'health_institutions',
