@@ -1,0 +1,13 @@
+{% for patient in patients %}
+<option value="{{ patient.id }}"><a href="#">{{ patient.name }} </a></option>
+{% endfor %}
+
+{% for doctor in doctors %}
+<option value="{{ doctor.id }}"><a href="#">{{ doctor.name }} </a></option>
+{% endfor %}
+
+{% for test in tests %}
+<option value="{{ test.id }}"><a href="#">{{ test.name }} </a></option>
+{% endfor %}
+
+
