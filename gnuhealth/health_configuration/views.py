@@ -224,19 +224,19 @@ def add_residence(request):
 
 def genes(request):
     type = "grid"
-    genes = gnuhealth_disease_genes.objects.order_by('-id')[:200]
+    genes = gnuhealth_disease_gene.objects.order_by('id')[:200]
     return render(request, 'health_configuration/genetics/genes.html', {'type': type, 'genes': genes, 'selected': 'Disease Genes'})
 
 
 def editGenes(request, id):
     type = "edit"
-    editForm = gnuhealth_disease_genes.objects.get(id=id)
+    editForm = gnuhealth_disease_gene.objects.get(id=id)
     return render(request, 'health_configuration/genetics/genes.html', {'form': editForm, 'type': type, 'selected': 'Disease Genes'})
 
 
 def updateGenes(request, id):
     type = "grid"
-    gene = gnuhealth_disease_genes.objects.get(id=id)
+    gene = gnuhealth_disease_gene.objects.get(id=id)
     gene.name = request.POST['name']
     gene.long_name = request.POST['long_name']
     gene.protein_name = request.POST['protein_name']
@@ -251,7 +251,7 @@ def updateGenes(request, id):
     gene.write_uid = gene.write_uid
 
     gene.save()
-    genes = gnuhealth_disease_genes.objects.all()
+    genes = gnuhealth_disease_gene.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
@@ -262,10 +262,10 @@ def updateGenes(request, id):
 
 
 def deleteGenes(request, id):
-    gene = gnuhealth_disease_genes.objects.get(id=id)
+    gene = gnuhealth_disease_gene.objects.get(id=id)
     gene.delete()
     type = "grid"
-    genes = gnuhealth_disease_genes.objects.all()
+    genes = gnuhealth_disease_gene.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
@@ -281,10 +281,10 @@ def addGenes(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_disease_genes.objects.latest('id')
+                latest = gnuhealth_disease_gene.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                genes = gnuhealth_disease_genes.objects.all()
+                genes = gnuhealth_disease_gene.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
                 return redirect('genes')
             except:
@@ -294,7 +294,7 @@ def addGenes(request):
             return HttpResponse("Invalid Form.")
     else:
         form = genesForm()
-        latest = gnuhealth_disease_genes.objects.latest('id')
+        latest = gnuhealth_disease_gene.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1

@@ -70,7 +70,7 @@ class proteinForm(forms.ModelForm):
 
 class genesForm(forms.ModelForm):
     class Meta:  
-        model = gnuhealth_disease_genes
+        model = gnuhealth_disease_gene
         fields = "__all__"
  
 
