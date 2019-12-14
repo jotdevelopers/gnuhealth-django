@@ -29,30 +29,46 @@ def healthprofs(request):
 def addHealthProf(request):
     if request.method == "POST":
         form = healthProfForm(request.POST)
-        if form.is_valid():
-            try:
-                type = "grid"
-                msg = "1"
-                latest = gnuhealth_healthprofessional.objects.latest('id')
-                form.fields["id"].initial = latest.id + 1
-                form.save()
-                healthprofs = gnuhealth_healthprofessional.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_health_professionals/healthprofs.html'
+        #if form.is_valid():
+         #   try:
+        type = "grid"
+        msg = "1"
+        latest = gnuhealth_healthprofessional.objects.latest('id')
+        form.fields["id"].initial = latest.id+ 1
+
+        active = True
+        info = None
+        code = request.POST['code']
+        name = request.POST['name']
+        institution = request.POST['institution']
+        id = request.POST['id']
+        create_date = request.POST['create_date']
+        write_date = request.POST['write_date']
+        create_uid = request.POST['create_uid']
+        write_uid = request.POST['write_uid']
+        main_specialty = None
+        prof = gnuhealth_healthprofessional(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, info=info, code=code, institution=institution, active=active,
+                              )
+        prof.save()
+        #form.save()
+        healthprofs = gnuhealth_healthprofessional.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health_health_professionals/healthprofs.html'
                               , {'type': type, 'msg': msg, 'healthprofs': healthprofs})
-            except:
-                pass
-        else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            #except:
+             #   pass
+        #else:
+         #   messages.error(request, f'Sorry, Record Save Error')
+          #  return HttpResponse("Invalid Form.")
     else:
         form = healthProfForm()
         latest = gnuhealth_healthprofessional.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial = latest.id+ 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
-        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d")
         form.fields['id'].widget.attrs['readonly'] = True
         form.fields['create_date'].widget.attrs['readonly'] = True
         form.fields['write_date'].widget.attrs['readonly'] = True
@@ -70,18 +86,23 @@ def editHealthProf(request, id):
 
 def updateHealthProf(request, id):
     type = "grid"
-    eth = gnuhealth_healthprofessional.objects.get(id=id)
-    name = request.POST['name']
-    notes = request.POST['notes']
+    prof = gnuhealth_healthprofessional.objects.get(id=id)
+    
+    active = True
+    info = None
     code = request.POST['code']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    eth = gnuhealth_healthprofessional(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
-    eth.save()
+    name = request.POST['name']
+    institution = request.POST['institution']
+    id = prof.id
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    main_specialty = None
+    prof = gnuhealth_healthprofessional(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, info=info, code=code, institution=institution, active=active,
+                              )
+    prof.save()
     msg = "3"
     healthprofs = gnuhealth_healthprofessional.objects.all()
 

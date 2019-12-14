@@ -26,6 +26,190 @@ def index(request):
 # # Laboratory module functions end
 
 
+def labRequests(request):
+    type = "grid"
+    ethnicities = gnuhealth_lab.objects.all()
+    return render(request, 'health_lab/lab_test_requests.html'
+                  , {'ethnicities': ethnicities
+                      , 'type': type})
+
+
+def addLabRequest(request):
+    if request.method == "POST":
+        form = ethnicityForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_ethnicity.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                ethnicities = gnuhealth_ethnicity.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/patients/ethnicities.html'
+                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+            except:
+                pass
+        else:
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = ethnicityForm()
+        latest = gnuhealth_ethnicity.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/patients/ethnicities.html', {'type': type, 'form': form})
+
+
+def editLabRequest(request, id):
+    type = "edit"
+    editForm = gnuhealth_ethnicity.objects.get(id=id)
+    return render(request, 'health_configuration/patients/ethnicities.html', {'form': editForm, 'type': type})
+
+
+def updateLabRequest(request, id):
+    type = "grid"
+    eth = gnuhealth_ethnicity.objects.get(id=id)
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_ethnicity(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    eth.save()
+    msg = "3"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+
+
+def deleteLabRequest(request, id):
+    ethnicity = gnuhealth_ethnicity.objects.get(id=id)
+    ethnicity.delete()
+    type = "grid"
+    msg = "2"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+
+
+def labResults(request):
+    type = "grid"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                  , {'ethnicities': ethnicities
+                      , 'type': type})
+
+
+def addLabResult(request):
+    if request.method == "POST":
+        form = ethnicityForm(request.POST)
+        if form.is_valid():
+            try:
+                type = "grid"
+                msg = "1"
+                latest = gnuhealth_ethnicity.objects.latest('id')
+                form.fields["id"].initial = latest.id + 1
+                form.save()
+                ethnicities = gnuhealth_ethnicity.objects.all()
+                messages.success(request, f'Success, Record Saved Successfully')
+                return render(request, 'health_configuration/patients/ethnicities.html'
+                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+            except:
+                pass
+        else:
+            messages.error(request, f'Sorry, Record Save Error')
+            return HttpResponse("Invalid Form.")
+    else:
+        form = ethnicityForm()
+        latest = gnuhealth_ethnicity.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health_configuration/patients/ethnicities.html', {'type': type, 'form': form})
+
+
+def editLabResult(request, id):
+    type = "edit"
+    editForm = gnuhealth_ethnicity.objects.get(id=id)
+    return render(request, 'health_configuration/patients/ethnicities.html', {'form': editForm, 'type': type})
+
+
+def updateLabResult(request, id):
+    type = "grid"
+    eth = gnuhealth_ethnicity.objects.get(id=id)
+    name = request.POST['name']
+    notes = request.POST['notes']
+    code = request.POST['code']
+    eth_id = eth.id
+    create_date = eth.create_date
+    write_date = eth.write_date
+    create_uid = eth.create_uid
+    write_uid = eth.write_uid
+    eth = gnuhealth_ethnicity(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    eth.save()
+    msg = "3"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+
+
+def deleteLabResult(request, id):
+    ethnicity = gnuhealth_ethnicity.objects.get(id=id)
+    ethnicity.delete()
+    type = "grid"
+    msg = "2"
+    ethnicities = gnuhealth_ethnicity.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_configuration/patients/ethnicities.html'
+                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+
+
+
+
 def labTestUnits(request):
     type = "grid"
     labTestUnits = gnuhealth_lab_test_units.objects.all()

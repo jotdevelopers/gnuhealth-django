@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-4 col-3">
-        <h4 class="page-title">Health Professionals</h4>
+        <h4 class="page-title">Lab Test Requests</h4>
     </div>
 
     <div class="col-sm-8 col-9 text-right m-b-20">
@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-health-professionals/addHealthProf';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-configuration/addEthnicity';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -43,34 +43,37 @@
             <div class="card-block">
 
                 <div class="table-responsive">
-                    <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
                         <thead>
-                             <tr>
-                                 <th>Health Professional</th>
-                                 <th>License Id</th>
-                                 <th>Intitution</th>
-                                
-                                 
-                                 <th class="text-right">Action</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                          {% for health in healthprofs %}  
-                             <tr>
-                                 
-                                 <td>{{health.name}}</td>
-                                 <td>{{health.code}}</td>
-                                 <td>{{health.institution}}</td>
-                                 
-                                 
-                                 <td class="text-right"><a href="/health-health-professionals/editHealthProf/{{health.id}}"><i class="far fa-edit"> </i></a><a href="/health-health-professionals/deleteHealthProf/{{health.id}}"> <i
+                        <tr>
+                            <th>Order</th>
+										<th>Test Type</th>
+										<th>Date</th>
+										<th>Patient</th>
+										<th>Doctor</th>
+										<th>State</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for ethnicity in ethnicities %}
+                        <tr>
+                            <td>{{ethnicity.name}}</td>
+                            <td>{{ethnicity.code}}</td>
+                            <td>{{ethnicity.notes}}</td>
+                            <td>{{ethnicity.name}}</td>
+                            <td>{{ethnicity.code}}</td>
+                            <td>{{ethnicity.notes}}</td>
+                            <td class="text-right"><a href="/health-configuration/editEthnicity/{{ethnicity.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteEthnicity/{{ethnicity.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
-                             </tr>
-                                {% endfor %} 
-                             
-                         </tbody>
-                     </table>
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -79,17 +82,17 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health-health-professionals/addHealthProf">
+<form method="POST" class="post-form" action="/health-configuration/addEthnicity">
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-12">
-            <h4 class="page-title" style="padding-bottom: 5px;">Add Health Professional</h4>
+        <div class="col-md-8 offset-md-2">
+            <h4 class="page-title" style="padding-bottom: 5px;">Add Ethnicity</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="card-box">
 
                 <div class="row">
@@ -100,59 +103,24 @@
                         </div>
                     </div>
 
-                   
-                </div>
-                <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Health Professional</label>
-                                    <input type="text" class="form-control" name="name">
-                                </div>
-                            </div>
-                      <!--      <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Search Gene</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                        </div>
-                                        <input class="form-control" value="{{ form.disease_gene.id }}" id="gene-search"
-                                               onkeyup="geneSearch()" type="text">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
-                                                Gene
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-        
-        
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
-                                </div>
-                            </div>
-    -->
-                   
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label>License Id</label>
+                            <label>Code</label>
                             <input type="text" class="form-control" name="code">
-
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label>Institution</label>
-                            <input type="text" class="form-control" name="institution">
-
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Main Speciality</label>
-                            <input type="text" class="form-control" name="main_specialty">
+                            <label>Notes</label>
+                            <input type="text" class="form-control" name="notes">
 
                         </div>
                     </div>
