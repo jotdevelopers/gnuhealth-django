@@ -1,0 +1,18 @@
+{% for per in person %}
+<option value="{{ per.id }}"><a href="#">{{ per.name }} </a></option>
+{% endfor %}
+
+{% for ins in institution %}
+<option value="{{ ins.id }}"><a href="#">{{ ins.name }} </a></option>
+{% endfor %}
+
+
+{% for con in condition %}
+<option value="{{ con.id }}"><a href="#">{{ con.name }} </a></option>
+{% endfor %}
+
+{% for pro in procedure %}
+<option value="{{ pro.id }}"><a href="#">{{ pro.name }} </a></option>
+{% endfor %}
+
+

@@ -3,11 +3,10 @@ from django.forms import ModelMultipleChoiceField
 from django_select2.forms import Select2MultipleWidget
 from health_lab.models import *
 
-
-# class HealthLabForm(forms.ModelForm):  
-#     class Meta:  
-#         model = gnuhealth_lab   
-#         fields = '__all__'
+class healthLabForm(forms.ModelForm):  
+     class Meta:  
+         model = gnuhealth_lab   
+         fields = '__all__'
 
 
 class labTestUnitsForm(forms.ModelForm):

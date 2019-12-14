@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'health_immunization_schedule',
     'health_medicaments',
     'health_institutions',
-    'health_pediatrics',
+    'health_prescriptions',
+    'health_health_professionals'
 ]
 
 MIDDLEWARE = [
@@ -100,8 +101,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
