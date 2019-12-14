@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
-from health_configuration.models import *
+from health_genetics.models import *
 from health_party.models import *
 from health_demographics.forms import *
 from django.contrib import messages
@@ -34,23 +34,47 @@ def genetics(request):
 def addGenetic(request):
     if request.method == "POST":
         form = geneticForm(request.POST)
-        if form.is_valid():
-            try:
-                type = "grid"
-                msg = "1"
+       # if form.is_valid():
+        #    try:
+        type = "grid"
+        msg = "1"
                 #latest = gnuhealth_patient_genetic_risk.objects.latest('id')
                 #form.fields["id"].initial = latest.id + 1
-                form.fields["id"].initial = 1
-                form.save()
-                genetics = gnuhealth_patient_genetic_risk.objects.all()
-                messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_genetics/genetics.html'
+        form.fields["id"].initial = 1
+        id = request.POST['id']
+        create_date = request.POST['create_date']
+        create_uid = request.POST['create_uid']
+        disease_gene = None
+        healthprof = None
+        institution = None
+        natural_variant = request.POST['natural_variant']
+        notes = request.POST['notes']
+        onset = request.POST['onset']
+        patient = request.POST['patient']
+        variant_phenotype = request.POST['variant_phenotype']
+        write_date = request.POST['write_date']
+        write_uid = request.POST['write_uid']
+        genet = gnuhealth_patient_genetic_risk(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,
+        disease_gene = disease_gene,
+        healthprof = healthprof,
+        institution = institution,
+        natural_variant = natural_variant,
+        notes = notes,
+        onset = onset,
+        patient = patient,
+        variant_phenotype = variant_phenotype,
+         )
+        genet.save()
+        genetics = gnuhealth_patient_genetic_risk.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health_genetics/genetics.html'
                               , {'type': type, 'msg': msg, 'genetics': genetics})
-            except:
-                pass
-        else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+          #  except:
+           #     pass
+        #else:
+         #   messages.error(request, f'Sorry, Record Save Error')
+          #  return HttpResponse("Invalid Form.")
     else:
         form = geneticForm()
         #latest = gnuhealth_patient_genetic_risk.objects.latest('id')
@@ -58,8 +82,8 @@ def addGenetic(request):
         form.fields["id"].initial = 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
-        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d")
         form.fields['id'].widget.attrs['readonly'] = True
         form.fields['create_date'].widget.attrs['readonly'] = True
         form.fields['write_date'].widget.attrs['readonly'] = True

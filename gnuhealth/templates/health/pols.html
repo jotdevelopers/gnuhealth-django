@@ -51,7 +51,7 @@
                                             <th>Person</th>
                                             <th>Account</th>
                                             <th>Reference</th>
-                                            <th >Date</th>
+                                            <th>Date</th>
                                             <th>Age</th>
                                             <th>Medical Context</th>
                                             <th>Social Context</th>
@@ -69,7 +69,7 @@
                                             <td>{{pol.person}}</td>
                                             <td>{{pol.federation_account}}</td>
                                             <td>{{pol.relevance}}</td>
-                                            <td>{{pol.create_date}}</td>
+                                            <td>{{pol.page_date}}</td>
                                             <td>{{pol.age}}</td>
                                             <td>{{pol.medical_context}}</td>
                                             <td>{{pol.social_context}}</td>
@@ -92,6 +92,8 @@
 
 {% if type == "add" %}
 <form method="POST" class="post-form" action="/health/addPol">
+    {% csrf_token %}
+
      <div class="row">
         <div class="col-md-12 ">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Page of life</h4>
@@ -103,12 +105,66 @@
           <div class="card-box">
                        
                             	<div class="row">
-                            	<div class="col-md-6">
+                            	<div class="col-md-12">
                         <div class="form-group">
                             <label>Record ID</label>
                             <input type="number" class="form-control" name="id" placeholder="{{ form.id }}
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Search Person</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.person.id }}" id="person-search"
+                                       onkeyup="personSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="personSearch()">Search
+                                        Person
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="person" id="search-results-person"></select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Search Institution</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.institution.id }}" id="institution-search"
+                                       onkeyup="institutionSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="institutionSearch()">Search
+                                        Institution
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="institution" id="search-results-institution"></select>
+                        </div>
+                    </div>
+                </div>
+<!--
 	                            	<div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Person</label>
@@ -116,7 +172,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" name="person">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button">Search</button>
                                 </div>
@@ -124,19 +180,18 @@
 	                                    </div>
 	                                </div>
 	                            	
-	                            	
-	                            </div>
+	                         --> 
                             	
                             	<div class="row">
 	                            	<div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Date</label>
-	                                        <input type="text" class="form-control ">
+	                                        <input type="text" class="form-control " name="page_date">
 	                                    </div>
 	                                </div>
 	                            	<div class="col-md-6">
 	                                        <label>Relevance</label>
-	                                        <input type="text" class="form-control ">
+	                                        <input type="text" class="form-control " name="relevance">
 	                                       
 	                                </div>
 	                            	
@@ -144,12 +199,12 @@
                             	<div class="row">  
                             	<div class="col-md-6">
 	                                        <label>Age</label>
-	                                        <input type="text" class="form-control ">
+	                                        <input type="text" class="form-control " name="age">
 	                                </div>                        
 	                                <div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Page Type</label>
-	                                         <select class="select">
+	                                         <select class="select" name="page_type">
 	                                       <option>Select</option>
 												<option>Medical</option>
 												<option>Demographical</option>
@@ -160,61 +215,114 @@
                    
 	                                </div>                          
 	                             <div class="row">
-	                             <div class="col-sm-6">
+	                           <!--  <div class="col-sm-6">
                         <div class="form-group">
                         <label>Institution</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                                 </div>
-                                <input class="form-control" type="text">
+                                <input class="form-control" type="text" name="institution">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="button">Search</button>
                                 </div>
                             </div>
                         </div>
                         
-                    </div>
-	                            	<div class="col-md-6">
+                    </div>-->
+	                            	<div class="col-md-12">
 	                                   <div class="form-group">
                                 <label>Summary</label>
-                                {{ form.summary|add_class:"form-control" }} 
+                                <input class="form-control" type="text" name="summary"> 
                             </div>
 	                                </div>
 	                            </div>    
 	                                    
-	                            </div>
+                                </div>
+                                
                                                        
 <div class="card-box">
                                 <div class="row" style="margin-top: 5px;">
 	                            	<div class="col-md-12">
-                    					<span style="font-weight: bold;">Context</span>
+                                        <span style="font-weight: bold;">Context</span>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Search Condition</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                        </div>
+                                                        <input class="form-control" value="{{ form.condition.id }}" id="condition-search"
+                                                               onkeyup="conditionSearch()" type="text">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-primary" type="button" onclick="conditionSearch()">Search
+                                                                Condition
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                        
+                        
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <select class="select" name="health_condition" id="search-results-condition"></select>
+                                                </div>
+                                            </div>
+                                            </div>
                     					 <div class="row">
-                                <div class="col-md-6">
+                        <!--        <div class="col-md-6">
                                     <div class="form-group">
 										<label>Health Condition</label>
-									{{ form.health_condition_text|add_class:"form-control" }} 
+                                        <input class="form-control" type="text" name="health_condition">
 									</div>
-                                </div>
-                                 <div class="col-md-6">
+                                </div>-->
+                                 <div class="col-md-12">
                                     <div class="form-group">
-										<label>Code</label>
-										{{ form.health_condition_code|add_class:"form-control" }}
+										<label>Condition Code</label>
+										<input class="form-control" type="text" name="health_condition_code">
 									</div>
                                 </div>
                                 
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Search Procedure</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                            </div>
+                                            <input class="form-control" value="{{ form.procedure.id }}" id="procedure-search"
+                                                   onkeyup="procedureSearch()" type="text">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button" onclick="procedureSearch()">Search
+                                                    Procedure
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+            
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="select" name="procedure" id="search-results-procedure"></select>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="row">
+                          <!--      <div class="col-md-6">
                                     <div class="form-group">
 										<label>Procedure</label>
-										{{ form.procedure_text|add_class:"form-control" }}  
+										<input class="form-control" type="text" name="procedure">
 									</div>
-                                </div>
-                                 <div class="col-md-6">
+                                </div>-->
+                                 <div class="col-md-12">
                                     <div class="form-group">
 										<label>Procedure Code</label>
-										{{ form.procedure_code|add_class:"form-control" }}  
+										<input class="form-control" type="text" name="procedure_code">
 									</div>
 									
                                 </div>
@@ -222,19 +330,21 @@
                                 </div>
                                  <div class="form-group">
                                 <label>Extended Information</label>
-                                {{ form.info|add_class:"form-control" }} 
+                                <input class="form-control" type="text" name="info ">
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Page</label>
-										{{ form.page|add_class:"form-control" }}
+                                        <input class="form-control" type="text" name="page">
+
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Account</label>
-										{{ form.federation_account|add_class:"form-control"  }}  
+                                        <input class="form-control" type="text" name="federation_account">
+
 									</div>
                                 </div>
                                 
@@ -243,13 +353,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Author</label>
-											{{ form.author|add_class:"form-control"  }}  
+										<input class="form-control" type="text" name="author">
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Node</label>
-										{{ form.node|add_class:"form-control" }}
+										<input class="form-control" type="text" name="node">
 									</div>
                                 </div>
                                 
@@ -300,79 +410,289 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
+<form method="POST" class="post-form" action="/health/updatePol/{{form.id}}/">
     {% csrf_token %}
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+     <div class="row">
+        <div class="col-md-12 ">
+            <h4 class="page-title" style="padding-bottom: 5px;">Update Page of life</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card-box">
-
-                <div class="row">
-                    <div class="col-md-12">
+        <div class="col-md-12 ">
+          <div class="card-box">
+                       
+                            	<div class="row">
+                            	<div class="col-md-12">
                         <div class="form-group">
-                            <label>Code</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                            <label>Record ID</label>
+                            <input type="number" class="form-control" name="id"  value="{{ form.id }}" >
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                            <label>Search Person</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.person }}" id="person-search"
+                                       onkeyup="personSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="personSearch()">Search
+                                        Person
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Notes</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
 
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select"   name="person" id="search-results-person"></select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Search Institution</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.institution }}" id="institution-search"
+                                       onkeyup="institutionSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="institutionSearch()">Search
+                                        Institution
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select"   name="institution" id="search-results-institution"></select>
+                        </div>
+                    </div>
+                </div>
+           	<div class="row">
+	                            	<div class="col-md-6">
+	                                    <div class="form-group">
+	                                        <label>Date</label>
+	                                        <input type="text" class="form-control "  value="{{ form.page_date }}" name="page_date">
+	                                    </div>
+	                                </div>
+	                            	<div class="col-md-6">
+	                                        <label>Relevance</label>
+	                                        <input type="text" class="form-control "  value="{{ form.relevance }}" name="relevance">
+	                                       
+	                                </div>
+	                            	
+	                            </div>
+                            	<div class="row">  
+                            	<div class="col-md-6">
+	                                        <label>Age</label>
+	                                        <input type="text" class="form-control "  value="{{ form.age }}" name="age">
+	                                </div>                        
+	                                <div class="col-md-6">
+	                                    <div class="form-group">
+	                                        <label>Page Type</label>
+	                                         <select class="select"  value="{{ form.page_type }}" name="page_type">
+	                                       <option>Select</option>
+												<option>Medical</option>
+												<option>Demographical</option>
+	                                        </select>
+	                                    </div>
+	                                </div>                          
+	                                 
+                   
+	                                </div>                          
+	                             <div class="row">
+	                       
+	                            	<div class="col-md-12">
+	                                   <div class="form-group">
+                                <label>Summary</label>
+                                <input class="form-control" type="text"  value="{{ form.summary }}" name="summary"> 
+                            </div>
+	                                </div>
+	                            </div>    
+	                                    
+                                </div>
+                                
+                                                       
+<div class="card-box">
+                                <div class="row" style="margin-top: 5px;">
+	                            	<div class="col-md-12">
+                                        <span style="font-weight: bold;">Context</span>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Search Condition</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                        </div>
+                                                        <input class="form-control" value="{{ form.health_condition }}" id="condition-search"
+                                                               onkeyup="conditionSearch()" type="text">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-primary" type="button" onclick="conditionSearch()">Search
+                                                                Condition
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                        
+                        
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <select class="select"   name="health_condition" id="search-results-condition"></select>
+                                                </div>
+                                            </div>
+                                            </div>
+                    					 <div class="row">
+                        <!--        <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Health Condition</label>
+                                        <input class="form-control" type="text" name="health_condition">
+									</div>
+                                </div>-->
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+										<label>Condition Code</label>
+										<input class="form-control" type="text"  value="{{ form.health_condition_code }}" name="health_condition_code">
+									</div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Search Procedure</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                            </div>
+                                            <input class="form-control" value="{{ form.procedure }}" id="procedure-search"
+                                                   onkeyup="procedureSearch()" type="text">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button" onclick="procedureSearch()">Search
+                                                    Procedure
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+            
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="select"   name="procedure" id="search-results-procedure"></select>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="row">
+                          <!--      <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Procedure</label>
+										<input class="form-control" type="text" name="procedure">
+									</div>
+                                </div>-->
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+										<label>Procedure Code</label>
+										<input class="form-control" type="text" name="procedure_code"  value="{{ form.procedure_code }}">
+									</div>
+									
+                                </div>
+                                
+                                </div>
+                                 <div class="form-group">
+                                <label>Extended Information</label>
+                                <input class="form-control" type="text" name="info "  value="{{ form.info }}">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Page</label>
+                                        <input class="form-control" type="text" name="page" value="{{ form.page }}" >
+
+									</div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Account</label>
+                                        <input class="form-control" type="text" name="federation_account" value="{{ form.federation_account }}" > 
+
+									</div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Author</label>
+										<input class="form-control" type="text" name="author" value="{{ form.author }}" >
+									</div>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+										<label>Node</label>
+										<input class="form-control" type="text" name="node" value="{{ form.node }}" >
+									</div>
+                                </div>
+                                
+                            </div>
+                            
+                             <div class="row">
+	                             <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date }}" >
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date }}" >
+
                         </div>
                     </div>
+                    </div>
+                    <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                            <input type="text" readonly class="form-control" name="create_uid" value="{{ form.create_uid }}" >
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                            <input type="text" readonly class="form-control" value="{{ form.write_uid }}" name="write_uid" >
+
                         </div>
-                    </div>
-                </div>
-
-
-
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
-            </div>
-</div>
-</div>
-</div>
+                    </div> 
+                    </div>            
+								</div>		
+                    		</div>
+                        </div>         	
+            
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
+
 {% endif %}
 
 {% endblock %}

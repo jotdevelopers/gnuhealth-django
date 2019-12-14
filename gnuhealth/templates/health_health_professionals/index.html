@@ -1,0 +1,57 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Patient Genetic Information</h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+<div class="btn-group btn-group-sm" style="margin-right: 8px">
+                             <button class="btn btn-white"> <i class="far fa-file-excel"> </i> CSV</button>
+                            <button class="btn btn-white"><i class="far fa-file-pdf	"> </i> PDF </button>
+                            <button class="btn btn-white"><i class="fas fa-print	"></i> Print</button>
+                              <a href="/health-genetics/addgenetics" class="btn btn btn-primary  float-right"><i class="fa fa-plus"></i> Add New</a>
+                        </div>                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+						<div class="table-responsive">
+                            <table id="example" class="table table-striped  dt-responsive nowrap" cellspacing="0" width="100%">
+                               <thead>
+									<tr>
+										<th>Patient</th>
+										<th>Gene</th>
+										<th>Varient</th>
+										<th>Phenotype</th>
+										<th>Onset</th>
+										<th>Notes</th>
+										<th>Health Professional</th>
+										
+										
+										<th class="text-right">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								 {% for gen in genetics %}  
+									<tr>
+										
+										<td>{{gen.patient}}</td>
+										<td>{{gen.disease_gene}}</td>
+										<td>{{gen.natural_varient}}</td>
+										<td>{{gen.varient_phenotype}}</td>
+										<td>{{gen.onset}}</td>
+										<td>{{gen.notes}}</td>
+										<td>{{gen.healthprof}}</td>
+										
+							  <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
+
+									</tr>
+									   {% endfor %} 
+									
+								</tbody>
+                            </table>
+						</div>
+                    </div>
+                </div>
+           {% endblock %}
+          
