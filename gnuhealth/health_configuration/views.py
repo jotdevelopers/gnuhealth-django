@@ -1078,7 +1078,7 @@ def dietBelief(request):
     type = "grid"
     tempDietBelief = gnuhealth_diet_belief.objects.all()
     return render(request, 'health_configuration/misc/diet_belief.html',
-                  {'type': type, 'tempDietBelief': tempDietBelief})
+                  {'type': type, 'tempDietBelief': tempDietBelief, 'selected': 'Diet Beliefs'})
 
 
 def addDietBelief(request):
@@ -1110,13 +1110,13 @@ def addDietBelief(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/misc/diet_belief.html', {'type': type, 'form': form, 'selected': 'Diet Beliefs'})
 
 
 def editDietBelief(request, id):
     type = "edit"
     editForm = gnuhealth_diet_belief.objects.get(id=id)
-    return render(request, 'health_configuration/misc/diet_belief.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/misc/diet_belief.html', {'form': editForm, 'type': type, 'selected': 'Diet Beliefs'})
 
 
 def updateDietBelief(request, id):
@@ -1156,7 +1156,7 @@ def dietTherapeutic(request):
     type = "grid"
     tempDietTherapeutic = gnuhealth_diet_therapeutic.objects.all()
     return render(request, 'health_configuration/misc/diet_therapeutic.html',
-                  {'type': type, 'tempDietTherapeutic': tempDietTherapeutic})
+                  {'type': type, 'tempDietTherapeutic': tempDietTherapeutic, 'selected': 'Therapeutic Diets'})
 
 
 def addDietTherapeutic(request):
@@ -1188,13 +1188,13 @@ def addDietTherapeutic(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/misc/diet_therapeutic.html', {'type': type, 'form': form})
+        return render(request, 'health_configuration/misc/diet_therapeutic.html', {'type': type, 'form': form, 'selected': 'Therapeutic Diets'})
 
 
 def editDietTherapeutic(request, id):
     type = "edit"
     editForm = gnuhealth_diet_therapeutic.objects.get(id=id)
-    return render(request, 'health_configuration/misc/diet_therapeutic.html', {'form': editForm, 'type': type})
+    return render(request, 'health_configuration/misc/diet_therapeutic.html', {'form': editForm, 'type': type, 'selected': 'Therapeutic Diets'})
 
 
 def updateDietTherapeutic(request, id):

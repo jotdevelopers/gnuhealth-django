@@ -367,9 +367,17 @@
             </li>
             <li class="submenu">
                 <a href="#"> <i class="fas fa-hotdog"></i> <span> Diets </span> <span class="menu-arrow"></span></a>
-                <ul style="display: none;">
-                    <li><a href="{% url 'dietBelief' %}">Belief diets</a></li>
-                    <li><a href="{% url 'dietTherapeutic' %}">Therapeutic diets</a></li>
+                <ul style="display: none;">                    
+                    {% if selected == 'Diet Beliefs' %}      
+                        <li><a href="{% url 'dietBelief' %}" class="active" id="selected">Belief Diets</a></li>
+                    {% else %}
+                        <li><a href="{% url 'dietBelief' %}">Belief Diets</a></li>
+                    {% endif %}    
+                    {% if selected == 'Therapeutic Diets' %}      
+                        <li><a href="{% url 'dietTherapeutic' %}" class="active" id="selected">Therapeutic Diets</a></li>
+                    {% else %}
+                        <li><a href="{% url 'dietTherapeutic' %}">Therapeutic Diets</a></li>
+                    {% endif %}
                 </ul>
             </li>
             <li class="submenu">
