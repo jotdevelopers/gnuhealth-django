@@ -1090,12 +1090,12 @@ def addDietBelief(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect(addDietBelief)
+                return redirect(dietBelief)
             except:
                 pass
         else:
             messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
-            return redirect('dietBelief')
+            return redirect(addDietBelief)
     else:
         form = dietBeliefForm()
         latest = gnuhealth_diet_belief.objects.latest('id')
@@ -1168,12 +1168,12 @@ def addDietTherapeutic(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect(addDietTherapeutic)
+                return redirect(dietTherapeutic)
             except:
                 pass
         else:
             messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
-            return redirect('dietTherapeutic')
+            return redirect(addDietTherapeutic)
     else:
         form = dietTherapeuticForm()
         latest = gnuhealth_diet_therapeutic.objects.latest('id')
