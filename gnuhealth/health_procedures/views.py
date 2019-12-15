@@ -28,8 +28,8 @@ def mainAddProcedure(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(mainAddProcedure)
     else:
         form = procedureForm()
         latest = gnuhealth_procedure.objects.latest('id')

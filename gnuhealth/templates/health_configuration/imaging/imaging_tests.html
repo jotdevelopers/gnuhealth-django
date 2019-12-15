@@ -12,9 +12,8 @@
         <div class="btn-group btn-group-sm" style="margin-right: 8px">
             <select class="select">
                 <option>Export As</option>
-                <option>Pdf</option>
+                <option>PDF</option>
                 <option>CSV</option>
-                <option>Print</option>
 
             </select>
             <button onclick="window.location.href = '/health-configuration/addImagingTestType';" class="btn btn-primary"><i
@@ -123,6 +122,21 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Dx Imaging Test Type</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 

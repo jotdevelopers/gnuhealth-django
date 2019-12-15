@@ -22,8 +22,8 @@ def addImmunizationSchedule(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(immunizationSchedule)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addImmunizationSchedule)
     else:
         form = immunizationScheduleForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule.objects.count()+1
@@ -91,8 +91,8 @@ def addVaccineDoses(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(vaccineDoses)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addVaccineDoses)
     else:
         form = vaccineDosesForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule_dose.objects.count()+1
@@ -163,8 +163,8 @@ def addScheduleLine(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(scheduleLine)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addScheduleLine)
     else:
         form = scheduleLineForm()
         form.fields["id"].initial = gnuhealth_immunization_schedule_line.objects.count()+1

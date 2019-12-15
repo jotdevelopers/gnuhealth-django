@@ -20,7 +20,7 @@ def index(request):
 
 # Create Conditions Views
 def condition(request):
-    conditions = gnuhealth_pathology.objects.all()
+    conditions = gnuhealth_pathology.objects.order_by('id')[:500]
     return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions, 'selected': 'Conditions'})
 
 
@@ -49,8 +49,8 @@ def addEthnicity(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addEthnicity)
     else:
         form = ethnicityForm()
         latest = gnuhealth_ethnicity.objects.latest('id')
@@ -290,8 +290,8 @@ def addGenes(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addGenes)
     else:
         form = genesForm()
         latest = gnuhealth_disease_gene.objects.latest('id')
@@ -333,8 +333,8 @@ def addPhenotype(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addPhenotype)
     else:
         form = phenotypeForm()
         latest = gnuhealth_gene_variant_phenotype.objects.latest('id')
@@ -423,8 +423,8 @@ def addProtein(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addProtein)
     else:
         form = proteinForm()
         latest = gnuhealth_protein_disease.objects.latest('id')
@@ -583,8 +583,8 @@ def addVarient(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addVarient)
     else:
         form = varientForm()
         latest = gnuhealth_gene_variant.objects.latest('id')
@@ -623,8 +623,8 @@ def addPathologyGroups(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addPathologyGroups)
     else:
         form = pathologyGroupsForm()
         latest = gnuhealth_pathology_group.objects.latest('id')
@@ -702,8 +702,8 @@ def addCategories(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addCategories)
     else:
         form = categoriesForm()
         latest = gnuhealth_pathology_category.objects.latest('id')
@@ -778,8 +778,8 @@ def addBodyFunctions(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addBodyFunctions)
     else:
         form = bodyFunctionsForm()
         latest = gnuhealth_body_function.objects.latest('id')
@@ -857,8 +857,8 @@ def addBodyStructures(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect('bodyStructures')
     else:
         form = bodyStructuresForm()
         latest = gnuhealth_body_structure.objects.latest('id')
@@ -932,12 +932,12 @@ def addActivityParticipation(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect('activityParticipation')
+                return redirect(addActivityParticipation)
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect('activityParticipation')
     else:
         form = activityParticipationForm()
         latest = gnuhealth_activity_and_participation.objects.latest('id')
@@ -1011,12 +1011,12 @@ def addEnvironmentalFactor(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect('environmentalFactor')
+                return redirect(addEnvironmentalFactor)
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect('environmentalFactor')
     else:
         form = environmentalFactorForm()
         latest = gnuhealth_environmental_factor.objects.latest('id')
@@ -1090,12 +1090,12 @@ def addDietBelief(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect('dietBelief')
+                return redirect(addDietBelief)
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect('dietBelief')
     else:
         form = dietBeliefForm()
         latest = gnuhealth_diet_belief.objects.latest('id')
@@ -1168,12 +1168,12 @@ def addDietTherapeutic(request):
                 form.fields["id"].initial = latest.id + 1
                 form.save()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return redirect('dietTherapeutic')
+                return redirect(addDietTherapeutic)
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect('dietTherapeutic')
     else:
         form = dietTherapeuticForm()
         latest = gnuhealth_diet_therapeutic.objects.latest('id')
@@ -1250,8 +1250,8 @@ def addPediatricsGrowthChart(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addPediatricsGrowthChart)
     else:
         form = pediatricGrowthChartForm()
         latest = gnuhealth_pediatrics_growth_charts_who.objects.latest('id')
@@ -1336,8 +1336,8 @@ def addProcedure(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addProcedure)
     else:
         form = procedureForm()
         latest = gnuhealth_procedure.objects.latest('id')
@@ -1427,8 +1427,8 @@ def addImagingTestType(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addImagingTestType)
     else:
         form = imagingTestTypeForm()
         latest = gnuhealth_imaging_test_type.objects.latest('id')

@@ -226,8 +226,8 @@ def addLabTestUnits(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(labTestUnits)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addLabTestUnits)
     else:
         form = labTestUnitsForm()
         form.fields["id"].initial = gnuhealth_lab_test_units.objects.count()+1
@@ -292,8 +292,8 @@ def addLabTestType(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(labTestType)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addLabTestType)
     else:
         form = labTestTypeForm()
         form.fields["id"].initial = gnuhealth_lab_test_type.objects.count()+1
