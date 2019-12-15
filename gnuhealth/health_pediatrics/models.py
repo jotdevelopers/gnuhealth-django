@@ -12,7 +12,7 @@ class gnuhealth_newborn(models.Model):
     apgar1 = models.IntegerField(null=True, blank=True)
     apgar5 = models.IntegerField(null=True, blank=True)
     bd = models.BooleanField(null=True, blank=True)
-    birth_date = models.DateTimeField(null=True, blank=True, default=datetime.now())
+    birth_date = models.DateTimeField(null=True, blank=True)
     cephalic_perimeter = models.IntegerField(null=True, blank=True)
     cod = models.IntegerField(null=True, blank=True)
     died_at_delivery = models.BooleanField(null=True, blank=True)
