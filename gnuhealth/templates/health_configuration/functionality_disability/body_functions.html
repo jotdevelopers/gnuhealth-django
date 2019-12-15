@@ -12,9 +12,8 @@
         <div class="btn-group btn-group-sm" style="margin-right: 8px">
             <select class="select">
                 <option>Export As</option>
-                <option>Pdf</option>
+                <option>PDF</option>
                 <option>CSV</option>
-                <option>Print</option>
 
             </select>
             <button onclick="window.location.href = '{% url 'addBodyFunctions' %}';" class="btn btn-primary"><i
@@ -48,8 +47,8 @@
                         <tr>
                             <th>Function</th>
                             <th>Code</th>
-                            <th>Category</th>
-                            <th>Action</th>
+                            <!-- <th>Category</th> -->
+                            <th class="text-right">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -58,13 +57,13 @@
                         <tr>
                             <td>{{temp.name}}</td>
                             <td>{{temp.code}}</td>
-                            <td>{{temp.category}}</td>
+                            <!-- <td>{{temp.category}}</td> -->
                             <td class="text-right">
                                 <a href="/health-configuration/editBodyFunctions/{{temp.id}}">
-                                    <i class="far fa-edit"> </i>
+                                    <i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i>
                                 </a>
                                 <a href="/health-configuration/deleteBodyFunctions/{{temp.id}}">
-                                    <i class="far fa-trash-alt"> </i>
+                                    <i class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i>
                                 </a>
                             </td>
                         </tr>
@@ -84,13 +83,16 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Body Functions</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'bodyFunctions' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -105,13 +107,13 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Code</label>
-                            <input type="text" name="code" class="form-control">
+                            <input type="text" name="code" class="form-control" required="">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" required="">
 
                         </div>
                     </div>
@@ -141,10 +143,12 @@
                     </div>
                 </div>
 
+                <br/>
+                <button type="submit" class="btn btn-primary"> Add Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
@@ -157,13 +161,16 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10">
             <h4 class="page-title" style="padding-bottom: 5px;">Edit Body Functions</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'bodyFunctions' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -214,11 +221,13 @@
                     </div>
                 </div>
 
+                <br/>
+                <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+                <button type="submit" class="btn btn-primary"> Update Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>

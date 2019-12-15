@@ -58,8 +58,8 @@
                             <td>{{procedure.name}}</td>
                             <td>{{procedure.description}}</td>
                            
-                            <td class="text-right"><a href="/health-procedures/mainEditProcedure/{{procedure.id}}"><i class="far fa-edit"> </i></a><a href="/health-procedures/mainDeleteProcedure/{{procedure.id}}"> <i
-                                    class="far fa-trash-alt	"> </i> </a></td>
+                            <td class="text-right"><a href="/health-procedures/mainEditProcedure/{{procedure.id}}"><i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i></a><a href="/health-procedures/mainDeleteProcedure/{{procedure.id}}"> <i
+                                    class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i> </a></td>
 
                         </tr>
                         {% endfor %}
@@ -82,11 +82,11 @@
             <h4 class="page-title" style="padding-bottom: 5px;">Add Procedure</h4>
         </div>
         <div class="col-md-2" style="text-align: center;">
-            <a href="{% url 'mainProcedures' %}">Go To Home</a>
+            <a href="{% url 'mainProcedures' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="color: #003366;">
         <div class="col-md-12">
             <div class="card-box">
 
@@ -142,10 +142,12 @@
                     </div>
                 </div>
 
+                <br/>
+                <button type="submit" class="btn btn-primary"> Add Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
@@ -162,11 +164,11 @@
             <h4 class="page-title" style="padding-bottom: 5px;">Edit Procedure</h4>
         </div>
         <div class="col-md-2" style="text-align: center;">
-            <a href="{% url 'mainProcedures' %}">Go To Home</a>
+            <a href="{% url 'mainProcedures' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="color:#003366;">
         <div class="col-md-12">
             <div class="card-box">
 
@@ -219,11 +221,13 @@
                     </div>
                 </div>
 
+                <br/>
+                <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+                <button type="submit" class="btn btn-primary"> Update Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
