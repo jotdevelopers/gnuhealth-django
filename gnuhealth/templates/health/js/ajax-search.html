@@ -3,7 +3,7 @@
 {% endfor %}
 
 {% for ins in institution %}
-<option value="{{ ins.id }}"><a href="#">{{ ins.name }} </a></option>
+<option value="{{ ins.id }}"><a href="#">{{ ins.code }} </a></option>
 {% endfor %}
 
 
@@ -12,7 +12,7 @@
 {% endfor %}
 
 {% for pro in procedure %}
-<option value="{{ pro.id }}"><a href="#">{{ pro.name }} </a></option>
+<option value="{{ pro.id }}"><a href="#">{{ pro.description }} </a></option>
 {% endfor %}
 
 

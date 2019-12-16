@@ -191,8 +191,13 @@
 	                                </div>
 	                            	<div class="col-md-6">
 	                                        <label>Relevance</label>
-	                                        <input type="text" class="form-control " name="relevance">
-	                                       
+                                            <select class="select" name="relevance">
+                                                    <option>Select</option>
+                                                         <option>Informational</option>
+                                                         <option>Important</option>
+                                                         <option>Critical</option>
+
+                                                     </select>
 	                                </div>
 	                            	
 	                            </div>
@@ -206,8 +211,11 @@
 	                                        <label>Page Type</label>
 	                                         <select class="select" name="page_type">
 	                                       <option>Select</option>
-												<option>Medical</option>
-												<option>Demographical</option>
+												<option>Biographical</option>
+                                                <option>Demographical</option>
+                                                <option>Medical</option>
+                                                <option>Social</option>
+
 	                                        </select>
 	                                    </div>
 	                                </div>                          
@@ -492,8 +500,13 @@
 	                                </div>
 	                            	<div class="col-md-6">
 	                                        <label>Relevance</label>
-	                                        <input type="text" class="form-control "  value="{{ form.relevance }}" name="relevance">
-	                                       
+                                            <select class="select" name="relevance" value="{{ form.relevance }}">
+                                                    <option>Select</option>
+                                                         <option>Informational</option>
+                                                         <option>Important</option>
+                                                         <option>Critical</option>
+
+                                                     </select>
 	                                </div>
 	                            	
 	                            </div>
@@ -507,8 +520,10 @@
 	                                        <label>Page Type</label>
 	                                         <select class="select"  value="{{ form.page_type }}" name="page_type">
 	                                       <option>Select</option>
-												<option>Medical</option>
-												<option>Demographical</option>
+                                           <option>Biographical</option>
+                                           <option>Demographical</option>
+                                           <option>Medical</option>
+                                           <option>Social</option>
 	                                        </select>
 	                                    </div>
 	                                </div>                          

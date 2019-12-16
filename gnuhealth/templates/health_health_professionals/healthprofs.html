@@ -103,24 +103,18 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>Health Professional</label>
-                                    <input type="text" class="form-control" name="name">
-                                </div>
-                            </div>
-                      <!--      <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Search Gene</label>
+                                    <label>Search Health Professional</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-search"></i></span>
                                         </div>
-                                        <input class="form-control" value="{{ form.disease_gene.id }}" id="gene-search"
-                                               onkeyup="geneSearch()" type="text">
+                                        <input class="form-control" value="{{ form.name.id }}" id="prof-search"
+                                               onkeyup="profSearch()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
-                                                Gene
+                                            <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                                Health Professional
                                             </button>
                                         </div>
                                     </div>
@@ -130,26 +124,46 @@
         
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
+                                    <select class="select" name="name" id="search-results-prof"></select>
                                 </div>
                             </div>
-    -->
+        
+                       
+                     <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Search Institution</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.institution.id }}" id="institution-search-prof"
+                                               onkeyup="institutionSearchProf()" type="text">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="institutionSearchProf()">Search
+                                                Institution
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="institution" id="search-results-institution-prof"></select>
+                                </div>
+                            </div>
+
                    
+                 
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label>License Id</label>
-                            <input type="text" class="form-control" name="code">
-
+                            <div class="form-group">
+                                <label>License Id</label>
+                                <input type="text" class="form-control" name="code">
+    
+                            </div>
                         </div>
-                    </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Institution</label>
-                            <input type="text" class="form-control" name="institution">
-
-                        </div>
-                    </div>
-                    <div class="col-md-12">
                         <div class="form-group">
                             <label>Main Speciality</label>
                             <input type="text" class="form-control" name="main_specialty">

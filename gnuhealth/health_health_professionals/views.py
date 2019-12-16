@@ -7,6 +7,8 @@ from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 from health_health_professionals.models import *
 from health_party.models import *
+from health_institutions.models import *
+from health_party.models import *
 from health_health_professionals.forms import *
 from health_configuration.forms import *
 from django.contrib import messages
@@ -129,3 +131,28 @@ def deleteHealthProf(request, id):
     return render(request, 'health_health_professionals/healthprofs.html'
                   , {'type': type, 'msg': msg, 'healthprofs': healthprofs})
 
+def searchProf(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    profs = party_party.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(profs) == 0:
+        profs = party_party.objects.filter(id=search_text)
+
+    return render_to_response('health_health_professionals/js/ajax-search.html', {'profs': profs})
+
+def searchInstitutionProf(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    institutions = gnuhealth_institution.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(institutions) == 0:
+        institutions = gnuhealth_institution.objects.filter(id=search_text)
+
+    return render_to_response('health_health_professionals/js/ajax-search.html', {'institutions': institutions})

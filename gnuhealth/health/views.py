@@ -27,10 +27,197 @@ def pols(request):
     
 def patients(request):
     type = "grid"
-    pols = gnuhealth_pol.objects.all()
+    patients = gnuhealth_patient.objects.all()
     return render(request, 'health/patients.html'
-                  , {'pols': pols
+                  , {'patients': patients
                       , 'type': type})
+
+
+def addPatient(request):
+    if request.method == "POST":
+        form = patientForm(request.POST)
+        #if form.is_valid():
+         #   try:
+        type = "grid"
+        msg = "1"
+        latest = gnuhealth_patient.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        id = request.POST['id']
+        age = request.POST['age']
+        author = request.POST['author']
+        create_date = request.POST['create_date']
+        create_uid = request.POST['create_uid']
+        federation_account = request.POST['federation_account']
+        gene = 1
+        health_condition = request.POST['health_condition']
+        health_condition_code = request.POST['health_condition_code']
+        health_condition_text = None
+        info = None
+        institution = request.POST['institution']
+        medical_context = None
+        natural_variant = 1
+        node = request.POST['node']
+        page = request.POST['page']
+        page_date = request.POST['page_date']
+        page_type = request.POST['page_type']
+        person = request.POST['person']
+        phenotype = 1
+        procedure = request.POST['procedure']
+        procedure_code = request.POST['procedure_code']
+        procedure_text = None
+        relevance = request.POST['relevance']
+        social_context = None
+        summary = request.POST['summary']
+        write_date = request.POST['write_date']
+        write_uid = request.POST['write_uid']
+        fsync = True
+
+        patient = gnuhealth_patient(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,age = age,
+        author = author,
+        federation_account =federation_account,
+        gene = gene,
+        health_condition = health_condition,
+        health_condition_code = health_condition_code,
+        health_condition_text = health_condition_text,
+        info = info,
+        institution = institution,
+        medical_context = medical_context,
+        natural_variant = natural_variant,
+        node = node,
+        page = page,
+        page_date = page_date,
+        page_type = page_type,
+        person = person,
+        phenotype = phenotype,
+        procedure = procedure,
+        procedure_code = procedure_code,
+        procedure_text = procedure_text,
+        relevance = relevance,
+        social_context = social_context,
+        summary = summary,
+        fsync = fsync)
+        patient.save()
+        patients = gnuhealth_pol.objects.all()
+        messages.success(request, f'Success, Record Saved Successfully')
+        return render(request, 'health/patients.html'
+                              , {'type': type, 'msg': msg, 'patients': patients})
+            #except:
+             #   pass
+        #else:
+         #   messages.error(request, f'Sorry, Record Save Error')
+          #  return HttpResponse("Invalid Form.")
+    else:
+        form = patientForm()
+        latest = gnuhealth_patient.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        form.fields["create_uid"].initial = 1
+        form.fields["write_uid"].initial = 1
+        form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields["write_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        form.fields['id'].widget.attrs['readonly'] = True
+        form.fields['create_date'].widget.attrs['readonly'] = True
+        form.fields['write_date'].widget.attrs['readonly'] = True
+        form.fields['create_uid'].widget.attrs['readonly'] = True
+        form.fields['write_uid'].widget.attrs['readonly'] = True
+        type = "add"
+        return render(request, 'health/patients.html', {'type': type, 'form': form})
+
+
+def editPatient(request, id):
+    type = "edit"
+    editForm = gnuhealth_patient.objects.get(id=id)
+    return render(request, 'health/patients.html', {'form': editForm, 'type': type})
+
+
+def updatePatient(request, id):
+    type = "grid"
+    patient = gnuhealth_patient.objects.get(id=id)
+    id = patient.id
+    age = request.POST['age']
+    author = request.POST['author']
+    create_date = patient.create_date
+    create_uid = patient.create_uid
+    federation_account = request.POST['federation_account']
+    gene = 1
+    health_condition = request.POST['health_condition']
+    health_condition_code = request.POST['health_condition_code']
+    health_condition_text = None
+    info = None
+    institution = request.POST['institution']
+    medical_context = None
+    natural_variant = 1
+    node = request.POST['node']
+    page = request.POST['page']
+    page_date = request.POST['page_date']
+    page_type = request.POST['page_type']
+    person = request.POST['person']
+    phenotype = 1
+    procedure = request.POST['procedure']
+    procedure_code = request.POST['procedure_code']
+    procedure_text = None
+    relevance = request.POST['relevance']
+    social_context = None
+    summary = request.POST['summary']
+    write_date = patient.write_date
+    write_uid = patient.write_uid
+    fsync = True
+
+    patient = gnuhealth_patient(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,age = age,
+        author = author,
+        federation_account =federation_account,
+        gene = gene,
+        health_condition = health_condition,
+        health_condition_code = health_condition_code,
+        health_condition_text = health_condition_text,
+        info = info,
+        institution = institution,
+        medical_context = medical_context,
+        natural_variant = natural_variant,
+        node = node,
+        page = page,
+        page_date = page_date,
+        page_type = page_type,
+        person = person,
+        phenotype = phenotype,
+        procedure = procedure,
+        procedure_code = procedure_code,
+        procedure_text = procedure_text,
+        relevance = relevance,
+        social_context = social_context,
+        summary = summary,
+        fsync = fsync)
+    patient.save()
+    
+    msg = "3"
+    patients = gnuhealth_pol.objects.all()
+
+    if True:
+        messages.success(request, f'Success, Record Updated Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Update Error')
+
+    return render(request, 'health/patients.html'
+                  , {'type': type, 'msg': msg, 'patients': patients})
+
+
+def deletePatient(request, id):
+    patient = gnuhealth_patient.objects.get(id=id)
+    patient.delete()
+    type = "grid"
+    msg = "2"
+    patients = gnuhealth_patient.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health/patients.html'
+                  , {'type': type, 'msg': msg, 'patients': patients})
+
+
+
 
 def addPol(request):
     if request.method == "POST":

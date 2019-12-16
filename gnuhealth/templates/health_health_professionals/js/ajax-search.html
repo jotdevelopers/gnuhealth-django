@@ -1,13 +1,9 @@
-{% for var in varients %}
-<option value="{{ var.id }}"><a href="#">{{ var.name }} </a></option>
+{% for prof in profs %}
+<option value="{{ prof.id }}"><a href="#">{{ prof.name }} </a></option>
 {% endfor %}
 
-{% for phenotype in phenotypes %}
-<option value="{{ phenotype.id }}"><a href="#">{{ phenotype.name }} </a></option>
+{% for institution in institutions %}
+<option value="{{ institution.id }}"><a href="#">{{ institution.code }} </a></option>
 {% endfor %}
 
-
-{% for gene in genes %}
-<option value="{{ gene.id }}"><a href="#">{{ gene.name }} </a></option>
-{% endfor %}
 
