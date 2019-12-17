@@ -33,8 +33,8 @@ def addMedicamentCategory(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(medicamentCategory)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addMedicamentCategory)
     else:
         form = medicamentCategoryForm()
         form.fields["id"].initial = gnuhealth_medicament_category.objects.count()+1
@@ -98,8 +98,8 @@ def addDrugForm(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(drugForm)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addDrugForm)
     else:
         form = medicamentCategoryForm()
         form.fields["id"].initial = gnuhealth_drug_form.objects.count()+1
@@ -163,8 +163,8 @@ def addDrugRoute(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(drugRoute)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addDrugRoute)
     else:
         form = drugRouteForm()
         form.fields["id"].initial = gnuhealth_drug_route.objects.count()+1
@@ -228,8 +228,8 @@ def addDoseUnit(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(doseUnit)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addDoseUnit)
     else:
         form = doseUnitForm()
         form.fields["id"].initial = gnuhealth_dose_unit.objects.count()+1
@@ -293,8 +293,8 @@ def addMedicationDosage(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(medicationDosage)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addMedicationDosage)
     else:
         form = medicationDosageForm()
         form.fields["id"].initial = gnuhealth_medication_dosage.objects.count()+1
@@ -359,8 +359,8 @@ def addMedicament(request):
 	        messages.success(request, f'Success, Record Saved Successfully')
 	        return redirect(medicament)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(addMedicament)
     else:
         form = medicamentForm()
         form.fields["id"].initial = gnuhealth_medicament.objects.count()+1

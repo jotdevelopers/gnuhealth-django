@@ -12,9 +12,8 @@
         <div class="btn-group btn-group-sm" style="margin-right: 8px">
             <select class="select">
                 <option>Export As</option>
-                <option>Pdf</option>
+                <option>PDF</option>
                 <option>CSV</option>
-                <option>Print</option>
 
             </select>
             <button onclick="window.location.href = '{% url 'addCategories' %}';" class="btn btn-primary"><i
@@ -46,9 +45,9 @@
                     <table id="example" class=" table table-stripped  dt-responsive  ">
                         <thead>
                         <tr>
-                            <th>Category No</th>
+                            <th>No.</th>
                             <th>Name</th>
-                            <th>Action</th>
+                            <th class="text-right">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -59,10 +58,10 @@
                             <td>{{temp.name}}</td>
                             <td class="text-right">
                                 <a href="/health-configuration/editCategories/{{temp.id}}">
-                                    <i class="far fa-edit"> </i>
+                                    <i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i>
                                 </a>
                                 <a href="/health-configuration/deleteCategories/{{temp.id}}">
-                                    <i class="far fa-trash-alt"> </i>
+                                    <i class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i>
                                 </a>
                             </td>
                         </tr>
@@ -82,13 +81,31 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10">
             <h4 class="page-title" style="padding-bottom: 5px;">Add Categories</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'categories' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-sm-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row" style="color: #003366;">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -102,7 +119,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Category Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" required="">
                         </div>
                     </div>
                 </div>
@@ -133,10 +150,12 @@
                     </div>
                 </div>
 
+                <br/>
+                <button type="submit" class="btn btn-primary"> Add Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
 
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>
@@ -149,13 +168,16 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-10">
             <h4 class="page-title" style="padding-bottom: 5px;">Edit Categories</h4>
+        </div>
+        <div class="col-md-2" style="text-align: center;">
+            <a href="{% url 'categories' %}" style="color:#003366;">Go To Home</a>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
@@ -177,19 +199,19 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly name="create_date" class="form-control" placeholder="{{ form.create_date }}">
+                            <input type="text" readonly name="create_date" class="form-control" value="{{ form.create_date }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly name="write_date" class="form-control" placeholder="{{ form.write_date }}">
+                            <input type="text" readonly name="write_date" class="form-control" value="{{ form.write_date }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly name="create_uid" class="form-control"placeholder="{{ form.create_uid }}">
+                            <input type="text" readonly name="create_uid" class="form-control" value="{{ form.create_uid }}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -200,10 +222,12 @@
                     </div>
                 </div>
 
+                <br/>
+                <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
+                <button type="submit" class="btn btn-primary"> Update Record </button>
+                <button type="button" class="btn btn-primary"> Clear Data </button>
+
             </div>
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
 </form>

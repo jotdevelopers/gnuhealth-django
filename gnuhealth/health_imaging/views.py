@@ -310,8 +310,8 @@ def mainAddImagingTestType(request):
             except:
                 pass
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(mainAddImagingTestType)
     else:
         form = imagingTestTypeForm()
         latest = gnuhealth_imaging_test_type.objects.latest('id')
@@ -387,8 +387,8 @@ def mainAddImagingTest(request):
             messages.success(request, f'Success, Record Saved Successfully')
             return redirect(mainImagingTest)
         else:
-            messages.error(request, f'Sorry, Record Save Error')
-            return HttpResponse("Invalid Form.")
+            messages.warning(request, f'Sorry, Record Save Error - Invalid Fields')
+            return redirect(mainAddImagingTest)
     else:
         form = mainImagingTestForm()
         form.fields["id"].initial = gnuhealth_imaging_test.objects.count()+1

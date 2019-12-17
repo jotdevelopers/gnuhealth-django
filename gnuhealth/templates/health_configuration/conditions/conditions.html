@@ -15,7 +15,7 @@
                 <option>CSV</option>
 
             </select>
-            <button onclick="window.location.href = 'medical-archives-add.html';" class="btn btn-primary"> <i class="fa fa-plus"></i> Add New </button>
+            <button class="btn btn-primary"> <i class="fa fa-plus"></i> Add New </button>
         </div>
     </div>
 </div>
@@ -30,8 +30,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Code</th>
-                                <th>Main Category</th>
-                                <th>Action</th>
+                                <th>Category</th>
+                                <th class="text-right">Action</th>
 
                             </tr>
                         </thead>
@@ -41,7 +41,7 @@
                                 <td>{{condition.name}}</td>
                                 <td>{{condition.code}}</td>
                                 <td>{{condition.category}}</td>
-                                 <td class="text-right"><a href="#"><i class="far fa-edit">  </i></a><a href="#"> <i class="far fa-trash-alt	"> </i> </a></td>
+                                 <td class="text-right"><a href="#"><i class="far fa-edit" style="color: #003366; margin-right: 2.5px;"> </i></a><a href="#"> <i class="far fa-trash-alt "style="color: #003366; margin-right: 12.5px;"> </i> </a></td>
                             </tr>
                         {% endfor %}
                         </tbody>

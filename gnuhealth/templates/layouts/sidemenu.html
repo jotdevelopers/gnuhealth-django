@@ -365,15 +365,19 @@
 
                 </ul>
             </li>
-            <li>
-                <a href="{% url 'archives_main' %}"><i class="fas fa-file-alt"></i> Archives</a>
-            </li>
             <li class="submenu">
-                <a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span
-                        class="menu-arrow"></span></a>
-                <ul style="display: none;">
-                    <li><a href="{% url 'ambulances_in_support_req_main' %}">Ambulance In Support Requests</a></li>
-
+                <a href="#"> <i class="fas fa-hotdog"></i> <span> Diets </span> <span class="menu-arrow"></span></a>
+                <ul style="display: none;">                    
+                    {% if selected == 'Diet Beliefs' %}      
+                        <li><a href="{% url 'dietBelief' %}" class="active" id="selected">Belief Diets</a></li>
+                    {% else %}
+                        <li><a href="{% url 'dietBelief' %}">Belief Diets</a></li>
+                    {% endif %}    
+                    {% if selected == 'Therapeutic Diets' %}      
+                        <li><a href="{% url 'dietTherapeutic' %}" class="active" id="selected">Therapeutic Diets</a></li>
+                    {% else %}
+                        <li><a href="{% url 'dietTherapeutic' %}">Therapeutic Diets</a></li>
+                    {% endif %}
                 </ul>
             </li>
             <li class="submenu">
@@ -395,6 +399,17 @@
             </li>
             <li>
                 <a href="{% url 'support_center_main' %}"><i class="fas fa-wrench"></i> Support Center</a>
+            </li>
+            <li>
+                <a href="{% url 'archives_main' %}"><i class="fas fa-file-alt"></i> Archives</a>
+            </li>
+            <li class="submenu">
+                <a href="#"><i class="fa fa-ambulance"></i> <span> Ambulances </span> <span
+                        class="menu-arrow"></span></a>
+                <ul style="display: none;">
+                    <li><a href="{% url 'ambulances_in_support_req_main' %}">Ambulance In Support Requests</a></li>
+
+                </ul>
             </li>
             <li class="submenu">
                 <a href="#"><i class="fas fa-user-nurse"></i> <span> Nursing </span> <span

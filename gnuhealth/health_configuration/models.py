@@ -103,7 +103,7 @@ class gnuhealth_imaging_test(models.Model):
         db_table = 'gnuhealth_imaging_test'
 
 
-class gnuhealth_disease_genes(models.Model):
+class gnuhealth_disease_gene(models.Model):
       id = models.IntegerField(primary_key=True)
       chromosome = models.CharField(max_length = 100)
       create_date = models.DateTimeField()
@@ -117,7 +117,7 @@ class gnuhealth_disease_genes(models.Model):
       write_date = models.DateTimeField()
       write_uid = models.IntegerField()
       class Meta:
-             db_table = 'gnuhealth_disease_genes'
+             db_table = 'gnuhealth_disease_gene'
              
 class gnuhealth_gene_variant(models.Model):
       id = models.IntegerField(primary_key=True)
