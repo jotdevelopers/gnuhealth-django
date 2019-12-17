@@ -64,8 +64,8 @@
                                  
                                  <td>{{gen.patient}}</td>
                                  <td>{{gen.disease_gene}}</td>
-                                 <td>{{gen.natural_varient}}</td>
-                                 <td>{{gen.varient_phenotype}}</td>
+                                 <td>{{gen.natural_variant}}</td>
+                                 <td>{{gen.variant_phenotype}}</td>
                                  <td>{{gen.onset}}</td>
                                  <td>{{gen.notes}}</td>
                                  <td>{{gen.healthprof}}</td>
@@ -110,13 +110,13 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Patient</label>
-                                    <input type="text" class="form-control" name="patient">
+                                    <input type="number" class="form-control" name="patient">
                                 </div>
                             </div>
-                      <!--      <div class="col-sm-12">
+                           <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Search Gene</label>
                                     <div class="input-group">
@@ -140,7 +140,7 @@
                                     <select class="select" name="disease_gene" id="search-results-gene"></select>
                                 </div>
                             </div>
-    -->
+    
                     <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Search Varient</label>
@@ -197,14 +197,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Onset</label>
-                            <input type="text" class="form-control" name="onset">
+                            <input type="number" class="form-control" name="onset">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Health Professional</label>
-                            <input type="text" class="form-control" name="healthprof">
+                            <input type="number" class="form-control" name="healthprof">
 
                         </div>
                     </div>
@@ -256,74 +256,171 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-genetics/updateGenetic/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+        <div class="col-md-12">
+            <h4 class="page-title" style="padding-bottom: 5px;">Update Person Genetic Info</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Code</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+                            <label>Record ID</label>
+                            <input readonly type="number" class="form-control" name="id" value="{{ form.id }}">
                         </div>
                     </div>
+
+                   
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Patient</label>
+                                    <input type="number" class="form-control" name="patient" value="{{ form.patient }}">
+                                </div>
+                            </div>
+                           <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Search Disease Gene</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.disease_gene }}" id="gene-search"
+                                               onkeyup="geneSearch()" type="text">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
+                                                Gene
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
+                                </div>
+                            </div>
+
+                    <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Varient</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.natural_variant }}" id="varient-search"
+                                           onkeyup="varientSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                            Varient
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="natural_variant" id="search-results-varient"></select>
+                            </div>
+                        </div>
+
+                        
+                   
+                   
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label>Search Phenotype</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" value="{{ form.variant_phenotype }}" id="phenotype-search"
+                                           onkeyup="phenotypeSearch()" type="text">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
+                                            Phenotype
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                     </div>
+    
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="select" name="variant_phenotype" id="search-results-phenotype"></select>
+                            </div>
+                        </div>
+                       
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
+                            <label>Onset</label>
+                            <input type="number" class="form-control" name="onset" value="{{ form.onset }}">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <input type="number" class="form-control" name="healthprof" value="{{ form.healthprof }}">
+
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Notes</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
+                            <input type="text" class="form-control" name="notes" value="{{ form.notes }}">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
+                            <input readonly type="text" class="form-control" name="create_date" value="{{ form.create_date }}">
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
+                            <input readonly type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}">
+
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
+                            <input readonly type="text" class="form-control" name="create_uid" placeholder="{{ form.create_uid }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
+                            <input readonly type="text" class="form-control" name="write_uid" value="{{ form.write_uid }}">
+
                         </div>
                     </div>
                 </div>
 
 
             </div>
-            <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-primary">Clear</button>
         </div>
     </div>
+</form>
 </form>
 {% endif %}
 

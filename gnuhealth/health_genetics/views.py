@@ -36,19 +36,19 @@ def addGenetic(request):
         #    try:
         type = "grid"
         msg = "1"
-                #latest = gnuhealth_patient_genetic_risk.objects.latest('id')
-                #form.fields["id"].initial = latest.id + 1
-        form.fields["id"].initial = 1
+        latest = gnuhealth_patient_genetic_risk.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        #form.fields["id"].initial = 1
         id = request.POST['id']
         create_date = request.POST['create_date']
         create_uid = request.POST['create_uid']
         disease_gene = 2
-        healthprof = None
+        healthprof = request.POST['healthprof']
         institution = None
         natural_variant = request.POST['natural_variant']
         notes = request.POST['notes']
         onset = request.POST['onset']
-        patient = None
+        patient = request.POST['patient']
         variant_phenotype = request.POST['variant_phenotype']
         write_date = request.POST['write_date']
         write_uid = request.POST['write_uid']
@@ -75,9 +75,9 @@ def addGenetic(request):
           #  return HttpResponse("Invalid Form.")
     else:
         form = geneticForm()
-        #latest = gnuhealth_patient_genetic_risk.objects.latest('id')
-        #form.fields["id"].initial = latest.id + 1
-        form.fields["id"].initial = 1
+        latest = gnuhealth_patient_genetic_risk.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
+        #form.fields["id"].initial = 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d")
@@ -99,18 +99,32 @@ def editGenetic(request, id):
 
 def updateGenetic(request, id):
     type = "grid"
-    eth = gnuhealth_patient_genetic_risk.objects.get(id=id)
-    name = request.POST['name']
+    genet = gnuhealth_patient_genetic_risk.objects.get(id=id)
+    id = request.POST['id']
+    create_date = request.POST['create_date']
+    create_uid = request.POST['create_uid']
+    disease_gene = 2
+    healthprof = request.POST['healthprof']
+    institution = None
+    natural_variant = request.POST['natural_variant']
     notes = request.POST['notes']
-    code = request.POST['code']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    eth = gnuhealth_patient_genetic_risk(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
-    eth.save()
+    onset = request.POST['onset']
+    patient = request.POST['patient']
+    variant_phenotype = request.POST['variant_phenotype']
+    write_date = request.POST['write_date']
+    write_uid = request.POST['write_uid']
+    genet = gnuhealth_patient_genetic_risk(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
+        create_uid=create_uid,
+        disease_gene = disease_gene,
+        healthprof = healthprof,
+        institution = institution,
+        natural_variant = natural_variant,
+        notes = notes,
+        onset = onset,
+        patient = patient,
+        variant_phenotype = variant_phenotype,
+         )
+    genet.save()
     msg = "3"
     genetics = gnuhealth_patient_genetic_risk.objects.all()
 
@@ -119,7 +133,7 @@ def updateGenetic(request, id):
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-    return render(request, 'health_genetics/geneticss.html'
+    return render(request, 'health_genetics/genetics.html'
                   , {'type': type, 'msg': msg, 'genetics': genetics})
 
 
@@ -149,7 +163,7 @@ def searchVarient(request, search_text):
     if len(varients) == 0:
         varients = gnuhealth_gene_variant.objects.filter(id=search_text)
 
-    return render_to_response('health_configuration/js/ajax-search.html', {'varients': varients})
+    return render_to_response('health_genetics/js/ajax-search.html', {'varients': varients})
 
 def searchPhenotype(request, search_text):
     if request.method == "POST":
@@ -162,7 +176,7 @@ def searchPhenotype(request, search_text):
     if len(phenotypes) == 0:
         phenotypes = gnuhealth_gene_variant_phenotype.objects.filter(id=search_text)
 
-    return render_to_response('health_configuration/js/ajax-search.html', {'phenotypes': phenotypes})
+    return render_to_response('health_genetics/js/ajax-search.html', {'phenotypes': phenotypes})
 
 def searchGene(request, search_text):
     if request.method == "POST":
@@ -175,7 +189,7 @@ def searchGene(request, search_text):
     if len(genes) == 0:
         genes = gnuhealth_disease_gene.objects.filter(id=search_text)
 
-    return render_to_response('health_configuration/js/ajax-search.html', {'genes': genes})
+    return render_to_response('health_genetics/js/ajax-search.html', {'genes': genes})
 
 def addgenetics(request):
     if request.method == "POST":  

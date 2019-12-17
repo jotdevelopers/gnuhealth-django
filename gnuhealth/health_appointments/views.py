@@ -37,10 +37,10 @@ def addAppointment(request):
         checked_in_date = None
         comments = request.POST['comments']
         consultations = None
-        healthprof = None
+        healthprof = request.POST['healthprof']
         institution = request.POST['institution']
         name = None
-        patient = None
+        patient = request.POST['patient']
         speciality = None
         state = request.POST['state']
         urgency = request.POST['urgency']
@@ -89,7 +89,7 @@ def addAppointment(request):
 
 def editAppointment(request, id):
     type = "edit"
-    editForm = gnuhealth_apppointment.objects.get(id=id)
+    editForm = gnuhealth_appointment.objects.get(id=id)
     return render(request, 'health_appointments/appointments.html', {'form': editForm, 'type': type})
 
 
