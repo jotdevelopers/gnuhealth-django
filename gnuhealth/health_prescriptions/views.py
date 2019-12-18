@@ -101,46 +101,71 @@ def addPrescription(request):
 
 def editPrescription(request, id):
     type = "edit"
-    editForm = gnuhealth_ethnicity.objects.get(id=id)
-    return render(request, 'health_configuration/patients/ethnicities.html', {'form': editForm, 'type': type})
+    editForm = gnuhealth_prescription_order.objects.get(id=id)
+    return render(request, 'health_prescriptions/prescriptions.html', {'form': editForm, 'type': type})
 
 
 def updatePrescription(request, id):
     type = "grid"
-    eth = gnuhealth_ethnicity.objects.get(id=id)
-    name = request.POST['name']
+    pres = gnuhealth_prescription_order.objects.get(id=id)
+    id = request.POST['id']
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    healthprof = request.POST['healthprof']
     notes = request.POST['notes']
-    code = request.POST['code']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    eth = gnuhealth_ethnicity(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
-    eth.save()
+    patient = 1
+    pharmacy = None
+    pregnancy_warning = False
+    prescription_date = request.POST['prescription_date']
+    prescription_id = request.POST['prescription_id']
+    prescription_warning_ack = True
+    state = request.POST['state']
+    user_id = None
+    digital_signature = request.POST['digital_signature']
+    document_digest = request.POST['document_digest']
+    serializer = None
+    service = None
+    pres = gnuhealth_prescription_order(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid,
+                              healthprof = healthprof,
+        notes = notes,
+        patient = patient,
+        pharmacy = pharmacy,
+        pregnancy_warning = pregnancy_warning,
+        prescription_date = prescription_date,
+        prescription_id = prescription_id,
+        prescription_warning_ack = prescription_warning_ack,
+        state = state,
+        user_id = user_id,
+        digital_signature = digital_signature,
+        document_digest = document_digest,
+        serializer = serializer,
+        service = service)
+    pres.save()
     msg = "3"
-    ethnicities = gnuhealth_ethnicity.objects.all()
+    prescriptions = gnuhealth_prescription_order.objects.all()
 
     if True:
         messages.success(request, f'Success, Record Updated Successfully')
     elif False:
         messages.error(request, f'Sorry, Record Update Error')
 
-    return render(request, 'health_configuration/patients/ethnicities.html'
-                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+    return render(request, 'health_prescriptions/prescriptions.html'
+                  , {'type': type, 'msg': msg, 'prescriptions': prescriptions})
 
 
 def deletePrescription(request, id):
-    ethnicity = gnuhealth_ethnicity.objects.get(id=id)
-    ethnicity.delete()
+    prescription = gnuhealth_prescription_order.objects.get(id=id)
+    prescription.delete()
     type = "grid"
     msg = "2"
-    ethnicities = gnuhealth_ethnicity.objects.all()
+    prescriptions = gnuhealth_prescription_order.objects.all()
     if True:
         messages.success(request, f'Success, Record Deleted Successfully')
     elif False:
         messages.error(request, f'Sorry, Record Delete Error')
 
-    return render(request, 'health_configuration/patients/ethnicities.html'
-                  , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+    return render(request, 'health_prescriptions/prescriptions.html'
+                  , {'type': type, 'msg': msg, 'prescriptions': prscriptions})
