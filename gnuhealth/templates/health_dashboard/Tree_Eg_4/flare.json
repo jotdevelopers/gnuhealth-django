@@ -1,98 +1,209 @@
 {
     "name": "Diseases",
     "children": [{
-        "name": "Schemic Heart Diseases",
+        "name": "Ischemic Heart Diseases",
         "children": [{
-            "name": "Stroke",
+            "name": "Heart Failure",
             "size": 743
             
         }, {
-            "name": "Schemic Heart Diseases",
+            "name": "Abnormal Heartbeat",
              "size": 3416
             
         },{
-            "name": "Lung Cancers",
+            "name": "Chest Pain",
              "size": 3416
             
         },
          {
-            "name": "Diabetes Mellitus",
+            "name": "Heart Attack",
+            "size": 7074
+            
+        },
+         {
+            "name": "Sudden Death",
+            "size": 7074
+            
+        },
+         {
+            "name": "Related Arterial Diseases",
             "size": 7074
             
         }]
     },{
         "name": "Stroke",
         "children": [{
-            "name": "Stroke",
+            "name": "Brain Edema",
             "size": 743
             
         },{
-            "name": "Lung Cancers",
+            "name": "swelling of the Brain",
              "size": 3416
             
         }, {
-            "name": "Schemic Heart Diseases",
+            "name": "Pneumonia",
             "size": 3416
             
         }, {
-            "name": "Diabetes Mellitus",
+            "name": "Causes Breathing Problems",
+            "size": 7074
+            
+        }, {
+            "name": "Swallowing Problems",
             "size": 7074
             
         }]
     },{
         "name": "Diabetes Mellitus",
         "children": [{
-            "name": "Stroke",
+            "name": "Cardiovascular Disease",
             "size": 743
             
         },{
-            "name": "Lung Cancers",
+            "name": "Nerve Damage",
              "size": 3416
             
         }, {
-            "name": "Schemic Heart Diseases",
+            "name": "Kidney Damage",
             "size": 3416
             
         }, {
-            "name": "Diabetes Mellitus",
+            "name": "Eye Damage",
+            "size": 7074
+            
+        }, {
+            "name": "Foot Damage",
+            "size": 7074
+            
+        }, {
+            "name": "Skin Conditions",
+            "size": 7074
+            
+        }, {
+            "name": "Hearing Impairment",
+            "size": 7074
+            
+        }, {
+            "name": "Alzheimer's Disease",
             "size": 7074
             
         }]
     },{
         "name": "Lung Cancers",
         "children": [{
-            "name": "Stroke",
+            "name": "Shortness of Breath",
             "size": 743
             
         }, {
-            "name": "Lung Cancers",
+            "name": "Coughing up Blood",
              "size": 3416
             
         },{
-            "name": "Schemic Heart Diseases",
+            "name": "Pain",
             "size": 3416
             
         }, {
-            "name": "Diabetes Mellitus",
+            "name": "Fluid in the Chest",
+            "size": 7074
+            
+        }, {
+            "name": "Metastasis",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Influenza",
+        "children": [{
+            "name": "Bacterial Pneumonia",
+            "size": 743
+            
+        }, {
+            "name": "Dehydration",
+             "size": 3416
+            
+        },{
+            "name": "Ear Infections",
+            "size": 3416
+            
+        }, {
+            "name": "Sinus Infections",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Kidney Disease",
+        "children": [{
+            "name": "Gout",
+            "size": 743
+            
+        }, {
+            "name": "Anemia",
+             "size": 3416
+            
+        },{
+            "name": "Bone Disease",
+            "size": 3416
+            
+        }, {
+            "name": "Heart Disease",
+            "size": 7074
+            
+        }, {
+            "name": "High Potassium",
+            "size": 7074
+            
+        }, {
+            "name": "Fluid Buildup",
+            "size": 7074
+            
+        }]
+    },{
+        "name": "Liver Disease",
+        "children": [{
+            "name": "Ascites",
+            "size": 743
+            
+        }, {
+            "name": "Hepatic Encephalopathy",
+             "size": 3416
+            
+        },{
+            "name": "Infection",
+            "size": 3416
+            
+        }, {
+            "name": "Liver Cancer",
+            "size": 7074
+            
+        }, {
+            "name": "Hypertension",
             "size": 7074
             
         }]
     },{
         "name": "Lower Respiratory Infections",
         "children": [{
-            "name": "Stroke",
+            "name": "Acute Bronchitis",
             "size": 743
             
         },{
-            "name": "Lung Cancers",
+            "name": "Pneumonia & Influenza",
              "size": 3416
             
         }, {
-            "name": "Schemic Heart Diseases",
+            "name": "Spontaneous Pneumothorax",
             "size": 3416
             
         }, {
-            "name": "Diabetes Mellitus",
+            "name": "Bronchiectasis",
+            "size": 7074
+            
+        }, {
+            "name": "Hemoptysis",
+            "size": 7074
+            
+        }, {
+            "name": "Acute Respiratory Failure",
             "size": 7074
             
         }]

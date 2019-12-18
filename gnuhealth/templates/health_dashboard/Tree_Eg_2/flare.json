@@ -1,292 +1,414 @@
 {
     "name": "Patients ( Age - Group )",
     "children": [{
-        "name": "( 0 - 10 )",
+        "name": "( 1 - 10 )",
         "children": [{
-            "name": "Fever",
+            "name": "Respiratory Syncytial Virus (RSV)",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Cold Like Symptoms",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Runny Nose",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Nasal Congestion & Cough",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Irritability",
+                "size": 743
+            }, {
+                "name": "Breathing Problems In Infants",
                 "size": 743
             }]
         }, {
-            "name": "Red Rash",
+            "name": "Fifth Disease",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Low Fever",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Cold Symptoms (like Runny Nose)",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Swollen Joints",
                 "size": 7840
-            }, {
-                "name": "ShortestPaths",
-                "size": 5914
-            }, {
-                "name": "SpanningTree",
-                "size": 3416
             }]
         }, {
-            "name": "Red Eyes",
+            "name": "Hand, Foot, and Mouth Disease",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Fever",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Sore Throat",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Poor Appetite",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Painful Sores",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Skin Rash",
+                "size": 7074
+            }]
+        }, {
+            "name": "Kawasaki Disease",
+            "children": [{
+                "name": "Fever That Lasts 5 or More Days",
+                "size": 7074
+            },
+            {
+                "name": "Red Eyes",
+                "size": 7074
+            },
+            {
+                "name": "Red Lips",
+                "size": 7074
+            },
+            {
+                "name": "Rash",
+                "size": 7074
+            },
+            {
+                "name": "Swollen Lymph Node",
+                "size": 7074
+            }]
+        }, {
+            "name": "Croup",
+            "children": [{
+                "name": "Barky Cough & Stridor",
+                "size": 7074
+            },
+            {
+                "name": "Runny Nose",
+                "size": 7074
+            },
+            {
+                "name": "Fever",
                 "size": 7074
             }]
         }]
     },{
         "name": "( 20 - 30 )",
         "children": [{
-            "name": "Measles",
+            "name": "Asthma",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Shortness of Breath",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Chest Tightness or Pain",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Trouble Sleeping",
                 "size": 6714
-            }, {
-                "name": "Overweight",
-                "size": 743
             }]
         }, {
-            "name": "Food allergies",
+            "name": "Cancer",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Bladder Changes",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Bleeding or Bruising, For Unknown Reason",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Bowel Changes",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Cough or Hoarseness That Does Not Go Away",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "Eating Problems",
+                "size": 3416
+            }, {
+                "name": "Fatigue That is Severe and Lasts",
                 "size": 3416
             }]
         }, {
-            "name": "Diarrhoea and vomiting",
+            "name": "Chronic Fatigue Syndrome",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Fatigue",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Loss of Memory or Concentration",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Sore Throat",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Enlarged Lymph Nodes in Your Neck or Armpits",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Unexplained Muscle or Joint Pain",
+                "size": 7074
+            },
+            {
+                "name": "Headaches",
+                "size": 7074
+            },
+            {
+                "name": "Unrefreshing Sleep",
+                "size": 7074
+            }]
+        }, {
+            "name": "Diabetes",
+            "children": [{
+                "name": "Increased Thirst",
+                "size": 7074
+            },
+            {
+                "name": "Frequent Urination",
+                "size": 7074
+            },
+            {
+                "name": "Extreme Hunger",
+                "size": 7074
+            },
+            {
+                "name": "Unexplained Weight Loss",
                 "size": 7074
             }]
         }]
     },{
         "name": "( 30 - 40 )",
         "children": [{
-            "name": "Respiratory infections",
+            "name": "Cancer",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Blood in the Urine",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Hoarseness",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Persistent Lumps or Swollen Glands",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Obvious Change in a Wart or a Mole",
+                "size": 743
+            }, {
+                "name": "Indigestion or Difficulty Swallowing",
                 "size": 743
             }]
         }, {
-            "name": "Bone and joint infections",
+            "name": "Osteoarthritis",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Tenderness",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Loss of Flexibility",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Grating Sensation",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Bone Spurs",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "Swelling",
                 "size": 3416
             }]
         }, {
-            "name": "Hepatitis",
+            "name": "Diabetes Mellitus",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Increased Thirst",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Frequent Urination",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Extreme Hunger",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Unexplained Weight Loss",
+                "size": 7074
+            }]
+        }, {
+            "name": "Osteoporosis",
+            "children": [{
+                "name": "Back Pain",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Loss of Height over Time",
+                "size": 7074
+            },
+            {
+                "name": "A Stooped Posture",
+                "size": 7074
+            },
+            {
+                "name": "A Bone that Breaks Much More Easily than Expected",
                 "size": 7074
             }]
         }]
     },{
         "name": "( 40 - 60 )",
         "children": [{
-            "name": "Thalassemia",
+            "name": "Arthritis",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Pain",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Stiffness",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Swelling",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Redness",
+                "size": 743
+            }, {
+                "name": "Decreased Range of Motion",
                 "size": 743
             }]
         }, {
-            "name": "Tay-Sachs disease",
+            "name": "Dementia",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Memory Problems",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Increasing Confusion",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Reduced Concentration",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Personality or Behaviour Changes",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "Loss of Ability to Do Everyday Tasks",
                 "size": 3416
             }]
         }, {
-            "name": "Cystic Fibrosisn",
+            "name": "Parkinson's Disease",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Tremor",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Slowed Movement",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Rigid Muscles",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Impaired Posture and Balance",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Loss of Automatic Movements",
+                "size": 7074
+            },
+            {
+                "name": "Speech Changes",
+                "size": 7074
+            },
+            {
+                "name": "Writing Changes",
+                "size": 7074
+            }]
+        }, {
+            "name": "Glaucoma",
+            "children": [{
+                "name": "Severe Eye Pain",
+                "size": 7074
+            },
+            {
+                "name": "Nausea and Vomiting",
+                "size": 7074
+            },
+            {
+                "name": "Sudden Onset of Visual Disturbance",
+                "size": 7074
+            },
+            {
+                "name": "Blurred Vision",
+                "size": 7074
+            },
+            {
+                "name": "Halos Around Lights",
+                "size": 7074
+            },
+            {
+                "name": "Reddening of the Eye",
                 "size": 7074
             }]
         }]
     },{
         "name": "( 60 - 70 + )",
         "children": [{
-            "name": "Adult onset diabetes",
+            "name": "Hypertension",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Severe Headache",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Fatigue or Confusion",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Vision Problems",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Chest Pain",
+                "size": 743
+            }, {
+                "name": "Difficulty Breathing",
+                "size": 743
+            }, {
+                "name": "Irregular Heartbeat",
+                "size": 743
+            }, {
+                "name": "Blood in the Urine",
                 "size": 743
             }]
         }, {
-            "name": "Arthritis",
+            "name": "Cataracts",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Clouded Vision",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Difficulty with Vision at Night",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Sensitivity to Light and Glare",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Need for Brighter Light for Reading",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "Fading or Yellowing of Colors",
                 "size": 3416
             }]
         }, {
-            "name": "Kidney and bladder problems",
+            "name": "Dementia",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Memory Problems",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Increasing Confusion",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Reduced Concentration",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Personality or Behaviour Changes",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Loss of Ability to do Everyday Tasks",
                 "size": 7074
             }]
         }]

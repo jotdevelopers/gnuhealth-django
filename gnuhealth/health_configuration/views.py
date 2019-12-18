@@ -21,6 +21,7 @@ def index(request):
 # Create Conditions Views
 def condition(request):
     conditions = gnuhealth_pathology.objects.order_by('id')[:500]
+    # conditions = gnuhealth_pathology.objects.all()
     return render(request, 'health_configuration/conditions/conditions.html', {'conditions': conditions, 'selected': 'Conditions'})
 
 

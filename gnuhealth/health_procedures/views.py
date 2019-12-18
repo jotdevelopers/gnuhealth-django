@@ -7,7 +7,7 @@ from health_configuration.forms import procedureForm
 
 def mainProcedures(request):
     type = "grid"
-    procedures = gnuhealth_procedure.objects.order_by('id')[:200]
+    procedures = gnuhealth_procedure.objects.order_by('-id')[:1000]
     return render(request, 'health_procedures/procedures.html'
                   , {'procedures': procedures
                       , 'type': type, 'selected': 'Procedures'})

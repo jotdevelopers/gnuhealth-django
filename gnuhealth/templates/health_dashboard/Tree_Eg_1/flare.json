@@ -1,61 +1,91 @@
 {
     "name": "Diseases",
     "children": [{
-        "name": "Schemic Heart Diseases",
+        "name": "Ischemic Heart Diseases",
         "children": [{
             "name": "Symptoms",
             "children": [{
-                "name": "High Blood Pressure",
-                "size": 3938
+                "name": "Angina",
+                "size": 1000
             }, {
-                "name": "High Colestrol",
-                "size": 3812
+                "name": "Cold Sweats",
+                "size": 1000
             }, {
-                "name": "Diabetes",
-                "size": 6714
+                "name": "Dizzines",
+                "size": 1000
             }, {
-                "name": "Overweight",
-                "size": 743
+                "name": "Nausea",
+                "size": 1000
+            }, {
+                "name": "Neck Pain",
+                "size": 1000
+            }, {
+                "name": "Shortness of Breath",
+                "size": 1000
+            }, {
+                "name": "Sleep Disturbances",
+                "size": 1000
             }]
         }, {
             "name": "Prescribtion",
             "children": [{
-                "name": "BetweennessCentrality",
-                "size": 3534
+                "name": "Balanced Diet",
+                "size": 1000
             }, {
-                "name": "LinkDistance",
-                "size": 5731
+                "name": "Be More Physically Active",
+                "size": 1000
             }, {
-                "name": "MaxFlowMinCut",
-                "size": 7840
+                "name": "Keep To A Healthy Weight",
+                "size": 1000
             }, {
-                "name": "ShortestPaths",
-                "size": 5914
+                "name": "Give Up Smoking",
+                "size": 1000
             }, {
-                "name": "SpanningTree",
-                "size": 3416
+                "name": "Reduce Your Alcohol Consumption",
+                "size": 1000
+            }, {
+                "name": "Keep Your Blood Pressure Under Control",
+                "size": 1000
+            }, {
+                "name": "Keep Your Diabetes Under Control",
+                "size": 1000
+            }, {
+                "name": "Regular Exercise",
+                "size": 1000
             }]
         }, {
             "name": "Prevention",
             "children": [{
-                "name": "Exercising Regularly",
-                "size": 7074
+                "name": "Balanced Diet",
+                "size": 1000
             },
             {
-                "name": "Maintaining Healthy Weight",
-                "size": 7074
+                "name": "Be More Physically Active",
+                "size": 1000
             },
             {
-                "name": "Avoid Smoking",
-                "size": 7074
+                "name": "Keep To A Healthy Weight",
+                "size": 1000
             },
             {
-                "name": "Eat Balanced Diet",
-                "size": 7074
+                "name": "Give Up Smoking",
+                "size": 1000
             },
             {
-                "name": "Drinking Only In Moderation",
-                "size": 7074
+                "name": "Reduce Your Alcohol Consumption",
+                "size": 1000
+            },
+            {
+                "name": "Keep Your Blood Pressure Under Control",
+                "size": 1000
+            },
+            {
+                "name": "Keep Your Diabetes Under Control",
+                "size": 1000
+            },
+            {
+                "name": "Regular Exercise",
+                "size": 1000
             }]
         }]
     },{
@@ -63,57 +93,345 @@
         "children": [{
             "name": "Symptoms",
             "children": [{
-                "name": "High Blood Pressure",
-                "size": 3938
+                "name": "Sudden Weakness In The Face, Arm, or Leg, Especially On One Side of The Body",
+                "size": 2000
             }, {
-                "name": "High Colestrol",
-                "size": 3812
+                "name": "Sudden confusion, trouble speaking, or difficulty understanding speech",
+                "size": 2000
             }, {
-                "name": "Diabetes",
-                "size": 6714
+                "name": "Sudden trouble seeing in one or both eyes",
+                "size": 2000
             }, {
-                "name": "Overweight",
-                "size": 743
+                "name": "Sudden trouble walking, dizziness, loss of balance, or lack of coordination",
+                "size": 2000
             }]
         }, {
             "name": "Prescribtion",
             "children": [{
-                "name": "BetweennessCentrality",
-                "size": 3534
+                "name": "ACE (Angiotensin-Converting Enzyme) Inhibitors",
+                "size": 2000
             }, {
-                "name": "LinkDistance",
-                "size": 5731
+                "name": "ARB’s (Angiotensin Receptor Antagonists)",
+                "size": 2000
             }, {
-                "name": "MaxFlowMinCut",
-                "size": 7840
+                "name": "Beta-blockers",
+                "size": 2000
             }, {
-                "name": "ShortestPaths",
-                "size": 5914
+                "name": "Calcium channel blockers",
+                "size": 2000
             }, {
-                "name": "SpanningTree",
-                "size": 3416
+                "name": "Diuretics",
+                "size": 2000
             }]
         }, {
             "name": "Prevention",
             "children": [{
-                "name": "Exercising Regularly",
-                "size": 7074
+                "name": "Lower blood pressure",
+                "size": 2000
             },
             {
-                "name": "Maintaining Healthy Weight",
-                "size": 7074
+                "name": "Lose weight",
+                "size": 2000
             },
             {
-                "name": "Avoid Smoking",
-                "size": 7074
+                "name": "Exercise more",
+                "size": 2000
             },
             {
-                "name": "Eat Balanced Diet",
-                "size": 7074
+                "name": "If you drink — do it in moderation",
+                "size": 2000
             },
             {
-                "name": "Drinking Only In Moderation",
-                "size": 7074
+                "name": "Treat atrial fibrillation",
+                "size": 2000
+            },
+            {
+                "name": "Treat diabetes",
+                "size": 2000
+            },
+            {
+                "name": "Quit smoking",
+                "size": 2000
+            }]
+        }]
+    },{
+        "name": "Tuberculosis",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "A cough that lasts more than 3 weeks",
+                "size": 2000
+            }, {
+                "name": "Chest pain",
+                "size": 2000
+            }, {
+                "name": "Coughing up blood",
+                "size": 2000
+            }, {
+                "name": "Feeling tired all the time",
+                "size": 2000
+            }, {
+                "name": "Night sweats",
+                "size": 2000
+            }, {
+                "name": "Chills",
+                "size": 2000
+            }, {
+                "name": "Fever",
+                "size": 2000
+            }, {
+                "name": "Loss of appetite",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "Isoniazid",
+                "size": 2000
+            }, {
+                "name": "Rifampin (Rifadin, Rimactane)",
+                "size": 2000
+            }, {
+                "name": "Ethambutol (Myambutol)",
+                "size": 2000
+            }, {
+                "name": "Pyrazinamide",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Take all of your medicines",
+                "size": 2000
+            },
+            {
+                "name": "Always cover your mouth",
+                "size": 2000
+            },
+            {
+                "name": "Wash your hands after coughing or sneezing",
+                "size": 2000
+            },
+            {
+                "name": "Don’t visit other people",
+                "size": 2000
+            },
+            {
+                "name": "Stay home from public places",
+                "size": 2000
+            },
+            {
+                "name": "Move around fresh air",
+                "size": 2000
+            },
+            {
+                "name": "Don’t use public transportation",
+                "size": 2000
+            }]
+        }]
+    },{
+        "name": "Influenza",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "Fever",
+                "size": 2000
+            }, {
+                "name": "Cough",
+                "size": 2000
+            }, {
+                "name": "Sore Throat",
+                "size": 2000
+            }, {
+                "name": "Runny or stuffy nose",
+                "size": 2000
+            }, {
+                "name": "Muscle or body aches",
+                "size": 2000
+            }, {
+                "name": "Headaches",
+                "size": 2000
+            }, {
+                "name": "Fatigue",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "Tamiflu",
+                "size": 2000
+            }, {
+                "name": "Relenza",
+                "size": 2000
+            }, {
+                "name": "Rapivab",
+                "size": 2000
+            }, {
+                "name": "Xofluza",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Use hand sanitizer",
+                "size": 2000
+            },
+            {
+                "name": "Cover Your Mouth and Nose",
+                "size": 2000
+            },
+            {
+                "name": "Don't Touch Your Face with unwashed hands",
+                "size": 2000
+            },
+            {
+                "name": "Eat Healthy",
+                "size": 2000
+            },
+            {
+                "name": "Exercise",
+                "size": 2000
+            },
+            {
+                "name": "Stay Home",
+                "size": 2000
+            }]
+        }]
+    },{
+        "name": "Alzheimer's Disease ",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "Memory loss",
+                "size": 2000
+            }, {
+                "name": "Challenges solving problems",
+                "size": 2000
+            }, {
+                "name": "Difficulty completing tasks",
+                "size": 2000
+            }, {
+                "name": "Confusion with time or place",
+                "size": 2000
+            }, {
+                "name": "Trouble understanding visual images",
+                "size": 2000
+            }, {
+                "name": "New problems with words in speaking or writing",
+                "size": 2000
+            }, {
+                "name": "Misplacing things and losing the ability to retrace steps",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "Aricept (Donepezil)",
+                "size": 2000
+            }, {
+                "name": "Exelon (Rivastigmine)",
+                "size": 2000
+            }, {
+                "name": "Namenda (Memantine)",
+                "size": 2000
+            }, {
+                "name": "Namzaric (Memantine & Donepezil)",
+                "size": 2000
+            }, {
+                "name": "Razadyne (Galantamine)",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Regular exercise",
+                "size": 2000
+            },
+            {
+                "name": "Social engagement",
+                "size": 2000
+            },
+            {
+                "name": "Healthy diet",
+                "size": 2000
+            },
+            {
+                "name": "Mental stimulation",
+                "size": 2000
+            },
+            {
+                "name": "Quality sleep",
+                "size": 2000
+            },
+            {
+                "name": "Stress management",
+                "size": 2000
+            }]
+        }]
+    },{
+        "name": "Asthma",
+        "children": [{
+            "name": "Symptoms",
+            "children": [{
+                "name": "Shortness of breath",
+                "size": 2000
+            }, {
+                "name": "Chest tightness or pain",
+                "size": 2000
+            }, {
+                "name": "Trouble sleeping",
+                "size": 2000
+            }, {
+                "name": "Wheezing sound when exhaling",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prescribtion",
+            "children": [{
+                "name": "Fluticasone (Flovent HFA)",
+                "size": 2000
+            }, {
+                "name": "Budesonide (Pulmicort Flexhaler)",
+                "size": 2000
+            }, {
+                "name": "Mometasone (Asmanex Twisthaler)",
+                "size": 2000
+            }, {
+                "name": "Beclomethasone (Qvar RediHaler)",
+                "size": 2000
+            }, {
+                "name": "Ciclesonide (Alvesco)",
+                "size": 2000
+            }]
+        }, {
+            "name": "Prevention",
+            "children": [{
+                "name": "Stay Away From Allergens",
+                "size": 2000
+            },
+            {
+                "name": "Avoid Smoke of Any Type",
+                "size": 2000
+            },
+            {
+                "name": "Prevent Colds",
+                "size": 2000
+            },
+            {
+                "name": "Allergy-Proof Your Home",
+                "size": 2000
+            },
+            {
+                "name": "Get Your Vaccinations",
+                "size": 2000
+            },
+            {
+                "name": "Consider Immunotherapy Allergy Shots",
+                "size": 2000
+            },
+            {
+                "name": "Take Asthma Medications as Prescribed",
+                "size": 2000
             }]
         }]
     },{
@@ -121,56 +439,89 @@
         "children": [{
             "name": "Symptoms",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Frequent urination",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Excessive thirst",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Unexplained weight loss",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Extreme hunger",
+                "size": 743
+            }, {
+                "name": "Sudden vision changes",
+                "size": 743
+            }, {
+                "name": "Tingling or numbness in the hands or feet",
+                "size": 743
+            }, {
+                "name": "Feeling very tired much of the time",
+                "size": 743
+            }, {
+                "name": "Very dry skin",
                 "size": 743
             }]
         }, {
             "name": "Prescribtion",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Metformin",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Sulfonylureas",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Meglitinides",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Thiazolidinediones",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "DPP-4 inhibitors",
+                "size": 3416
+            }, {
+                "name": "GLP-1 receptor agonists",
+                "size": 3416
+            }, {
+                "name": "SGLT2 inhibitors",
+                "size": 3416
+            }, {
+                "name": "Insulin",
                 "size": 3416
             }]
         }, {
             "name": "Prevention",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Cut Sugar and Refined Carbs From Your Diet",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Work Out Regularly",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Drink Water as Your Primary Beverage",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Lose Weight If You're Overweight or Obese",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Quit Smoking",
+                "size": 7074
+            },
+            {
+                "name": "Follow a Very-Low-Carb Diet",
+                "size": 7074
+            },
+            {
+                "name": "Watch Portion Sizes",
+                "size": 7074
+            },
+            {
+                "name": "Avoid Sedentary Behaviors",
                 "size": 7074
             }]
         }]
@@ -179,56 +530,78 @@
         "children": [{
             "name": "Symptoms",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Persistent, prolonged cough",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Coughing up blood",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Wheezing and shortness of breath",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Appetite loss",
+                "size": 743
+            }, {
+                "name": "Hoarseness",
+                "size": 743
+            }, {
+                "name": "Unexplainable weight loss",
+                "size": 743
+            }, {
+                "name": "Fatigue or weakness",
                 "size": 743
             }]
         }, {
             "name": "Prescribtion",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Abraxane",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Afatinib Dimaleate",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Afinitor",
                 "size": 7840
             }, {
-                "name": "ShortestPaths",
+                "name": "Bevacizumab",
                 "size": 5914
             }, {
-                "name": "SpanningTree",
+                "name": "Brigatinib",
+                "size": 3416
+            }, {
+                "name": "Carboplatin",
+                "size": 3416
+            }, {
+                "name": "Ceritinib",
+                "size": 3416
+            }, {
+                "name": "Crizotinib",
                 "size": 3416
             }]
         }, {
             "name": "Prevention",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Don't smoke",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Avoid secondhand smoke",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Test your home for radon",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
+                "name": "Avoid carcinogens at work",
                 "size": 7074
             },
             {
-                "name": "Drinking Only In Moderation",
+                "name": "Eat a diet full of fruits and vegetables",
+                "size": 7074
+            },
+            {
+                "name": "Exercise most days of the week",
                 "size": 7074
             }]
         }]
@@ -237,56 +610,52 @@
         "children": [{
             "name": "Symptoms",
             "children": [{
-                "name": "High Blood Pressure",
+                "name": "Stuffed up nose",
                 "size": 3938
             }, {
-                "name": "High Colestrol",
+                "name": "Runny nose",
                 "size": 3812
             }, {
-                "name": "Diabetes",
+                "name": "Dry cough",
                 "size": 6714
             }, {
-                "name": "Overweight",
+                "name": "Low fever",
+                "size": 743
+            }, {
+                "name": "Mild sore throat",
+                "size": 743
+            }, {
+                "name": "Dull headache",
                 "size": 743
             }]
         }, {
             "name": "Prescribtion",
             "children": [{
-                "name": "BetweennessCentrality",
+                "name": "Amoxicillin",
                 "size": 3534
             }, {
-                "name": "LinkDistance",
+                "name": "Augmentin",
                 "size": 5731
             }, {
-                "name": "MaxFlowMinCut",
+                "name": "Keflex",
                 "size": 7840
-            }, {
-                "name": "ShortestPaths",
-                "size": 5914
-            }, {
-                "name": "SpanningTree",
-                "size": 3416
             }]
         }, {
             "name": "Prevention",
             "children": [{
-                "name": "Exercising Regularly",
+                "name": "Avoiding people who are ill",
                 "size": 7074
             },
             {
-                "name": "Maintaining Healthy Weight",
+                "name": "Remain at home until you are no longer contagious",
                 "size": 7074
             },
             {
-                "name": "Avoid Smoking",
+                "name": "Avoid touching your nose, eyes, and mouth with unwashed hands",
                 "size": 7074
             },
             {
-                "name": "Eat Balanced Diet",
-                "size": 7074
-            },
-            {
-                "name": "Drinking Only In Moderation",
+                "name": "Cover your cough and sneeze",
                 "size": 7074
             }]
         }]
