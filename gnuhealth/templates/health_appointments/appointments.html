@@ -111,15 +111,35 @@
 
                     
                 </div>
-                  <div class="row">
-                <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Institution</label>
-                            <input type="text" class="form-control" name="institution">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Search Institution</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" value="{{ form.institution.id }}" id="institution-search-prof"
+                                   onkeyup="institutionSearchProf()" type="text">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" onclick="institutionSearchProf()">Search
+                                    Institution
+                                </button>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <select class="select" name="institution" id="search-results-institution-prof"></select>
+                    </div>
+                </div>
+
+                  <div class="row">
+               
               
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Patient</label>
                                     <input type="text" class="form-control" name="patient">
@@ -206,20 +226,40 @@
                                 </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label>CalDav Event</label>
                             <input type="text" class="form-control" name="event" >
 
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Health Prof</label>
-                            <input type="text" class="form-control" name="healthprof" >
-
-                        </div>
-                    </div>
+                    
+                        <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Search Health Professional</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.name.id }}" id="prof-search"
+                                               onkeyup="profSearch()" type="text">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                                Health Professional
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                      
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="name" id="search-results-prof"></select>
+                                </div>
+                            </div>
+        
+                      
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Speciality</label>

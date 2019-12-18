@@ -17,7 +17,7 @@
                 <option>Print</option>
 
             </select>
-            <button onclick="window.location.href = '/health-configuration/addEthnicity';" class="btn btn-primary"><i
+            <button onclick="window.location.href = '/health-lab/addLabRequest';" class="btn btn-primary"><i
                     class="fa fa-plus"></i> Add New
             </button>
         </div>
@@ -58,15 +58,15 @@
                         </thead>
                         <tbody>
 
-                        {% for ethnicity in ethnicities %}
+                        {% for req in requests %}
                         <tr>
-                            <td>{{ethnicity.name}}</td>
-                            <td>{{ethnicity.code}}</td>
-                            <td>{{ethnicity.notes}}</td>
-                            <td>{{ethnicity.name}}</td>
-                            <td>{{ethnicity.code}}</td>
-                            <td>{{ethnicity.notes}}</td>
-                            <td class="text-right"><a href="/health-configuration/editEthnicity/{{ethnicity.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteEthnicity/{{ethnicity.id}}"> <i
+                            <td>{{req.name}}</td>
+                            <td>{{req.code}}</td>
+                            <td>{{req.notes}}</td>
+                            <td>{{req.name}}</td>
+                            <td>{{req.code}}</td>
+                            <td>{{req.notes}}</td>
+                            <td class="text-right"><a href="/health-lab/editEthnicity/{{ethnicity.id}}"><i class="far fa-edit"> </i></a><a href="/health-configuration/deleteEthnicity/{{ethnicity.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
                         </tr>

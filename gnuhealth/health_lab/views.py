@@ -36,7 +36,7 @@ def labRequests(request):
 
 def addLabRequest(request):
     if request.method == "POST":
-        form = ethnicityForm(request.POST)
+        form = requestLabForm(request.POST)
         if form.is_valid():
             try:
                 type = "grid"
@@ -54,7 +54,7 @@ def addLabRequest(request):
             messages.error(request, f'Sorry, Record Save Error')
             return HttpResponse("Invalid Form.")
     else:
-        form = ethnicityForm()
+        form = requestLabForm()
         latest = gnuhealth_ethnicity.objects.latest('id')
         form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1

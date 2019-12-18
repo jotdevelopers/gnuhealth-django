@@ -8,6 +8,10 @@ class healthLabForm(forms.ModelForm):
          model = gnuhealth_lab   
          fields = '__all__'
 
+class requestLabForm(forms.ModelForm):  
+     class Meta:  
+         model = gnuhealth_lab   
+         fields = '__all__'
 
 class labTestUnitsForm(forms.ModelForm):
     class Meta:
