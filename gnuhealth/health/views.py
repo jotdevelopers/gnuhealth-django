@@ -322,7 +322,7 @@ def updatePol(request, id):
     id = pol.id
     age = request.POST['age']
     author = request.POST['author']
-    create_date = pol.create_date
+    create_date = request.POST['create_date']
     create_uid = pol.create_uid
     federation_account = request.POST['federation_account']
     gene = 1
@@ -345,7 +345,7 @@ def updatePol(request, id):
     relevance = request.POST['relevance']
     social_context = None
     summary = request.POST['summary']
-    write_date = pol.write_date
+    write_date = request.POST['write_date']
     write_uid = pol.write_uid
     fsync = True
 

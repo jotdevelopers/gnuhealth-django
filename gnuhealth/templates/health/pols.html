@@ -186,7 +186,7 @@
 	                            	<div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Date</label>
-	                                        <input type="text" class="form-control " name="page_date">
+	                                        <input type="datetime" class="form-control " name="page_date">
 	                                    </div>
 	                                </div>
 	                            	<div class="col-md-6">
@@ -204,7 +204,7 @@
                             	<div class="row">  
                             	<div class="col-md-6">
 	                                        <label>Age</label>
-	                                        <input type="text" class="form-control " name="age">
+	                                        <input type="number" class="form-control " name="age">
 	                                </div>                        
 	                                <div class="col-md-6">
 	                                    <div class="form-group">
@@ -330,7 +330,7 @@
                                  <div class="col-md-12">
                                     <div class="form-group">
 										<label>Procedure Code</label>
-										<input class="form-control" type="text" name="procedure_code">
+										<input class="form-control" type="text" name="procedure_code" >
 									</div>
 									
                                 </div>
@@ -344,14 +344,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Page</label>
-                                        <input class="form-control" type="text" name="page">
+                                        <input class="form-control" type="number" name="page" placeholder="{{ form.id }}
 
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Account</label>
-                                        <input class="form-control" type="text" name="federation_account">
+                                        <input readonly class="form-control" type="text" name="federation_account" value="1">
 
 									</div>
                                 </div>
@@ -495,7 +495,7 @@
 	                            	<div class="col-md-6">
 	                                    <div class="form-group">
 	                                        <label>Date</label>
-	                                        <input type="text" class="form-control "  value="{{ form.page_date }}" name="page_date">
+	                                        <input type="text" class="form-control "  name="page_date" value="{{ form.page_date|date:"Y-m-d H:m:s" }}">
 	                                    </div>
 	                                </div>
 	                            	<div class="col-md-6">
@@ -513,7 +513,7 @@
                             	<div class="row">  
                             	<div class="col-md-6">
 	                                        <label>Age</label>
-	                                        <input type="text" class="form-control "  value="{{ form.age }}" name="age">
+	                                        <input type="number" class="form-control "  value="{{ form.age }}" name="age">
 	                                </div>                        
 	                                <div class="col-md-6">
 	                                    <div class="form-group">
@@ -671,14 +671,14 @@
 	                             <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date }}" >
+                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d H:m:s" }}" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date }}" >
+                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d H:m:s" }}" >
 
                         </div>
                     </div>

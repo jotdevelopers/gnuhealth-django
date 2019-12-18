@@ -140,12 +140,31 @@
                         </div>
                     </div>
                    
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Person</label>
-                                <input class="form-control" type="text" name="name" >
+                    <div class="row">
+                        <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Search Person</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.name.id }}" id="prof-search"
+                                               onkeyup="profSearch()" type="text">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                                Person
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+        
+        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="name" id="search-results-prof"></select>
+                                </div>
+                            </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Date of Birth</label>
@@ -297,7 +316,7 @@
                    
                 
                 
-                        <div class="col-md-6">
+                   <!--     <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Info</label>
                                     <input type="text" class="form-control" name="info">
@@ -310,7 +329,7 @@
                         </div>
                     </div>
                     
-                   
+                   -->
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>

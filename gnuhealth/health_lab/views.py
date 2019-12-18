@@ -41,13 +41,13 @@ def addLabRequest(request):
             try:
                 type = "grid"
                 msg = "1"
-                latest = gnuhealth_ethnicity.objects.latest('id')
+                latest = gnuhealth_lab.objects.latest('id')
                 form.fields["id"].initial = latest.id + 1
                 form.save()
-                ethnicities = gnuhealth_ethnicity.objects.all()
+                requests = gnuhealth_lab.objects.all()
                 messages.success(request, f'Success, Record Saved Successfully')
-                return render(request, 'health_configuration/patients/ethnicities.html'
-                              , {'type': type, 'msg': msg, 'ethnicities': ethnicities})
+                return render(request, 'health_lab/lab_test_requests.html'
+                              , {'type': type, 'msg': msg, 'requests': requests})
             except:
                 pass
         else:
@@ -55,8 +55,9 @@ def addLabRequest(request):
             return HttpResponse("Invalid Form.")
     else:
         form = requestLabForm()
-        latest = gnuhealth_ethnicity.objects.latest('id')
-        form.fields["id"].initial = latest.id + 1
+        #latest = gnuhealth_lab.objects.latest('id')
+        #form.fields["id"].initial = latest.id + 1
+        form.fields["id"].initial =  1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -67,7 +68,7 @@ def addLabRequest(request):
         form.fields['create_uid'].widget.attrs['readonly'] = True
         form.fields['write_uid'].widget.attrs['readonly'] = True
         type = "add"
-        return render(request, 'health_configuration/patients/ethnicities.html', {'type': type, 'form': form})
+        return render(request, 'health_lab/lab_test_requests.html', {'type': type, 'form': form})
 
 
 def editLabRequest(request, id):
