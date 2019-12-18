@@ -94,18 +94,33 @@ def editInstitution(request, id):
 
 def updateInstitution(request, id):
     type = "grid"
-    eth = gnuhealth_institution.objects.get(id=id)
-    name = request.POST['name']
-    notes = request.POST['notes']
+    institution = gnuhealth_institution.objects.get(id=id)
+    id = request.POST['id']
+    beds = request.POST['beds']
     code = request.POST['code']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    eth = gnuhealth_institution(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
-    eth.save()
+    extra_info = request.POST['extra_info']
+    heliport = True
+    institution_type = request.POST['institution_type']
+    name = request.POST['name']
+    operating_room = True
+    or_number = None
+    picture = ''
+    public_level = request.POST['public_level']
+    teaching = True
+    trauma_level = ''
+    trauma_center = True
+    main_specialty = None
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    institution = gnuhealth_institution(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, beds=beds, code=code, extra_info=extra_info, heliport=heliport, institution_type=institution_type,
+                              operating_room=operating_room, or_number=or_number, picture = picture, public_level=public_level,
+                              teaching=teaching, trauma_level=trauma_level, trauma_center=trauma_center,
+                              main_specialty=main_specialty)
+    institution.save()
+
     msg = "3"
     institutions = gnuhealth_institution.objects.all()
 
