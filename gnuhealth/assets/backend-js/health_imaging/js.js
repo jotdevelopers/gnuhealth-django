@@ -11,7 +11,7 @@ function patientSearchImaging() {
             }
         },
         type: "POST",
-        url: "/health_imaging/searchPatient/" + $('#patient-search-imaging').val() + "/",
+        url: "/health-imaging/searchPatient/" + $('#patient-search-imaging').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
         success: searchSuccessPatient,
         datatype: 'html'
@@ -34,7 +34,7 @@ function doctorSearchImaging() {
             }
         },
         type: "POST",
-        url: "/health_imaging/searchDoctor/" + $('#doctor-search-imaging').val() + "/",
+        url: "/health-imaging/searchDoctor/" + $('#doctor-search-imaging').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
         success: searchSuccessDoctor,
         datatype: 'html'
@@ -58,7 +58,7 @@ function testSearchImaging() {
             }
         },
         type: "POST",
-        url: "/health_imaging/searchTest/" + $('#test-search-imaging').val() + "/",
+        url: "/health-imaging/searchTest/" + $('#test-search-imaging').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
         success: searchSuccessTest,
         datatype: 'html'

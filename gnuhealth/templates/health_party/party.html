@@ -1,12 +1,90 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+
+{% if type == "grid" %}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Parties</h4>
+    </div>
+
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="btn-group btn-group-sm" style="margin-right: 8px">
+            <select class="select">
+                <option>Export As</option>
+                <option>Pdf</option>
+                <option>CSV</option>
+                <option>Print</option>
+
+            </select>
+            <button onclick="window.location.href = '/health-party/addParty';" class="btn btn-primary"><i
+                    class="fa fa-plus"></i> Add New
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-sm-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="card-box">
+            <div class="card-block">
+
+                <div class="table-responsive">
+                    <table id="example" class=" table table-stripped  dt-responsive  ">
+                        <thead>
+                        <tr>
+                            <th >Id</th>
+                            <th>Name</th>
+                         
+
+                                            
+                                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                      {% for party in parties %}  
+                                    
+                                        <tr>
+                                            <td>{{party.id}}</td>
+                                            <td>{{party.name}}</td>
+                                          
+                                         
+                            <td class="text-right"><a href="/health-party/deleteParty/{{party.id}}"> <i
+                                    class="far fa-trash-alt	"> </i> </a></td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% if type == "add" %}
 <form method="POST" class="post-form" action="/health-party/addParty">
     {% csrf_token %}
 <div class="row">
     <div class="col-md-8 offset">
-        <h4 class="page-title">Add Person</h4>
+        <h4 class="page-title">Add Party</h4>
     </div>
 </div>
 
@@ -26,14 +104,14 @@
          
                     <div class="card-box">
                         <div class="row">
-                            <div class="col-md-4">
+                           <!-- <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_person" id="is_person"  checked>
                                     <label class="form-check-label" for="is_person">
                                     Person
                                     </label>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_patient" id="is_patient" >
@@ -46,7 +124,7 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_healthprof" id="is_healthprof" >
                                     <label class="form-check-label" for="is_healthprof">
-                                    Health Prof
+                                    Health Profrofessional
                                     </label>
                                 </div>
                             </div>
@@ -58,6 +136,7 @@
                                     </label>
                                 </div>
                             </div>
+                            <!--
                             <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_insurance_company" id="is_insurance_company" >
@@ -65,15 +144,15 @@
                                     Insurance Company
                                     </label>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
+                            </div>-->
+                      <!--      <div class="col-md-4">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="is_pharmacy" id="is_pharmacy" >
                                     <label class="form-check-label" for="is_pharmacy">
                                     Pharmacy
                                     </label>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
 
                         <div class="row">
@@ -86,45 +165,53 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">DOB</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="dob">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Gender</label>
-                                            <div class="col-md-9">
-												 <select class="select" name="gender">
-                                                    <option>Select</option>
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Mother</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Marital Status</label>
-                                            <div class="col-md-9">
+                                <div class="form-group">
+                                     
+                                    <label>DOB</label>  
+                                     <div class="cal-icon">
+                                    <input type="date" class="form-control" name="dob" >
+        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input type="number" class="form-control" name="age" >
+        
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="form-group ">
+                                <label>Gender</label>
+                               
+                                     <select class="select" name="gender">
+                                        <option>Select</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="2">Other</option>
+                                    </select>
+                            
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                             <div class="form-group">
+                                            <label >Marital Status</label>
+                                           
 												 <select class="select" name="marital_status">
                                                     <option>Select</option>
                                                     <option value="1">Single</option>
                                                     <option value="2">Married</option>
+                                                   
                                                 </select>
-                                            </div>
-                                        </div>
                                         
-                                        <div class="col-sm-12">
+                                        </div>
+                                        </div>
+
+                                         
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                       <!--  -->  
-                           <label class="col-md-3 col-form-label">Residence</label>
+                           <label >Residence</label>
                            <div class="input-group">
                                <div class="input-group-prepend">
                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -132,63 +219,154 @@
                                <input class="form-control"  id="residence-search"
                                       onkeyup="residenceSearch()" type="text">
                                <div class="input-group-append">
-                                   <button class="btn btn-primary" type="button" onclick="residenceSearch()">Search
+                                 <!--  <button class="btn btn-primary" type="button" onclick="residenceSearch()">Search
                                        Residence
-                                   </button>
+                                   </button>-->
                                </div>
                            </div>
                        </div>
                    </div>
-                      <div class="col-md-12">
-                       <div class="form-group">
-                           <select class="select" name="residence" id="search-results-residence"></select>
-                       </div>
-                   </div>
-                                          <div class="col-sm-12">
-                        <div class="form-group">
-                           <label class="col-md-3 col-form-label">Occupation</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control"  id="occupation-search"
-                                       onkeyup="occupationSearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="occupationSearch()">Search
-                                        Occupation
-                                    </button>
-                                </div>
+                     
+                   <div class="col-sm-6">
+                    <div class="form-group">
+                       <label >Occupation</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control"  id="occupation-search"
+                                   onkeyup="occupationSearch()" type="text">
+                            <div class="input-group-append">
+                              <!-- <button class="btn btn-primary" type="button" onclick="occupationSearch()">Search
+                                    Occupation
+                                </button>-->
                             </div>
                         </div>
                     </div>
-                       <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="occupation" id="search-results-occupation"></select>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" name="residence" id="search-results-residence"></select>
+                    </div>
+                </div>
+
+                   <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" name="occupation" id="search-results-occupation"></select>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                       <label >DU</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control"  id="du-search"
+                                   onkeyup="duSearch()" type="text">
+                            <div class="input-group-append">
+                              <!--  <button class="btn btn-primary" type="button" onclick="duSearch()">Search
+                                    DU
+                                </button>-->
+                            </div>
                         </div>
                     </div>
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Main Address</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" name="">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Education</label>
-                                            <div class="col-md-9">
-												 <select class="select" name="education">
-                                                    <option>Select</option>
-                                                    <option value="1">None</option>
-                                                    <option value="2">Incomplete Primary School</option>
-                                                    <option value="3">Primary School</option>
-                                                    <option value="4">Incomplete Secondary School</option>
-                                                    <option value="5">Secondary School</option>
-                                                    <option value="5">University</option>
+                </div> 
+                 
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Citizenship</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" id="citizenship-search"
+                                   onkeyup="citizenshipSearch()" type="text">
+                            <div class="input-group-append">
+                              <!-- <button class="btn btn-primary" type="button" onclick="citizenshipSearch()">Search
+                                   Citizenship
+                                </button>--> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" name="du" id="search-results-du"></select>
+                    </div>
+                </div>
+                   <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" name="citizenship" id="search-results-citizenship"></select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Main Address</label>
+                        <input type="text" class="form-control" name="" >
+
+                    </div>
+                </div>
+               
+                <div class="col-sm-6">
+                    <div class="form-group">
+                       <label >Ethnicity</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                            <input class="form-control" value="{{ form.ethnic_group.id }}" id="ethnicity-search"
+                                   onkeyup="ethnicitySearch()" type="text">
+                            <div class="input-group-append">
+                             <!--  <button class="btn btn-primary" type="button" onclick="ethnicitySearch()">Search
+                                    Ethnicity
+                                </button>--> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                <div class="form-group ">
+                    <label>Education</label>
+                    <div >
+                         <select class="select" name="education">
+                            <option>Select</option>
+                            <option value="1">None</option>
+                            <option value="2">Incomplete Primary School</option>
+                            <option value="3">Primary School</option>
+                            <option value="4">Incomplete Secondary School</option>
+                            <option value="5">Secondary School</option>
+                            <option value="5">University</option>
 
 
-                                                </select>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                  
+                   <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" name="ethnic_group" id="search-results-ethnicity"></select>
+                    </div>
+                </div>
+
+                            <div class="col-md-6">
+
+                                      
+                                       
+                                    <!--   <div class="form-group row">
+                                            <label class="col-md-3 col-form-label">Mother</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control">
                                             </div>
-                                        </div>
-                                          
+                                        </div>--> 
+                                         
+                                       
+                                        
+                                       
                                         <div class="row">
                                          <div class="col-md-6">
                                            <div class="form-check form-check-inline">
@@ -205,90 +383,23 @@
 
 
                                     <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Age</label>
-                                            <div class="col-md-9">
-                                                <input type="number" class="form-control" name="age">
-                                            </div>
-                                        </div>
-                                         <div class="col-sm-12">
-                        <div class="form-group">
-                           <label class="col-md-3 col-form-label">DU</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control"  id="du-search"
-                                       onkeyup="duSearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="duSearch()">Search
-                                        DU
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                       <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="du" id="search-results-du"></select>
-                        </div>
-                    </div>
-                                        <div class="form-group row">
+                                      
+                                       
+                                        
+                                 <!--     <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Father</label>
                                             <div class="col-md-9">
                                                 <input type="text" class="form-control" >
                                             </div>
-                                        </div>
-                                         <div class="col-sm-12">
-                        <div class="form-group">
-                            <label>Citizenship</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control" id="citizenship-search"
-                                       onkeyup="citizenshipSearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="citizenshipSearch()">Search
-                                       Citizenship
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                       <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="citizenship" id="search-results-citizenship"></select>
-                        </div>
-                    </div>
+                                        </div>-->  
+                                     
                                      <!--     <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Citizenship</label>
                                             <div class="col-md-9">
                                                 <input type="password" class="form-control" name="citizenship">
                                             </div>
                                         </div> -->
-                                         <div class="col-sm-12">
-                        <div class="form-group">
-                           <label class="col-md-3 col-form-label">Ethnicity</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                </div>
-                                <input class="form-control" value="{{ form.ethnic_group.id }}" id="ethnicity-search"
-                                       onkeyup="ethnicitySearch()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="ethnicitySearch()">Search
-                                        Ethnicity
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                       <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="ethnic_group" id="search-results-ethnicity"></select>
-                        </div>
-                    </div>
+                                       
                                       <!--     <div class="form-group row">
                                             <label class="col-md-3 col-form-label">Ethnicity</label>
                                             <div class="col-md-9">
@@ -430,28 +541,7 @@
                                    </div>
                                    </div>
                                 </div>
-
-                            <div class="card-box">
-                            		<div class="row">
-                                         <div class="col-md-6">
-                                           <div class="form-check form-check-inline">
-                                             <input class="form-check-input" type="checkbox" name="unidentified"  >
-                                             <label class="form-check-label" for="unidentified">
-                                  			Unidentified 
-                                             </label>
-                                           </div>
-                                         </div>
-                                       </div>
-                                       <div class="row">
-                                   <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-3 col-form-label">Prefix</label>
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" >
-                                            </div>
-                                        </div>                         
-                                    </div>
-                                     <div class="col-md-6">
+  <!--   <div class="col-md-6">
                                            <div class="form-group row">
                                                <label class="col-md-3 col-form-label">Federation ID</label>
                                                <div class="col-md-9">
@@ -461,24 +551,47 @@
                                            
                                            
                                        </div>
-                            </div>
+                            </div>-->
+                            <div class="card-box">
+                            		<!--<div class="row">
+                                         <div class="col-md-6">
+                                           <div class="form-check form-check-inline">
+                                             <input class="form-check-input" type="checkbox" name="unidentified"  >
+                                             <label class="form-check-label" for="unidentified">
+                                  			Unidentified 
+                                             </label>
+                                           </div>
+                                         </div>
+                                       </div>-->
+                                       <div class="row">
+                                   <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label >Name</label>
+                                            <div >
+                                                <input type="text" class="form-control" name="name">
+                                            </div>
+                                        </div>                         
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <label >Activitation Date</label>
+                                            <div >
+                                                <input readonly type="text" class="form-control" name="activation_date" placeholder="{{ form.create_date }}
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                
 
                             <div class="card-box add" >
                                     
                                   </div>
                               
-                            <div class="row">
-                                 <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label">Activitation Date</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="activation_date">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                </div>
-                                 <div class="col-md-6">
+                      
+                             
+                              <!--   <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Internal User</label>
                                         <div class="col-md-9">
@@ -488,7 +601,7 @@
                                     
                                     
                                 </div>
-                                
+                                -->
                                 
                     <div class="col-md-6">
                         <div class="form-group">

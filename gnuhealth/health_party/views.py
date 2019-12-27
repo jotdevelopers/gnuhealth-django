@@ -18,6 +18,13 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     return HttpResponse("Hello, world.")
 
+def party(request):
+    type = "grid"
+    parties = party_party.objects.all()
+    return render(request, 'health_party/party.html'
+                  , {'parties': parties
+                      , 'type': type})
+
 def addParty(request):
     if request.method == "POST":
         form = partyForm(request.POST)
@@ -31,27 +38,27 @@ def addParty(request):
         #form.fields["id"].initial =  2
         id = request.POST['id']
         active = True
-        code = ''
+        code =  request.POST['id']
         create_date = request.POST['create_date']
         create_uid = request.POST['create_uid']
         write_date = request.POST['write_date']
         write_uid = request.POST['write_uid']
-        name = ''
+        name = request.POST['name']
         replaced_by = 1
         activation_date = request.POST['activation_date']
         alternative_identification = True
         birth_certificate = None
         citizenship = request.POST['citizenship']
         death_certificate = None
-        deceased = True
+        deceased = False
         dob = request.POST['dob']
         du = request.POST['du']
         ethnic_group = request.POST['ethnic_group']
         fed_country = request.POST['citizenship']
-        federation_account = request.POST['federation_account']
+        federation_account =  request.POST['id']
         gender = request.POST['gender']
         insurance_company_type = request.POST['insurance_company_type']
-        internal_user = 1
+        internal_user =  request.POST['id']
         is_healthprof = False
         is_institution = False
         is_insurance_company= False
@@ -62,7 +69,7 @@ def addParty(request):
         marital_status = request.POST['marital_status']
         name_representation = ''
         photo = ''
-        ref = ''
+        ref =  request.POST['id']
         residence = request.POST['residence']
         unidentified = True
         education = request.POST['education']
@@ -138,9 +145,6 @@ def addParty(request):
         return render(request, 'health_party/party.html', {'type': type, 'form': form})
       
     
-def party(request):
-        return render(request, 'health_party/party.html')
-
 
 def editParty(request):
     return render(request, 'health_party/party.html')
@@ -148,8 +152,21 @@ def editParty(request):
 def updateParty(request):
     return render(request, 'health_party/party.html')
 
-def deleteParty(request):
-    return render(request, 'health_party/party.html')
+
+
+def deleteParty(request, id):
+    party = party_party.objects.get(id=id)
+    party.delete()
+    type = "grid"
+    msg = "2"
+    parties = party_party.objects.all()
+    if True:
+        messages.success(request, f'Success, Record Deleted Successfully')
+    elif False:
+        messages.error(request, f'Sorry, Record Delete Error')
+
+    return render(request, 'health_party/party.html'
+                  , {'type': type, 'msg': msg, 'parties': parties})
 
 def searchEthnicity(request, search_text):
     if request.method == "POST":

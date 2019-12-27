@@ -8,6 +8,7 @@ from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 from health_configuration.models import *
 from health_party.models import *
+from health_health_professionals.models import *
 from health_demographics.forms import *
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
@@ -42,7 +43,7 @@ def addGenetic(request):
         id = request.POST['id']
         create_date = request.POST['create_date']
         create_uid = request.POST['create_uid']
-        disease_gene = 2
+        disease_gene = request.POST['disease_gene']
         healthprof = request.POST['healthprof']
         institution = None
         natural_variant = request.POST['natural_variant']
@@ -100,19 +101,20 @@ def editGenetic(request, id):
 def updateGenetic(request, id):
     type = "grid"
     genet = gnuhealth_patient_genetic_risk.objects.get(id=id)
-    id = request.POST['id']
-    create_date = request.POST['create_date']
-    create_uid = request.POST['create_uid']
-    disease_gene = 2
+    id = id
+    create_date = datetime.now().strftime("%Y-%m-%d")
+    create_uid = 1
+    disease_gene = request.POST['disease_gene']
     healthprof = request.POST['healthprof']
-    institution = None
+    institution = 1
     natural_variant = request.POST['natural_variant']
     notes = request.POST['notes']
     onset = request.POST['onset']
-    patient = request.POST['patient']
+    patient = 1
     variant_phenotype = request.POST['variant_phenotype']
-    write_date = request.POST['write_date']
+    write_date = datetime.now().strftime("%Y-%m-%d")
     write_uid = request.POST['write_uid']
+    
     genet = gnuhealth_patient_genetic_risk(id=id, write_date=write_date, write_uid=write_uid,create_date=create_date,
         create_uid=create_uid,
         disease_gene = disease_gene,
@@ -190,6 +192,19 @@ def searchGene(request, search_text):
         genes = gnuhealth_disease_gene.objects.filter(id=search_text)
 
     return render_to_response('health_genetics/js/ajax-search.html', {'genes': genes})
+
+def searchDoc(request, search_text):
+    if request.method == "POST":
+        search_text = search_text
+    else:
+        search_text = ''
+
+    docs = gnuhealth_healthprofessional.objects.filter(name__startswith=search_text.capitalize())
+
+    if len(docs) == 0:
+        docs = gnuhealth_healthprofessional.objects.filter(id=search_text)
+
+    return render_to_response('health_genetics/js/ajax-search.html', {'docs': docs})
 
 def addgenetics(request):
     if request.method == "POST":  

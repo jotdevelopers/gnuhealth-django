@@ -117,7 +117,7 @@
                                 <div class="form-group">
                                     <label>Prescription Date</label>
                                     <div class="cal-icon">
-                                        <input type="text" class="form-control " name="prescription_date">
+                                        <input type="date" class="form-control " name="prescription_date">
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" name="pregnancy_warning" id="hospitalized" value="option1" checked>
                                 <label class="form-check-label" for="hospitalized">
-                                Pragnancy Warning
+                                Pregnancy Warning
                                 </label>
                             </div>
                             
@@ -165,83 +165,167 @@
                         </div>
                             </div>
                        </div>
-                         <div class="row">
-                                <div class="col-sm-12">
-                                <div>
-                                     <div class="row">
-                                  <div class="col-sm-6">
-                                    
-                                    </div>
-                                     <div class="col-sm-6 ">
-                                     <div class="mail-view-action">
-                                     <div class="btn-group">
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Delete"> <i class="fa fa-trash-o"></i></button>
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="right"> <i class="fas fa-angle-left"></i></button>
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title=""> <i class="fas fa-angle-right"></i></button>
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-plus"></i></button>
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="add"> <i class="fa fa-trash"></i></button>
-                                                <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="delete"> <i class="fa fa-delete"></i></button>
+                             <br />
+                         </div>    
+                    <div class="card-box">
+                            <button class="btn btn-primary pres-btn" type="button" style="float:right">Add Prescription Item</button>
+                           
+                           <div class="view-pres">
+                           <div class="row">
+                                   <div class="col-md-8 p-md-3"><span style="font-weight: bold;">Prescription Line</span></div>
+                                   
+                                   </div>
+                               <div class="col-md-14">
+                                   <div class="form-group">
+                                       <table id="example" class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+                                       <thead>
+                                           <tr>
+                                                <th>Units</th>
+                                                <th>Valid Until</th>
+                                                <th>Hist</th>
+                                                <th>Medicament</th>
+                                                <th>Indication</th>
+                                                <th>Dose</th>
+                                                <th>Dose Unit</th>
+                                                <th>Form</th>
+                                                <th>Frequency</th>
+                                                <th>Treat</th>
+                                                <th>Treatment</th>
+                                               
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <td></td>
+                                               <td> </td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               <td></td>
+                                               
+                                               <td></td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                           </div>
+                           </div>
+                                       </div>
+                                        <div class="add-pres">
+     <form method="POST" class="post-form" action="/health-prescriptions/addPrescriptionLine">
+    {% csrf_token %}
+                                       <div class="row">
+                                           <div class="col-md-9 p-md-3"><span style="font-weight: bold;">Add Prescription Item</span></div>
+                                           </div>
+                                           <input hidden type="number" class="form-control" name="id" placeholder="{{ form.id }}
+                                           <input hidden type="number" class="form-control" name="create_uid" placeholder="{{ form.create_uid }}
+                                           <input hidden type="number" class="form-control" name="write_uid" placeholder="{{ form.write_uid }}
+                                           <input hidden type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
+                                           <input hidden type="text" class="form-control" name="create_date" placeholder="{{ form.create_date }}
+
+                                           <div class="row ">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Search Medicament</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                        </div>
+                                                        <input class="form-control" value="{{ form.medicament }}" id="medicament-search"
+                                                               onkeyup="medicamentSearch()" type="text">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-primary" type="button" onclick="medicamentSearch()">Search
+                                                                Medicament
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <button type="button" class="btn btn-white btn-sm" data-toggle="tooltip" title="Print"> <i class="fa fa-print"></i></button>
-                          </div>
-                          </div>
-                          </div>
-                             <div class="table-responsive">
-                        <table class="table table-border table-striped custom-table datatable m-b-0">
-                            <thead>
-                                <tr>
-                                    <th>Units</th>
-                                    <th>Valid Until</th>
-                                    <th>Hist</th>
-                                    <th>Medicament</th>
-                                    <th>Indication</th>
-                                    <th>Dose</th>
-                                    <th>Dose Unit</th>
-                                    <th>Form</th>
-                                    <th>Frequency</th>
-                                    <th>Treat</th>
-                                    <th>Treatment</th>
-                                    <th>Comment</th>
-                                    
-                                    
-                                    <th class="text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    
-                                    
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="edit-patient.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                        
+                        
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <select class="select" name="medicament" id="search-results-medicament"></select>
+                                                </div>
+                                            </div>
+                
+                                           <div class="col-md-6">
+                                               <div class="form-group row">
+                                                   <label class="col-md-3 col-form-label">Indication</label>
+                                                   <div class="col-md-9">
+                                                        <input type="text" class="form-control" name="indication">
+                                                           
+                                                       
+                                                   </div>
+                                               </div>            
+                                           </div>
+                                           <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Frequency </label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="frequency">
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                       </div>
+                                       <div class="row">
+                                       <div class="col-md-6">
+                                               <div class="form-group row">
+                                                   <label class="col-md-3 col-form-label">Duration</label>
+                                                   <div class="col-md-9">
+                                                       <input type="text" class="form-control" name="duration">
+                                                   </div>
+                                               </div>
+                                               
+                                               
+                                           </div>
+                                           <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-md-3 col-form-label">Dose</label>
+                                                <div class="col-md-9">
+                                                    <input type="number" class="form-control" name="dose" >
+                                                </div>
+                                            </div>                         
+                                        </div>
+                                           
+                                       </div>
+                                       
+                                         <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Search Dose Unit</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                    </div>
+                                                    <input class="form-control" value="{{ form.dose_unit }}" id="unit-dose-search"
+                                                           onkeyup="doseUnitSearch()" type="text">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button" onclick="doseUnitSearch()">Search
+                                                            Dose Unit
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                                
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    </div>
-                    </div>
-                             </div>
-                             <br />
+                    
+                    
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <select class="select" name="dose_unit" id="search-results-dose-unit"></select>
+                                            </div>
+                                        </div>
+                                           <button type="submit" class="btn btn-primary">Save</button>
+
+                                          </div>
+                                          </form>
+                                       </div>
+                                      
+                                            <div class="card-box">
                         <div class="row">
                         <div class="col-md-6">
                                 <div class="form-group">
@@ -251,30 +335,25 @@
                                     </div>
                                 </div>
                             </div>
-                      
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Document Digest</label>
-                                   <input class="form-control" type="text" name="document_digest"  >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Notes</label>
-                            <textarea cols="30" rows="3" class="form-control" name="notes"></textarea>
-                        </div>
-                       
-                         <div class="row">
-                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>State</label>
                                     <input class="form-control" type="text" name="state" >
                                 </div>
                             </div>
                             
-                                
-                           
-                            </div>
+                           <!-- <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Document Digest</label>-->
+                                   <input hidden class="form-control" type="text" name="document_digest"  >
+                              <!--    </div>
+                            </div>-->
+                        </div> 
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea cols="30" rows="3" class="form-control" name="notes"></textarea>
+                        </div>
+                       
                             
                         <div class="row">
                             <div class="col-md-12">
@@ -317,6 +396,7 @@
                         </div>
                     </div>
                 </div>
+                        </div>
                         
                        
             <button type="submit" class="btn btn-primary">Save</button>
@@ -576,5 +656,19 @@
     </div>
 </form>
 {% endif %}
+          
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+$(function(){
+	  $('div.add-pres').hide();// hide it initially
+	
+	  $('button.pres-btn').on('click', function(){
+		     $('div.view-pres, div.add-pres').toggle();
+		  });
+	});
+</script>
+
 
 {% endblock %}

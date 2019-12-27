@@ -22,6 +22,7 @@ urlpatterns = [
     path('deleteImagingRequest/<id>/', views.deleteImagingRequest, name='deleteImagingRequest'),
     path('searchPatient/<search_text>/', views.searchPatient, name='searchPatient'),
     path('searchDoctor/<search_text>/', views.searchDoctor, name='searchDoctor'),
+    path('searchTest/<search_text>/', views.searchTest, name='searchTest'),
 
     path('imagingResults', views.imagingResults, name='imagingResults'),
     path('addImagingResult', views.addImagingResult, name='addImagingResult'),

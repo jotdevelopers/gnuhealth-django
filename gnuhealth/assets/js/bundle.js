@@ -24,7 +24,7 @@
 
     const {require} = new observablehq.Library;
 
-    require()('@observablehq/flare').then(data => {
+    d3.json("flare.json",then(data => {
         console.log(data);
         const root = partition(data);
         const color = d3.scaleOrdinal().range(d3.quantize(d3.interpolateRainbow, data.children.length + 1));

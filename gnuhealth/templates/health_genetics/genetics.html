@@ -23,6 +23,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
 
     <div class="col-sm-12">
@@ -110,13 +111,29 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>Patient</label>
-                                    <input type="number" class="form-control" name="patient">
+                                    <label>Search Patient</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.patient.id }}" id="patient-search-imaging"
+                                               onkeyup="patientSearchImaging()" type="text">
+                                        <div class="input-group-append">
+                                         <!--   <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
+                                                Gene
+                                            </button>-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                           <div class="col-sm-12">
+                            <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="select" name="patient" id="search-results-patient-imaging"></select>
+                                    </div>
+                                </div>
+                           <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Gene</label>
                                     <div class="input-group">
@@ -126,22 +143,18 @@
                                         <input class="form-control" value="{{ form.disease_gene.id }}" id="gene-search"
                                                onkeyup="geneSearch()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
+                                         <!--   <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
                                                 Gene
-                                            </button>
+                                            </button>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
         
         
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
-                                </div>
-                            </div>
+                         
     
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Search Varient</label>
                                 <div class="input-group">
@@ -151,16 +164,20 @@
                                     <input class="form-control" value="{{ form.natural_variant.id }}" id="varient-search"
                                            onkeyup="varientSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                       <!-- <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
                                             Varient
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="select" name="disease_gene" id="search-results-gene"></select>
+                            </div>
+                        </div>
     
-    
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <select class="select" name="natural_variant" id="search-results-varient"></select>
                             </div>
@@ -169,7 +186,7 @@
                         
                    
                    
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Search Phenotype</label>
                                 <div class="input-group">
@@ -179,21 +196,48 @@
                                     <input class="form-control" value="{{ form.phenotype.id }}" id="phenotype-search"
                                            onkeyup="phenotypeSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
+                                        <!--<button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
                                             Phenotype
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>
                         
                      </div>
     
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <select class="select" name="variant_phenotype" id="search-results-phenotype"></select>
+                      
+                       
+                   
+                  
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.healthprof.id }}" id="doctor-search-imaging"
+                                       onkeyup="doctorSearchImaging()" type="text">
+                                <div class="input-group-append">
+                                 <!--   <button class="btn btn-primary" type="button" onclick="doctorSearchImaging()">Search
+                                        Health Professional
+                                    </button>-->
+                                </div>
                             </div>
                         </div>
-                       
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="variant_phenotype" id="search-results-phenotype"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="healthprof" id="search-results-doctor-imaging"></select>
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Onset</label>
@@ -202,13 +246,6 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Health Professional</label>
-                            <input type="number" class="form-control" name="healthprof">
-
-                        </div>
-                    </div>
-                    <div class="col-md-12">
                         <div class="form-group">
                             <label>Notes</label>
                             <input type="text" class="form-control" name="notes">
@@ -280,13 +317,29 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label>Patient</label>
-                                    <input type="number" class="form-control" name="patient" value="{{ form.patient }}">
+                                    <label>Search Patient</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.patient }}" id="patient-search-imaging"
+                                               onkeyup="patientSearch()" type="text">
+                                        <div class="input-group-append">
+                                           <!-- <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                                Varient
+                                            </button>-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                           <div class="col-sm-12">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="select" name="patient" id="search-results-patient-imaging"></select>
+                                </div>
+                            </div>
+                           <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Disease Gene</label>
                                     <div class="input-group">
@@ -296,22 +349,18 @@
                                         <input class="form-control" value="{{ form.disease_gene }}" id="gene-search"
                                                onkeyup="geneSearch()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
+                                       <!--    <button class="btn btn-primary" type="button" onclick="geneSearch()">Search
                                                 Gene
-                                            </button>
+                                            </button>--> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
         
         
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="select" name="disease_gene" id="search-results-gene"></select>
-                                </div>
-                            </div>
+                           
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Search Varient</label>
                                 <div class="input-group">
@@ -321,16 +370,20 @@
                                     <input class="form-control" value="{{ form.natural_variant }}" id="varient-search"
                                            onkeyup="varientSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
+                                       <!-- <button class="btn btn-primary" type="button" onclick="varientSearch()">Search
                                             Varient
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="select" name="disease_gene" id="search-results-gene"></select>
+                            </div>
+                        </div>
     
-    
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <select class="select" name="natural_variant" id="search-results-varient"></select>
                             </div>
@@ -339,7 +392,7 @@
                         
                    
                    
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Search Phenotype</label>
                                 <div class="input-group">
@@ -349,21 +402,47 @@
                                     <input class="form-control" value="{{ form.variant_phenotype }}" id="phenotype-search"
                                            onkeyup="phenotypeSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
+                                       <!-- <button class="btn btn-primary" type="button" onclick="phenotypeSearch()">Search
                                             Phenotype
-                                        </button>
+                                        </button>-->
                                     </div>
                                 </div>
                             </div>
                         
                      </div>
     
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <select class="select" name="variant_phenotype" id="search-results-phenotype"></select>
+                   
+                   
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Health Professional</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.healthprof }}" id="doctor-search-imaging"
+                                       onkeyup="doctorSearchImaging()" type="text">
+                                <div class="input-group-append">
+                                  <!--  <button class="btn btn-primary" type="button" onclick="doctorSearchImaging()">Search
+                                        Health Professional
+                                    </button>-->
+                                </div>
                             </div>
                         </div>
-                       
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="variant_phenotype" id="search-results-phenotype"></select>
+                        </div>
+                    </div>
+                   
+                
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="healthprof" id="search-results-doctor-imaging"></select>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Onset</label>
@@ -373,13 +452,6 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Health Professional</label>
-                            <input type="number" class="form-control" name="healthprof" value="{{ form.healthprof }}">
-
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
                             <label>Notes</label>
                             <input type="text" class="form-control" name="notes" value="{{ form.notes }}">
 
@@ -388,21 +460,21 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input readonly type="text" class="form-control" name="create_date" value="{{ form.create_date }}">
+                            <input readonly type="text" class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d" }}" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input readonly type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}">
+                            <input readonly type="text" class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d" }}" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input readonly type="text" class="form-control" name="create_uid" placeholder="{{ form.create_uid }}">
+                            <input readonly type="text" class="form-control" name="create_uid" value="{{ form.create_uid }}">
                         </div>
                     </div>
                     <div class="col-md-6">

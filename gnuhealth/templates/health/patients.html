@@ -76,7 +76,7 @@
 {% endif %}
 
 {% if type == "add" %}
-<form method="POST" class="post-form" action="/health/addPatient">
+<form method="POST" class="post-form" action="/health/addPatient/">
     {% csrf_token %}
 
     <div class="row">
@@ -97,14 +97,36 @@
                         </div>
                     </div>
                 </div>
-                    <div class="form-group">
-                        <label>Person</label>
-                        <input class="form-control" type="text" name="person">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Search Person</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" value="{{ form.name.id }}" id="person-search"
+                                       onkeyup="personSearch()" type="text">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" onclick="personSearch()">Search
+                                        Person
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <select class="select" name="name" id="search-results-person"></select>
+                        </div>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label>Patient Image</label>
                         <div>
-                            <input class="form-control" type="file" name="picture">
+                            <input class="form-control" type="file">
                             <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
                         </div>
                         <div class="row">
@@ -120,7 +142,7 @@
                     
                     <div class="form-group">
                         <label>Critical Info</label>
-                        <textarea cols="30" rows="6" class="form-control"></textarea>
+                        <textarea cols="30" rows="6" class="form-control" name="critical_info"></textarea>
                         
                     </div>
                     <div class="form-group">
@@ -177,7 +199,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Family</label>
-                                    <input type="text" class="form-control ">
+                                    <input type="text" class="form-control " name="family">
                                 </div>
                             </div>
                            
@@ -234,7 +256,7 @@
                         </table>
                                
                                  <span class="title">Notepad:</span>
-                                 <textarea cols="98" rows="5" class="form-control"></textarea>
+                                 <textarea cols="98" rows="5" class="form-control" name="general_info"></textarea>
                                  <br />
                                   <div class="row">
                         <div class="col-md-6">
@@ -249,14 +271,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>PUID</label>
-                                    <input type="text" class="form-control ">
+                                    <input type="text" class="form-control">
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Blood Group</label>
-                                    <select class="select">
+                                    <select class="select" name="blood_type">
                                         <option>Select</option>
                                         <option>AB+</option>
                                         <option>AB-</option>
@@ -267,7 +289,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>HB</label>
-                                    <select class="select">
+                                    <select class="select" name="hb">
                                         <option>Select</option>
                                         <option>AB+</option>
                                         <option>AB-</option>
@@ -358,14 +380,14 @@
                                 <div class="form-group">
                                      <span class="title"> Amputee :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" name="amputee" type="checkbox" class="form-check-input">
                                 </div>
                             </div>
                         <div class="col-md-6">
                         
                                 <div class="form-group">
                                     <span class="title">Since</label>
-                                        <input type="text" class="form-control ">
+                                        <input type="text" class="form-control" name="amputee_since">
                                    
                                 </div>
                             </div>
@@ -469,14 +491,14 @@
                                 <div class="form-group">
                                      <span class="title"> Menopausal :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" type="checkbox" name="menopausal" class="form-check-input">
                                 </div>
                             </div>
                         <div class="col-md-6">
                         
                                 <div class="form-group">
                                     <span class="title">Menarche age</label>
-                                        <input type="text" class="form-control ">
+                                        <input type="text" class="form-control " name="menarche">
                                    
                                 </div>
                             </div>
@@ -484,7 +506,7 @@
                         
                                 <div class="form-group">
                                     <span class="title">Menopause age</label>
-                                        <input type="text" class="form-control ">
+                                        <input type="text" class="form-control " name="menopause">
                                    
                                 </div>
                             </div>
@@ -873,28 +895,28 @@
                                 <div class="form-group">
                                      <span class="title"> Currently in prison :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" type="checkbox" name="currently_in_prison" class="form-check-input">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                      <span class="title"> Relitive in prison :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" type="checkbox" name="relative_in_prison" class="form-check-input">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                      <span class="title"> Hostile Area :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" type="checkbox" name="hostile_area" class="form-check-input">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                      <span class="title"> UXO :</span>
                                     
-                              <input style="margin-left:10px" type="checkbox" name="gender" class="form-check-input">
+                              <input style="margin-left:10px" type="checkbox" name="uxo" class="form-check-input">
                                 </div>
                             </div>
                             </div>

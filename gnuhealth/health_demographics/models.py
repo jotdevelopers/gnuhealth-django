@@ -87,7 +87,7 @@ class gnuhealth_birth_certificate(models.Model):
     country = models.IntegerField()
     country_subdivision = models.IntegerField()
     dob = models.DateField()
-   # du = models.IntegerField()
+    name = models.IntegerField()
     father = models.IntegerField()
     mother = models.IntegerField()
     observations = models.CharField(max_length=100)

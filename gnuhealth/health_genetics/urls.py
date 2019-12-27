@@ -13,6 +13,7 @@ urlpatterns = [
     path('searchVarient/<search_text>/', views.searchVarient, name='searchVarient'),
     path('searchPhenotype/<search_text>/', views.searchPhenotype, name='searchPhenotype'),
     path('searchGene/<search_text>/', views.searchGene, name='searchGene'),
+    path('searchDoc/<search_text>/', views.searchDoc, name='searchDoc'),
 
     # Genetics module urls start
     

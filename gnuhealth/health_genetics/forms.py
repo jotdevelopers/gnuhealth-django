@@ -3,6 +3,7 @@ from health_genetics.models import *
 from health_configuration.models import *
 from django.forms import ModelMultipleChoiceField
 from django_select2.forms import Select2MultipleWidget
+from health_health_professionals.models import *
 
 class geneticForm(forms.ModelForm):  
     class Meta:  
@@ -11,3 +12,4 @@ class geneticForm(forms.ModelForm):
         natural_variant = ModelMultipleChoiceField(queryset=gnuhealth_gene_variant.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         disease_gene = ModelMultipleChoiceField(queryset=gnuhealth_disease_gene.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         variant_phenotype = ModelMultipleChoiceField(queryset=gnuhealth_gene_variant_phenotype.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
+        healthprof = ModelMultipleChoiceField(queryset=gnuhealth_healthprofessional.objects.values_list('name', flat=True), widget=Select2MultipleWidget)

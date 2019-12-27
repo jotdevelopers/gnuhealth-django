@@ -1,0 +1,7 @@
+{% for dos in units %}
+<option value="{{ dos.id }}"><a href="#">{{ dos.name }} </a></option>
+{% endfor %}
+
+{% for medi in medicaments %}
+<option value="{{ medi.id }}"><a href="#">{{ medi.active_component }} </a></option>
+{% endfor %}

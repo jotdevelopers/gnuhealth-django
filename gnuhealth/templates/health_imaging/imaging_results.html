@@ -97,44 +97,65 @@
             <div class="card-box">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Record ID</label>
                             <input type="number" class="form-control" name="id" placeholder="{{ form.id }}
                         </div>
                     </div>
-                    
-                    
-                </div>
-                <div class="row">
-                        <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Patient</label>
-                                    <input type="text" class="form-control" name="patient">
-                                </div>
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Number</label>
+                                <input type="text" class="form-control" name="number" placeholder="{{ form.id }}
                             </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Number</label>
-                            <input type="text" class="form-control" name="number">
                         </div>
                     </div>
+                
+                                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Date</label>
-                            <input type="text" class="form-control" name="date">
+                            
+                            <label>Date</label><div class="cal-icon">
+                            <input type="date" class="form-control" name="date"></div>
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Requested Date</label>
-                            <input type="text" class="form-control" name="request_date">
-
+                               
+                            <label>Requested Date</label> <div class="cal-icon">
+                            <input type="date" class="form-control" name="request_date">
+</div>
                         </div>
                     </div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+        <div class="form-group">
+            <label>Patient</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" value="{{ form.patient.id }}" id="patient-search-imaging"
+                       onkeyup="patientSearchImaging()" type="text">
+                <div class="input-group-append">
+                  <!--  <button class="btn btn-primary" type="button" onclick="patientSearchImaging()">Search
+                        Doctor
+                    </button>-->
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <div class="col-sm-12">
+
+    <div class="col-md-12">
+        <div class="form-group">
+            <select class="select" name="patient" id="search-results-patient-imaging"></select>
+        </div>
+    </div></div>
+    <div class="row">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label>Doctor</label>
                             <div class="input-group">
@@ -144,22 +165,18 @@
                                 <input class="form-control" value="{{ form.doctor.id }}" id="doctor-search-imaging"
                                        onkeyup="doctorSearchImaging()" type="text">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="doctorSearchImaging()">Search
+                                  <!-- <button class="btn btn-primary" type="button" onclick="doctorSearchImaging()">Search
                                         Doctor
-                                    </button>
+                                    </button>--> 
                                 </div>
                             </div>
                         </div>
                     </div>
 
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <select class="select" name="doctor" id="search-results-doctor-imaging"></select>
-                        </div>
-                    </div>
+                 
 
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label>Test</label>
                             <div class="input-group">
@@ -168,30 +185,37 @@
                                 </div>
                                 <input class="form-control" value="{{ form.requested_test.id }}" id="test-search-imaging"
                                        onkeyup="testSearchImaging()" type="text">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button" onclick="testSearchImaging()">Search
+                               <div class="input-group-append">
+                                     <!--<button class="btn btn-primary" type="button" onclick="testSearchImaging()">Search
                                         Test
-                                    </button>
+                                    </button>-->
                                 </div>
                             </div>
                         </div>
+                    </div></div>
+                    <div class="row">
+   <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="select" name="doctor" id="search-results-doctor-imaging"></select>
+                        </div>
                     </div>
 
-
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <select class="select" name="requested_test" id="search-results-test-imaging"></select>
                         </div>
                     </div>
 
-
+</div>
+<div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Comment</label>
                             <input type="text" class="form-control" name="comment">
 
                         </div>
-                    </div>
+                    </div></div>
+                    <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
@@ -205,7 +229,8 @@
                             <input type="text" class="form-control" name="write_date" placeholder="{{ form.write_date }}
 
                         </div>
-                    </div>
+                    </div></div>
+                    <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
@@ -220,6 +245,7 @@
                         </div>
                     </div>
                 </div>
+               
 
 
             </div>
@@ -233,69 +259,174 @@
 
 
 {% if type == "edit" %}
-<form method="POST" class="post-form" action="/health-configuration/updateEthnicity/{{form.id}}/">
+<form method="POST" class="post-form" action="/health-imaging/updateImagingResult/{{form.id}}/">
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <h4 class="page-title" style="padding-bottom: 5px;">Edit Ethnicity</h4>
+        <div class="col-md-12">
+            <h4 class="page-title" style="padding-bottom: 5px;">Edit Imaging Result</h4>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <div class="card-box">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Code</label>
-                            <input type="text" value="{{ form.code }}" name="code" class="form-control">
+               
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Record ID</label>
+                                    <input type="number" class="form-control" name="id" value="{{ form.id }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Number</label>
+                                        <input type="text" class="form-control" name="number" value="{{ form.number }}">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    
+                                    <label>Date</label><div class="cal-icon">
+                                    <input type="date" class="form-control" name="date"></div>
+        
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                       
+                                    <label>Requested Date</label> <div class="cal-icon">
+                                    <input type="date" class="form-control" name="request_date">
+        </div>
+                                </div>
+                            </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Patient</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input class="form-control" value="{{ form.patient }}" id="patient-search-imaging"
+                               onkeyup="patientSearchImaging()" type="text">
+                        <div class="input-group-append">
+                          <!--  <button class="btn btn-primary" type="button" onclick="patientSearchImaging()">Search
+                                Doctor
+                            </button>-->
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" value="{{ form.name }}" name="name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Notes</label>
-                            <input type="text" value="{{ form.notes }}" name="notes" class="form-control">
-
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Create Date</label>
-                            <input type="text" readonly value="{{ form.create_date }}" name="create_date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Write Date</label>
-                            <input type="text" readonly value="{{ form.write_date }}" name="write_date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Create UID</label>
-                            <input type="text" readonly value="{{ form.create_uid }}" name="create_uid" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Write UID</label>
-                            <input type="text" readonly value="{{ form.write_uid }}" name="write_uid" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
+        
+        
+            <div class="col-md-12">
+                <div class="form-group">
+                    <select class="select" name="patient" id="search-results-patient-imaging"></select>
+                </div>
+            </div></div>
+            <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Doctor</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.doctor }}" id="doctor-search-imaging"
+                                               onkeyup="doctorSearchImaging()" type="text">
+                                        <div class="input-group-append">
+                                          <!-- <button class="btn btn-primary" type="button" onclick="doctorSearchImaging()">Search
+                                                Doctor
+                                            </button>--> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+        
+                         
+        
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Test</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                        <input class="form-control" value="{{ form.requested_test }}" id="test-search-imaging"
+                                               onkeyup="testSearchImaging()" type="text">
+                                       <div class="input-group-append">
+                                             <!--<button class="btn btn-primary" type="button" onclick="testSearchImaging()">Search
+                                                Test
+                                            </button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+                            <div class="row">
+           <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="select" name="doctor" id="search-results-doctor-imaging"></select>
+                                </div>
+                            </div>
+        
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="select" name="requested_test" id="search-results-test-imaging"></select>
+                                </div>
+                            </div>
+        
+        </div>
+        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Comments</label>
+                                    <input type="text" class="form-control" name="comment">
+        
+                                </div>
+                            </div></div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Create Date</label>
+                                    <input readonly type="text" class="form-control" name="create_date"  value="{{ form.create_date|date:"Y-m-d" }}">
+        
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Write Date</label>
+                                    <input readonly type="text" class="form-control" name="write_date"  value="{{ form.write_date|date:"Y-m-d" }}">
+        
+                                </div>
+                            </div></div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Create UID</label>
+                                    <input readonly type="text" class="form-control" name="create_uid" value="{{ form.create_uid }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Write UID</label>
+                                    <input readonly type="text" class="form-control" name="write_uid" value="{{ form.write_uid }}">
+        
+                                </div>
+                            </div>
+                        </div>
+                       
+        </div>
+        </div>
+        
+                  
             <input type="hidden" readonly value="{{ form.id }}" name="id" class="form-control">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-primary">Clear</button>

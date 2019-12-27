@@ -5,6 +5,8 @@ from django.template.context_processors import csrf
 from django.shortcuts import render_to_response
 from health.models import gnuhealth_pathology
 from health_imaging.models import *
+from health.models import *
+from health_health_professionals.models import *
 from health_party.models import *
 from health_imaging.forms import *
 from health_configuration.forms import *
@@ -97,17 +99,33 @@ def editImagingRequest(request, id):
 def updateImagingRequest(request, id):
     type = "grid"
     req = gnuhealth_imaging_test_request.objects.get(id=id)
-    name = request.POST['name']
-    notes = request.POST['notes']
-    code = request.POST['code']
-    eth_id = eth.id
-    create_date = eth.create_date
-    write_date = eth.write_date
-    create_uid = eth.create_uid
-    write_uid = eth.write_uid
-    req = gnuhealth_imaging_test_request(id=eth_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
-    eth.save()
+    id = request.POST['id']
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    comment = request.POST['comment']
+    date = request.POST['date']
+    doctor = 1
+    req = request.POST['request']
+    urgent = True
+    requested_test = request.POST['requested_test']
+    patient = request.POST['patient']
+    state = request.POST['state']
+
+    req = gnuhealth_imaging_test_request(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid,
+                              comment = comment,
+
+        date = date,
+        doctor = doctor,
+        request = req,
+        urgent = urgent,
+        requested_test = requested_test,
+        patient = patient,
+        state=state)
+    req.save()
+        
     msg = "3"
     requests = gnuhealth_imaging_test_request.objects.all()
 
@@ -150,8 +168,8 @@ def addImagingResult(request):
          #   try:
         type = "grid"
         msg = "1"
-        #latest = gnuhealth_imaging_test_result.objects.latest('id')
-        form.fields["id"].initial = 1
+        latest = gnuhealth_imaging_test_result.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
         id = request.POST['id']
         create_date = request.POST['create_date']
         write_date = request.POST['write_date']
@@ -187,8 +205,8 @@ def addImagingResult(request):
           #  return HttpResponse("Invalid Form.")
     else:
         form = imagingResultForm()
-        #latest = gnuhealth_imaging_test_result.objects.latest('id')
-        form.fields["id"].initial =  1
+        latest = gnuhealth_imaging_test_result.objects.latest('id')
+        form.fields["id"].initial = latest.id + 1
         form.fields["create_uid"].initial = 1
         form.fields["write_uid"].initial = 1
         form.fields["create_date"].initial = datetime.now().strftime("%Y-%m-%d")
@@ -211,16 +229,29 @@ def editImagingResult(request, id):
 def updateImagingResult(request, id):
     type = "grid"
     result = gnuhealth_imaging_test_result.objects.get(id=id)
-    name = request.POST['name']
-    notes = request.POST['notes']
-    code = request.POST['code']
-    id = result.id
-    create_date = result.create_date
-    write_date = result.write_date
-    create_uid = result.create_uid
-    write_uid = result.write_uid
-    result = gnuhealth_ethnicity(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    id = request.POST['id']
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    comment = request.POST['comment']
+    number = request.POST['number']
+    date = request.POST['date']
+    doctor = 1
+    request_date = request.POST['request_date']
+    requested_test = 1
+    patient = request.POST['patient']
+
+    result = gnuhealth_imaging_test_result(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid,
+                              comment = comment,
+        number = number,
+        date = date,
+        doctor = doctor,
+        request = 1,
+        request_date = request_date,
+        requested_test = requested_test,
+        patient = patient)
     result.save()
     msg = "3"
     results = gnuhealth_imaging_test_result.objects.all()
@@ -255,10 +286,10 @@ def searchPatient(request, search_text):
     else:
         search_text = ''
 
-    patients = gnuhealth_gene_variant.objects.filter(name__startswith=search_text.capitalize())
+    patients = gnuhealth_patient.objects.filter(name__startswith=search_text.capitalize())
 
     if len(patients) == 0:
-        patients = gnuhealth_gene_variant.objects.filter(id=search_text)
+        patients = gnuhealth_patient.objects.filter(id=search_text)
 
     return render_to_response('health_imaging/js/ajax-search.html', {'patients': patients})
 
@@ -282,10 +313,10 @@ def searchDoctor(request, search_text):
     else:
         search_text = ''
 
-    doctors = gnuhealth_healthprofessionals.objects.filter(name__startswith=search_text.capitalize())
+    doctors = gnuhealth_healthprofessional.objects.filter(name__startswith=search_text.capitalize())
 
     if len(doctors) == 0:
-        doctors = gnuhealth_healthprofessionals.objects.filter(id=search_text)
+        doctors = gnuhealth_healthprofessional.objects.filter(id=search_text)
 
     return render_to_response('health_imaging/js/ajax-search.html', {'doctors': doctors})
 

@@ -1,33 +1,110 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  <title>D3 v5 Zoomable Sunburst</title>
-  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Life</title>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+ 
+ <!-- <link rel="stylesheet" href="/static/css/styles.css">
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@observablehq/stdlib"></script></head>
-  <style>
-    .outer
-    {
-      position: relative;
-      top: 20;
-      left: 20;
-    }
-    .inner
-    {
-      position: absolute;
-      top: 60px;
-      left: 80px;
-    }
-    </style>
-    {% extends "layouts/base.html" %}
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/stdlib"></script>-->
+</head>
+<style>
+  body {
+      font-family: Sans-serif;
+      font-size: 11px;
+  }
+
+  .slice {
+      cursor: pointer;
+  }
+
+  .slice .main-arc {
+      stroke: #fff;
+      stroke-width: 1px;
+  }
+
+  .slice .hidden-arc {
+      fill: none;
+  }
+
+  .slice text {
+      pointer-events: none;
+      dominant-baseline: middle;
+      text-anchor: middle;
+  }
+</style>
+{% extends "layouts/base.html" %}
 {% block content %}
 {% load widget_tweaks %}
 <body>
-    <div style="position: relative; left: 0; top: 0;">
-  <svg id="partitionSVG" width="532" height="532" viewBox="0 0 1700 1700"></svg>
-  <image src="/static/img/human.png" width="150px" height="150px" style=" margin-top: 165px; margin-left:145px; z-index: px;" class="inner" />
-</div>
-  <script src="/static/js/bundle.js"></script>
-</body>
+    <body>
+        
+        <script type="text/javascript" src="/static/js/plotlyjs-bundle.js"></script>
+            
+            
+        <script type="text/javascript" src="/static/js/figure.js"></script>
+        <div class="card-box">
+            <center>
+            <h3> Patient's History</h3>
+        </center>
+                <div id="1930d8dc-2edd-4d69-82a3-2805a5e9d1fe" style="width: 100%; height: 100%;" class=""></div>
+       <div class="card-box">
+           <center>
+           <p align="justify">
+                Zoomable sunburst is visual representation of patient's history which answers who, when, what where questions about a patient.
+                The main node 
+                layer tells us that the patient has a relative severe disease in the 
+                nervous and sense organs. The children layers provide more 
+                detail with regards to what the diseases are.  
+                relationships in the hierarchy. Because the nodes are space-filling 
+                the angle for each node can be used to encode additional 
+                information, such as number of incidents in our case.  
+                Each node has a wedged shape in the sunburst tree. We 
+                further decompose the node into three layers to encode more 
+                information, as is shown in Fig. 1. These layers are: 
+                ♦ Layer 1: the main node layer which is used to display 
+                information about the node, such as codes, name, etc. 
+                ♦ Layer 2: encodes the next lower level in the hierarchy. It is 
+                meant to give users a quick overview on the sub-diseases without 
+                showing their real nodes. We provide this layer to make the 
+                hierarchy display scalable. 
+                
+           </p>
+        </center>
+       </div>
+            </div>
+        <script type="text/javascript">
+            (function(){
+                window.PLOTLYENV={'BASE_URL': ''};
 
+                var gd = document.getElementById('1930d8dc-2edd-4d69-82a3-2805a5e9d1fe')
+                var resizeDebounce = null;
+
+                function resizePlot() {
+                    var bb = gd.getBoundingClientRect();
+                    Plotly.relayout(gd, {
+                        width: bb.width,
+                        height: bb.height
+                    });
+                }
+
+                
+                window.addEventListener('resize', function() {
+                    if (resizeDebounce) {
+                        window.clearTimeout(resizeDebounce);
+                    }
+                    resizeDebounce = window.setTimeout(resizePlot, 100);
+                });
+                
+
+                
+                Plotly.plot(gd,  {
+                    data: figure.data,
+                    layout: figure.layout,
+                    frames: figure.frames,
+                });
+                
+           }());
+        </script>
+    </body>
     {% endblock %}

@@ -1,5 +1,5 @@
 {
-    "name": "Root", "children": [{
+   "children": [{
         "name": "A00-B99",
         "children": [
             {"name": "A00-A09", "size": 5},
@@ -18,8 +18,8 @@
         ]
     }, {
         "name": "C00-D49",
-        "children": [{"name": "C00-C14", "size": 5},
-            {"name": "C15-C26", "size": 3},
+        "children": [{"name": "C00-C14", "size": 40},
+            {"name": "C15-C26", "size": 40},
             {"name": "C30-C39", "size": 4}]
     }, {
         "name": "D50-D89",

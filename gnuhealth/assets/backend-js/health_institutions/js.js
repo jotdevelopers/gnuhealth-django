@@ -1,5 +1,5 @@
 //alert(csrftoken);
-$("#search-results-institution").ready(function () {
+$("#search-results-institute").ready(function () {
     institutionSearch();
 });
 
@@ -11,7 +11,7 @@ function institutionSearch() {
             }
         },
         type: "POST",
-        url: "/health-institutions/searchInstitution/" + $('#institution-search').val() + "/",
+        url: "/health-institutions/searchInstitution/" + $('#institute-search').val() + "/",
         data: 'csrfmiddlewaretoken=' + csrftoken,
         success: searchSuccessInstitution,
         datatype: 'html'
@@ -19,5 +19,5 @@ function institutionSearch() {
 }
 
 function searchSuccessInstitution(data, textStatus, jqXHR) {
-    $('#search-results-institution').html(data);
+    $('#search-results-institute').html(data);
 }

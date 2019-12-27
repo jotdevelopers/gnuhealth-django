@@ -5,7 +5,14 @@
             <li class="submenu">
                             <a href="#"><i class="fas fa-tachometer-alt"></i> <span> Dashboards </span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a href="/health-dashboard/patient-history">Patient's History</a></li>
+
+                                {% if selected == 'Patient History' %}
+                                <li><a href="/health-dashboard/patient-history" class="active" id="selected">Patient History</a></li>
+                                {% else %}
+                                <li><a href="/health-dashboard/patient-history" >Patient History</a></li>
+                                {% endif %}
+
+
                                 <li><a href="/health-dashboard/visit-history">Visit History</a></li>
                                 <li><a href="/health-dashboard/patient-visits">Patient's Visit</a></li>
                                 <li><a href="/health-dashboard/patient-tests">Patient's Test</a></li>
@@ -76,13 +83,13 @@
                 <a href="#"><i class="fas fa-book-medical"></i> <span> Books of Life </span> <span
                         class="menu-arrow"></span></a>
                 <ul style="display: none;">
-                    <li><a href="/health-party/addParty">Person</a></li>
+                    <li><a href="/health-party/party">Party</a></li>
                     <li><a href="/health/pols">Pages of Life</a></li>
                 </ul>
             </li>
-           <!-- <li>
+            <li>
                 <a href="/health/patients"><i class="fa fa-wheelchair"></i> Patients</a>
-            </li> -->
+            </li> 
             <li class="submenu">
                 <a href="#"><i class="fa fa-clinic-medical"></i> <span> Genetics </span> <span
                         class="menu-arrow"></span></a>
@@ -114,7 +121,8 @@
                 <ul style="display: none;">
                   <!--  <li><a href="{% url 'coming_soon' %}">Request New Order</a></li>-->
                     <li><a href="/health-lab/labRequests">Lab Test Requests</a></li>
-                    <!--<li><a href="/health-lab/labResults"></i>Lab Test Results</a></li>-->
+                   
+                <li><a href="/health-lab/labResults"></i>Lab Test Results</a></li>
 
                 </ul>
             </li>
@@ -133,7 +141,7 @@
                 <ul style="display: none;">
                     <li><a href="/health-demographics/du">Domiciliay Units</a></li>
                     <li><a href="/health-demographics/birthCertificates">Birth Certificates</a></li>
-                    <li><a href="/health-demographics/deathCertificates">Death Certificates</a></li>
+                    <!--<li><a href="/health-demographics/deathCertificates">Death Certificates</a></li>-->
                     <li><a href="/health-demographics/families">Families</a></li>
                     <li><a href="/health-demographics/familyMembers">Family Members</a></li>
 

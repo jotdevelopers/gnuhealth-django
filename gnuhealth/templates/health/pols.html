@@ -49,14 +49,13 @@
                         <tr>
                             <th >Page</th>
                                             <th>Person</th>
-                                            <th>Account</th>
                                             <th>Relevance</th>
                                             <th>Date</th>
                                             <th>Age</th>
-                                            <th>Medical Context</th>
-                                            <th>Social Context</th>
+                                            <th>Procedure Code</th>
+                                            <th>Conditation Code</th>
                                              <th>Summary</th>
-                                            <th>Node</th>
+                                            
                                             <th>Action</th>
                         </tr>
                         </thead>
@@ -67,14 +66,13 @@
                                         <tr>
                                             <td>{{pol.page}}</td>
                                             <td>{{pol.person}}</td>
-                                            <td>{{pol.federation_account}}</td>
                                             <td>{{pol.relevance}}</td>
                                             <td>{{pol.page_date}}</td>
                                             <td>{{pol.age}}</td>
-                                            <td>{{pol.medical_context}}</td>
-                                            <td>{{pol.social_context}}</td>
+                                            <td>{{pol.health_condition}}</td>
+                                            <td>{{pol.procedure}}</td>
                                             <td>{{pol.summary}}</td>
-                                            <td>{{pol.node}}</td>
+                                          
                             <td class="text-right"><a href="/health/editPol/{{pol.id}}"><i class="far fa-edit"> </i></a><a href="/health/deletePol/{{pol.id}}"> <i
                                     class="far fa-trash-alt	"> </i> </a></td>
 
@@ -184,10 +182,11 @@
                             	
                             	<div class="row">
 	                            	<div class="col-md-6">
-	                                    <div class="form-group">
-	                                        <label>Date</label>
-	                                        <input type="datetime" class="form-control " name="page_date">
-	                                    </div>
+	                                    <div class="form-group date "  id="datetimepicker_id_datetime">
+                                            <label>Date</label>
+                                            <div class="cal-icon">
+	                                        <input type="datetime" class="form-control  " id="id_datetime" name="page_date">
+                                        </div> </div>
 	                                </div>
 	                            	<div class="col-md-6">
 	                                        <label>Relevance</label>
@@ -211,8 +210,8 @@
 	                                        <label>Page Type</label>
 	                                         <select class="select" name="page_type">
 	                                       <option>Select</option>
-												<option>Biographical</option>
-                                                <option>Demographical</option>
+												<!--<option>Biographical</option>
+                                                <option>Demographical</option>-->
                                                 <option>Medical</option>
                                                 <option>Social</option>
 
@@ -253,6 +252,8 @@
                                 <div class="row" style="margin-top: 5px;">
 	                            	<div class="col-md-12">
                                         <span style="font-weight: bold;">Context</span>
+
+                                       
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
@@ -357,7 +358,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="row">
+                        <!--    <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Author</label>
@@ -372,7 +373,7 @@
                                 </div>
                                 
                             </div>
-                            
+                            -->
                              <div class="row">
 	                             <div class="col-md-6">
                         <div class="form-group">
@@ -435,7 +436,7 @@
                             	<div class="col-md-12">
                         <div class="form-group">
                             <label>Record ID</label>
-                            <input type="number" class="form-control" name="id"  value="{{ form.id }}" >
+                            <input readonly type="number" class="form-control" name="id"  value="{{ form.id }}" >
                         </div>
                     </div>
                 </div>
@@ -520,8 +521,8 @@
 	                                        <label>Page Type</label>
 	                                         <select class="select"  value="{{ form.page_type }}" name="page_type">
 	                                       <option>Select</option>
-                                           <option>Biographical</option>
-                                           <option>Demographical</option>
+                                         <!--  <option>Biographical</option>
+                                           <option>Demographical</option>-->
                                            <option>Medical</option>
                                            <option>Social</option>
 	                                        </select>
@@ -547,6 +548,7 @@
                                 <div class="row" style="margin-top: 5px;">
 	                            	<div class="col-md-12">
                                         <span style="font-weight: bold;">Context</span>
+                                        
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
@@ -638,20 +640,20 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Page</label>
-                                        <input class="form-control" type="text" name="page" value="{{ form.page }}" >
+                                        <input readonly class="form-control" type="text" name="page" value="{{ form.page }}" >
 
 									</div>
                                 </div>
                                  <div class="col-md-6">
                                     <div class="form-group">
 										<label>Account</label>
-                                        <input class="form-control" type="text" name="federation_account" value="{{ form.federation_account }}" > 
+                                        <input readonly class="form-control" type="text" name="federation_account" value="{{ form.federation_account }}" > 
 
 									</div>
                                 </div>
                                 
                             </div>
-                            <div class="row">
+                <!--           <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 										<label>Author</label>
@@ -665,20 +667,20 @@
 									</div>
                                 </div>
                                 
-                            </div>
+                            </div>--> 
                             
                              <div class="row">
 	                             <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d H:m:s" }}" >
+                            <input readonly type="text" readonly class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d H:m:s" }}" >
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d H:m:s" }}" >
+                            <input readonly type="text" readonly class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d H:m:s" }}" >
 
                         </div>
                     </div>
@@ -687,13 +689,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create UID</label>
-                            <input type="text" readonly class="form-control" name="create_uid" value="{{ form.create_uid }}" >
+                            <input readonly type="text" readonly class="form-control" name="create_uid" value="{{ form.create_uid }}" >
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write UID</label>
-                            <input type="text" readonly class="form-control" value="{{ form.write_uid }}" name="write_uid" >
+                            <input readonly type="text" readonly class="form-control" value="{{ form.write_uid }}" name="write_uid" >
 
                         </div>
                     </div> 
@@ -709,5 +711,10 @@
 </form>
 
 {% endif %}
-
+<script>(function () {
+    $(document).ready(function() {
+    $("#id_datetime").datetimepicker();
+    });
+    })(jQuery);
+    </script>
 {% endblock %}

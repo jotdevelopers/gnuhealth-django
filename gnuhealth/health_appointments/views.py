@@ -96,16 +96,34 @@ def editAppointment(request, id):
 def updateAppointment(request, id):
     type = "grid"
     app = gnuhealth_appointment.objects.get(id=id)
-    name = request.POST['name']
-    notes = request.POST['notes']
-    code = request.POST['code']
-    app_id = app.id
-    create_date = app.create_date
-    write_date = app.write_date
-    create_uid = app.create_uid
-    write_uid = app.write_uid
-    app = gnuhealth_appointment(id=app_id, create_date=create_date, write_date=write_date, create_uid=create_uid
-                              , write_uid=write_uid, name=name, notes=notes, code=code)
+    id = request.POST['id']
+    appointment_date = request.POST['appointment_date']
+    appointment_type = request.POST['appointment_type']
+    checked_in_date = None
+    comments = request.POST['comments']
+    consultations = None
+    healthprof = request.POST['healthprof']
+    institution = request.POST['institution']
+    name = None
+    patient = request.POST['patient']
+    speciality = None
+    state = request.POST['state']
+    urgency = request.POST['urgency']
+    visit_type = request.POST['visit_type']
+    appointment_date_end = request.POST['appointment_date_end']
+    event = None
+    inpatient_registration_code = None
+    create_date = request.POST['create_date']
+    write_date = request.POST['write_date']
+    create_uid = request.POST['create_uid']
+    write_uid = request.POST['write_uid']
+    app = gnuhealth_appointment(id=id, create_date=create_date, write_date=write_date, create_uid=create_uid
+                              , write_uid=write_uid, name=name, inpatient_registration_code=inpatient_registration_code,
+                               event=event, appointment_date_end=appointment_date_end,
+                               visit_type=visit_type,urgency=urgency,state=state,speciality=speciality,patient=patient,
+                               institution=institution,healthprof=healthprof,consultations=consultations,
+                               comments=comments,checked_in_date=checked_in_date,appointment_type=appointment_type,
+                               appointment_date=appointment_date)
     app.save()
     msg = "3"
     appointments = gnuhealth_appointment.objects.all()
@@ -116,7 +134,7 @@ def updateAppointment(request, id):
         messages.error(request, f'Sorry, Record Update Error')
 
 
-    return render(request, 'health_appointment/appointments.html'
+    return render(request, 'health_appointments/appointments.html'
                        , {'type': type, 'msg': msg, 'appointments': appointments})
 
 

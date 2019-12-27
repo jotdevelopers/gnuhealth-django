@@ -224,10 +224,10 @@ def addBirthCertificate(request):
         write_uid = request.POST['write_uid']
         create_date = request.POST['create_date']
         create_uid = request.POST['create_uid']
-        name = request.POST['name']
         father = None
         mother = None
         dob = request.POST['dob']
+        name = request.POST['name']
         code = request.POST['code']
         country = request.POST['country']
         country_subdivision = request.POST['country_subdivision']

@@ -6,11 +6,13 @@ from health_configuration.models import *
 from health_institutions.models import *
 from health_party.models import *
 from django_select2.forms import Select2MultipleWidget
+from datetimepicker.widgets import DateTimePicker
 
 class polForm(forms.ModelForm):  
     class Meta:  
         model = gnuhealth_pol   
         fields = "__all__" 
+        page_date = forms.DateTimeField(widget=DateTimePicker(),)
         procedure = ModelMultipleChoiceField(queryset=gnuhealth_procedure.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         person = ModelMultipleChoiceField(queryset=party_party.objects.values_list('name', flat=True), widget=Select2MultipleWidget)
         institution = ModelMultipleChoiceField(queryset=gnuhealth_institution.objects.values_list('name', flat=True), widget=Select2MultipleWidget)

@@ -47,7 +47,7 @@
                         <thead>
                              <tr>
                                  <th>Health Professional</th>
-                                 <th>License Id</th>
+                                 <th>Name</th>
                                  <th>Intitution</th>
                                 
                                  
@@ -103,7 +103,7 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Health Professional</label>
                                     <div class="input-group">
@@ -113,23 +113,19 @@
                                         <input class="form-control" value="{{ form.name.id }}" id="prof-search"
                                                onkeyup="profSearch()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                          <!-- <button class="btn btn-primary" type="button" onclick="profSearch()">Search
                                                 Health Professional
-                                            </button>
+                                            </button>--> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
         
         
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="select" name="name" id="search-results-prof"></select>
-                                </div>
-                            </div>
+                           
         
                        
-                     <div class="col-sm-12">
+                     <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Institution</label>
                                     <div class="input-group">
@@ -139,16 +135,20 @@
                                         <input class="form-control" value="{{ form.institution.id }}" id="institution-search-prof"
                                                onkeyup="institutionSearchProf()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="institutionSearchProf()">Search
+                                         <!--  <button class="btn btn-primary" type="button" onclick="institutionSearchProf()">Search
                                                 Institution
-                                            </button>
+                                            </button>--> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
+         <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="select" name="name" id="search-results-prof"></select>
+                                </div>
+                            </div>
         
-        
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <select class="select" name="institution" id="search-results-institution-prof"></select>
                                 </div>
@@ -158,7 +158,7 @@
                  
                     <div class="col-md-6">
                             <div class="form-group">
-                                <label>License Id</label>
+                                <label>Name</label>
                                 <input type="text" class="form-control" name="code">
     
                             </div>
@@ -235,7 +235,7 @@
                    
                 </div>
                 <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Health Professional</label>
                                     <div class="input-group">
@@ -245,23 +245,16 @@
                                         <input class="form-control" value="{{ form.name }}" id="prof-search"
                                                onkeyup="profSearch()" type="text">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                          <!--  <button class="btn btn-primary" type="button" onclick="profSearch()">Search
                                                 Health Professional
-                                            </button>
+                                            </button>-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
         
         
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <select class="select" name="name" id="search-results-prof"></select>
-                                </div>
-                            </div>
-        
-                       
-                     <div class="col-sm-12">
+                     <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Search Institution</label>
                                     <div class="input-group">
@@ -279,8 +272,15 @@
                                 </div>
                             </div>
         
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <select class="select" name="name" id="search-results-prof"></select>
+                                    </div>
+                                </div>
+            
+                           
         
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <select class="select" name="institution"  id="search-results-institution-prof"></select>
                                 </div>
@@ -290,7 +290,7 @@
                  
                     <div class="col-md-6">
                             <div class="form-group">
-                                <label>License Id</label>
+                                <label>Name</label>
                                 <input type="text" class="form-control" name="code" value="{{ form.code }}">
     
                             </div>
@@ -305,14 +305,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date }}">
+                            <input type="text" readonly class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d" }}">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date }}">
+                            <input type="text" readonly class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d" }}">
 
                         </div>
                     </div>

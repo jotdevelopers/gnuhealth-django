@@ -105,28 +105,29 @@
                                                            
                     <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Search Institution</label>
+                                <label>Search Party</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input class="form-control" value="{{ form.name.id }}" id="institution-search"
-                                           onkeyup="institutionSearch()" type="text">
+                                    <input class="form-control" value="{{ form.name.id }}" id="prof-search"
+                                           onkeyup="profSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="institutionSearch()">Search
-                                            Institution
-                                        </button>
+                                      <!-- <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                            Health Professional
+                                        </button>--> 
                                     </div>
                                 </div>
                             </div>
                         </div>
     
     
+    
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <select class="select" name="name" id="search-results-institution"></select>
+                                <div class="form-group">
+                                    <select class="select" name="name" id="search-results-prof"></select>
+                                </div>
                             </div>
-                        </div>
     
                                     <div class="col-md-6">
                                       <div class="form-group">
@@ -149,7 +150,8 @@
                                         <input class="form-control" type="number" name="beds">
                                     </div>
                                     </div>
-                                    
+                                    <div class="col-md-6">
+
                                     <div class="form-group">
                                         <label>Institution Image</label>
                                         <div>
@@ -157,18 +159,13 @@
                                             <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
                                         </div>
                                        
-                                     
-                                            <div class="col-md-3 col-sm-3 col-4 col-lg-3 col-xl-2">
-                                                <div class="product-thumbnail">
-                                                    <img src="assets/img/placeholder-thumb.jpg" class="img-thumbnail img-fluid" name="picture" alt="">
-                                                </div>
-                                            </div>
                                         </div>
-                                  
+                                  </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Type</label>
                                                 <select class="select" name="institution_type">
+                                                        <option>-- Select --</option>
                                                     <option>Doctor Office</option>
                                                     <option>Primary Care Center</option>
                                                     <option>Clinic</option>
@@ -186,6 +183,7 @@
                                             <div class="form-group">
                                                 <label>Public Level</label>
                                                 <select class="select" name="public_level">
+                                                        <option>-- Select --</option>
                                                     <option>Private</option>
                                                     <option>Public</option>
                                                     <option>Private - State</option>
@@ -275,7 +273,7 @@
     {% csrf_token %}
 
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-12">
             <h4 class="page-title" style="padding-bottom: 5px;">Edit Institution</h4>
         </div>
     </div>
@@ -295,28 +293,29 @@
                                                            
                     <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Search Institution</label>
+                                <label>Search Party</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input class="form-control" value="{{ form.name.id }}" id="institution-search"
-                                           onkeyup="institutionSearch()" type="text">
+                                    <input class="form-control" value="{{ form.name }}" id="prof-search"
+                                           onkeyup="profSearch()" type="text">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" onclick="institutionSearch()">Search
-                                            Institution
-                                        </button>
+                                      <!-- <button class="btn btn-primary" type="button" onclick="profSearch()">Search
+                                            Health Professional
+                                        </button>--> 
                                     </div>
                                 </div>
                             </div>
                         </div>
     
     
+    
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <select class="select" name="name" id="search-results-institution"></select>
+                                <div class="form-group">
+                                    <select class="select" name="name" id="search-results-prof"></select>
+                                </div>
                             </div>
-                        </div>
     
                                     <div class="col-md-6">
                                       <div class="form-group">
@@ -339,7 +338,7 @@
                                         <input class="form-control" type="number" name="beds"  value="{{ form.beds }}">
                                     </div>
                                     </div>
-                                    
+                                    <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Institution Image</label>
                                         <div>
@@ -347,18 +346,15 @@
                                             <small class="form-text text-muted">Max. file size: 50 MB. Allowed images: jpg, gif, png. Maximum 1 image only.</small>
                                         </div>
                                        
-                                     
-                                            <div class="col-md-3 col-sm-3 col-4 col-lg-3 col-xl-2">
-                                                <div class="product-thumbnail">
-                                                    <img src="assets/img/placeholder-thumb.jpg" class="img-thumbnail img-fluid" name="picture" alt="">
-                                                </div>
-                                            </div>
+                                
+                                        </div>
                                         </div>
                                   
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Type</label>
                                                 <select class="select" name="institution_type"  value="{{ form.institution_type }}">
+                                                        <option>-- Select --</option>
                                                     <option>Doctor Office</option>
                                                     <option>Primary Care Center</option>
                                                     <option>Clinic</option>
@@ -376,6 +372,7 @@
                                             <div class="form-group">
                                                 <label>Public Level</label>
                                                 <select class="select" name="public_level"  value="{{ form.public_level }}">
+                                                        <option>-- Select --</option>
                                                     <option>Private</option>
                                                     <option>Public</option>
                                                     <option>Private - State</option>
@@ -423,14 +420,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Create Date</label>
-                            <input readonly type="text" class="form-control" name="create_date" value="{{ form.create_date }}">
+                            <input readonly type="text" class="form-control" name="create_date" value="{{ form.create_date|date:"Y-m-d" }}">
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Write Date</label>
-                            <input readonly type="text" class="form-control" name="write_date" value="{{ form.write_date }}">
+                            <input readonly type="text" class="form-control" name="write_date" value="{{ form.write_date|date:"Y-m-d" }}">
 
                         </div>
                     </div>
